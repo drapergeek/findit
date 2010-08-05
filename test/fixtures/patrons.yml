@@ -1,0 +1,15 @@
+ironman:
+  id: 1
+  first_name: Tony
+  last_name: Stark
+  passport: 454545454
+  last_check_in: 12/06/2005
+  info: I AM IRONMAN
+  
+hulk:
+  id: 2
+  first_name: Bruce
+  last_name: Banner
+  passport: 13131311
+  last_check_in: 01/15/2009
+  info: Yea what up

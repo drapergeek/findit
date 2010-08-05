@@ -1,0 +1,13 @@
+one:
+  login: gdraper
+  first_name: Jason
+  last_name: Draper
+  last_login: 2010-05-13 12:32:05
+  last_login_ip: 2010-05-13 12:32:05
+
+two:
+  login: spiderman
+  first_name: Peter
+  last_name: Parker
+  last_login: 2010-05-13 12:32:05
+  last_login_ip: 2010-05-13 12:32:05

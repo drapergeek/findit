@@ -1,0 +1,23 @@
+@import url('default.css');
+@import url('widgets.css');
+@import url('columns.css');
+@import url('layout.css');
+@import url('nav.css');
+@import url('search-box.css');
+
+#home-horizontal #page-area {
+	background: #f5f5eB url(../img/pgarea_hnav_home.gif) repeat-y top left;
+	}
+
+#home-horizontal #main-content {
+	clear: both;
+	background: transparent url(../img/mainc_hnav_home_top.gif) no-repeat top left;
+	}
+
+#home-horizontal .three-col {
+	background: none;
+	}
+	
+#home-horizontal #sub-footer {
+	width: 758px;
+	}

@@ -1,0 +1,30 @@
+@import url('default.css');
+@import url('widgets.css');
+@import url('columns.css');
+@import url('layout.css');
+@import url('search-box.css');
+
+#fluid-horizontal #nav {
+	margin-top: -10px;
+	padding: 10px 0;
+	width: 100%;
+	float: none;
+	clear: both;
+	background: transparent url(../img/main_nav_fluid_corner.gif) no-repeat top left;
+	}
+
+#fluid-horizontal #nav ul {
+	margin: 0;
+	padding: 0 0 0 20px;
+	float: left;
+	width: auto;
+	list-style: none;
+	}
+
+#fluid-horizontal #nav li {
+	margin: 0 15px 0 0;
+	padding-left: 12px;
+	float: left;
+	text-align: center;
+	background: transparent url(../img/list_bullet_fw.gif) no-repeat 0 50%;	
+	}

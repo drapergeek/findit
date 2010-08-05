@@ -1,0 +1,11 @@
+@import url('default.css');
+@import url('widgets.css');
+@import url('columns.css');
+@import url('layout.css');
+@import url('nav.css');
+@import url('search-box.css');
+
+#home-vertical #main-content {
+	padding-top: 5px;
+	}
+

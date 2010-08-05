@@ -1,0 +1,356 @@
+/* =BODY
+-----------------------------------------------------
+Also see default.css for font sizes and colors.
+-----------------------------------------------------*/
+
+body {
+	margin: 0;
+	background: #9D9879 url(../img/body_bg.jpg) repeat-x top left;
+	}
+
+/* =PAGE WRAPPERS
+-----------------------------------------------------
+
+-----------------------------------------------------*/
+
+#page-wrapper1 {
+	background: transparent url(../img/page_wrapper1.gif) repeat-y top center;
+	}
+
+#page-wrapper2 {
+	background: transparent url(../img/page_wrapper2.jpg) no-repeat top center;
+	}
+
+#page-wrapper3 {
+	background: transparent url(../img/page_wrapper3.jpg) no-repeat bottom center;
+	}
+
+#page-wrapper4 {
+	background: transparent none;
+	}
+
+.fluid #page-wrapper1,
+.fluid #page-wrapper2, 
+.fluid #page-wrapper3,
+.fluid #page-wrapper4 {
+	background: none;
+	}
+
+/* =PAGE AREA
+-----------------------------------------------------
+
+-----------------------------------------------------*/
+
+#page-area {
+	margin: 0px auto;
+	padding: 0px;
+	border: 3px solid #fff;
+	border-top: 0px;
+	width: 758px;	
+	background: #f5f5eB url(../img/pgarea_vnav.gif) repeat-y top left;
+	}
+
+.horizontal #page-area {
+	background: #f5f5eB url(../img/pgarea_hnav.gif) repeat-y top left;
+	}
+
+.fluid #page-area {
+	background: #f5f5eB url(../img/pgarea_hnav.gif) repeat-y top left;
+	width: 90%;
+	}
+
+/* =HEADER
+-----------------------------------------------------
+
+-----------------------------------------------------*/
+
+#header {
+	padding: 10px;
+	border-bottom: 1px #fff solid;
+	width: 738px;
+	height: 77px;
+	position: relative;
+	background: #5e0000 url(../../images/unit_header_screen.jpg) no-repeat top left;
+	color: #fff;	
+	}
+
+.fluid #header {
+	padding: 0;
+	width: auto;
+	height: 97px;
+	background: #5e0000 url(../img/unit_header_fluid_bg.jpg) repeat-x 105px 0;
+	overflow: hidden;
+	}
+
+.fluid #header-inside {
+	padding: 10px;
+	width: auto;
+	height: 77px;
+	background: transparent url(../../images/unit_header_screen.jpg) no-repeat top left;
+	}
+
+#header ul,
+#header li {
+	margin: 0;
+	padding: 0;
+	list-style-image: none;
+	}
+
+#header a {
+	color: #fff;
+	}
+
+#header img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	}
+
+/* VT and Unit Header */
+
+#vt-header,
+#unit-header {
+	position: absolute;
+	top: 33px;
+	overflow: hidden;
+	background: #5e0000;
+	}
+
+#vt-header a,
+#unit-header a {
+	color: #600;
+	}
+
+#vt-header-screen,
+#unit-header-screen {
+	display: block;
+	position: absolute;
+	}
+
+/* VT Header */
+
+#vt-header {
+	left: 30px;
+	width: 172px;
+	height: 39px;
+	}
+
+#vt-header-screen {
+	top: -33px;
+	left: -30px;
+	}
+
+/* Unit Header */
+
+#unit-header {
+	left: 252px;
+	width: 476px;
+	height: 39px;
+	}
+
+#unit-header-screen {
+	top: -33px;
+	left: -252px;
+	}
+
+#unit-header-print {
+	display: none;
+	}
+
+/* =SUB-HEADER
+-----------------------------------------------------
+
+-----------------------------------------------------*/
+
+#sub-header {
+	border-bottom: 1px #fff solid;
+	background: #666;
+	color: #fff;
+	}
+
+.horizontal #sub-header {
+	float: left;
+	display: inline;
+	background: #3c5b6f url(../img/search_bg.jpg) repeat-y top left;
+	}
+
+.fluid #sub-header {
+	padding-bottom: 10px;
+	border: 0;
+	width: 100%;
+	float: none;
+	display: block;
+	background: transparent url(../img/sub_header_fluid_shadow.gif) repeat-x bottom left;	
+	}
+
+.horizontal #sub-header-inside {
+	border-left: 1px solid #fff;
+	float: right;
+	}
+
+.fluid #sub-header-inside {
+	border-left: 0;
+	border-bottom: 1px #fff solid;
+	float: none;
+	background: #666 url(../img/sub_header_fluid_bg.jpg) repeat-x top left;
+	}
+
+#sub-header p {
+	margin: 0;
+	padding: .6em 10px;
+	letter-spacing: 1px;
+	text-align: right;
+	font-size: 2.0em;
+	font-family: Times, 'Times New Roman', serif;
+	font-weight: normal;
+	}
+
+#sub-header a {
+	color: #fff;
+	}
+
+#sub-header img {
+	border: 0;
+	padding: 0;
+	display: block;
+	}
+
+/* =NAV (See nav.css.) */
+
+/* =CONTENT and MAIN CONTENT
+-----------------------------------------------------
+
+-----------------------------------------------------*/
+
+#content {
+	width: 566px;
+	float: right;
+	}
+
+.horizontal #content,
+.fluid #content {
+	float: none;
+	clear: both;
+	}
+
+.horizontal #content {
+	width: 758px;
+	}
+
+.fluid #content {
+	margin-bottom: 10px;
+	width: 100%;	
+	}
+
+#main-content {
+	padding-top: 1px; /* Makes Firefox and Netscape 7 happy. */
+	width: 566px;
+	clear: both;
+	background: transparent url(../img/mainc_top.gif) no-repeat top left;
+	}
+
+.horizontal #main-content {
+	width: 758px;
+	}
+
+.fluid #main-content {
+	width: 100%;
+	background: none;
+	}
+
+/* =SUB-CONTENT (See sub-content.css.) */
+
+/* =FOOTER and SUB FOOTER
+-----------------------------------------------------
+
+-----------------------------------------------------*/
+
+#footer,
+#sub-footer {
+	clear: both;
+	text-align: center;
+	font-size: 90%;
+	font-weight: bold;		
+	}
+
+#footer {
+	margin: 0 auto 0 auto;
+	padding: 15px 0;	
+	width: 782px;	
+	background: transparent url(../img/footer_top.jpg) no-repeat top left;
+	color: #333;
+	font-weight: bold;	
+	}
+
+.fluid #footer {
+	background: none;
+	width: 90%;
+	}
+
+#sub-footer {
+	padding-top: 5px;
+	width: 566px;
+	background: #edeada url(../img/related_links_top.gif) no-repeat top left;
+	color: #666;
+	}
+
+.horizontal #sub-footer {
+	width: 758px;
+	}
+
+.fluid #sub-footer {
+	width: 100%;
+	background: none;
+	}
+
+#sub-footer-inside {
+	padding: 5px 0 10px 0;
+	background: transparent url(../img/related_links_left.gif) repeat-y top left;
+	}
+
+.fluid #sub-footer-inside {
+	background: none;
+	}
+
+#footer ul,
+#footer p,
+#sub-footer ul,
+#sub-footer p {
+	margin: 0;
+	padding: 3px 0;
+	}
+
+#footer ul li,
+#sub-footer ul li {
+	margin: 0;
+	padding: 0px 6px;
+	border-right: 1px #333 solid;	
+	display: inline;
+	list-style: none;
+	}
+
+#footer ul li {
+	border-right: 1px #333 solid;	
+	}
+
+#sub-footer ul li {
+	border-right: 1px #666 solid;	
+	}
+
+#footer li.last,
+#sub-footer li.last {
+	border-right: 0;
+	}
+	
+#footer a,
+#sub-footer a {
+	white-space: nowrap;
+	}
+
+#footer a {
+	color: #333;	
+	}
+
+#sub-footer a {
+	color: #666;
+	}

@@ -1,0 +1,26 @@
+@import url('default.css');
+@import url('widgets.css');
+@import url('columns.css');
+@import url('layout.css');
+@import url('search-box.css');
+
+#fluid-vertical #nav {
+	margin-top: -10px;
+	padding: 10px 0;	
+	width: 23%;
+	float: left;
+	clear: both;
+	background: transparent url(../img/main_nav_fluid_corner.gif) no-repeat top left;
+	}
+
+#fluid-vertical #nav ul {
+	padding-bottom: 5px;
+	}
+
+#fluid-vertical #content {
+	border-left: 1px #ccc solid;
+	width: 73%;
+	float: right;
+	clear: none;
+	background: none;
+	}

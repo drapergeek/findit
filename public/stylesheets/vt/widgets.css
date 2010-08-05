@@ -1,0 +1,194 @@
+/* =IMAGES
+-------------------------------------------------
+
+-------------------------------------------------*/
+
+/* Just in case someone slaps a naked image into a page... */
+
+#main-content img {
+	margin: 5px 15px 5px 18px;
+	}
+
+#sub-content img {
+	margin: 0 8px 0 3px;
+	}
+
+/* Styles for not-naked images... */
+
+#content .image {
+	padding-top: 5px;
+	padding-bottom: 10px;
+	}
+
+#content .image img {
+	margin: 0;
+	display: block;
+	}
+	
+#content .image p {
+	margin: 5px;	
+	line-height: normal;
+	color: #333;
+	text-align: center;
+	font-style: italic;
+	}
+
+#content .image p a {
+	margin-left: -5px;
+	padding-left: 10px;
+	background: transparent url(../img/list_bullet_fw_sm.gif) no-repeat 3px 5px;
+	text-decoration: none;
+	font-style: normal;
+	}	
+
+#content .image p a:hover {
+	text-decoration: underline;
+	}
+
+#content .image-center {
+	clear: both;
+	}
+
+#content .image-center img {
+	margin: 0 auto 0 auto;
+	}
+
+#main-content .image-left {
+	padding-right: 20px;
+	padding-left: 18px;
+	float: left;
+	display: inline;	
+	}
+
+#main-content .image-right {
+	padding-right: 15px;
+	padding-left: 15px;
+	float: right;
+	display: inline;	
+	}
+
+/* =LINES
+-------------------------------------------------
+	An alternative to the horizontal rule.
+-------------------------------------------------*/
+
+.line {
+	margin: 15px 15px 10px 18px;
+	border-color: #c2c1ba;
+	position: relative;
+	clear: both;
+	}
+
+/* =PRETTY FORMS
+-------------------------------------------------
+	Extra classes for pretty forms.
+-------------------------------------------------*/
+
+form p.instructions {
+	color: #333;
+	font-weight: bold;
+	}
+
+form p.text br,
+form p.textarea br,
+form p.select br {
+	display: none;
+	}
+
+form p.text label,
+form p.textarea label,
+form p.checkbox,
+form p.radio,
+form p.select label {
+	margin: 0;
+	margin-bottom: 15px;
+	width: 28%;
+	float: left;
+	display: block;
+	text-align: right;
+	}
+
+form p.text input,
+form p textarea,
+form ul.checkbox,
+form ul.radio,
+form p select {
+	margin: 0;
+	margin-bottom: 15px;	
+	width: 68%;
+	float: right;
+	display: block;
+	text-align: left;
+	}
+
+form ul.radio input,
+form ul.checkbox input {
+	margin: 3px 3px 0 0;
+	padding: 0;
+	}
+
+/* =PULL OUTS
+-------------------------------------------------
+	For random quotations etc.
+-------------------------------------------------*/
+
+.pull-out {
+	margin: 5px;
+	width: 150px;
+	line-height: normal;
+	text-align: center;
+	color: #600;	
+	font-size: 120%;
+	font-family: 'Times New Roman', serif;
+	font-style: italic;	
+	}
+
+.pull-out-left {
+	margin: 0;
+	padding: 5px 7px 5px 18px;	
+	float: left;
+	}
+
+.pull-out-right {
+	margin: 0;
+	padding: 5px 15px 5px 7px;
+	float: right;
+	text-align: right;
+	}
+
+/* =STRIPED TABLES
+-------------------------------------------------
+	To be used with the tableStripe function in widgets.js.
+-------------------------------------------------*/
+
+#main-content tr.odd td {
+	background: #e3dfc6;
+	}
+
+/* =UTILITY CLASSES - DO NOT TOUCH
+-------------------------------------------------
+	THE FOLLOWING STYLES ARE USED TO MAINTAIN STRUCTURAL CONSISTANCY AND AID ACCESSIBILITY
+-------------------------------------------------*/
+
+/* Clear */
+
+.clear {
+	height: 0;
+	clear: both;
+	background: transparent none;
+	}
+
+.clear span {
+	display: none;
+	}
+
+/* Hide, Skip */
+
+.hide, .skip {
+	position: absolute;
+ 	left: 0px;
+ 	top: -500px;
+ 	width: 1px;
+ 	height: 1px;
+ 	overflow: hidden;
+ 	}

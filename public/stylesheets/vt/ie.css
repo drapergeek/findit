@@ -1,0 +1,64 @@
+/* Import Columns. Believe it or not, IE can handle these much better than FF in print. */
+
+@media print {
+	@import url('columns.css');
+	}
+
+/* Lists */
+
+ul, ol ul {
+	list-style-image: url(../img/list_bullet_fw_ie.gif);
+	}
+
+ul li {
+	margin-bottom: 5px;
+	margin-left: 18px;
+	}
+
+ol li {
+	margin-bottom: 5px;
+	margin-left: 25px;
+	}
+
+#sub-content .sub-section ul li {
+	margin-left: 18px;
+	}
+
+#sub-content .sub-section ol li {
+	margin-left: 25px;
+	}
+
+/* Forms */
+
+form ul.checkbox,
+form ul.radio {
+	float: none;
+	}
+
+/* Images */
+
+#main-content .image-left {
+	margin-right: 25px;
+	padding-right: 0;
+	}
+
+#main-content .image-right {
+	padding-left: 10px;
+	}
+
+/* Page Wrapper 2 */
+
+#page-wrapper2 {
+	height: 100%; /* The old standby. Keeps the background on this div from disappearing in IE. */
+	}
+	
+/* Main Content and Sub Content */
+
+#main-content,
+#sub-content {
+	overflow: hidden; /* Keeps IE from kicking one or both of these divs down the page. */
+	}
+
+#home-vertical #main-content {
+	padding-top: 10px;
+	}

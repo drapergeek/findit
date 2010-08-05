@@ -1,0 +1,87 @@
+/* =PAGE AREA and MAIN CONTENT
+-------------------------------------------------
+
+-------------------------------------------------*/
+
+#page-area {
+	background: #f5f5eB url(../img/pgarea_vnav_subc.gif) repeat-y 100% 0;
+	}
+
+.horizontal #page-area {
+	background: #f5f5eB url(../img/pgarea_hnav_subc.gif) repeat-y 100% 0;
+	}
+
+#main-content {
+	width: 405px;
+	float: left;
+	clear: none;
+	}
+
+.horizontal #main-content {
+	width: 596px;
+	float: left;
+	}
+
+#sub-footer {
+	width: 405px;
+	}
+
+.horizontal #sub-footer {
+	width: 596px;	
+	}
+
+/* =SUB CONTENT
+-------------------------------------------------
+
+-------------------------------------------------*/
+
+#sub-content {
+	float: right;
+	width: 161px;
+	}
+
+/* =SUB SECTION
+-------------------------------------------------
+
+-------------------------------------------------*/
+
+.sub-section {
+	background: transparent url(../img/subc_left.gif) no-repeat top left;
+	padding: 0px 0px 8px 8px;
+	}
+
+.sub-section * {
+	margin-right: 8px;
+	margin-left: 3px;
+	}
+
+.sub-section * * {
+	margin-right: 0;
+	margin-left: 0;
+	}
+
+.sub-section h2 {
+	margin: 0;
+	padding: 10px 10px 10px 3px;
+	line-height: 1.1em;
+	background: transparent url(../img/subc_header.gif) repeat-x top left;	
+	font-size: 1.3em;
+	font-weight: bold;
+	}
+
+.sub-section h3,
+.sub-section h4,
+.sub-section h5,
+.sub-section h6 {
+	line-height: 1.1em;
+	font-size: 1.1em;
+	font-weight: bold;
+	}
+
+.sub-section ul li {
+	margin-left: 15px;
+	}
+
+.sub-section ol li {
+	margin-left: 18px;
+	}
