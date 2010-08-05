@@ -1,28 +1,44 @@
-<% title "User" %>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", users_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.user.login", :default => t("activerecord.labels.login", :default => "Login")) %>:</b>
+          <%= @user.login %>
+        </p>
 
-<p>
-  <strong>Login:</strong>
-  <%=h @user.login %>
-</p>
-<p>
-  <strong>First Name:</strong>
-  <%=h @user.first_name %>
-</p>
-<p>
-  <strong>Last Name:</strong>
-  <%=h @user.last_name %>
-</p>
-<p>
-  <strong>Last Login:</strong>
-  <%=h @user.last_login %>
-</p>
-<p>
-  <strong>Last Login Ip:</strong>
-  <%=h @user.last_login_ip %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.user.first_name", :default => t("activerecord.labels.first_name", :default => "First name")) %>:</b>
+          <%= @user.first_name %>
+        </p>
 
-<p>
-  <%= link_to "Edit", edit_user_path(@user) %> |
-  <%= link_to "Destroy", @user, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", users_path %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.user.last_name", :default => t("activerecord.labels.last_name", :default => "Last name")) %>:</b>
+          <%= @user.last_name %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.last_login", :default => t("activerecord.labels.last_login", :default => "Last login")) %>:</b>
+          <%= @user.last_login %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.last_login_ip", :default => t("activerecord.labels.last_login_ip", :default => "Last login ip")) %>:</b>
+          <%= @user.last_login_ip %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_user_path(@user), :class => "button" %> 
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", user_path(@user), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

@@ -1,0 +1,49 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", softwares_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_software_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", software_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.software.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
+          <%= @software.name %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.software.license_key", :default => t("activerecord.labels.license_key", :default => "License key")) %>:</b>
+          <%= @software.license_key %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.software.os", :default => t("activerecord.labels.os", :default => "Os")) %>:</b>
+          <%= @software.os %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.software.number_of_licenses", :default => t("activerecord.labels.number_of_licenses", :default => "Number of licenses")) %>:</b>
+          <%= @software.number_of_licenses %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.software.storage_location", :default => t("activerecord.labels.storage_location", :default => "Storage location")) %>:</b>
+          <%= @software.storage_location %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.software.info", :default => t("activerecord.labels.info", :default => "Info")) %>:</b>
+          <%= @software.info %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_software_path(@software), :class => "button" %> 
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", software_path(@software), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

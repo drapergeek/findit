@@ -1,0 +1,15 @@
+one:
+  name: MyString
+  license_key: MyString
+  os: MyString
+  number_of_licenses: 1
+  storage_location: MyString
+  info: MyText
+
+two:
+  name: MyString
+  license_key: MyString
+  os: MyString
+  number_of_licenses: 1
+  storage_location: MyString
+  info: MyText

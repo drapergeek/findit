@@ -1,0 +1,41 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", ips_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_ip_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", ip_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.ip.number", :default => t("activerecord.labels.number", :default => "Number")) %>:</b>
+          <%= @ip.number %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.ip.info", :default => t("activerecord.labels.info", :default => "Info")) %>:</b>
+          <%= @ip.info %>
+        </p>
+		<p>
+			<b>Equipment:</b>
+			<% if @ip.item.blank? %>
+				Unassigned
+			<% else %>
+				<%= link_to @ip.item.name, @ip.item.name  %>
+			<% end %>
+		</p>
+		<p>
+			<b>Building:</b>
+				<%= link_to @ip.building.name, @ip.building  unless @ip.building.blank? %>
+		</p>
+      <div class="wat-cf">
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_ip_path(@ip), :class => "button" %> 
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", ip_path(@ip), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
