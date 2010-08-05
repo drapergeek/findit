@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- BEGIN HEAD -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title> <%= h(yield(:title) || "Untitled") %> | Rec Sports Web App | Virginia Tech </title> 
+	<%= stylesheet_link_tag "vt/fluid-horizontal.css", :type=>"text/css", :media=>"screen" %>
+	<%= stylesheet_link_tag "custom_added", :type=>"text/css", :media=>"screen" %>
+	<%= stylesheet_link_tag "vt/print.css", :type=>"text/css", :media=>"print" %>
+<!--[if IE]><%= stylesheet_link_tag "vt/ie.css", :type=>"text/css", :media=>"all" %><![endif]-->
+<!--[if IE 6]><%= stylesheet_link_tag "vt/ie6.css", :type=>"text/css", :media=>"all" %><![endif]-->
+<%= javascript_include_tag "vt/widgets.js" %>
+<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag "prototype" %>
+<!-- [Begin Editing Here] -->
+<!-- [End Editing Here] -->
+    <%= yield(:head) %>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body id="fluid-horizontal" class="fluid horizontal">
+<!-- BEGIN SKIP -->
+<div class="skip">
+	<a name="skip-menu"></a> <h2> Skip Menu </h2> 
+	<ul>
+		<li>
+			<a href="#skipto-search">Skip to Search</a> 
+		</li>
+		<li>
+			<a href="#skipto-main-nav">Skip to Main Navigation</a> 
+		</li>
+		<li>
+			<a href="#skipto-main-content">Skip to Main Content</a> 
+		</li>
+		<li>
+			<a href="#skipto-footer">Skip to Footer</a> 
+		</li>
+	</ul>
+</div>
+<!-- END SKIP -->
+<!-- BEGIN PAGE-WRAPPERS -->
+<div id="page-wrapper1">
+	<div id="page-wrapper2">
+		<div id="page-wrapper3">
+			<div id="page-wrapper4">
+<!-- BEGIN PAGE-AREA -->
+				<div id="page-area">
+<!-- BEGIN HEADER -->
+					<div id="header">
+						<div id="header-inside">
+							<div id="vt-header">
+								<a href="http://www.vt.edu/" title="Return to Virginia Tech Home Page">
+									<%= image_tag "vt/unit_header_screen.jpg", 
+									:alt=>"Virginia Tech | Invent the Future", 
+									:id=>"vt-header-screen", 
+									:width=>"758", 
+									:height=>"97" %>
+								</a> 
+							</div>
+							<div id="unit-header">
+								<a href="#" title="Return to Division of Student Affairs">
+									<%= image_tag "vt/unit_header_screen.jpg", 
+									:alt=>"Division of Student Affairs", 
+									:id=>"unit-header-screen",
+									:width=>"758",
+									:height=>"97"%>
+								</a> 
+								<%= image_tag "vt/under_header_print.gif", 
+								:alt=>"Virginia Tech | Division of Student Affairs",
+								:id=>"unit-header-print",
+								:width=>"670",
+								:height=>"80"
+								 %>
+							</div>
+						</div>
+					</div>
+<!-- END HEADER -->
+<!-- BEGIN MAIN -->
+					<div id="main">
+<!-- BEGIN SUB-HEADER -->
+						<div id="sub-header">
+<!-- BEGIN SEARCH -->
+							<div class="skip">
+								<a href="#skip-menu">Return to Skip Menu</a> <a name="skipto-search"></a> <h2>Search</h2> 
+							</div>
+							<div id="search">
+								
+								<!--USER NAV-->
+								<div id="user_nav">
+									<% if current_user %>
+									Welcome <%= current_user.login %>!!  | <%= link_to "Logout",  logout_path %>
+									<% end %>
+
+								</div>
+								
+								<!--END USER NAV-->
+							</div>
+<!-- END SEARCH -->
+							<div id="sub-header-inside">
+<!-- BEGIN SUB HEADER BANNER -->
+								<p>
+									<%= link_to "Rec Sports Web App", root_url %>
+								</p>
+<!-- END SUB HEADER BANNER -->
+							</div>
+							<div class="clear">
+								<span> &nbsp; </span> 
+							</div>
+						</div>
+<!-- END SUB-HEADER -->
+<!-- BEGIN NAV -->
+						<div id="nav">
+<!-- BEGIN MAIN NAV -->
+							<div class="skip">
+								<a href="#skip-menu">Return to Skip Menu</a> <a name="skipto-main-nav"></a> <h2> Main Navigation </h2> 
+							</div>
+							<div id="main-nav">
+								<!--Navigation Links-->
+								<ul>
+									 <%= render :partial => "layouts/primary_links" %>
+								</ul>
+								<!--end navigation-->
+								<div class="clear">
+									<span> &nbsp; </span> 
+								</div>
+							</div>
+<!-- END MAIN NAV -->
+							<div class="clear">
+								<span> &nbsp; </span> 
+							</div>
+						</div>
+<!-- END NAV -->
+<!-- BEGIN CONTENT -->
+						<div id="content">
+<!-- BEGIN MAIN CONTENT -->
+							<div class="skip">
+								<a href="#skip-menu">Return to Skip Menu</a> <a name="skipto-main-content"></a> <h2> Main Content </h2> 
+							</div>
+							<div id="main-content">
+								<%- if show_title? -%>
+								<div id="page-title">
+									<h1><%= h(yield(:title) || "Untitled") %></h1> 
+								</div>
+								<%- end -%>
+<!-- [Begin Editing Here] -->
+<%- flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <%- end -%>
+
+
+					<%= yield %>
+<!-- [End Editing Here] -->
+							</div>
+<!-- END MAIN CONTENT -->
+<!-- BEGIN SUB-FOOTER -->
+							<div class="skip">
+								<a href="#skip-menu">Return to Skip Menu</a> <a name="skipto-footer"></a> <h2> Footer </h2> 
+							</div>
+							<div id="sub-footer">
+								<div id="sub-footer-inside">
+<!-- [Begin Editing Here for footer stuff] -->
+	
+<!-- [End Editing Here] -->
+								</div>
+							</div>
+<!-- END SUB-FOOTER -->
+						</div>
+<!-- END CONTENT -->
+						<div class="clear">
+							<span> &nbsp; </span> 
+						</div>
+					</div>
+<!-- END MAIN -->
+					<div class="clear">
+						<span> &nbsp; </span> 
+					</div>
+				</div>
+<!-- END PAGE-AREA -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END PAGE-WRAPPERS -->
+<!-- BEGIN FOOTER -->
+<div id="footer">
+	<ul>
+		<li>
+			<a href="http://www.givingto.vt.edu">Giving to Virginia Tech</a> 
+		</li>
+		<li>
+			<a href="http://www.bookstore.vt.edu">Bookstore</a> 
+		</li>
+		<li>
+			<a href="http://www.jobs.vt.edu/" class="open-window">Jobs at Virginia Tech</a> 
+		</li>
+		<li>
+			<a href="http://www.vt.edu/contacts/">Contact Us</a> 
+		</li>
+		<li>
+			<a href="http://www.vt.edu/equal_opportunity.php">Equal Opportunity</a> 
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<a href="http://www.vt.edu/privacy.php">Privacy Statement</a> 
+		</li>
+		<li>
+			<a href="http://www.vt.edu/principles.php">Principles of Community</a> 
+		</li>
+		<li>
+			<a href="http://www.vt.edu/acceptable_use.php">Acceptable Use Policy</a> 
+		</li>
+		<li>
+			<a href="http://www.vt.edu/accessibility.php">Accessibility</a> 
+		</li>
+	</ul>
+	<p>
+		&copy; Year Virginia Polytechnic Institute and State University | <a href="http://www.vt.edu/contacts/webmaster.php">Website Feedback</a> 
+	</p>
+</div>
+<!-- END FOOTER -->
+</body>
+<!-- END BODY -->
+</html>

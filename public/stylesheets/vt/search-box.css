@@ -1,0 +1,89 @@
+/* =SEARCH
+-------------------------------------------
+
+-------------------------------------------*/
+
+#search {
+	margin: 0;
+	padding: 7px 0 10px 20px;
+	background: #3c5b6f url(../img/search_bg.jpg) repeat-y top left;
+	color: #fff;
+	font-size: 85%;
+	}
+
+.horizontal #search {
+	width: 171px;
+	float: left;
+	}
+
+.fluid #search {
+	margin-top: 2.0em;
+	padding: 0 0 2.0em 20px;
+	float: left;
+	width: 40%;
+	display: inline;
+	background: none;
+	}
+
+#search-criteria input {
+	margin-bottom: 5px;
+	float: left;  
+	}
+	
+#search-criteria label {
+	float: left;
+	margin-top: 4px;
+	}
+
+#search form {
+	margin: 0;
+	color: #fff;
+	}
+
+#search fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	}
+
+.fluid #search fieldset {
+	margin-right: 10px;
+	float: left;
+	clear: none;
+	display: inline;
+	}
+
+#search input {
+	vertical-align: middle;
+	}
+
+#search input#search-query {
+	padding: 2px;
+	border: 1px solid #e3e3e3;
+	width: 125px;
+	font-size: 90%;
+	}
+
+#search ul {
+	margin: 0;
+	padding: 5px 0 0 0;
+	height: 1.1em;
+	list-style: none;
+	}
+
+#search li {
+	margin: 0;
+	float: left;
+	line-height: 1.1em;
+	font-size: .9em;
+	}
+
+#main #search ul li a {
+	padding: 0 7px;
+	background: transparent url(../img/search_bullet.gif) no-repeat 0px 3px;
+	color: #fff;	
+	}
+
+#main #search ul li a:hover {
+	text-decoration: none;
+	}

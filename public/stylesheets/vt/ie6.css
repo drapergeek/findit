@@ -1,0 +1,18 @@
+/* Body */
+
+body {
+	line-height: 1.2; /* Fixes the peekaboo bug. See Position is Everything, http://www.positioniseverything.net/explorer/peekaboo.html */
+	}
+
+/* Main Nav and Sub Nav */
+
+#main-nav,
+#sub-nav {
+	height: 1px; /* The old standby. Keeps the background on this div from disappearing in IE. */
+	}
+
+/* Main Content and Sub Content */
+
+#sub-header {
+	height: 1px;
+	}

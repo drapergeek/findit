@@ -1,0 +1,297 @@
+/* =BODY
+-----------------------------------------------------
+Also see layout.css for special backgrounds and positioning.
+-----------------------------------------------------*/
+
+body {
+	margin: 0 20px;
+	padding: 0;
+	border: 0;
+	color: #000;
+	background: #fff;
+	line-height: normal;  /* Peekaboo safety net for pages with broken links to ie.css. See Position is Everything, http://www.positioniseverything.net/explorer/peekaboo.html */
+	font-size: 80%;
+	font-family: Arial, Verdana, sans-serif;
+	}
+
+/* =ANCHORS and IMAGES
+-----------------------------------------------------
+
+-----------------------------------------------------*/
+
+a:link {
+	color: #600;
+	text-decoration: none;	
+	}
+
+a:visited {	
+	color: #930;
+	text-decoration: none;	
+	}
+
+a:hover {
+	color: #600;
+	text-decoration: underline;	
+	}
+
+a:active {
+	color: #600;
+	text-decoration: none;
+	}
+
+#main-content a,
+#sub-content a {
+	text-decoration: underline;	
+	}
+
+#main-content a:hover,
+#sub-content a:hover {
+	text-decoration: none;
+	}
+
+#main-content a:active,
+#sub-content a:active {
+	text-decoration: underline;	
+	}
+
+img {
+	margin: 0;
+	padding: 2px;
+	border: 1px solid #9d9879;
+	display: block;
+	background-color: #fff;
+	}
+
+/* =HEADERS
+-----------------------------------------------------
+
+-----------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 15px 15px 5px 18px;
+	padding: 0;
+	border: 0;
+	clear: left;
+	color: #600;
+	font-family: Times, 'Times New Roman', serif;
+	font-weight: normal;
+	}
+
+h1 {
+	font-size: 1.8em; /* equivalent to 180% */
+	}
+
+h2 {
+	font-size: 1.4em; /* equivalent to 140% */
+	}
+
+h3 {	
+	font-size: 1.3em; /* equivalent to 130% */
+	}
+
+h4, h5, h6 {
+	margin-bottom: 0;
+	color: #333;
+	font-size: 1.2em; /* equivalent to 120% */
+	}
+
+/* =DIVISIONS, PARAGRAPHS, LISTS, AND BLOCKQUOTES
+-----------------------------------------------------
+
+-----------------------------------------------------*/
+
+div, p, ul, ol, li, dl, dt, dd, blockquote {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	}
+
+/* Paragraphs and Lists */
+
+p, ul, ol, dl {
+	margin: 5px 15px 10px 18px;
+	}
+
+p, li, dt, dd {
+	line-height: 1.5em;
+	}
+
+/* Unordered and Ordered Lists */
+
+ul ul, ol ol, ul ol, ol ul,
+ul h1, ul h2, ul h3, ul h4, ul h5, ul h6, ul p,
+ol h1, ol h2, ol h3, ol h4, ol h5, ol h6, ol p {
+	margin-left: 0;
+	margin-right: 0;
+	}
+
+ul, ol {
+	list-style: none;
+	}
+
+ul {
+	list-style-image: url(../img/list_bullet_fw.gif);
+	}
+
+ul ul {
+	margin-bottom: 0;
+	}
+
+ol ul {
+	list-style-type: none;
+	list-style-image: url(../img/list_bullet_fw.gif);
+	}
+
+ol {
+	list-style-type: decimal;
+	}
+
+ol ol {
+	list-style-type: lower-alpha;
+	margin-bottom: 0;
+	}
+
+ol ol ol {
+	list-style-type: lower-roman;
+	}
+
+ul ol {
+	list-style-image: none;
+	list-style-type: decimal;
+	}
+
+li {
+	margin-bottom: 5px;
+	margin-left: 15px; /* List margin safety net for pages with broken links to ie.css. */
+	}
+
+ul>li {
+	margin: 0 0 5px 15px; /* Also see ie.css. */
+	}
+
+ol>li {
+	margin: 0 0 5px 18px; /* Also see ie.css. */
+	}
+
+/* Definition Lists */
+
+dl dt {
+	margin: 5px 0 0 0;
+	font-style: italic;
+	}
+
+dl dd {
+	margin: 0 0 5px 15px;
+	}
+	
+dd ul, dd p, dd table {
+	margin-left: 0;
+	}
+
+/* Blockquotes */
+
+blockquote {
+	margin: 5px 15px 10px 40px;
+	}	
+
+/* =TABLES
+-----------------------------------------------------
+Also see the striped tables section in widgets.css.
+-----------------------------------------------------*/
+
+table, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;	
+	}
+
+table {
+	margin: 10px 0 15px 18px;
+	padding: 0px;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 90%;
+	font-size: 90%;
+	}
+
+tr, th, td {
+	vertical-align: top;
+	}
+
+th, td {
+	padding: 5px;
+	border-bottom: 1px solid #c2c1ba;	
+	}
+
+th {
+	background: #d7d1ae;
+	color: #333;
+	text-align: left;
+	font-weight: bold;
+	}
+
+td h1, td h2, td h3, td h4, td h5, td h6,
+td p, td ul, td ol, td dl {
+	margin-left: 0;
+	}
+
+/* =FORMS
+-----------------------------------------------------
+Also see the pretty forms section in widgets.css.
+-----------------------------------------------------*/
+
+form {
+	margin: 15px 15px 10px 18px;
+	padding: 0;
+	border: 0;	
+	}
+
+form fieldset {
+	margin: 0;
+	margin-bottom: 10px;
+	padding: 5px;
+	border: 1px #c2c1ba solid;	
+	clear: both;
+	}
+
+form fieldset legend {
+	margin: 0;
+	padding: 0 5px;
+	clear: both;
+	color: #333;
+	font-size: 1.2em;
+	font-family: Times, 'Times New Roman', serif;
+	}
+
+form p,
+form ul,
+form ol {
+	margin: 0 15px 5px 5px;
+	}
+
+form p {
+	clear: both;
+	}
+
+form ul,
+form ol {
+	list-style: none;
+	list-style-image: none;
+	list-style-type: none;
+	}
+
+form li {
+	margin: 0 0 3px 0;
+	}
+	
+/* =HORIZONTAL RULES
+-----------------------------------------------------
+Also see the lines section in widgets.css.
+-----------------------------------------------------*/
+
+hr {
+	margin: 15px 15px 10px 18px;
+	border-color: #c2c1ba;
+	position: relative;
+	clear: both;
+	}
