@@ -1,10 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
-  map.root :controller=>"pages"
-  map.resources :service_types
 
-  map.resources :services
+  map.resources :softwares
 
-  map.resources :patrons, :collection=>{:add_service=>:post, :check_in=>:get}
+  map.resources :locations
+
+  map.resources :buildings
+
+  map.resources :items, :collection=>{:add_ip=>:post, :remove_ip=>:get}
+
+  map.resources :ips
+  map.root :controller=>"items"
 
   map.resources :pages
 

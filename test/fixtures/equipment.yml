@@ -1,0 +1,31 @@
+one:
+  name: MyString
+  make: MyString
+  model: MyString
+  processor: MyString
+  processor_rating: 1
+  ram: 1
+  hard_drive: MyString
+  serial: MyString
+  vt_tag: MyString
+  purchased_at: 2010-08-05 14:15:10
+  warranty_expires_at: 2010-08-05 14:15:10
+  recieved_at: 2010-08-05 14:15:10
+  os: MyString
+  type: MyString
+
+two:
+  name: MyString
+  make: MyString
+  model: MyString
+  processor: MyString
+  processor_rating: 1
+  ram: 1
+  hard_drive: MyString
+  serial: MyString
+  vt_tag: MyString
+  purchased_at: 2010-08-05 14:15:10
+  warranty_expires_at: 2010-08-05 14:15:10
+  recieved_at: 2010-08-05 14:15:10
+  os: MyString
+  type: MyString

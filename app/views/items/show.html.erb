@@ -1,0 +1,136 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", items_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_item_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", item_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.item.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
+          <%= @item.name %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.make", :default => t("activerecord.labels.make", :default => "Make")) %>:</b>
+          <%= @item.make %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.model", :default => t("activerecord.labels.model", :default => "Model")) %>:</b>
+          <%= @item.model %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.processor", :default => t("activerecord.labels.processor", :default => "Processor")) %>:</b>
+          <%= @item.processor %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.processor_rating", :default => t("activerecord.labels.processor_rating", :default => "Processor rating")) %>:</b>
+          <%= @item.processor_rating %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.ram", :default => t("activerecord.labels.ram", :default => "Ram")) %>:</b>
+          <%= @item.ram %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.hard_drive", :default => t("activerecord.labels.hard_drive", :default => "Hard drive")) %>:</b>
+          <%= @item.hard_drive %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.serial", :default => t("activerecord.labels.serial", :default => "Serial")) %>:</b>
+          <%= @item.serial %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.vt_tag", :default => t("activerecord.labels.vt_tag", :default => "Vt tag")) %>:</b>
+          <%= @item.vt_tag %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.purchased_at", :default => t("activerecord.labels.purchased_at", :default => "Purchased at")) %>:</b>
+          <%= @item.purchased_at %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.warranty_expires_at", :default => t("activerecord.labels.warranty_expires_at", :default => "Warranty expires at")) %>:</b>
+          <%= @item.warranty_expires_at %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.recieved_at", :default => t("activerecord.labels.recieved_at", :default => "Recieved at")) %>:</b>
+          <%= @item.recieved_at %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.os", :default => t("activerecord.labels.os", :default => "Os")) %>:</b>
+          <%= @item.os %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.type", :default => t("activerecord.labels.type", :default => "Type")) %>:</b>
+          <%= @item.type %>
+        </p>
+
+		<p>
+			<strong>IPs</strong>
+			<% if @item.ips.count > 0 %>
+				<ul>
+					<% @item.ips.each do |ip| %>
+						<li><%= ip.number %> <%= link_to "(x)", :action=>"remove_ip", :ip=>ip %></li>
+					<% end %>
+				</ul>
+			<% end %>
+			
+			<% form_tag :action=>'add_ip' , :item=>@item do  %>
+				<select id="ip_selection" name="ip_selection">
+					<% Ip.unassigned.each do |ip| %>
+						<option value='<%= ip.id %>'><%= ip.number %></option>
+					<% end %>
+				</select>
+				<%= submit_tag 'Add IP' %>
+			<% end %>
+			
+			
+		</p>
+		
+		<p>
+			<strong>Software</strong>
+			<% if @item.softwares.count > 0 %>
+				<ul>
+					<% @item.softwares.each do |software| %>
+						<li><%= software.name %> <%= link_to "(x)",:controller=>"installations", 
+									:action=>"uninstall_software",
+									:software=>software.id,
+									:item=>@item.id %></li>
+					<% end %>
+				</ul>
+			<% end %>
+			
+			<% form_tag :controller=>'installations',:action=>'install_software' , :item=>@item do  %>
+				<select id="software_selection" name="software_selection">
+					<% Software.all.each do |software| %>
+						<option value='<%= software.id %>'><%= software.name %></option>
+					<% end %>
+				</select>
+				<%= submit_tag 'Install Software' %>
+			<% end %>
+			
+			
+		</p>
+      <div class="wat-cf">
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_item_path(@item), :class => "button" %> 
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", item_path(@item), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
