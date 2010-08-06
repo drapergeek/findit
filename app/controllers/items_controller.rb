@@ -56,7 +56,6 @@ class ItemsController < ApplicationController
     end
   end
   def remove_ip
-    
     @ip = Ip.find(params[:ip])
     @ip.item_id = ""
     if @ip.save

@@ -4,6 +4,11 @@
     <%= f.text_field :login, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
+  <div class="group">
+    <%= f.label :can_login, t("activerecord.attributes.user.can_login", :default => "Can Login?"), :class => :label %>
+    <%= f.check_box :can_login  %>
+
+  </div>
 
   <div class="group">
     <%= f.label :first_name, t("activerecord.attributes.user.first_name", :default => "First name"), :class => :label %>
