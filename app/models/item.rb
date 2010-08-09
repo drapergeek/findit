@@ -25,12 +25,16 @@ class Item < ActiveRecord::Base
   
   
   def convert_size_to_bytes
-    if self.ram < 1048576
-      self.ram = ram * 1048576
+    unless self.ram.blank?
+      if self.ram < 1048576
+        self.ram = ram * 1048576
+      end
     end
   
-    if self.hard_drive < 1073741824
-      self.hard_drive =   hard_drive * 1073741824
+    unless self.hard_drive.blank?
+      if self.hard_drive < 1073741824
+        self.hard_drive =   hard_drive * 1073741824
+      end
     end
   end
 end
