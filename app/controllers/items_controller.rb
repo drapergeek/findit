@@ -65,4 +65,9 @@ class ItemsController < ApplicationController
     end
     redirect_to :back
   end
+  
+  def remove_dns_name
+    @dns = DnsName.find(params[:name]).destroy
+    redirect_to :back
+  end
 end

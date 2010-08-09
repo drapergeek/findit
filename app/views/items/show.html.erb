@@ -125,6 +125,25 @@
 			
 			
 		</p>
+		
+		
+		
+		<p>
+			<strong>DNS Names</strong>
+			<% if @item.dns_names.count > 0 %>
+				<ul>
+					<% @item.dns_names.each do |name| %>
+						<li><%= name.name %> <%= link_to "(x)", 
+									:action=>"remove_dns_name",
+									:name=>name.id,
+									:item=>@item.id %></li>
+					<% end %>
+				</ul>
+			<% end %>
+			
+	
+			
+		</p>
       <div class="wat-cf">
         <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_item_path(@item), :class => "button" %> 
         <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", item_path(@item), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
