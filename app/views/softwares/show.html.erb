@@ -21,7 +21,7 @@
 
         <p>
           <b><%= t("activerecord.attributes.software.os", :default => t("activerecord.labels.os", :default => "Os")) %>:</b>
-          <%= @software.os %>
+          <%= @software.operating_system.name unless @software.operating_system.blank? %>
         </p>
 
         <p>
