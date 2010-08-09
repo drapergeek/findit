@@ -36,12 +36,12 @@
 
         <p>
           <b><%= t("activerecord.attributes.item.ram", :default => t("activerecord.labels.ram", :default => "Ram")) %>:</b>
-          <%= @item.ram %>
+          <%= number_to_human_size(@item.ram) %>
         </p>
 
         <p>
           <b><%= t("activerecord.attributes.item.hard_drive", :default => t("activerecord.labels.hard_drive", :default => "Hard drive")) %>:</b>
-          <%= @item.hard_drive %>
+          <%= number_to_human_size(@item.hard_drive) %>
         </p>
 
         <p>
@@ -75,8 +75,8 @@
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.item.type", :default => t("activerecord.labels.type", :default => "Type")) %>:</b>
-          <%= @item.type %>
+          <b><%= t("activerecord.attributes.item.type_of_item", :default => t("activerecord.labels.type_of_item", :default => "Type")) %>:</b>
+          <%= @item.type_of_item %>
         </p>
 
 		<p>

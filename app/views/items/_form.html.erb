@@ -32,16 +32,16 @@
   <div class="group">
     <%= f.label :ram, t("activerecord.attributes.item.ram", :default => "Ram"), :class => :label %>
     <%= f.text_field :ram, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Please enter in megabytes</span>
   </div>
 
   <div class="group">
     <%= f.label :hard_drive, t("activerecord.attributes.item.hard_drive", :default => "Hard drive"), :class => :label %>
     <%= f.text_field :hard_drive, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Please enter in gigabytes</span>
   </div>
 
-  <div class="group">
+  <div class="group">	
     <%= f.label :serial, t("activerecord.attributes.item.serial", :default => "Serial"), :class => :label %>
     <%= f.text_field :serial, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
@@ -78,8 +78,8 @@
   </div>
 
   <div class="group">
-    <%= f.label :type, t("activerecord.attributes.item.type", :default => "Type"), :class => :label %>
-    <%= f.text_field :type, :class => 'text_field' %>
+    <%= f.label :type, t("activerecord.attributes.item.type_of_item", :default => "Type"), :class => :label %>
+    <%= f.text_field :type_of_item, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
