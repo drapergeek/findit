@@ -10,6 +10,11 @@
     <%= f.text_area :info, :class => 'text_area' %>
     <span class="description">Ex: a simple text</span>
   </div>
+
+	<div class="group">
+  <%= f.label :building_id,  t("activerecord.attributes.ip.building_id", :default => "Building"), :class => :label %>
+	<%= f.collection_select(:building_id, Building.all, :id, :name, {:prompt => true}) %>
+	</div>
         
 <div class="group navform wat-cf">
   <button class="button" type="submit">
@@ -17,8 +22,3 @@
   </button>  
   <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}")} #{t("web-app-theme.cancel", :default => "Cancel")}", ips_path, :class => "button" %> 
 </div>
-	<div class="group">
-    <%= f.label :building_id,  t("activerecord.attributes.ip.building_id", :default => "Building"), :class => :label %>
-	<%= f.collection_select(:building_id, Building.all, :id, :name, {:prompt => true}) %>
-
-  </div>
