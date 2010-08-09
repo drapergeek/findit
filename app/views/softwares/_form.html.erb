@@ -11,10 +11,10 @@
     <span class="description">Ex: a simple text</span>
   </div>
 
-  <div class="group">
-    <%= f.label :os, t("activerecord.attributes.software.os", :default => "Os"), :class => :label %>
-    <%= f.text_field :os, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+	<div class="group">
+    <%= f.label :operating_system_id,  t("activerecord.attributes.software.operating_system_id", :default => "Operating System"), :class => :label %>
+	<%= f.collection_select(:operating_system_id, OperatingSystem.all, :id, :name, {:prompt => true}) %>
+
   </div>
 
   <div class="group">
