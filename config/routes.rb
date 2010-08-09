@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :dns_names
+
 
   map.resources :softwares
 
@@ -6,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :buildings
 
-  map.resources :items, :collection=>{:add_ip=>:post, :remove_ip=>:get}
+  map.resources :items, :collection=>{:add_ip=>:post, :remove_ip=>:get, :remove_dns_name=>:get}
 
   map.resources :ips
   map.root :controller=>"items"
