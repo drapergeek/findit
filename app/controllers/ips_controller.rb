@@ -15,7 +15,7 @@ class IpsController < ApplicationController
     @ip = Ip.new(params[:ip])
     if @ip.save
       flash[:notice] = "Successfully created ip."
-      redirect_to @ip
+      redirect_to :action=>'new'
     else
       render :action => 'new'
     end
