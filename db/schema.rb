@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100809124242) do
+ActiveRecord::Schema.define(:version => 20100809184023) do
 
   create_table "announcements", :force => true do |t|
     t.string   "name"
@@ -57,14 +57,14 @@ ActiveRecord::Schema.define(:version => 20100809124242) do
     t.string   "processor"
     t.integer  "processor_rating"
     t.integer  "ram"
-    t.string   "hard_drive"
+    t.integer  "hard_drive"
     t.string   "serial"
     t.string   "vt_tag"
     t.datetime "purchased_at"
     t.datetime "warranty_expires_at"
     t.datetime "recieved_at"
     t.string   "os"
-    t.string   "type"
+    t.string   "type_of_item"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
