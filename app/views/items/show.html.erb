@@ -13,6 +13,10 @@
           <b><%= t("activerecord.attributes.item.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
           <%= @item.name %>
         </p>
+		<p>
+          <b><%= t("activerecord.attributes.item.location_id", :default => t("activerecord.labels.location_id", :default => "Location")) %>:</b>
+          <%= @item.location.full_name unless @item.location.blank? %>
+        </p>
 
         <p>
           <b><%= t("activerecord.attributes.item.make", :default => t("activerecord.labels.make", :default => "Make")) %>:</b>
