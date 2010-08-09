@@ -32,16 +32,8 @@
 			<td><%= h item.type unless item.type_of_item.blank? %></td>
             <td><%= h item.location.building.name unless item.location.blank? %></td>
             <td><%= h item.processor unless item.processor.blank? %></td>
-			<td><%= h item.ram unless item.ram.blank? %></td>
-			<td>
-				<% unless item.ips.empty? %>
-					<% if item.ips.count > 1 %>
-						<%= item.ips.first.number %>
-					<% else %>
-						Multiple
-					<% end %>
-				<% end %>
-			</td>
+			<td><%= h number_to_human_size(item.ram) unless item.ram.blank? %></td>
+			<td><%= item.ips.first.number  unless item.ips.empty? %></td>
 			
 
        
