@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   attr_accessible :name, :make, :model, :processor, :processor_rating, :ram, :hard_drive, :serial, :vt_tag, :purchased_at, :warranty_expires_at, :recieved_at, :os
-  attr_accessible :type_of_item, :new_dns_names, :operating_system_id
+  attr_accessible :type_of_item, :new_dns_names, :operating_system_id, :location_id
   has_many :ips
   has_many :installations
   has_many :softwares, :through=>:installations
@@ -9,6 +9,7 @@ class Item < ActiveRecord::Base
   before_save :create_dns_from_names
   before_save :convert_size_to_bytes
   belongs_to :operating_system
+  belongs_to :location
   
   def create_dns_from_names
     unless new_dns_names.blank?

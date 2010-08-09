@@ -5,6 +5,14 @@
     <span class="description">Ex: a simple text</span>
   </div>
 
+
+	<div class="group">
+    <%= f.label :location_id,  t("activerecord.attributes.item.location_id", :default => "Location"), :class => :label %>
+	<%= f.collection_select(:location_id, Location.all, :id, :full_name, {:prompt => true}) %>
+
+  </div>
+
+
   <div class="group">
     <%= f.label :make, t("activerecord.attributes.item.make", :default => "Make"), :class => :label %>
     <%= f.text_field :make, :class => 'text_field' %>
