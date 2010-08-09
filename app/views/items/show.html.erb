@@ -70,8 +70,8 @@
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.item.os", :default => t("activerecord.labels.os", :default => "Os")) %>:</b>
-          <%= @item.os %>
+          <b><%= t("activerecord.attributes.item.operating_system_id", :default => t("activerecord.labels.operating_system_id", :default => "Os")) %>:</b>
+          <%= @item.operating_system.name unless @item.operating_system.blank? %> 
         </p>
 
         <p>

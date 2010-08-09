@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100809184023) do
+ActiveRecord::Schema.define(:version => 20100809193658) do
 
   create_table "announcements", :force => true do |t|
     t.string   "name"
@@ -67,12 +67,27 @@ ActiveRecord::Schema.define(:version => 20100809184023) do
     t.string   "type_of_item"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "operating_system_id"
   end
 
   create_table "locations", :force => true do |t|
     t.string   "name"
     t.text     "info"
     t.integer  "building_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "operating_systems", :force => true do |t|
+    t.string   "name"
+    t.text     "info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "os", :force => true do |t|
+    t.string   "name"
+    t.text     "info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -93,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20100809184023) do
     t.text     "info"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "operating_system_id"
   end
 
   create_table "users", :force => true do |t|
