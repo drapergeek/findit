@@ -18,9 +18,7 @@
       </div>      
       <div id="main-navigation">
         <ul class="wat-cf"> 
-			<li class="<%= controller.controller_path == 'users' ? 'active' : '' %>">
-				<a href="<%= users_path %>">Users</a>
-			</li> 
+
 			<li class="<%= controller.controller_path == 'items' ? 'active' : '' %>">
 				<a href="<%= items_path %>">Items</a>
 			</li>
@@ -29,6 +27,9 @@
 			</li> 
 			
 		 <li class="<%= controller.controller_path == 'buildings' ? 'active' : '' %>"><a href="<%= buildings_path %>">Buildings</a></li> <li class="<%= controller.controller_path == 'locations' ? 'active' : '' %>"><a href="<%= locations_path %>">Locations</a></li> <li class="<%= controller.controller_path == 'softwares' ? 'active' : '' %>"><a href="<%= softwares_path %>">Software</a></li></ul>
+			<li class="<%= controller.controller_path == 'users' ? 'active' : '' %>">
+				<a href="<%= users_path %>">Users</a>
+			</li>
       </div>
     </div>    
     <div id="wrapper" class="wat-cf">
