@@ -12,9 +12,6 @@ class ApplicationController < ActionController::Base
     before_filter CASClient::Frameworks::Rails::Filter
   end
   before_filter :check_for_valid_login
-
-  
-  
   helper_method :current_user
   
   
@@ -22,13 +19,15 @@ class ApplicationController < ActionController::Base
   def current_user
     return @current_user if defined?(@current_user)
     @current_user = User.find_by_login(session[:cas_user])
+    unless @current_user.can_login == true
+      @current_user = nil
+    end
     unless @current_user.nil?
       @current_user.last_login_ip = request.remote_ip 
       @current_user.last_login = Time.now
       @current_user.save!
     end
   end
-  
   
   def set_login
     session[:cas_user] = "gdraper"

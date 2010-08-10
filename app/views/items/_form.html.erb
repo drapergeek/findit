@@ -11,6 +11,11 @@
 	<%= f.collection_select(:location_id, Location.all, :id, :full_name, {:prompt => true}) %>
 
   </div>
+	<div class="group">
+    <%= f.label :user_id,  t("activerecord.attributes.item.user_id", :default => "Primary User/Responsible Party"), :class => :label %>
+	<%= f.collection_select(:user_id, User.all, :id, :full_name, {:prompt => true}) %>
+  </div>
+
 
 
   <div class="group">
@@ -23,6 +28,11 @@
     <%= f.label :model, t("activerecord.attributes.item.model", :default => "Model"), :class => :label %>
     <%= f.text_field :model, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
+  </div>
+
+	<div class="group">
+    <%= f.label :user_id,  t("activerecord.attributes.item.user_id", :default => "Primary User/Responsible Party"), :class => :label %>
+	<%= f.collection_select(:user_id, User.all, :id, :full_name, {:prompt => true}) %>
   </div>
 
   <div class="group">
@@ -95,6 +105,13 @@
 	<label class="label">Add New Dns Names</label>
     <%= f.text_field :new_dns_names, :class => 'text_field' %>
     <span class="description">Ex: new.recsports.vt.edu, another.recsports.vt.edu</span>
+  </div>
+
+
+  <div class="group">
+    <%= f.label :info, t("activerecord.attributes.item.info", :default => "Other Information"), :class => :label %>
+    <%= f.text_area :info, :class => 'text_area' %>
+
   </div>
 
         
