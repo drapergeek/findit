@@ -70,4 +70,11 @@ class ItemsController < ApplicationController
     @dns = DnsName.find(params[:name]).destroy
     redirect_to :back
   end
+  
+  def mark_as_inventoried
+    @item = Item.find(params[:id])
+    @item.mark_as_inventoried
+    flash[:notice] = "Item is inventoried as of #{@item.inventoried_at}"
+    redirect_to @item
+  end
 end

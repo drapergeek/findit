@@ -27,6 +27,11 @@ class Item < ActiveRecord::Base
   end
   
   
+  def mark_as_inventoried
+    self.inventoried_at = Time.now
+    self.save
+  end
+  
   def convert_size_to_bytes
     unless self.ram.blank?
       if self.ram < 1048576
