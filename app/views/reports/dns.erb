@@ -1,0 +1,8 @@
+#  $Header: /var/named/share/Database-RCS/recsports.hosts,v 1.15 2009/04/21 12:20:34 walklet Exp $ <br />
+nsdata.recsports.vt.edu::nomail::: <br />
+
+#<br />
+<% @items.each do |i| %>
+<%= "#{i.name}.recsports.vt.edu" %>:<%= i.print_ip %>::<%= i.print_dns_names %>::::
+<br />
+<% end %>
