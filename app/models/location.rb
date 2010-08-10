@@ -6,4 +6,8 @@ class Location < ActiveRecord::Base
   def full_name
     building.name + " - " + name
   end
+  
+  def short_location
+    building.name[0,1].upcase + " - " + name
+  end
 end

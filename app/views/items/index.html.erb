@@ -23,8 +23,7 @@
 			<th>Processor</th>
 			<th>Ram</th>
 			<th>IP</th>
-			
-          <th class="last">&nbsp;</th>
+
         </tr>
         <% @items.each do |item| -%>
         <tr class="<%= cycle("odd", "even") %>">
@@ -37,18 +36,13 @@
 			<td><%= h item.make unless item.make.blank? %></td>
 			<td><%= h item.model unless item.model.blank? %></td>
 			<td><%= h item.type_of_item unless item.type_of_item.blank? %></td>
-            <td><%= h item.location.building.name unless item.location.blank? %></td>
+            <td><%= h item.location.short_location unless item.location.blank? %></td>
             <td><%= h item.processor unless item.processor.blank? %></td>
 			<td><%= h number_to_human_size(item.ram) unless item.ram.blank? %></td>
-			<td><%= item.ips.first.number  unless item.ips.empty? %></td>
+			<td><%= item.ips.first.last_octet unless item.ips.empty? %></td>
 			
 
        
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", item_path(item) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_item_path(item) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", item_path(item), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
         </tr>          
         <% end -%>
       </table>
