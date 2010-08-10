@@ -26,12 +26,18 @@
 			</li> 
 			
 		 <li class="<%= controller.controller_path == 'buildings' ? 'active' : '' %>"><a href="<%= buildings_path %>">Buildings</a></li> <li class="<%= controller.controller_path == 'locations' ? 'active' : '' %>"><a href="<%= locations_path %>">Locations</a></li> <li class="<%= controller.controller_path == 'softwares' ? 'active' : '' %>"><a href="<%= softwares_path %>">Software</a></li>
+		  
 		
 		
 			<li class="<%= controller.controller_path == 'users' ? 'active' : '' %>">
 				<a href="<%= users_path %>">Users</a>
 			</li>
-			 <li class="<%= controller.controller_path == 'dns_names' ? 'active' : '' %>"><a href="<%= dns_names_path %>">DnsNames</a></li> <li class="<%= controller.controller_path == 'operating_systems' ? 'active' : '' %>"><a href="<%= operating_systems_path %>">OperatingSystems</a></li></ul>
+			 <li class="<%= controller.controller_path == 'dns_names' ? 'active' : '' %>"><a href="<%= dns_names_path %>">DnsNames</a></li> <li class="<%= controller.controller_path == 'operating_systems' ? 'active' : '' %>"><a href="<%= operating_systems_path %>">OperatingSystems</a></li>
+				<li class="<%= controller.controller_path == 'reports' ? 'active' : '' %>">
+					<%= link_to "Reports", :controller=>"reports",:action=>"index" %>
+				</li>
+			
+			</ul>
 			
 			
 			
