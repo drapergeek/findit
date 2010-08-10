@@ -53,11 +53,13 @@ class Item < ActiveRecord::Base
   end
   
   def make_and_model
+    out_make = make
+    out_model = model
     if make.blank?
-      out_make = "?"
+      out_make = "?"  
     end
     if model.blank?
-      out_model = "?"
+      out_model = "?"  
     end
     return out_make + " " + out_model
   end
