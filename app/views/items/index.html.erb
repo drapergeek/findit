@@ -35,7 +35,7 @@
            	<td><%= link_to item.name, item_path(item) %></td>
 			<td><%= h item.make unless item.make.blank? %></td>
 			<td><%= h item.model unless item.model.blank? %></td>
-			<td><%= h item.type_of_item unless item.type_of_item.blank? %></td>
+			<td><%= h item.short_type unless item.type_of_item.blank? %></td>
             <td><%= h item.location.short_location unless item.location.blank? %></td>
             <td><%= h item.processor unless item.processor.blank? %></td>
 			<td><%= h number_to_human_size(item.ram) unless item.ram.blank? %></td>
