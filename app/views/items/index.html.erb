@@ -37,7 +37,7 @@
             <td><%= h item.location.short_location unless item.location.blank? %></td>
             <td><%= h item.short_processor unless item.processor.blank? %></td>
 			<td><%= h number_to_human_size(item.ram) unless item.ram.blank? %></td>
-			<td><%= item.ips.first.last_octet unless item.ips.empty? %></td>
+			<td><%= item.ips.first.number unless item.ips.empty? %></td>
 			
 
        

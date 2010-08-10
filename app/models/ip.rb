@@ -9,4 +9,6 @@ class Ip < ActiveRecord::Base
   def last_octet
     number.split(".")[3]
   end
+  
+
 end
