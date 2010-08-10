@@ -16,8 +16,6 @@
 	<%= f.collection_select(:user_id, User.all, :id, :full_name, {:prompt => true}) %>
   </div>
 
-
-
   <div class="group">
     <%= f.label :make, t("activerecord.attributes.item.make", :default => "Make"), :class => :label %>
     <%= f.text_field :make, :class => 'text_field' %>
@@ -30,10 +28,6 @@
     <span class="description">Ex: a simple text</span>
   </div>
 
-	<div class="group">
-    <%= f.label :user_id,  t("activerecord.attributes.item.user_id", :default => "Primary User/Responsible Party"), :class => :label %>
-	<%= f.collection_select(:user_id, User.all, :id, :full_name, {:prompt => true}) %>
-  </div>
 
   <div class="group">
     <%= f.label :processor, t("activerecord.attributes.item.processor", :default => "Processor"), :class => :label %>
