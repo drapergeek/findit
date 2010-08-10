@@ -9,12 +9,13 @@
     <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Items</h2>
     <div class="inner">
       <table class="table">
-        <tr>             
+        <tr>
+	        <th></th>
                     <th>
             <%= t("activerecord.attributes.item.name", :default => t("activerecord.labels.name", :default => "Name")) %>
           </th>
                     
-
+			
 		 	<th>Make</th>
 			<th>Model</th>
 			<th>Type</th>
@@ -22,10 +23,16 @@
 			<th>Processor</th>
 			<th>Ram</th>
 			<th>IP</th>
+			
           <th class="last">&nbsp;</th>
         </tr>
         <% @items.each do |item| -%>
         <tr class="<%= cycle("odd", "even") %>">
+			<% if item.inventoried_recently? %>
+				<td><%= image_tag "green.png", :size => "16x16"%></td>
+			<% else %>
+				<td><%= image_tag "red.png", :size => "16x16"%></td>
+			<% end %>
            	<td><%= link_to item.name, item_path(item) %></td>
 			<td><%= h item.make unless item.make.blank? %></td>
 			<td><%= h item.model unless item.model.blank? %></td>

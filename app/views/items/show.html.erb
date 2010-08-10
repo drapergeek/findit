@@ -21,6 +21,9 @@
           <b><%= t("activerecord.attributes.item.location_id", :default => t("activerecord.labels.location_id", :default => "Location")) %>:</b>
           <%= @item.location.full_name unless @item.location.blank? %>
         </p>
+		 <b><%= t("activerecord.attributes.item.user_id", :default => t("activerecord.labels.user_id", :default => "User/Responsible Person")) %>:</b>
+          <%= @item.user.full_name unless @item.user.blank? %>
+        </p>
 
         <p>
           <b><%= t("activerecord.attributes.item.make", :default => t("activerecord.labels.make", :default => "Make")) %>:</b>
@@ -152,6 +155,10 @@
 	
 			
 		</p>
+		<% unless @item.info.blank? %>
+			<h3>Other Information</h3>
+			<p><%= @item.info %></p>
+		<% end %>
       <div class="wat-cf">
 	<%= link_to "Mark As Inventoried", {:controller=>"items", :action=>"mark_as_inventoried", :id=>@item},:class => "button" %> 
         <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_item_path(@item), :class => "button" %> 
