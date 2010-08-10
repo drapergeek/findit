@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :buildings
 
-  map.resources :items, :collection=>{:add_ip=>:post, :remove_ip=>:get, :remove_dns_name=>:get}
+  map.resources :items, :collection=>{:add_ip=>:post, :remove_ip=>:get, :remove_dns_name=>:get, :mark_as_inventoried=>:get}
 
   map.resources :ips
   map.root :controller=>"items"
