@@ -43,6 +43,15 @@ class Item < ActiveRecord::Base
     end
   end
   
+  
+  def short_processor
+    if processor.length > 10
+      return processor[0..7] + '...'
+    else
+      return processor
+    end
+  end
+  
 
   
   
