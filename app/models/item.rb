@@ -32,9 +32,20 @@ class Item < ActiveRecord::Base
       return false
     else
       return true
-    end
-       
+    end       
   end
+  
+  def short_type
+    if type_of_item.blank?
+      return "?"
+    else
+      type_of_item[0,1].upcase
+    end
+  end
+  
+
+  
+  
   
   
   def mark_as_inventoried
