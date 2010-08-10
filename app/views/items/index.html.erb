@@ -16,8 +16,7 @@
           </th>
                     
 			
-		 	<th>Make</th>
-			<th>Model</th>
+		 	<th>Make/Model</th>
 			<th>Type</th>
 			<th>Location</th>
 			<th>Proc</th>
@@ -33,8 +32,7 @@
 				<td><%= image_tag "red.png", :size => "16x16"%></td>
 			<% end %>
            	<td><%= link_to item.name, item_path(item) %></td>
-			<td><%= h item.make unless item.make.blank? %></td>
-			<td><%= h item.model unless item.model.blank? %></td>
+			<td><%= h item.make_and_model %></td>
 			<td><%= h item.short_type unless item.type_of_item.blank? %></td>
             <td><%= h item.location.short_location unless item.location.blank? %></td>
             <td><%= h item.short_processor unless item.processor.blank? %></td>

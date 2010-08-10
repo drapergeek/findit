@@ -52,10 +52,16 @@ class Item < ActiveRecord::Base
     end
   end
   
+  def make_and_model
+    if make.blank?
+      out_make = "?"
+    end
+    if model.blank?
+      out_model = "?"
+    end
+    return out_make + " " + out_model
+  end
 
-  
-  
-  
   
   def mark_as_inventoried
     self.inventoried_at = Time.now
