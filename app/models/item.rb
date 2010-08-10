@@ -5,11 +5,13 @@ class Item < ActiveRecord::Base
   has_many :installations
   has_many :softwares, :through=>:installations
   has_many :dns_names
+  named_scope :has_ip, :include=> :ips, :conditions=>["ips.id in (SELECT id from ips)"]
   attr_accessor :new_dns_names
   before_save :create_dns_from_names
   before_save :convert_size_to_bytes
   belongs_to :operating_system
   belongs_to :location
+  
   
   def create_dns_from_names
     unless new_dns_names.blank?
@@ -36,6 +38,22 @@ class Item < ActiveRecord::Base
       if self.hard_drive < 1073741824
         self.hard_drive =   hard_drive * 1073741824
       end
+    end
+  end
+  
+  def print_dns_names
+    if dns_names.empty?
+      nil
+    else
+      dns_names.join(",")
+    end
+  end
+  
+  def print_ip
+    if ips.empty?
+      nil
+    else
+      ips.first.number
     end
   end
 end
