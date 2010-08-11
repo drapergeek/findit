@@ -28,10 +28,12 @@ class Item < ActiveRecord::Base
   end
   
   def inventoried_recently?
-    if inventoried_at.blank? || inventoried_at > 1.years.ago.to_datetime  
+    if inventoried_at.blank? 
       return false
-    else
+    elsif inventoried_at > 1.years.ago.to_datetime  
       return true
+    else
+      return false
     end       
   end
   
