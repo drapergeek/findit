@@ -1,6 +1,10 @@
 class IpsController < ApplicationController
   def index
-    @ips = Ip.all
+    if params[:unassigned]
+      @ips = Ip.unassigned
+    else
+      @ips = Ip.all
+    end
   end
   
   def show

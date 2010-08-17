@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   attr_accessible :name, :make, :model, :processor, :processor_rating, :ram, :hard_drive, :serial, :vt_tag, :purchased_at, :warranty_expires_at, :recieved_at, :os
   attr_accessible :type_of_item, :new_dns_names, :operating_system_id, :location_id, :user_id, :info
-  has_many :ips
+  has_many :ips, :dependent=>:nullify
   has_many :installations
   has_many :softwares, :through=>:installations
   has_many :dns_names
