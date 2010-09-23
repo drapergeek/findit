@@ -5,6 +5,7 @@ class Ip < ActiveRecord::Base
   belongs_to :item
   belongs_to :building
   named_scope :unassigned, :conditions=>['item_id IS NULL']
+  default_scope :order=>['number ASC']
   
   def last_octet
     number.split(".")[3]
