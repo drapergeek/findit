@@ -91,6 +91,35 @@
         </p>
 
 		<p>
+			<strong>Primary Label Information</strong>
+			<div>
+				<%= @item.processor %><br>
+			  	<%= number_to_human_size(@item.ram) %><br>
+			</div>
+			
+		</p>
+		
+		<p>
+			<strong>Secondary Label Information</strong>
+			<div>
+				<%= @item.name %><br>
+				<% if @item.ips && @item.ips.count == 1 %>
+				<%= @item.ips.first.number %>
+				<% elsif @item.ips.count > 1 %>
+				Multiple IPs
+				<% else %>
+				Wifi Only
+				<% end %>
+				<br>
+				<% if @item.user %>
+				User: <%= @item.user.full_name %>
+				<% end %>
+			</div>
+		</p>
+
+
+
+		<p>
 			<strong>IPs</strong>
 			<% if @item.ips.count > 0 %>
 				<ul>
