@@ -8,12 +8,12 @@
 
 	<div class="group">
     <%= f.label :location_id,  t("activerecord.attributes.item.location_id", :default => "Location"), :class => :label %>
-	<%= f.collection_select(:location_id, Location.all, :id, :full_name, {:prompt => true}) %>
+	<%= f.collection_select(:location_id, Location.find(:all, :order=>"name"), :id, :full_name, {:prompt => true}) %>
 
   </div>
 	<div class="group">
     <%= f.label :user_id,  t("activerecord.attributes.item.user_id", :default => "Primary User/Responsible Party"), :class => :label %>
-	<%= f.collection_select(:user_id, User.all, :id, :full_name, {:prompt => true}) %>
+	<%= f.collection_select(:user_id, User.find(:all, :order=>"first_name"), :id, :full_name, {:prompt => true}) %>
   </div>
 
   <div class="group">
