@@ -10,7 +10,7 @@
 
 	<div class="group">
     <%= f.label :location_id,  t("activerecord.attributes.item.location_id", :default => "Location"), :class => :label %>
-	<%= f.collection_select(:location_id, Location.find(:all, :order=>"name"), :id, :full_name, {:prompt => true}) %>
+	<%= f.collection_select(:location_id, Location.all, :id, :full_name, {:prompt => true}) %>
 
   </div>
 	<div class="group">
