@@ -12,7 +12,12 @@ class Item < ActiveRecord::Base
   belongs_to :operating_system
   belongs_to :location
   belongs_to :user
-  
+  default_scope :order=>"name"
+  validates_uniqueness_of :name
+  validates_uniqueness_of :serial, :allow_nil=>true
+  validates_uniqueness_of :vt_tag, :allow_nil=>true
+  before_validation :clear_empty_attrs
+
   
   def create_dns_from_names
     unless new_dns_names.blank?
@@ -101,4 +106,11 @@ class Item < ActiveRecord::Base
       ips.first.number
     end
   end
+  
+  protected
+    def clear_empty_attrs
+      @attributes.each do |key,value|
+        self[key] = nil if value.blank?
+      end
+    end
 end
