@@ -3,6 +3,7 @@ class Location < ActiveRecord::Base
   validates_presence_of :building_id
   belongs_to :building
   has_many :items, :dependent=>:nullify
+  default_scope :include=>:building, :order=>["buildings.name, locations.name"]
   def full_name
     building.name + " - " + name
   end
