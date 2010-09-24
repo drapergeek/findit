@@ -5,7 +5,11 @@ class Location < ActiveRecord::Base
   has_many :items, :dependent=>:nullify
   default_scope :include=>:building, :order=>["buildings.name, locations.name"]
   def full_name
-    building.name + " - " + name
+    if building
+      building.name + " - " + name
+    else
+      name
+    end
   end
   
   def short_location

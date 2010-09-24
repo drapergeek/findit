@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class IpTest < ActiveSupport::TestCase
-  def test_should_be_valid
-    assert Ip.new.valid?
+  
+  
+  test "valid ip" do
+    ip = Ip.new(:number=>"128.173.129.1", :building_id=>buildings(:mccomas).id)
+    assert ip.valid?
   end
+  
+  
 end

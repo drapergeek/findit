@@ -4,6 +4,7 @@ one:
   last_name: Draper
   last_login: 2010-05-13 12:32:05
   last_login_ip: 2010-05-13 12:32:05
+  can_login: true
 
 two:
   login: spiderman

@@ -40,11 +40,7 @@ class AnnouncementsControllerTest < ActionController::TestCase
     assert_template 'index'
   end
   
-  test "can not load a page with a valid pid that is not in the db" do
-    login_not_authorized
-    get :index
-    assert_response :redirect
-  end
+
   
   test "cant load a page at all without a valid login" do
     logout

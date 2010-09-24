@@ -1,7 +1,7 @@
-one:
-  name: MyString
+mccomas:
+  name: McComas Hall
   info: MyText
 
-two:
-  name: MyString
+war:
+  name: War Memorial Hall
   info: MyText
