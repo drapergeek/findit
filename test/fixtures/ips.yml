@@ -1,7 +1,9 @@
-one:
-  number: MyString
-  info: MyText
+mccomas_ip:
+  number: 128.173.129.2
+  info: None
+  building: mccomas
 
-two:
-  number: MyString
+war_ip:
+  number: 128.173.108.50
   info: MyText
+  building: war

@@ -1,31 +1,63 @@
-one:
-  name: MyString
-  make: MyString
-  model: MyString
-  processor: MyString
-  processor_rating: 1
-  ram: 1
-  hard_drive: MyString
-  serial: MyString
-  vt_tag: MyString
+desktop:
+  name: rs-immodt-desktop
+  make: Dell
+  model: Optiplex GX260
+  processor: Intel Core 2 Duo 2.4 Ghz
+  processor_rating: 5
+  ram: 1024
+  hard_drive: 60
+  serial: GSDB131
+  vt_tag: VT000121457
   purchased_at: 2010-08-05 14:25:02
   warranty_expires_at: 2010-08-05 14:25:02
   recieved_at: 2010-08-05 14:25:02
-  os: MyString
-  type: MyString
+  os: Windows XP
+  type_of_item: Desktop
+  
+laptop:
+  name: rs-immolt-laptop
+  make: Dell
+  model: Latitude D620
+  processor: 
+  processor_rating: 
+  ram: 4096
+  hard_drive: 1231
+  serial: FHG13F1
+  vt_tag: VT0001244512
+  purchased_at: 2010-08-05 14:25:02
+  warranty_expires_at: 2010-08-05 14:25:02
+  recieved_at: 2010-08-05 14:25:02
+  os: Windows 7
+  type_of_item: Laptop
+  
+server:
+  name: batman
+  make: Dell
+  model: Poweredge 2130
+  processor:  Intel Xeon 24 Core
+  processor_rating: 18
+  ram: 49152
+  hard_drive: 10000
+  serial: ASDB131
+  vt_tag: VT0002131457
+  purchased_at: 2010-08-05 14:25:02
+  warranty_expires_at: 2010-08-05 14:25:02
+  recieved_at: 2010-08-05 14:25:02
+  os: VMWare ESXi
+  type_of_item: Server
 
-two:
-  name: MyString
-  make: MyString
-  model: MyString
-  processor: MyString
-  processor_rating: 1
-  ram: 1
-  hard_drive: MyString
-  serial: MyString
-  vt_tag: MyString
+printer:
+  name: rs-immopt-hpbw
+  make: HP
+  model: Laserjet P2035
+  processor: 
+  processor_rating: 
+  ram: 
+  hard_drive: 
+  serial: GSDFJKL1231fS
+  vt_tag: VT0001214512
   purchased_at: 2010-08-05 14:25:02
   warranty_expires_at: 2010-08-05 14:25:02
   recieved_at: 2010-08-05 14:25:02
-  os: MyString
-  type: MyString
+  os: 
+  type_of_item: Printer

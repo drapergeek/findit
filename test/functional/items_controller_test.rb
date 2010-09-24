@@ -15,35 +15,14 @@ class ItemsControllerTest < ActionController::TestCase
     get :new
     assert_template 'new'
   end
-  
-  def test_create_invalid
-    Item.any_instance.stubs(:valid?).returns(false)
-    post :create
-    assert_template 'new'
-  end
-  
-  def test_create_valid
-    Item.any_instance.stubs(:valid?).returns(true)
-    post :create
-    assert_redirected_to item_url(assigns(:item))
-  end
+
+
   
   def test_edit
     get :edit, :id => Item.first
     assert_template 'edit'
   end
-  
-  def test_update_invalid
-    Item.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Item.first
-    assert_template 'edit'
-  end
-  
-  def test_update_valid
-    Item.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Item.first
-    assert_redirected_to item_url(assigns(:item))
-  end
+
   
   def test_destroy
     item = Item.first
