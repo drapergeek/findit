@@ -3,9 +3,9 @@
   <div class="navigation">
   	  <ul class="navigation">
 		<% ["Desktop", "Laptop", "Server", "Printer", "Virtual Machine", "Other"].each do |item_type| %>
-	    <li><%= link_to item_type +" - " + Item.by_type(item_type).count.to_s, :controller=>"items", :action=>:index, :type=>"item_type" %></li>
+	    <li><%= link_to item_type +" - " + Item.by_type(item_type).count.to_s, :controller=>"items", :action=>:index, :type=>item_type %></li>
 		<% end %>
-		<li><%= link_to "All Items - " + Item.count.to_s, :controller=>"items", :action=>:index, :type=>"all" %></li>
+		<li><%= link_to "All Items - " + Item.count.to_s, :controller=>"items", :action=>:index %></li>
 	  </ul>
   </div>
 </div>

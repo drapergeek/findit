@@ -1,6 +1,12 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    if params[:type]
+      @items = Item.by_type(params[:type])
+      @title = params[:type]+ "s"
+    else
+      @items = Item.all
+      @title = "All Items"
+    end
   end
   
   def show
