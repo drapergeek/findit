@@ -17,6 +17,7 @@ class Item < ActiveRecord::Base
   validates_uniqueness_of :serial, :allow_nil=>true
   validates_uniqueness_of :vt_tag, :allow_nil=>true
   validates_presence_of :type_of_item
+  validates_inclusion_of :type_of_item, :in =>["Desktop", "Laptop", "Printer", "Virtual Machine", "Other"], :message => "Type of item can only be Desktop Laptop Printer Virtual Machine or Other"
   before_validation :clear_empty_attrs
   named_scope :by_type, lambda { |type| {:conditions => {:type_of_item=>type} } }
 

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ItemTest < ActiveSupport::TestCase
   def test_should_be_valid
-    assert Item.new.valid?
+    assert new_valid_item.valid?
   end
   
   
@@ -20,6 +20,6 @@ class ItemTest < ActiveSupport::TestCase
 
   
   def new_valid_item
-    return Item.new
+    return Item.new(:type_of_item=>"Desktop")
   end
 end
