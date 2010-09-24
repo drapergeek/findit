@@ -16,6 +16,7 @@ class Item < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_uniqueness_of :serial, :allow_nil=>true
   validates_uniqueness_of :vt_tag, :allow_nil=>true
+  validates_presence_of :type_of_item
   before_validation :clear_empty_attrs
   named_scope :by_type, lambda { |type| {:conditions => {:type_of_item=>type} } }
 
