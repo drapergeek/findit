@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :items, :collection=>{:add_ip=>:post, :remove_ip=>:get, :remove_dns_name=>:get, :mark_as_inventoried=>:get}
 
   map.resources :ips
-  map.root :controller=>"items"
+  map.root :controller=>"items", :action=>"index", :type=>"Desktop"
 
   map.resources :pages
 
