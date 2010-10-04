@@ -3,4 +3,5 @@ class Software < ActiveRecord::Base
   has_many :installations, :dependent=>:destroy
   has_many :items, :through=>:installations
   belongs_to :operating_system
+  default_scope :order=>"name"
 end
