@@ -82,6 +82,9 @@ class Item < ActiveRecord::Base
     self.save(false)
   end
   
+  def info
+    type_of_item.to_s + ": " + name.to_s
+  end
   
   
   def convert_size_to_bytes
