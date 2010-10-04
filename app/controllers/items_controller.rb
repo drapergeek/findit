@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
+    @item.in_use = true
   end
   
   def create
@@ -81,6 +82,16 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.mark_as_inventoried
     flash[:notice] = "Item is inventoried as of #{@item.inventoried_at}"
+    redirect_to @item
+  end
+  
+  def surplus
+    @item = Item.find(params[:id])
+    if @item.mark_as_surplused
+      flash[:notice] = "Item is surplused as of #{@item.surplused_at}"
+    else
+      flash[:notice] = "There was a problem updating the record"
+    end
     redirect_to @item
   end
 end

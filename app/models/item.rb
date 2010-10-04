@@ -1,6 +1,4 @@
 class Item < ActiveRecord::Base
-  attr_accessible :name, :make, :model, :processor, :processor_rating, :ram, :hard_drive, :serial, :vt_tag, :purchased_at, :warranty_expires_at, :recieved_at, :os
-  attr_accessible :type_of_item, :new_dns_names, :operating_system_id, :location_id, :user_id, :info
   has_many :ips, :dependent=>:nullify
   has_many :installations, :dependent=>:destroy
   has_many :softwares, :through=>:installations
@@ -17,11 +15,9 @@ class Item < ActiveRecord::Base
   validates_uniqueness_of :serial, :allow_nil=>true
   validates_uniqueness_of :vt_tag, :allow_nil=>true
   validates_presence_of :type_of_item
-  validates_inclusion_of :type_of_item, :in =>["Desktop", "Laptop", "Printer", "Virtual Machine", "Other"], :message => "Type of item can only be Desktop Laptop Printer Virtual Machine or Other"
+  validates_inclusion_of :type_of_item, :in =>["Desktop", "Laptop", "Printer", "Virtual Machine", "Other", "Server"], :message => "Type of item can only be Desktop Laptop Printer Virtual Machine, Server or Other"
   before_validation :clear_empty_attrs
   named_scope :by_type, lambda { |type| {:conditions => {:type_of_item=>type} } }
-
-
   
   def create_dns_from_names
     unless new_dns_names.blank?
@@ -78,8 +74,15 @@ class Item < ActiveRecord::Base
   
   def mark_as_inventoried
     self.inventoried_at = Time.now
-    self.save
+    self.save(false)
   end
+  
+  def mark_as_surplused
+    self.surplused_at = Time.now
+    self.save(false)
+  end
+  
+  
   
   def convert_size_to_bytes
     unless self.ram.blank?

@@ -8,7 +8,9 @@
   </div>          
   <div class="content">
     <div class="inner">
-      
+      <% unless @item.in_use? %>
+		<div><strong>This item is not currently being used for any purpose.</strong></div>
+		<% end %>
         <p>
           <b><%= t("activerecord.attributes.item.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
           <%= @item.name %>
@@ -73,6 +75,11 @@
         <p>
           <b><%= t("activerecord.attributes.item.warranty_expires_at", :default => t("activerecord.labels.warranty_expires_at", :default => "Warranty expires at")) %>:</b>
           <%= @item.warranty_expires_at %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.item.surplused_at", :default => t("activerecord.labels.surplused_at", :default => "Surplused At")) %>:</b>
+          <%= @item.surplused_at %>
         </p>
 
         <p>
@@ -190,6 +197,7 @@
 		<% end %>
       <div class="wat-cf">
 	<%= link_to "Mark As Inventoried", {:controller=>"items", :action=>"mark_as_inventoried", :id=>@item},:class => "button" %> 
+	<%= link_to "Surplus Item", {:controller=>"items", :action=>"surplus", :id=>@item},:class => "button" %> 
         <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_item_path(@item), :class => "button" %> 
 
 		 
