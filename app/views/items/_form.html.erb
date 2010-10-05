@@ -1,7 +1,4 @@
-<div>
-	<%= f.error_messages %>
-</div>
-
+<%= render "shared/error_messages", :target=>@item %>
 
   <div class="group">
     <%= f.label :name, t("activerecord.attributes.item.name", :default => "Name"), :class => :label %>
@@ -23,7 +20,7 @@
   </div>
 	<div class="group">
     <%= f.label :user_id,  t("activerecord.attributes.item.user_id", :default => "Primary User/Responsible Party"), :class => :label %>
-	<%= f.collection_select(:user_id, User.find(:all, :order=>"first_name"), :id, :full_name, {:prompt => true}) %>
+	<%= f.collection_select(:user_id, User.order("first_name"), :id, :full_name, {:prompt => true}) %>
   </div>
 
   <div class="group">

@@ -8,7 +8,7 @@
   <div class="content">            
     <h2 class="title"><%= t("web-app-theme.new", :default => "New")%>  OperatingSystem</h2>
     <div class="inner">
-      <% form_for :operating_system, :url => operating_systems_path, :html => { :class => :form } do |f| -%>
+      <%= form_for :operating_system, :url => operating_systems_path, :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
     </div>
