@@ -136,7 +136,7 @@
 				</ul>
 			<% end %>
 			
-			<% form_tag :action=>'add_ip' , :item=>@item do  %>
+			<%= form_tag :action=>'add_ip' , :item=>@item do  %>
 				<select id="ip_selection" name="ip_selection">
 					<% Ip.unassigned.each do |ip| %>
 						<option value='<%= ip.id %>'><%= ip.number %></option>
@@ -161,7 +161,7 @@
 				</ul>
 			<% end %>
 			
-			<% form_tag :controller=>'installations',:action=>'install_software' , :item=>@item do  %>
+			<%= form_tag :controller=>'installations',:action=>'install_software' , :item=>@item do  %>
 				<select id="software_selection" name="software_selection">
 					<% Software.all.each do |software| %>
 						<option value='<%= software.id %>'><%= software.name %></option>
@@ -169,12 +169,8 @@
 				</select>
 				<%= submit_tag 'Install Software' %>
 			<% end %>
-			
-			
+
 		</p>
-		
-		
-		
 		<p>
 			<strong>DNS Names</strong>
 			<% if @item.dns_names.count > 0 %>

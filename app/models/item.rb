@@ -3,8 +3,8 @@ class Item < ActiveRecord::Base
   has_many :installations, :dependent=>:destroy
   has_many :softwares, :through=>:installations
   has_many :dns_names, :dependent=>:nullify
-  named_scope :has_ip, :include=> :ips, :conditions=>["ips.id in (SELECT id from ips)"]
-  named_scope :proc_ratings, :conditions => 'processor_rating IS NOT NULL', :order=>"processor_rating"
+  scope :has_ip, :include=> :ips, :conditions=>["ips.id in (SELECT id from ips)"]
+  scope :proc_ratings, :conditions => 'processor_rating IS NOT NULL', :order=>"processor_rating"
   attr_accessor :new_dns_names
   before_save :create_dns_from_names
   before_save :convert_size_to_bytes
@@ -18,7 +18,7 @@ class Item < ActiveRecord::Base
   validates_presence_of :type_of_item
   validates_inclusion_of :type_of_item, :in =>["Desktop", "Laptop", "Printer", "Virtual Machine", "Other", "Server"], :message => "Type of item can only be Desktop Laptop Printer Virtual Machine, Server or Other"
   before_validation :clear_empty_attrs
-  named_scope :by_type, lambda { |type| {:conditions => {:type_of_item=>type} } }
+  scope :by_type, lambda { |type| {:conditions => {:type_of_item=>type} } }
   
   def create_dns_from_names
     unless new_dns_names.blank?

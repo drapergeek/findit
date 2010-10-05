@@ -4,7 +4,7 @@ class Ip < ActiveRecord::Base
   validates_presence_of :number
   belongs_to :item
   belongs_to :building
-  named_scope :unassigned, :conditions=>['item_id IS NULL']
+  scope :unassigned, :conditions=>['item_id IS NULL']
   default_scope :order=>['number ASC']
   
   def last_octet
