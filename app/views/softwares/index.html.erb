@@ -14,7 +14,8 @@
                     <th>
             <%= t("activerecord.attributes.software.name", :default => t("activerecord.labels.name", :default => "Name")) %>
           </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th>Licenses Purchased</th>
+		  <th>Installed</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @softwares.each do |software| -%>
@@ -25,9 +26,8 @@
                     <td>
             <%= link_to software.name, software_path(software) %>
           </td>
-                    <td>
-            <%= software.created_at %>
-          </td>
+			<td><%= software.number_of_licenses %></td>
+			<td><%= software.installations.count %></td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", software_path(software) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_software_path(software) %> |

@@ -2389,3 +2389,54 @@ Started GET "/items" for 127.0.0.1 at 2010-10-05 13:51:32 -0400
 Rendered items/_sidebar.html.erb (38.1ms)
 Rendered items/index.html.erb within layouts/application (172.0ms)
 Completed 200 OK in 250ms (Views: 175.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Oct 25 08:37:52 -0400 2010
+  Processing by ItemsController#index as HTML
+  Parameters: {"type"=>"Desktop"}
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "last_login" = '2010-10-25 12:37:52.943382', "updated_at" = '2010-10-25 12:37:52.951108' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (14.5ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Desktop') ORDER BY name[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (12.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (6.4ms)
+Rendered items/index.html.erb within layouts/application (206.2ms)
+Completed 200 OK in 390ms (Views: 217.0ms | ActiveRecord: 28.9ms)
+
+
+Started GET "/softwares" for 127.0.0.1 at Mon Oct 25 08:37:55 -0400 2010
+  Processing by SoftwaresController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-10-25 12:37:55.330138', "updated_at" = '2010-10-25 12:37:55.331459' WHERE ("users"."id" = 1)[0m
+  [1m[35mSoftware Load (0.3ms)[0m  SELECT "softwares".* FROM "softwares" ORDER BY name
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "installations" WHERE ("installations".software_id = 2)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "installations" WHERE ("installations".software_id = 1)) AS subquery
+Rendered softwares/_sidebar.html.erb (0.3ms)
+Rendered softwares/index.html.erb within layouts/application (43.2ms)
+Completed 200 OK in 72ms (Views: 50.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/softwares" for 127.0.0.1 at Mon Oct 25 08:37:55 -0400 2010
+  Processing by SoftwaresController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-10-25 12:37:55.710199', "updated_at" = '2010-10-25 12:37:55.711420' WHERE ("users"."id" = 1)[0m
+  [1m[35mSoftware Load (0.3ms)[0m  SELECT "softwares".* FROM "softwares" ORDER BY name
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "installations" WHERE ("installations".software_id = 2)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "installations" WHERE ("installations".software_id = 1)) AS subquery
+Rendered softwares/_sidebar.html.erb (0.2ms)
+Rendered softwares/index.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 95ms (Views: 29.9ms | ActiveRecord: 0.9ms)
