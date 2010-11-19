@@ -20,6 +20,18 @@ class Item < ActiveRecord::Base
   before_validation :clear_empty_attrs
   scope :by_type, lambda { |type| {:conditions => {:type_of_item=>type} } }
   
+  
+  
+  
+  def self.search(search)
+    if search
+      where('name LIKE ? OR vt_tag like ? or model like ? or serial like ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%")
+    else
+      scoped
+    end
+  end
+  
+  
   def create_dns_from_names
     unless new_dns_names.blank?
       if new_dns_names.include? ","

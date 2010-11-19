@@ -32,3 +32,4 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'rubycas-client'
 gem "simple_form"
+gem 'will_paginate','3.0.pre2'
