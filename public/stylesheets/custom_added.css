@@ -22,3 +22,23 @@ li.model_item{
 	margin-left: 15px;
 
 }
+
+/* application.css */
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th a{
+	color: white;
+	
+}
+.pretty th .asc {
+	color: #9ebafb;
+}
+.pretty th .desc {
+	color: #f9bfbf;
+}
+
+

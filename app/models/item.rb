@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
   belongs_to :operating_system
   belongs_to :location
   belongs_to :user
-  default_scope :order=>"name"
+  #default_scope :order=>"name"
   validates_uniqueness_of :name
   validates_uniqueness_of :serial, :allow_nil=>true
   validates_uniqueness_of :vt_tag, :allow_nil=>true
