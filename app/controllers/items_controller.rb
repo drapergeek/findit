@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
   def index
-    @items = Item.search(params[:search]).order(sort_column + " " +sort_direction).paginate(:per_page=>2, :page=>params[:page])
+    @items = Item.search(params[:search]).order(sort_column + " " +sort_direction).paginate(:per_page=>20, :page=>params[:page])
   #  if params[:type]
    #   @items = @items.where(:type_of_item=>params[:type])
   #  end
