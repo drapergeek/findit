@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
+  helper_method :sort_column, :sort_direction
   def index
-    if params[:type]
-      @items = Item.by_type(params[:type])
-      @title = params[:type]+ "s"
-    else
-      @items = Item.all
-      @title = "All Items"
-    end
+    @items = Item.order(sort_column + " " +sort_direction)
+  #  if params[:type]
+   #   @items = @items.where(:type_of_item=>params[:type])
+  #  end
+    @title = "Items"
   end
   
   def show
@@ -93,5 +92,15 @@ class ItemsController < ApplicationController
       flash[:notice] = "There was a problem updating the record"
     end
     redirect_to @item
+  end
+  
+  
+  private
+  def sort_column
+    Item.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

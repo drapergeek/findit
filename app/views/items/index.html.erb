@@ -9,19 +9,15 @@
     <h2 class="title"><%= h @title %></h2>
 
     <div class="inner">
-      <table class="table">
+      <table class="table pretty">
         <tr>
 	        <th></th>
-                    <th>
-            <%= t("activerecord.attributes.item.name", :default => t("activerecord.labels.name", :default => "Name")) %>
-          </th>
-                    
-			
-		 	<th>Make/Model</th>
-			<th>Type</th>
-			<th>Location</th>
-			<th>Proc</th>
-			<th>Ram</th>
+            <th><%= sortable "name" %></th>
+		 	<th><%= sortable "make", "Make/Model"%></th>
+			<th><%= sortable "type_of_item", "Type" %></th>
+			<th><%= sortable "location_id", "Location" %></th>
+			<th><%= sortable "processor", "Proc" %></th>
+			<th><%= sortable "ram" %></th>
 			<th>IP</th>
 
         </tr>
