@@ -194,11 +194,11 @@
       <div class="wat-cf">
 	<%= link_to "Mark As Inventoried", {:controller=>"items", :action=>"mark_as_inventoried", :id=>@item},:class => "button" %> 
 	<%= link_to "Surplus Item", {:controller=>"items", :action=>"surplus", :id=>@item},:class => "button" %> 
-        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_item_path(@item), :class => "button" %> 
+	<%= link_to "Edit", edit_item_path(@item),:class => "button" %> 
+	<%= link_to "Destroy", @item, :confirm => 'Are you sure?', :method => :delete, :class=>"button" %>
 
 		 
 
-        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", item_path(@item), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </div>      
     </div>
   </div>
