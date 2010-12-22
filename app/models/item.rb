@@ -5,12 +5,14 @@ class Item < ActiveRecord::Base
   has_many :dns_names, :dependent=>:nullify
   scope :has_ip, :include=> :ips, :conditions=>["ips.id in (SELECT id from ips)"]
   scope :proc_ratings, :conditions => 'processor_rating IS NOT NULL', :order=>"processor_rating"
+  scope :not_inventoried_recently, :conditions=>["inventoried_at < ? OR inventoried_at IS NULL", 1.years.ago.to_datetime]
   attr_accessor :new_dns_names
   before_save :create_dns_from_names
   before_save :convert_size_to_bytes
   belongs_to :operating_system
   belongs_to :location
   belongs_to :user
+  
   #default_scope :order=>"name"
   validates_uniqueness_of :name
   validates_uniqueness_of :serial, :allow_nil=>true

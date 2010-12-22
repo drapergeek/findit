@@ -6,10 +6,22 @@ Findit::Application.routes.draw do
   resources :softwares
   resources :locations
   resources :buildings
-  resources :items, :collection=>{:add_ip=>:post, :remove_ip=>:get, :remove_dns_name=>:get, :mark_as_inventoried=>:get}
+  resources :items do 
+    collection do
+      get 'not_checked'
+      post 'add_ip'
+      get 'remove_ip'
+      get 'remove_dns_name' 
+      get 'mark_as_inventoried'
+    end
+  end
   resources :ips
   resources :pages
-  resources :users, :collection => { :logout => :get}
+  resources :users do  
+    collection do 
+      get 'logout'
+    end
+  end
   resources :announcements
   
   

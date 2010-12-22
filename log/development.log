@@ -12490,3 +12490,1656 @@ Rendered items/_items.html.erb (47.3ms)
 Rendered items/_sidebar.html.erb (6.2ms)
 Rendered items/index.html.erb within layouts/application (104.8ms)
 Completed 200 OK in 181ms (Views: 108.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Dec 22 11:49:09 -0500 2010
+  Processing by ItemsController#index as HTML
+  Parameters: {"type"=>"Desktop"}
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:49:09.613856', "updated_at" = '2010-12-22 16:49:09.623195' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (17.3ms)[0m  [1mSELECT "items".* FROM "items" ORDER BY name asc LIMIT 20 OFFSET 0[0m
+  [1m[35mSQL (9.5ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 8)) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 6)) AS subquery
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery[0m
+Rendered items/_items.html.erb (136.5ms)
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (6.4ms)
+Rendered items/index.html.erb within layouts/application (204.9ms)
+Completed 200 OK in 347ms (Views: 227.9ms | ActiveRecord: 29.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Dec 22 11:50:05 -0500 2010
+  Processing by ItemsController#index as HTML
+  Parameters: {"type"=>"Desktop"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-12-22 16:50:06.066329', "updated_at" = '2010-12-22 16:50:06.067453' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" ORDER BY name asc LIMIT 20 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 8)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 6)) AS subquery[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery
+Rendered items/_items.html.erb (94.1ms)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "items"[0m
+Rendered items/_sidebar.html.erb (6.9ms)
+Rendered items/index.html.erb within layouts/application (107.4ms)
+Completed 200 OK in 144ms (Views: 111.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/items/list_all_not_inventory" for 127.0.0.1 at Wed Dec 22 11:50:46 -0500 2010
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"list_all_not_inventory", "collection"=>{"remove_ip"=>:get, "add_ip"=>:post, "remove_dns_name"=>:get, "list_all_not_inventory"=>:get, "mark_as_inventoried"=>:get}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:50:46.521459', "updated_at" = '2010-12-22 16:50:46.522744' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 0) LIMIT 1[0m
+Completed   in 30ms
+
+ActiveRecord::RecordNotFound (Couldn't find Item with ID=list_all_not_inventory):
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:296:in `find_one'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:281:in `find_with_ids'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:107:in `find'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `__send__'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `find'
+  app/controllers/items_controller.rb:17:in `show'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__453433196__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:96:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (59.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (69.0ms)
+
+
+Started GET "/items/list_all_not_inventory" for 127.0.0.1 at Wed Dec 22 11:51:02 -0500 2010
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"list_all_not_inventory", "collection"=>{"remove_ip"=>:get, "add_ip"=>:post, "list_all_not_inventory"=>:get, "remove_dns_name"=>:get, "mark_as_inventoried"=>:get}}
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:51:02.113988', "updated_at" = '2010-12-22 16:51:02.120060' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 0) LIMIT 1[0m
+Completed   in 46ms
+
+ActiveRecord::RecordNotFound (Couldn't find Item with ID=list_all_not_inventory):
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:296:in `find_one'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:281:in `find_with_ids'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:107:in `find'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `__send__'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `find'
+  app/controllers/items_controller.rb:17:in `show'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__453433196__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:96:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.1ms)
+
+
+Started GET "/items/list_all_not_inventory" for 127.0.0.1 at Wed Dec 22 11:51:03 -0500 2010
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"list_all_not_inventory", "collection"=>{"remove_ip"=>:get, "add_ip"=>:post, "list_all_not_inventory"=>:get, "remove_dns_name"=>:get, "mark_as_inventoried"=>:get}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:51:03.188950', "updated_at" = '2010-12-22 16:51:03.190368' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 0) LIMIT 1[0m
+Completed   in 48ms
+
+ActiveRecord::RecordNotFound (Couldn't find Item with ID=list_all_not_inventory):
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:296:in `find_one'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:281:in `find_with_ids'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:107:in `find'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `__send__'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `find'
+  app/controllers/items_controller.rb:17:in `show'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__453433196__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:96:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
+
+
+Started GET "/items/inventory" for 127.0.0.1 at Wed Dec 22 11:51:26 -0500 2010
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"inventory", "collection"=>{"remove_ip"=>:get, "add_ip"=>:post, "inventory"=>:get, "remove_dns_name"=>:get, "mark_as_inventoried"=>:get}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:51:26.457611', "updated_at" = '2010-12-22 16:51:26.458885' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 0) LIMIT 1[0m
+Completed   in 72ms
+
+ActiveRecord::RecordNotFound (Couldn't find Item with ID=inventory):
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:296:in `find_one'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:281:in `find_with_ids'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:107:in `find'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `__send__'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `find'
+  app/controllers/items_controller.rb:17:in `show'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__453433196__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:96:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.1ms)
+
+
+Started GET "/items/inventory" for 127.0.0.1 at Wed Dec 22 11:51:42 -0500 2010
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"inventory", "collection"=>{"remove_ip"=>:get, "add_ip"=>:post, "inventory"=>:get, "remove_dns_name"=>:get, "mark_as_inventoried"=>:get}}
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:51:42.258504', "updated_at" = '2010-12-22 16:51:42.264025' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 0) LIMIT 1[0m
+Completed   in 90ms
+
+ActiveRecord::RecordNotFound (Couldn't find Item with ID=inventory):
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:296:in `find_one'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:281:in `find_with_ids'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:107:in `find'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `__send__'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `find'
+  app/controllers/items_controller.rb:17:in `show'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__453433196__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:96:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+
+
+Started GET "/items/inventory" for 127.0.0.1 at Wed Dec 22 11:51:57 -0500 2010
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"inventory", "collection"=>{"remove_ip"=>:get, "add_ip"=>:post, "inventory"=>:get, "remove_dns_name"=>:get, "mark_as_inventoried"=>:get}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:51:57.249788', "updated_at" = '2010-12-22 16:51:57.251183' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 0) LIMIT 1[0m
+Completed   in 33ms
+
+ActiveRecord::RecordNotFound (Couldn't find Item with ID=inventory):
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:296:in `find_one'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:281:in `find_with_ids'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:107:in `find'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `__send__'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `find'
+  app/controllers/items_controller.rb:17:in `show'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__453433196__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:96:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Wed Dec 22 11:52:04 -0500 2010
+  Processing by ItemsController#index as HTML
+  Parameters: {"type"=>"Desktop"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:52:04.781925', "updated_at" = '2010-12-22 16:52:04.783057' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.7ms)[0m  [1mSELECT "items".* FROM "items" ORDER BY name asc LIMIT 20 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 8)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 6)) AS subquery
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery[0m
+Rendered items/_items.html.erb (101.7ms)
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (6.8ms)
+Rendered items/index.html.erb within layouts/application (117.1ms)
+Completed 200 OK in 154ms (Views: 122.8ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/items/new" for 127.0.0.1 at Wed Dec 22 11:52:06 -0500 2010
+  Processing by ItemsController#new as HTML
+  Parameters: {"collection"=>{"remove_ip"=>:get, "add_ip"=>:post, "inventory"=>:get, "remove_dns_name"=>:get, "mark_as_inventoried"=>:get}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-12-22 16:52:06.738339', "updated_at" = '2010-12-22 16:52:06.739470' WHERE ("users"."id" = 1)[0m
+Rendered shared/_error_messages.html.erb (0.3ms)
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" ORDER BY buildings.name, locations.name
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY first_name[0m
+  [1m[35mOperatingSystem Load (0.2ms)[0m  SELECT "operating_systems".* FROM "operating_systems"
+Rendered items/_form.html.erb (115.4ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "items"[0m
+Rendered items/_sidebar.html.erb (7.8ms)
+Rendered items/new.html.erb within layouts/application (145.8ms)
+Completed 200 OK in 238ms (Views: 158.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/items" for 127.0.0.1 at Wed Dec 22 11:52:07 -0500 2010
+  Processing by ItemsController#index as HTML
+  Parameters: {"collection"=>{"remove_ip"=>:get, "add_ip"=>:post, "inventory"=>:get, "remove_dns_name"=>:get, "mark_as_inventoried"=>:get}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:52:07.517859', "updated_at" = '2010-12-22 16:52:07.519060' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.5ms)[0m  [1mSELECT "items".* FROM "items" ORDER BY name asc LIMIT 20 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 8)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 6)) AS subquery
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery[0m
+Rendered items/_items.html.erb (47.6ms)
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (6.3ms)
+Rendered items/index.html.erb within layouts/application (102.0ms)
+Completed 200 OK in 189ms (Views: 105.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/items/1" for 127.0.0.1 at Wed Dec 22 11:52:09 -0500 2010
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"1", "collection"=>{"remove_ip"=>:get, "add_ip"=>:post, "inventory"=>:get, "remove_dns_name"=>:get, "mark_as_inventoried"=>:get}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-12-22 16:52:09.528608', "updated_at" = '2010-12-22 16:52:09.529703' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE (item_id IS NULL) ORDER BY number ASC
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1))[0m
+  [1m[35mSoftware Load (0.2ms)[0m  SELECT "softwares".* FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1)) ORDER BY name
+  [1m[36mSoftware Load (0.2ms)[0m  [1mSELECT "softwares".* FROM "softwares" ORDER BY name[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "dns_names" WHERE ("dns_names".item_id = 1)) AS subquery
+  [1m[36mDnsName Load (0.1ms)[0m  [1mSELECT "dns_names".* FROM "dns_names" WHERE ("dns_names".item_id = 1)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (5.7ms)
+Rendered items/show.html.erb within layouts/application (251.5ms)
+Completed 200 OK in 290ms (Views: 258.1ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/items/add_ip?item=1" for 127.0.0.1 at Wed Dec 22 11:52:13 -0500 2010
+  Processing by ItemsController#add_ip as HTML
+  Parameters: {"commit"=>"Add IP", "ip_selection"=>"1", "authenticity_token"=>"7HRguvAqsoDBhLqZLPJQf6zpHGdJaQWEAgQO4t2MgUM=", "utf8"=>"✓", "item"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-12-22 16:52:13.170703', "updated_at" = '2010-12-22 16:52:13.171882' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1
+  [1m[36mIp Load (0.2ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips"."id" = 1) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "ips" SET "item_id" = 1, "updated_at" = '2010-12-22 16:52:13.269726' WHERE ("ips"."id" = 1)
+Redirected to http://localhost:3000/items/1
+Completed 302 Found in 112ms
+
+
+Started GET "/items/1" for 127.0.0.1 at Wed Dec 22 11:52:13 -0500 2010
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"1", "collection"=>{"remove_ip"=>:get, "add_ip"=>:post, "inventory"=>:get, "remove_dns_name"=>:get, "mark_as_inventoried"=>:get}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-12-22 16:52:13.315403', "updated_at" = '2010-12-22 16:52:13.316806' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE (item_id IS NULL) ORDER BY number ASC[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1))
+  [1m[36mSoftware Load (0.1ms)[0m  [1mSELECT "softwares".* FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1)) ORDER BY name[0m
+  [1m[35mSoftware Load (0.2ms)[0m  SELECT "softwares".* FROM "softwares" ORDER BY name
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "dns_names" WHERE ("dns_names".item_id = 1)) AS subquery[0m
+  [1m[35mDnsName Load (0.1ms)[0m  SELECT "dns_names".* FROM "dns_names" WHERE ("dns_names".item_id = 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "items"[0m
+Rendered items/_sidebar.html.erb (5.6ms)
+Rendered items/show.html.erb within layouts/application (203.1ms)
+Completed 200 OK in 251ms (Views: 206.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/items/remove_ip?ip=1" for 127.0.0.1 at Wed Dec 22 11:52:18 -0500 2010
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"remove_ip", "ip"=>"1", "collection"=>{"remove_ip"=>:get, "add_ip"=>:post, "inventory"=>:get, "remove_dns_name"=>:get, "mark_as_inventoried"=>:get}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:52:18.308074', "updated_at" = '2010-12-22 16:52:18.309466' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (69.5ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 0) LIMIT 1[0m
+Completed   in 99ms
+
+ActiveRecord::RecordNotFound (Couldn't find Item with ID=remove_ip):
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:296:in `find_one'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:281:in `find_with_ids'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:107:in `find'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `__send__'
+  activerecord (3.0.0) lib/active_record/base.rb:439:in `find'
+  app/controllers/items_controller.rb:17:in `show'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__453433196__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:96:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.8ms)
+
+
+Started GET "/items/1" for 127.0.0.1 at Wed Dec 22 11:54:22 -0500 2010
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:54:22.528961', "updated_at" = '2010-12-22 16:54:22.534468' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE (item_id IS NULL) ORDER BY number ASC
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1))[0m
+  [1m[35mSoftware Load (0.2ms)[0m  SELECT "softwares".* FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1)) ORDER BY name
+  [1m[36mSoftware Load (0.2ms)[0m  [1mSELECT "softwares".* FROM "softwares" ORDER BY name[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "dns_names" WHERE ("dns_names".item_id = 1)) AS subquery
+  [1m[36mDnsName Load (0.2ms)[0m  [1mSELECT "dns_names".* FROM "dns_names" WHERE ("dns_names".item_id = 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (6.9ms)
+Rendered items/show.html.erb within layouts/application (199.0ms)
+Completed 200 OK in 251ms (Views: 203.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/items/not_checked" for 127.0.0.1 at Wed Dec 22 11:54:26 -0500 2010
+  Processing by ItemsController#not_checked as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-12-22 16:54:26.382611', "updated_at" = '2010-12-22 16:54:26.383923' WHERE ("users"."id" = 1)[0m
+Completed   in 91ms
+
+ActionView::MissingTemplate (Missing template /index with {:locale=>[:en, :en], :handlers=>[:rjs, :rhtml, :builder, :erb, :rxml], :formats=>[:html]} in view paths "/Users/gdraper/Dropbox/code/findit/app/views", "/Users/gdraper/Dropbox/code/findit/vendor/plugins/web-app-theme/app/views", "/Users/gdraper/Dropbox/code/findit/vendor/plugins/rubycas-client/app/views", "/Users/gdraper/Dropbox/code/findit/vendor/plugins/rails_upgrade/app/views"):
+  actionpack (3.0.0) lib/action_view/paths.rb:15:in `find'
+  actionpack (3.0.0) lib/action_view/lookup_context.rb:81:in `find_template'
+  actionpack (3.0.0) lib/action_view/base.rb:186:in `__send__'
+  actionpack (3.0.0) lib/action_view/base.rb:186:in `find_template'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:46:in `_determine_template'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:24:in `render'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:114:in `_render_template'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:108:in `render_to_body'
+  actionpack (3.0.0) lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+  actionpack (3.0.0) lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:101:in `render_to_string'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:92:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:17:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  activesupport (3.0.0) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+  activesupport (3.0.0) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+  activerecord (3.0.0) lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  app/controllers/items_controller.rb:13:in `not_checked'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__110492454__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:68:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.5ms)
+
+
+Started GET "/items/not_checked" for 127.0.0.1 at Wed Dec 22 11:54:42 -0500 2010
+  Processing by ItemsController#not_checked as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:54:42.330498', "updated_at" = '2010-12-22 16:54:42.331966' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (inventoried_at > '2009-12-22 16:54:42')[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery[0m
+Rendered items/_items.html.erb (98.5ms)
+Rendered items/index.html.erb within layouts/application (102.3ms)
+Completed   in 143ms
+
+ActionView::Template::Error (undefined method `total_pages' for #<ActiveRecord::Relation:0x102fe3b18>):
+    30:   </tr>          
+    31:   <% end -%>
+    32: </table>
+    33: <%= will_paginate @products %>
+  activerecord (3.0.0) lib/active_record/relation.rb:373:in `method_missing'
+  will_paginate (3.0.pre2) lib/will_paginate/view_helpers/base.rb:43:in `will_paginate'
+  will_paginate (3.0.pre2) lib/will_paginate/view_helpers/action_view.rb:33:in `will_paginate'
+  app/views/items/_items.html.erb:33:in `_app_views_items__items_html_erb__87152159_2172538820_1919070'
+  actionpack (3.0.0) lib/action_view/template.rb:135:in `send'
+  actionpack (3.0.0) lib/action_view/template.rb:135:in `render'
+  activesupport (3.0.0) lib/active_support/notifications.rb:54:in `instrument'
+  actionpack (3.0.0) lib/action_view/template.rb:127:in `render'
+  actionpack (3.0.0) lib/action_view/render/partials.rb:294:in `render_partial'
+  actionpack (3.0.0) lib/action_view/render/partials.rb:223:in `render'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_view/render/partials.rb:221:in `render'
+  actionpack (3.0.0) lib/action_view/render/partials.rb:334:in `_render_partial'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:31:in `render'
+  app/views/items/index.html.erb:22:in `_app_views_items_index_html_erb__214868539_2172570060_0'
+  actionpack (3.0.0) lib/action_view/template.rb:135:in `send'
+  actionpack (3.0.0) lib/action_view/template.rb:135:in `render'
+  activesupport (3.0.0) lib/active_support/notifications.rb:54:in `instrument'
+  actionpack (3.0.0) lib/action_view/template.rb:127:in `render'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:59:in `_render_template'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:56:in `_render_template'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:26:in `render'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:114:in `_render_template'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:108:in `render_to_body'
+  actionpack (3.0.0) lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+  actionpack (3.0.0) lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:101:in `render_to_string'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:92:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:17:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  activesupport (3.0.0) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+  activesupport (3.0.0) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+  activerecord (3.0.0) lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  app/controllers/items_controller.rb:13:in `not_checked'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__110492454__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:68:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.2ms)
+
+
+Started GET "/items/not_checked" for 127.0.0.1 at Wed Dec 22 11:54:59 -0500 2010
+  Processing by ItemsController#not_checked as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:54:59.811441', "updated_at" = '2010-12-22 16:54:59.812727' WHERE ("users"."id" = 1)
+Completed   in 29ms
+
+ArgumentError (:page parameter required):
+  will_paginate (3.0.pre2) lib/will_paginate/finders/base.rb:97:in `wp_parse_options'
+  will_paginate (3.0.pre2) lib/will_paginate/finders/base.rb:60:in `paginate'
+  app/controllers/items_controller.rb:12:in `not_checked'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__110492454__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:68:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.4ms)
+
+
+Started GET "/items/not_checked" for 127.0.0.1 at Wed Dec 22 11:55:10 -0500 2010
+  Processing by ItemsController#not_checked as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-12-22 16:55:10.277415', "updated_at" = '2010-12-22 16:55:10.278520' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (inventoried_at > '2009-12-22 16:55:10') LIMIT 100 OFFSET 0
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery
+Rendered items/_items.html.erb (86.1ms)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "items"[0m
+Rendered items/_sidebar.html.erb (6.0ms)
+Rendered items/index.html.erb within layouts/application (98.5ms)
+Completed 200 OK in 181ms (Views: 102.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/items/not_checked" for 127.0.0.1 at Wed Dec 22 11:55:18 -0500 2010
+  Processing by ItemsController#not_checked as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:55:18.709933', "updated_at" = '2010-12-22 16:55:18.711437' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE (inventoried_at < '2009-12-22 16:55:18') LIMIT 100 OFFSET 0[0m
+Rendered items/_items.html.erb (3.1ms)
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (6.3ms)
+Rendered items/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 107ms (Views: 20.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/items/not_checked" for 127.0.0.1 at Wed Dec 22 11:55:19 -0500 2010
+  Processing by ItemsController#not_checked as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-12-22 16:55:19.494179', "updated_at" = '2010-12-22 16:55:19.495623' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE (inventoried_at < '2009-12-22 16:55:19') LIMIT 100 OFFSET 0
+Rendered items/_items.html.erb (2.6ms)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "items"[0m
+Rendered items/_sidebar.html.erb (6.0ms)
+Rendered items/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 101ms (Views: 19.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/items/not_checked" for 127.0.0.1 at Wed Dec 22 11:55:27 -0500 2010
+  Processing by ItemsController#not_checked as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:55:27.805855', "updated_at" = '2010-12-22 16:55:27.807110' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE (inventoried_at !> '2009-12-22 16:55:27') LIMIT 100 OFFSET 0[0m
+SQLite3::SQLException: unrecognized token: "!>": SELECT     "items".* FROM       "items"  WHERE     (inventoried_at !> '2009-12-22 16:55:27') LIMIT 100 OFFSET 0
+Completed   in 81ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: unrecognized token: "!>": SELECT     "items".* FROM       "items"  WHERE     (inventoried_at !> '2009-12-22 16:55:27') LIMIT 100 OFFSET 0):
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract_adapter.rb:202:in `log'
+  activerecord (3.0.0) lib/active_record/connection_adapters/sqlite_adapter.rb:135:in `execute'
+  activerecord (3.0.0) lib/active_record/connection_adapters/sqlite_adapter.rb:284:in `select'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:7:in `select_all'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:54:in `select_all'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:68:in `cache_sql'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:54:in `select_all'
+  activerecord (3.0.0) lib/active_record/base.rb:467:in `find_by_sql'
+  activerecord (3.0.0) lib/active_record/relation.rb:64:in `to_a'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:143:in `all'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:105:in `send'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:105:in `find'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:101:in `find'
+  will_paginate (3.0.pre2) lib/will_paginate/finders/active_record.rb:91:in `send'
+  will_paginate (3.0.pre2) lib/will_paginate/finders/active_record.rb:91:in `wp_query'
+  will_paginate (3.0.pre2) lib/will_paginate/finders/base.rb:64:in `paginate'
+  will_paginate (3.0.pre2) lib/will_paginate/collection.rb:87:in `create'
+  will_paginate (3.0.pre2) lib/will_paginate/finders/base.rb:62:in `paginate'
+  app/controllers/items_controller.rb:12:in `not_checked'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__110492454__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:68:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.8ms)
+
+
+Started GET "/items/not_checked" for 127.0.0.1 at Wed Dec 22 11:55:31 -0500 2010
+  Processing by ItemsController#not_checked as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-12-22 16:55:31.906141', "updated_at" = '2010-12-22 16:55:31.907509' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE (inventoried_at < '2009-12-22 16:55:31') LIMIT 100 OFFSET 0[0m
+Rendered items/_items.html.erb (4.3ms)
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (64.9ms)
+Rendered items/index.html.erb within layouts/application (77.0ms)
+Completed 200 OK in 117ms (Views: 83.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/items/not_checked" for 127.0.0.1 at Wed Dec 22 11:55:43 -0500 2010
+  Processing by ItemsController#not_checked as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-12-22 16:55:43.191083', "updated_at" = '2010-12-22 16:55:43.192351' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE (inventoried_at < '2009-12-22 16:55:43' OR inventoried at IS NULL) LIMIT 100 OFFSET 0
+SQLite3::SQLException: near "at": syntax error: SELECT     "items".* FROM       "items"  WHERE     (inventoried_at < '2009-12-22 16:55:43' OR inventoried at IS NULL) LIMIT 100 OFFSET 0
+Completed   in 30ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "at": syntax error: SELECT     "items".* FROM       "items"  WHERE     (inventoried_at < '2009-12-22 16:55:43' OR inventoried at IS NULL) LIMIT 100 OFFSET 0):
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract_adapter.rb:202:in `log'
+  activerecord (3.0.0) lib/active_record/connection_adapters/sqlite_adapter.rb:135:in `execute'
+  activerecord (3.0.0) lib/active_record/connection_adapters/sqlite_adapter.rb:284:in `select'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:7:in `select_all'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:54:in `select_all'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:68:in `cache_sql'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:54:in `select_all'
+  activerecord (3.0.0) lib/active_record/base.rb:467:in `find_by_sql'
+  activerecord (3.0.0) lib/active_record/relation.rb:64:in `to_a'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:143:in `all'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:105:in `send'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:105:in `find'
+  activerecord (3.0.0) lib/active_record/relation/finder_methods.rb:101:in `find'
+  will_paginate (3.0.pre2) lib/will_paginate/finders/active_record.rb:91:in `send'
+  will_paginate (3.0.pre2) lib/will_paginate/finders/active_record.rb:91:in `wp_query'
+  will_paginate (3.0.pre2) lib/will_paginate/finders/base.rb:64:in `paginate'
+  will_paginate (3.0.pre2) lib/will_paginate/collection.rb:87:in `create'
+  will_paginate (3.0.pre2) lib/will_paginate/finders/base.rb:62:in `paginate'
+  app/controllers/items_controller.rb:12:in `not_checked'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__110492454__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:68:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (66.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (71.8ms)
+
+
+Started GET "/items/not_checked" for 127.0.0.1 at Wed Dec 22 11:56:21 -0500 2010
+  Processing by ItemsController#not_checked as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2010-12-22 16:56:21.614167', "updated_at" = '2010-12-22 16:56:21.615500' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE (inventoried_at < '2009-12-22 16:56:21' OR inventoried_at IS NULL) LIMIT 100 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 6)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 8)) AS subquery[0m
+Rendered items/_items.html.erb (66.4ms)
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (7.0ms)
+Rendered items/index.html.erb within layouts/application (79.8ms)
+Completed 200 OK in 116ms (Views: 83.7ms | ActiveRecord: 2.0ms)
