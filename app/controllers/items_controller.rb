@@ -8,6 +8,11 @@ class ItemsController < ApplicationController
     @title = "Items"
   end
   
+  def not_checked
+    @items = Item.not_inventoried_recently.paginate(:per_page=>100, :page=>params[:page])
+    render :template=>'items/index'
+  end
+  
   def show
     @item = Item.find(params[:id])
   end
