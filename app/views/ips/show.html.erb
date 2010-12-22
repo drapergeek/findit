@@ -31,8 +31,9 @@
 				<%= link_to @ip.building.name, @ip.building  unless @ip.building.blank? %>
 		</p>
       <div class="wat-cf">
-        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_ip_path(@ip), :class => "button" %> 
-        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", ip_path(@ip), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+		<%= link_to "Edit", edit_ip_path(@ip),:class => "button" %> 
+		<%= link_to "Destroy", @ip, :confirm => 'Are you sure?', :method => :delete, :class=>"button" %>
+
       </div>      
     </div>
   </div>
