@@ -11,9 +11,18 @@
       <% unless @item.in_use? %>
 		<div><strong>This item is not currently being used for any purpose.</strong></div>
 		<% end %>
+		<% if @item.critical %>
+		<div>
+			<h3>This is a critical item!</h3>
+		</div>
+		<% end %>
         <p>
           <b><%= t("activerecord.attributes.item.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
           <%= @item.name %>
+        </p>
+        <p>
+          <b><%= t("activerecord.attributes.item.priority", :default => t("activerecord.labels.priority", :default => "Priority")) %>:</b>
+          <%= @item.priority %>
         </p>
         <p>
           <b><%= t("activerecord.attributes.item.inventoried_at", :default => t("activerecord.labels.inventoried_at", :default => "Last Inventory")) %>:</b>

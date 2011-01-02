@@ -11,6 +11,17 @@
     <%= f.check_box :in_use, :class => 'check_box' %>
     <span class="description">Is this item currently being used?</span>
   </div>
+  <div class="group">
+    <%= f.label :critical, t("activerecord.attributes.item.critical", :default => "Critical:"), :class => :label %>
+    <%= f.check_box :critical, :class => 'check_box' %>
+    <span class="description">Is this is a critical machine?(Server)</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :priority, t("activerecord.attributes.item.priority", :default => "Priority:"), :class => :label %>
+    <%= f.select :priority, 1...5, :prompt=>true %>
+    <span class="description">Is this is a critical machine?(Server)</span>
+  </div>
 
 
 	<div class="group">
