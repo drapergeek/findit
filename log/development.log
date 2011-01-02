@@ -17011,3 +17011,17 @@ Started GET "/items/7" for 127.0.0.1 at Sun Jan 02 11:18:00 -0500 2011
 Rendered items/_sidebar.html.erb (10.9ms)
 Rendered items/show.html.erb within layouts/application (181.5ms)
 Completed 200 OK in 320ms (Views: 189.4ms | ActiveRecord: 3.3ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mItem Load (0.5ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."in_use" = 't')
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."in_use" = 't')) AS subquery[0m
