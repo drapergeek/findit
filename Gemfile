@@ -34,5 +34,6 @@ gem 'rubycas-client'
 gem "simple_form"
 gem 'will_paginate','3.0.pre2'
 gem 'jquery-rails'
+gem 'fastercsv'
 gem 'thor'
-#gem 'comma'
+gem 'comma'
