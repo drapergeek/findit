@@ -11,4 +11,8 @@ class ReportsController < ApplicationController
   def proc_ratings
     @items = Item.proc_ratings
   end
+  
+  def sec_review
+    @items = Item.in_use
+  end
 end
