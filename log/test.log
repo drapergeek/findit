@@ -1843,3 +1843,542 @@ Completed 302 Found in 8ms
   [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2010-10-29 20:11:00.599402', "last_login_ip" = '0.0.0.0', "updated_at" = '2010-10-29 20:11:00.600338' WHERE ("users"."id" = 980190962)
   [1m[36mDnsName Load (0.1ms)[0m  [1mSELECT "dns_names".* FROM "dns_names" WHERE ("dns_names"."id" = 298486374) LIMIT 1[0m
 Completed   in 66ms
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.0ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-01-03 20:07:02.691978', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-01-03 20:07:02.691978', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  Processing by AnnouncementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.333094', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.336086' WHERE ("users"."id" = 980190962)
+  [1m[36mAnnouncement Load (0.1ms)[0m  [1mSELECT "announcements".* FROM "announcements"[0m
+Rendered announcements/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 28ms (Views: 16.6ms | ActiveRecord: 3.1ms)
+  Processing by AnnouncementsController#index as HTML
+Guessed service url: "http://test.host/announcements"
+Generated login url: https://auth.vt.edu/login?service=http%3A%2F%2Ftest.host%2Fannouncements
+Redirecting to "https://auth.vt.edu/login?service=http%3A%2F%2Ftest.host%2Fannouncements"
+Redirected to https://auth.vt.edu/login?service=http%3A%2F%2Ftest.host%2Fannouncements
+Completed 302 Found in 1ms
+  [1m[35mAnnouncement Load (0.1ms)[0m  SELECT "announcements".* FROM "announcements" LIMIT 1
+  Processing by AnnouncementsController#destroy as HTML
+  Parameters: {"id"=>#<Announcement id: 298486374, name: "MyString", info: "MyText", start_at: "2010-05-13 11:56:59", end_at: "2010-05-13 11:56:59", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:04.380479', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.381462' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mAnnouncement Load (0.1ms)[0m  SELECT "announcements".* FROM "announcements" WHERE ("announcements"."id" = 298486374) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "announcements" WHERE ("announcements"."id" = 298486374)[0m
+Redirected to http://test.host/announcements
+Completed 302 Found in 5ms
+  [1m[35mAnnouncement Load (0.1ms)[0m  SELECT "announcements"."id" FROM "announcements" WHERE ("announcements"."id" = 298486374) LIMIT 1
+  [1m[36mAnnouncement Load (0.1ms)[0m  [1mSELECT "announcements".* FROM "announcements" LIMIT 1[0m
+  Processing by AnnouncementsController#edit as HTML
+  Parameters: {"id"=>#<Announcement id: 298486374, name: "MyString", info: "MyText", start_at: "2010-05-13 11:56:59", end_at: "2010-05-13 11:56:59", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.391934', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.392853' WHERE ("users"."id" = 980190962)
+  [1m[36mAnnouncement Load (0.1ms)[0m  [1mSELECT "announcements".* FROM "announcements" WHERE ("announcements"."id" = 298486374) LIMIT 1[0m
+Rendered announcements/_form.html.erb (12.8ms)
+Completed 200 OK in 23ms (Views: 19.1ms | ActiveRecord: 1.4ms)
+  Processing by AnnouncementsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.418420', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.419414' WHERE ("users"."id" = 980190962)
+  [1m[36mAnnouncement Load (0.1ms)[0m  [1mSELECT "announcements".* FROM "announcements"[0m
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.5ms)
+  Processing by AnnouncementsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.432093', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.433081' WHERE ("users"."id" = 980190962)
+Rendered announcements/_form.html.erb (10.7ms)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 0.4ms)
+  [1m[36mAnnouncement Load (0.3ms)[0m  [1mSELECT "announcements".* FROM "announcements" LIMIT 1[0m
+  Processing by AnnouncementsController#show as HTML
+  Parameters: {"id"=>#<Announcement id: 298486374, name: "MyString", info: "MyText", start_at: "2010-05-13 11:56:59", end_at: "2010-05-13 11:56:59", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.458459', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.459872' WHERE ("users"."id" = 980190962)
+  [1m[36mAnnouncement Load (0.1ms)[0m  [1mSELECT "announcements".* FROM "announcements" WHERE ("announcements"."id" = 298486374) LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 5.9ms | ActiveRecord: 1.0ms)
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" LIMIT 1
+  Processing by BuildingsController#destroy as HTML
+  Parameters: {"id"=>#<Building id: 739437874, name: "War Memorial Hall", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:04.478591', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.479546' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 739437874) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "ips" SET building_id = NULL WHERE ((building_id = 739437874))[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "locations" SET building_id = NULL WHERE ((building_id = 739437874))
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "buildings" WHERE ("buildings"."id" = 739437874)[0m
+Redirected to http://test.host/buildings
+Completed 302 Found in 9ms
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings"."id" FROM "buildings" WHERE ("buildings"."id" = 739437874) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" LIMIT 1[0m
+  Processing by BuildingsController#edit as HTML
+  Parameters: {"id"=>#<Building id: 739437874, name: "War Memorial Hall", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.495508', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.496987' WHERE ("users"."id" = 980190962)
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 739437874) LIMIT 1[0m
+Rendered buildings/_form.html.erb (1.5ms)
+Rendered buildings/_sidebar.html.erb (0.2ms)
+Completed 200 OK in 70ms (Views: 65.2ms | ActiveRecord: 1.8ms)
+  Processing by BuildingsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.569804', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.570809' WHERE ("users"."id" = 980190962)
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings"[0m
+Rendered buildings/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 11.7ms | ActiveRecord: 0.5ms)
+  Processing by BuildingsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.589386', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.590885' WHERE ("users"."id" = 980190962)
+Rendered buildings/_form.html.erb (1.7ms)
+Rendered buildings/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 13ms (Views: 8.8ms | ActiveRecord: 0.6ms)
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" LIMIT 1[0m
+  Processing by BuildingsController#show as HTML
+  Parameters: {"id"=>#<Building id: 739437874, name: "War Memorial Hall", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.607555', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.608515' WHERE ("users"."id" = 980190962)
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 739437874) LIMIT 1[0m
+Rendered buildings/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 12ms (Views: 8.4ms | ActiveRecord: 0.6ms)
+  [1m[35mDnsName Load (0.1ms)[0m  SELECT "dns_names".* FROM "dns_names" LIMIT 1
+  Processing by DnsNamesController#destroy as HTML
+  Parameters: {"id"=>#<DnsName id: 298486374, name: "MyString", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", item_id: nil>}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:04.627187', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.628221' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mDnsName Load (0.1ms)[0m  SELECT "dns_names".* FROM "dns_names" WHERE ("dns_names"."id" = 298486374) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "dns_names" WHERE ("dns_names"."id" = 298486374)[0m
+Redirected to http://test.host/dns_names
+Completed 302 Found in 6ms
+  [1m[35mDnsName Load (0.1ms)[0m  SELECT "dns_names"."id" FROM "dns_names" WHERE ("dns_names"."id" = 298486374) LIMIT 1
+  [1m[36mDnsName Load (0.1ms)[0m  [1mSELECT "dns_names".* FROM "dns_names" LIMIT 1[0m
+  Processing by DnsNamesController#edit as HTML
+  Parameters: {"id"=>#<DnsName id: 298486374, name: "MyString", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", item_id: nil>}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.639249', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.640252' WHERE ("users"."id" = 980190962)
+  [1m[36mDnsName Load (0.1ms)[0m  [1mSELECT "dns_names".* FROM "dns_names" WHERE ("dns_names"."id" = 298486374) LIMIT 1[0m
+Rendered dns_names/_form.html.erb (1.2ms)
+Rendered dns_names/_sidebar.html.erb (0.6ms)
+Completed 200 OK in 18ms (Views: 14.5ms | ActiveRecord: 1.6ms)
+  Processing by DnsNamesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.661483', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.662545' WHERE ("users"."id" = 980190962)
+  [1m[36mDnsName Load (0.1ms)[0m  [1mSELECT "dns_names".* FROM "dns_names"[0m
+Rendered dns_names/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 0.6ms)
+  Processing by DnsNamesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.680682', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.681588' WHERE ("users"."id" = 980190962)
+Rendered dns_names/_form.html.erb (0.7ms)
+Rendered dns_names/_sidebar.html.erb (0.0ms)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.4ms)
+  [1m[36mDnsName Load (0.2ms)[0m  [1mSELECT "dns_names".* FROM "dns_names" LIMIT 1[0m
+  Processing by DnsNamesController#show as HTML
+  Parameters: {"id"=>#<DnsName id: 298486374, name: "MyString", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", item_id: nil>}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.696497', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.697452' WHERE ("users"."id" = 980190962)
+  [1m[36mDnsName Load (0.1ms)[0m  [1mSELECT "dns_names".* FROM "dns_names" WHERE ("dns_names"."id" = 298486374) LIMIT 1[0m
+Rendered dns_names/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.7ms)
+  [1m[35mIp Load (0.3ms)[0m  SELECT "ips".* FROM "ips" ORDER BY number ASC LIMIT 1
+  Processing by IpsController#destroy as HTML
+  Parameters: {"id"=>#<Ip id: 22766192, number: "128.173.108.50", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", item_id: nil, building_id: 739437874>}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:04.778347', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.779860' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips"."id" = 22766192) ORDER BY number ASC LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "ips" WHERE ("ips"."id" = 22766192)[0m
+Redirected to http://test.host/ips
+Completed 302 Found in 7ms
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips"."id" FROM "ips" WHERE ("ips"."id" = 22766192) ORDER BY number ASC LIMIT 1
+  [1m[36mIp Load (0.2ms)[0m  [1mSELECT "ips".* FROM "ips" ORDER BY number ASC LIMIT 1[0m
+  Processing by IpsController#edit as HTML
+  Parameters: {"id"=>#<Ip id: 22766192, number: "128.173.108.50", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", item_id: nil, building_id: 739437874>}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.792580', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.794005' WHERE ("users"."id" = 980190962)
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips"."id" = 22766192) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings"
+Rendered ips/_form.html.erb (3.9ms)
+Rendered ips/_sidebar.html.erb (0.3ms)
+Completed 200 OK in 25ms (Views: 19.6ms | ActiveRecord: 2.1ms)
+  Processing by IpsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:04.823609', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.825192' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mIp Load (0.2ms)[0m  SELECT "ips".* FROM "ips" ORDER BY number ASC
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 739437874) LIMIT 1[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+Rendered ips/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 14.2ms | ActiveRecord: 1.1ms)
+  Processing by IpsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:04.849179', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.850611' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings"
+Rendered ips/_form.html.erb (3.6ms)
+Rendered ips/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 11.3ms | ActiveRecord: 0.8ms)
+  [1m[36mIp Load (0.2ms)[0m  [1mSELECT "ips".* FROM "ips" ORDER BY number ASC LIMIT 1[0m
+  Processing by IpsController#show as HTML
+  Parameters: {"id"=>#<Ip id: 22766192, number: "128.173.108.50", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", item_id: nil, building_id: 739437874>}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.871131', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.872482' WHERE ("users"."id" = 980190962)
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips"."id" = 22766192) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 739437874) LIMIT 1
+Rendered ips/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 0.9ms)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" LIMIT 1[0m
+  Processing by ItemsController#destroy as HTML
+  Parameters: {"id"=>#<Item id: 157353380, name: "rs-immodt-desktop", make: "Dell", model: "Optiplex GX260", processor: "Intel Core 2 Duo 2.4 Ghz", processor_rating: 5, ram: 1024, hard_drive: 60, serial: "GSDB131", vt_tag: "VT000121457", purchased_at: "2010-08-05 14:25:02", warranty_expires_at: "2010-08-05 14:25:02", recieved_at: "2010-08-05 14:25:02", os: "Windows XP", type_of_item: "Desktop", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", operating_system_id: nil, location_id: nil, inventoried_at: nil, user_id: nil, info: nil, in_use: nil, surplused_at: nil, critical: nil, priority: nil>}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.905642', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.906619' WHERE ("users"."id" = 980190962)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 157353380) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "ips" SET item_id = NULL WHERE ((item_id = 157353380))
+  [1m[36mInstallation Load (0.1ms)[0m  [1mSELECT "installations".* FROM "installations" WHERE ("installations".item_id = 157353380)[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "dns_names" SET item_id = NULL WHERE ((item_id = 157353380))
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "items" WHERE ("items"."id" = 157353380)[0m
+Redirected to http://test.host/items
+Completed 302 Found in 9ms
+  [1m[35mItem Load (0.0ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."id" = 157353380) LIMIT 1
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" LIMIT 1[0m
+  Processing by ItemsController#edit as HTML
+  Parameters: {"id"=>#<Item id: 157353380, name: "rs-immodt-desktop", make: "Dell", model: "Optiplex GX260", processor: "Intel Core 2 Duo 2.4 Ghz", processor_rating: 5, ram: 1024, hard_drive: 60, serial: "GSDB131", vt_tag: "VT000121457", purchased_at: "2010-08-05 14:25:02", warranty_expires_at: "2010-08-05 14:25:02", recieved_at: "2010-08-05 14:25:02", os: "Windows XP", type_of_item: "Desktop", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", operating_system_id: nil, location_id: nil, inventoried_at: nil, user_id: nil, info: nil, in_use: nil, surplused_at: nil, critical: nil, priority: nil>}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:04.921848', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:04.923115' WHERE ("users"."id" = 980190962)
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 157353380) LIMIT 1[0m
+Rendered shared/_error_messages.html.erb (0.3ms)
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" ORDER BY buildings.name, locations.name
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 1) LIMIT 1[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY first_name[0m
+  [1m[35mOperatingSystem Load (0.2ms)[0m  SELECT "operating_systems".* FROM "operating_systems" ORDER BY name
+Rendered items/_form.html.erb (105.6ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-01-03 20:07:04' OR inventoried_at IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (10.5ms)
+Completed 200 OK in 133ms (Views: 126.9ms | ActiveRecord: 3.8ms)
+  Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.061277', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.062720' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."in_use" = 't') ORDER BY name asc LIMIT 20 OFFSET 0
+Rendered items/_items.html.erb (3.5ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-01-03 20:07:04' OR inventoried_at IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (9.7ms)
+Completed 200 OK in 31ms (Views: 24.0ms | ActiveRecord: 1.6ms)
+  Processing by ItemsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.096359', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.097829' WHERE ("users"."id" = 980190962)[0m
+Rendered shared/_error_messages.html.erb (0.1ms)
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" ORDER BY buildings.name, locations.name
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 1) LIMIT 1[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 1) LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY first_name[0m
+  [1m[35mOperatingSystem Load (0.2ms)[0m  SELECT "operating_systems".* FROM "operating_systems" ORDER BY name
+Rendered items/_form.html.erb (27.2ms)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-01-03 20:07:04' OR inventoried_at IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (9.7ms)
+Completed 200 OK in 51ms (Views: 44.2ms | ActiveRecord: 2.1ms)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" LIMIT 1[0m
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>#<Item id: 157353380, name: "rs-immodt-desktop", make: "Dell", model: "Optiplex GX260", processor: "Intel Core 2 Duo 2.4 Ghz", processor_rating: 5, ram: 1024, hard_drive: 60, serial: "GSDB131", vt_tag: "VT000121457", purchased_at: "2010-08-05 14:25:02", warranty_expires_at: "2010-08-05 14:25:02", recieved_at: "2010-08-05 14:25:02", os: "Windows XP", type_of_item: "Desktop", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", operating_system_id: nil, location_id: nil, inventoried_at: nil, user_id: nil, info: nil, in_use: nil, surplused_at: nil, critical: nil, priority: nil>}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.153329', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.154390' WHERE ("users"."id" = 980190962)
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 157353380) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 157353380)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 157353380)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 157353380)) AS subquery
+  [1m[36mIp Load (0.2ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE (item_id IS NULL) ORDER BY number ASC[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 157353380))
+  [1m[36mSoftware Load (0.2ms)[0m  [1mSELECT "softwares".* FROM "softwares" ORDER BY name[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "dns_names" WHERE ("dns_names".item_id = 157353380)) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-01-03 20:07:04' OR inventoried_at IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (10.0ms)
+Completed 200 OK in 109ms (Views: 102.7ms | ActiveRecord: 2.7ms)
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" ORDER BY buildings.name, locations.name LIMIT 1[0m
+  Processing by LocationsController#destroy as HTML
+  Parameters: {"id"=>#<Location id: 298486374, name: "MyString", info: "MyText", building_id: 1, created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.272972', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.274693' WHERE ("users"."id" = 980190962)
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 298486374) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "items" SET location_id = NULL WHERE ((location_id = 298486374))
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "locations" WHERE ("locations"."id" = 298486374)[0m
+Redirected to http://test.host/locations
+Completed 302 Found in 11ms
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 298486374) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" ORDER BY buildings.name, locations.name LIMIT 1[0m
+  Processing by LocationsController#edit as HTML
+  Parameters: {"id"=>#<Location id: 298486374, name: "MyString", info: "MyText", building_id: 1, created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.294937', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.295882' WHERE ("users"."id" = 980190962)
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 298486374) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings"
+Rendered locations/_form.html.erb (4.4ms)
+Rendered locations/_sidebar.html.erb (0.3ms)
+Completed 200 OK in 29ms (Views: 20.9ms | ActiveRecord: 2.3ms)
+  Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.329440', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.330586' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" ORDER BY buildings.name, locations.name
+Rendered locations/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 22ms (Views: 11.8ms | ActiveRecord: 0.8ms)
+  Processing by LocationsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.360271', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.361340' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings"
+Rendered locations/_form.html.erb (2.2ms)
+Rendered locations/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 0.6ms)
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" ORDER BY buildings.name, locations.name LIMIT 1[0m
+  Processing by LocationsController#show as HTML
+  Parameters: {"id"=>#<Location id: 298486374, name: "MyString", info: "MyText", building_id: 1, created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.380431', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.381753' WHERE ("users"."id" = 980190962)
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 298486374) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 1) LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items".location_id = 298486374)[0m
+Rendered locations/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 19ms (Views: 10.0ms | ActiveRecord: 1.0ms)
+  [1m[35mOperatingSystem Load (0.2ms)[0m  SELECT "operating_systems".* FROM "operating_systems" ORDER BY name LIMIT 1
+  Processing by OperatingSystemsController#destroy as HTML
+  Parameters: {"id"=>#<OperatingSystem id: 298486374, name: "MyString", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.404954', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.405913' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mOperatingSystem Load (0.1ms)[0m  SELECT "operating_systems".* FROM "operating_systems" WHERE ("operating_systems"."id" = 298486374) ORDER BY name LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "items" SET operating_system_id = NULL WHERE ((operating_system_id = 298486374))[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "softwares" SET operating_system_id = NULL WHERE ((operating_system_id = 298486374))
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "operating_systems" WHERE ("operating_systems"."id" = 298486374)[0m
+Redirected to http://test.host/operating_systems
+Completed 302 Found in 64ms
+  [1m[35mOperatingSystem Load (0.1ms)[0m  SELECT "operating_systems"."id" FROM "operating_systems" WHERE ("operating_systems"."id" = 298486374) ORDER BY name LIMIT 1
+  [1m[36mOperatingSystem Load (0.1ms)[0m  [1mSELECT "operating_systems".* FROM "operating_systems" ORDER BY name LIMIT 1[0m
+  Processing by OperatingSystemsController#edit as HTML
+  Parameters: {"id"=>#<OperatingSystem id: 298486374, name: "MyString", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.473901', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.474894' WHERE ("users"."id" = 980190962)
+  [1m[36mOperatingSystem Load (0.1ms)[0m  [1mSELECT "operating_systems".* FROM "operating_systems" WHERE ("operating_systems"."id" = 298486374) ORDER BY name LIMIT 1[0m
+Rendered operating_systems/_form.html.erb (1.6ms)
+Rendered operating_systems/_sidebar.html.erb (0.3ms)
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 1.5ms)
+  Processing by OperatingSystemsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.496689', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.498090' WHERE ("users"."id" = 980190962)
+  [1m[36mOperatingSystem Load (0.1ms)[0m  [1mSELECT "operating_systems".* FROM "operating_systems" ORDER BY name[0m
+Rendered operating_systems/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 12.2ms | ActiveRecord: 0.7ms)
+  Processing by OperatingSystemsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.518322', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.519291' WHERE ("users"."id" = 980190962)
+Rendered operating_systems/_form.html.erb (1.7ms)
+Rendered operating_systems/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 0.5ms)
+  [1m[36mOperatingSystem Load (0.2ms)[0m  [1mSELECT "operating_systems".* FROM "operating_systems" ORDER BY name LIMIT 1[0m
+  Processing by OperatingSystemsController#show as HTML
+  Parameters: {"id"=>#<OperatingSystem id: 298486374, name: "MyString", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.544707', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.545660' WHERE ("users"."id" = 980190962)
+  [1m[36mOperatingSystem Load (0.1ms)[0m  [1mSELECT "operating_systems".* FROM "operating_systems" WHERE ("operating_systems"."id" = 298486374) ORDER BY name LIMIT 1[0m
+Rendered operating_systems/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 12ms (Views: 8.3ms | ActiveRecord: 0.7ms)
+  [1m[35mPage Load (0.1ms)[0m  SELECT "pages".* FROM "pages" LIMIT 1
+  Processing by PagesController#destroy as HTML
+  Parameters: {"id"=>#<Page id: 298486374, title: "MyString", body: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.565904', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.566999' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mPage Load (0.1ms)[0m  SELECT "pages".* FROM "pages" WHERE ("pages"."id" = 298486374) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "pages" WHERE ("pages"."id" = 298486374)[0m
+Redirected to http://test.host/pages
+Completed 302 Found in 5ms
+  [1m[35mPage Load (0.1ms)[0m  SELECT "pages"."id" FROM "pages" WHERE ("pages"."id" = 298486374) LIMIT 1
+  [1m[36mPage Load (0.1ms)[0m  [1mSELECT "pages".* FROM "pages" LIMIT 1[0m
+  Processing by PagesController#edit as HTML
+  Parameters: {"id"=>#<Page id: 298486374, title: "MyString", body: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.575329', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.576634' WHERE ("users"."id" = 980190962)
+  [1m[36mPage Load (0.1ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE ("pages"."id" = 298486374) LIMIT 1[0m
+Rendered pages/_form.html.erb (2.5ms)
+Completed 200 OK in 16ms (Views: 12.2ms | ActiveRecord: 1.3ms)
+  Processing by PagesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.599180', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.600109' WHERE ("users"."id" = 980190962)
+  [1m[36mPage Load (0.1ms)[0m  [1mSELECT "pages".* FROM "pages"[0m
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 0.6ms)
+  Processing by PagesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.614003', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.614937' WHERE ("users"."id" = 980190962)
+Rendered pages/_form.html.erb (1.6ms)
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 0.4ms)
+  [1m[36mPage Load (0.2ms)[0m  [1mSELECT "pages".* FROM "pages" LIMIT 1[0m
+  Processing by PagesController#show as HTML
+  Parameters: {"id"=>#<Page id: 298486374, title: "MyString", body: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04">}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.629479', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.630446' WHERE ("users"."id" = 980190962)
+  [1m[36mPage Load (0.1ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE ("pages"."id" = 298486374) LIMIT 1[0m
+Completed 200 OK in 76ms (Views: 72.5ms | ActiveRecord: 0.7ms)
+  [1m[35mSoftware Load (0.3ms)[0m  SELECT "softwares".* FROM "softwares" ORDER BY name LIMIT 1
+  Processing by SoftwaresController#destroy as HTML
+  Parameters: {"id"=>#<Software id: 972339154, name: "Microsoft Office 2010", license_key: "1233-1313-1313-13131", os: "Windows", number_of_licenses: 5, storage_location: "MyString", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", operating_system_id: nil>}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.714089', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.715676' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mSoftware Load (0.2ms)[0m  SELECT "softwares".* FROM "softwares" WHERE ("softwares"."id" = 972339154) ORDER BY name LIMIT 1
+  [1m[36mInstallation Load (0.1ms)[0m  [1mSELECT "installations".* FROM "installations" WHERE ("installations".software_id = 972339154)[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "softwares" WHERE ("softwares"."id" = 972339154)
+Redirected to http://test.host/softwares
+Completed 302 Found in 12ms
+  [1m[36mSoftware Load (0.1ms)[0m  [1mSELECT "softwares"."id" FROM "softwares" WHERE ("softwares"."id" = 972339154) ORDER BY name LIMIT 1[0m
+  [1m[35mSoftware Load (0.3ms)[0m  SELECT "softwares".* FROM "softwares" ORDER BY name LIMIT 1
+  Processing by SoftwaresController#edit as HTML
+  Parameters: {"id"=>#<Software id: 972339154, name: "Microsoft Office 2010", license_key: "1233-1313-1313-13131", os: "Windows", number_of_licenses: 5, storage_location: "MyString", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", operating_system_id: nil>}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.736772', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.738298' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mSoftware Load (0.2ms)[0m  SELECT "softwares".* FROM "softwares" WHERE ("softwares"."id" = 972339154) ORDER BY name LIMIT 1
+  [1m[36mOperatingSystem Load (0.2ms)[0m  [1mSELECT "operating_systems".* FROM "operating_systems" ORDER BY name[0m
+Rendered softwares/_form.html.erb (6.2ms)
+Rendered softwares/_sidebar.html.erb (0.4ms)
+Completed 200 OK in 32ms (Views: 24.7ms | ActiveRecord: 2.8ms)
+  Processing by SoftwaresController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.773877', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.775325' WHERE ("users"."id" = 980190962)
+  [1m[36mSoftware Load (0.2ms)[0m  [1mSELECT "softwares".* FROM "softwares" ORDER BY name[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "installations" WHERE ("installations".software_id = 972339154)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "installations" WHERE ("installations".software_id = 118914738)) AS subquery[0m
+Rendered softwares/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 14.2ms | ActiveRecord: 1.0ms)
+  Processing by SoftwaresController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (15.1ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.804380', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.805843' WHERE ("users"."id" = 980190962)
+  [1m[36mOperatingSystem Load (0.2ms)[0m  [1mSELECT "operating_systems".* FROM "operating_systems" ORDER BY name[0m
+Rendered softwares/_form.html.erb (4.5ms)
+Rendered softwares/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 13.3ms | ActiveRecord: 15.7ms)
+  [1m[35mSoftware Load (0.2ms)[0m  SELECT "softwares".* FROM "softwares" ORDER BY name LIMIT 1
+  Processing by SoftwaresController#show as HTML
+  Parameters: {"id"=>#<Software id: 972339154, name: "Microsoft Office 2010", license_key: "1233-1313-1313-13131", os: "Windows", number_of_licenses: 5, storage_location: "MyString", info: "MyText", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", operating_system_id: nil>}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.847070', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.848647' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mSoftware Load (0.1ms)[0m  SELECT "softwares".* FROM "softwares" WHERE ("softwares"."id" = 972339154) ORDER BY name LIMIT 1
+Rendered softwares/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 13ms (Views: 8.4ms | ActiveRecord: 0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" LIMIT 1[0m
+  Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>#<User id: 298486374, login: "spiderman", first_name: "Peter", last_name: "Parker", last_login: "2010-05-13 12:32:05", last_login_ip: "2010-05-13 12:32:05", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", can_login: nil>}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-01-03 20:07:05.872875', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.873976' WHERE ("users"."id" = 980190962)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 298486374) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "users" WHERE ("users"."id" = 298486374)
+Redirected to http://test.host/users
+Completed 302 Found in 5ms
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."id" = 298486374) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" LIMIT 1
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>#<User id: 298486374, login: "spiderman", first_name: "Peter", last_name: "Parker", last_login: "2010-05-13 12:32:05", last_login_ip: "2010-05-13 12:32:05", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", can_login: nil>}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.883613', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.884520' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 298486374) LIMIT 1
+Rendered users/_form.html.erb (6.3ms)
+Rendered users/_sidebar.html.erb (0.2ms)
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 1.5ms)
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.909005', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.910035' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+Rendered users/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 0.6ms)
+  Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:05.982976', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:05.984031' WHERE ("users"."id" = 980190962)[0m
+Rendered users/_form.html.erb (4.9ms)
+Rendered users/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 10.6ms | ActiveRecord: 0.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" LIMIT 1
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>#<User id: 298486374, login: "spiderman", first_name: "Peter", last_name: "Parker", last_login: "2010-05-13 12:32:05", last_login_ip: "2010-05-13 12:32:05", created_at: "2011-01-03 20:07:04", updated_at: "2011-01-03 20:07:04", can_login: nil>}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 980190962) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-01-03 20:07:06.004949', "last_login_ip" = '0.0.0.0', "updated_at" = '2011-01-03 20:07:06.005912' WHERE ("users"."id" = 980190962)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 298486374) LIMIT 1
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items".user_id = 298486374)[0m
+Rendered users/_sidebar.html.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 0.9ms)
