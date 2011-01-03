@@ -18,18 +18,18 @@
 		    <%= submit_tag "Search", :name => nil %>
 		  </p>
 		<% end %>  
-		
+		<div id="csv_export" style="display:block float:right">
+			CSV Exports: 
+
+			<%= link_to "Full", params.merge(:format=>:csv, :in_use=>"false") %> |
+			<%= link_to "Current",  params.merge(:format=>:csv) %> |
+			<%= link_to "Security Review",  params.merge(:format=>:csv, :csv_type=>"sec_review") %>
+		</div>		
 	
 	<div id="items">
       <%= render  'items' %>
 	</div>
-	<div id="csv_export" style="display:block">
-		CSV Exports: 
-		
-		<%= link_to "Full", params.merge(:format=>:csv, :in_use=>"false") %> |
-		<%= link_to "Current",  params.merge(:format=>:csv) %> |
-		<%= link_to "Security Review",  params.merge(:format=>:csv, :csv_type=>"sec_review") %>
-	</div>
+
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>
