@@ -1,11 +1,28 @@
 class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
   def index
-    @items = Item.search(params[:search]).order(sort_column + " " +sort_direction).paginate(:per_page=>20, :page=>params[:page])
+    if params[:in_use]=="false"
+      @items = Item.search(params[:search]).order(sort_column + " " +sort_direction).paginate(:per_page=>20, :page=>params[:page])      
+    else
+      @items = Item.search(params[:search]).in_use.order(sort_column + " " +sort_direction).paginate(:per_page=>20, :page=>params[:page])
+    end
+      @title = "Items"
+    respond_to do |format|
+      format.html 
+      format.csv {
+        #did we get a format
+        if params[:csv_type].blank?
+          send_data(@items.to_comma)
+        else
+          send_data(@items.to_comma(params[:csv_type].to_sym))
+        end
+        }
+    end
+  
   #  if params[:type]
    #   @items = @items.where(:type_of_item=>params[:type])
   #  end
-    @title = "Items"
+ 
   end
   
   def not_checked
