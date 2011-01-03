@@ -2,19 +2,19 @@ class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
   def index
     if params[:in_use]=="false"
-      @items = Item.search(params[:search]).order(sort_column + " " +sort_direction).paginate(:per_page=>20, :page=>params[:page])      
+      @items = Item.search(params[:search]).order(sort_column + " " +sort_direction)
     else
-      @items = Item.search(params[:search]).in_use.order(sort_column + " " +sort_direction).paginate(:per_page=>20, :page=>params[:page])
+      @items = Item.search(params[:search]).in_use.order(sort_column + " " +sort_direction)
     end
       @title = "Items"
     respond_to do |format|
-      format.html 
+      format.html {@items = @items.paginate(:per_page=>20, :page=>params[:page]) }
       format.csv {
         #did we get a format
         if params[:csv_type].blank?
-          send_data(@items.to_comma)
+          send_data(@items.all.to_comma)
         else
-          send_data(@items.to_comma(params[:csv_type].to_sym))
+          send_data(@items.all.to_comma(params[:csv_type].to_sym))
         end
         }
     end
