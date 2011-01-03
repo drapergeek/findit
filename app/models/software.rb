@@ -4,4 +4,7 @@ class Software < ActiveRecord::Base
   has_many :items, :through=>:installations
   belongs_to :operating_system
   default_scope :order=>"name"
+  def to_s
+    name
+  end
 end

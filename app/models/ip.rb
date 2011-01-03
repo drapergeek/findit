@@ -12,4 +12,7 @@ class Ip < ActiveRecord::Base
   end
   
 
+  def to_s
+    number    
+  end
 end

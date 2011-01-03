@@ -18,8 +18,16 @@
 		    <%= submit_tag "Search", :name => nil %>
 		  </p>
 		<% end %>  
+		
+	
 	<div id="items">
       <%= render  'items' %>
+	</div>
+	<div id="csv_export" >
+		CSV Exports: 
+		<%= link_to "Full", request.request_uri + ".csv?in_use=false" %> |
+		<%= link_to "Current", request.request_uri + ".csv" %> |
+		<%= link_to "Security Review", request.request_uri + ".csv?csv_type=sec_review" %> |
 	</div>
       <div class="actions-bar wat-cf">
         <div class="actions">

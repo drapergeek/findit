@@ -27,6 +27,48 @@ class Item < ActiveRecord::Base
   
   
   
+  ###CSV DEFINITIONS
+  
+  comma do
+    name
+    priority
+    critical
+    inventoried_at
+    location
+    user
+    make
+    model
+    processor
+    processor_rating
+    ram
+    hard_drive
+    serial
+    vt_tag
+    purchased_at
+    warranty_expires_at
+    surplused_at
+    recieved_at
+    os
+    type
+    ips
+    softwares
+    dns_names
+  end
+  
+  #this is a list of what security wants for their audit
+  comma :sec_review do
+    ips "IP"
+    name
+    os
+    type_of_item
+    critical
+  end
+  
+  ###END CSV DEFINITIONS
+  
+  
+  
+  
   def self.search(search)
     if search
       where('name LIKE ? OR vt_tag like ? or model like ? or serial like ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%")
