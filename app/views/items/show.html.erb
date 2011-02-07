@@ -132,7 +132,16 @@
 				<% end %>
 			</div>
 		</p>
-
+		<% if @item.make == "Dell" %>
+		<p>
+			<% driver_link = "http://support.dell.com/support/downloads/driverslist.aspx?c=us&cs=RC956904&l=en&s=hied&os=WLH&osl=en&ServiceTag=#{@item.serial.upcase}&catid=-1&impid=-1" %>
+			<% warranty_link ="http://support.dell.com/support/topics/global.aspx/support/my_systems_info/details?c=us&cs=19&l=en&s=hied&servicetag=#{@item.serial}" %>
+			<strong>Drivers:</strong> <%= link_to "Click Here", driver_link %><br>
+			<strong>Warranty Information:</strong> <%= link_to "Click Here", warranty_link %><br>
+			
+		</p>
+		<% end %>
+		
 
 
 		<p>

@@ -25367,3 +25367,304 @@ Started GET "/items/7" for 127.0.0.1 at Mon Jan 10 14:45:03 -0500 2011
 Rendered items/_sidebar.html.erb (6.9ms)
 Rendered items/show.html.erb within layouts/application (128.2ms)
 Completed 200 OK in 230ms (Views: 134.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 07 15:50:23 -0500 2011
+  Processing by ItemsController#index as HTML
+  Parameters: {"type"=>"Desktop"}
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-02-07 20:50:24.001799', "updated_at" = '2011-02-07 20:50:24.009215' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (2.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."in_use" = 't') ORDER BY name asc LIMIT 20 OFFSET 0[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 6)) AS subquery[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery[0m
+Rendered items/_items.html.erb (128.8ms)
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-02-07 20:50:24' OR inventoried_at IS NULL)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "items"[0m
+Rendered items/_sidebar.html.erb (7.3ms)
+Rendered items/index.html.erb within layouts/application (191.4ms)
+Completed 200 OK in 355ms (Views: 203.1ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/items/1" for 127.0.0.1 at Mon Feb 07 15:50:26 -0500 2011
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-02-07 20:50:26.247430', "updated_at" = '2011-02-07 20:50:26.248821' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC[0m
+  [1m[35mIp Load (0.2ms)[0m  SELECT "ips".* FROM "ips" WHERE (item_id IS NULL) ORDER BY number ASC
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1))[0m
+  [1m[35mSoftware Load (0.2ms)[0m  SELECT "softwares".* FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1)) ORDER BY name
+  [1m[36mSoftware Load (0.2ms)[0m  [1mSELECT "softwares".* FROM "softwares" ORDER BY name[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "dns_names" WHERE ("dns_names".item_id = 1)) AS subquery
+  [1m[36mDnsName Load (0.1ms)[0m  [1mSELECT "dns_names".* FROM "dns_names" WHERE ("dns_names".item_id = 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-02-07 20:50:26' OR inventoried_at IS NULL)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "items"[0m
+Rendered items/_sidebar.html.erb (7.3ms)
+Rendered items/show.html.erb within layouts/application (194.5ms)
+Completed 200 OK in 292ms (Views: 199.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/items/1/edit" for 127.0.0.1 at Mon Feb 07 15:50:28 -0500 2011
+  Processing by ItemsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (129.8ms)[0m  UPDATE "users" SET "last_login" = '2011-02-07 20:50:28.203889', "updated_at" = '2011-02-07 20:50:28.205422' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1[0m
+Rendered shared/_error_messages.html.erb (0.5ms)
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" ORDER BY buildings.name, locations.name
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY first_name[0m
+  [1m[35mOperatingSystem Load (0.2ms)[0m  SELECT "operating_systems".* FROM "operating_systems" ORDER BY name
+Rendered items/_form.html.erb (122.1ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-02-07 20:50:28' OR inventoried_at IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (7.7ms)
+Rendered items/edit.html.erb within layouts/application (165.9ms)
+Completed 200 OK in 386ms (Views: 173.5ms | ActiveRecord: 132.1ms)
+
+
+Started POST "/items/1" for 127.0.0.1 at Mon Feb 07 15:50:42 -0500 2011
+  Processing by ItemsController#update as HTML
+  Parameters: {"authenticity_token"=>"BVeeD8fGXYuH/F7qOaP8HIo+v4sLvYqZYP04EKxiLSc=", "utf8"=>"✓", "id"=>"1", "item"=>{"type_of_item"=>"Desktop", "recieved_at(1i)"=>"2010", "surplused_at(5i)"=>"", "serial"=>"3RPQ4J1", "model"=>"Optiplex", "critical"=>"1", "name"=>"testing", "recieved_at(2i)"=>"8", "vt_tag"=>"", "recieved_at(3i)"=>"5", "recieved_at(4i)"=>"14", "warranty_expires_at(1i)"=>"2010", "operating_system_id"=>"", "recieved_at(5i)"=>"30", "warranty_expires_at(2i)"=>"8", "hard_drive"=>"42949672960", "priority"=>"", "info"=>"Desktop: testing", "warranty_expires_at(3i)"=>"5", "warranty_expires_at(4i)"=>"14", "purchased_at(1i)"=>"2010", "user_id"=>"1", "in_use"=>"1", "surplused_at(1i)"=>"", "warranty_expires_at(5i)"=>"30", "purchased_at(2i)"=>"8", "make"=>"Dell", "location_id"=>"1", "surplused_at(2i)"=>"", "purchased_at(3i)"=>"5", "ram"=>"536870912", "surplused_at(3i)"=>"", "purchased_at(4i)"=>"14", "processor"=>"Testing", "new_dns_names"=>"", "surplused_at(4i)"=>"", "purchased_at(5i)"=>"30", "processor_rating"=>"4"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-02-07 20:50:42.384525', "updated_at" = '2011-02-07 20:50:42.385735' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items"."id" FROM "items" WHERE ("items"."name" = 'testing') AND ("items".id <> 1) LIMIT 1[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."serial" = '3RPQ4J1') AND ("items".id <> 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "items" SET "make" = 'Dell', "model" = 'Optiplex', "serial" = '3RPQ4J1', "updated_at" = '2011-02-07 20:50:42.428726' WHERE ("items"."id" = 1)[0m
+Redirected to http://localhost:3000/items/1
+Completed 302 Found in 117ms
+
+
+Started GET "/items/1" for 127.0.0.1 at Mon Feb 07 15:50:42 -0500 2011
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-02-07 20:50:42.492651', "updated_at" = '2011-02-07 20:50:42.494933' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+Rendered items/show.html.erb within layouts/application (116.7ms)
+Completed   in 229ms
+
+ActionView::Template::Error (undefined local variable or method `item' for #<#<Class:0x103540598>:0x10353e270>):
+    135: 		<% if @item.make == "Dell" %>
+    136: 		<p>
+    137: 			<% driver_link = "http://support.dell.com/support/downloads/driverslist.aspx?c=us&cs=RC956904&l=en&s=hied&os=WLH&osl=en&ServiceTag=#{@item.serial.upcase}&catid=-1&impid=-1" %>
+    138: 			<% warranty_link ="http://support.dell.com/support/topics/global.aspx/support/my_systems_info/details?c=us&cs=19&l=en&s=hied&servicetag=#{item.serial}" %>
+    139: 			<strong>Drivers:</strong> <a href='<%= driver_link %>'>Click Here</a><br>
+    140: 			<strong>Warranty Information:</strong> <%= link_to "Click Here", warranty_link %>
+    141: 			
+  app/views/items/show.html.erb:138:in `_app_views_items_show_html_erb__2016345759_2175394780_0'
+  actionpack (3.0.0) lib/action_view/template.rb:135:in `send'
+  actionpack (3.0.0) lib/action_view/template.rb:135:in `render'
+  activesupport (3.0.0) lib/active_support/notifications.rb:54:in `instrument'
+  actionpack (3.0.0) lib/action_view/template.rb:127:in `render'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:59:in `_render_template'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:56:in `_render_template'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:26:in `render'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:114:in `_render_template'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:108:in `render_to_body'
+  actionpack (3.0.0) lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+  actionpack (3.0.0) lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:101:in `render_to_string'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:92:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:17:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render_without_csv'
+  activesupport (3.0.0) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+  activesupport (3.0.0) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render_without_csv'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+  activerecord (3.0.0) lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:39:in `render_without_csv'
+  comma (0.4.1) lib/comma/render_as_csv.rb:7:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__2092693613__process_action__453433196__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:131:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.2ms)
+
+
+Started GET "/items/1" for 127.0.0.1 at Mon Feb 07 15:51:03 -0500 2011
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-02-07 20:51:03.236243', "updated_at" = '2011-02-07 20:51:03.237512' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.2ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE (item_id IS NULL) ORDER BY number ASC
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1))[0m
+  [1m[35mSoftware Load (0.2ms)[0m  SELECT "softwares".* FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1)) ORDER BY name
+  [1m[36mSoftware Load (0.2ms)[0m  [1mSELECT "softwares".* FROM "softwares" ORDER BY name[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "dns_names" WHERE ("dns_names".item_id = 1)) AS subquery
+  [1m[36mDnsName Load (0.1ms)[0m  [1mSELECT "dns_names".* FROM "dns_names" WHERE ("dns_names".item_id = 1)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-02-07 20:51:03' OR inventoried_at IS NULL)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "items"[0m
+Rendered items/_sidebar.html.erb (7.5ms)
+Rendered items/show.html.erb within layouts/application (216.6ms)
+Completed 200 OK in 255ms (Views: 220.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/items/1" for 127.0.0.1 at Mon Feb 07 15:51:26 -0500 2011
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-02-07 20:51:26.638461', "updated_at" = '2011-02-07 20:51:26.639991' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE (item_id IS NULL) ORDER BY number ASC
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1))[0m
+  [1m[35mSoftware Load (0.1ms)[0m  SELECT "softwares".* FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1)) ORDER BY name
+  [1m[36mSoftware Load (0.2ms)[0m  [1mSELECT "softwares".* FROM "softwares" ORDER BY name[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "dns_names" WHERE ("dns_names".item_id = 1)) AS subquery
+  [1m[36mDnsName Load (0.1ms)[0m  [1mSELECT "dns_names".* FROM "dns_names" WHERE ("dns_names".item_id = 1)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-02-07 20:51:26' OR inventoried_at IS NULL)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "items"[0m
+Rendered items/_sidebar.html.erb (7.4ms)
+Rendered items/show.html.erb within layouts/application (142.7ms)
+Completed 200 OK in 254ms (Views: 145.3ms | ActiveRecord: 3.1ms)
