@@ -6,6 +6,7 @@
 	    <li><%= link_to item_type +" - " + Item.by_type(item_type).count.to_s, :controller=>"items", :action=>:index, :type=>item_type %></li>
 		<% end %>
 		<li><%= link_to "Not Inventoried Recently-  #{Item.not_inventoried_recently.count.to_s}", :controller=>"items", :action=>:not_checked %></li>
+		<li><%= link_to "No Priority-  #{Item.no_priority.count.to_s}", :controller=>"items", :action=>:index, :no_priority=>true %></li>
 		<li><%= link_to "All Items - " + Item.count.to_s, :controller=>"items", :action=>:index %></li>
 	  </ul>
   </div>
