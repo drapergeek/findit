@@ -2,9 +2,18 @@ class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
   def index
     if params[:in_use]=="false"
-      @items = Item.search(params[:search]).order(sort_column + " " +sort_direction)
+      if params[:no_priority]=="true"
+        @items = Item.search(params[:search]).order(sort_column + " " +sort_direction).no_priority
+      else
+        @items = Item.search(params[:search]).order(sort_column + " " +sort_direction)
+      end
     else
-      @items = Item.search(params[:search]).in_use.order(sort_column + " " +sort_direction)
+      if params[:no_priority]=="true"
+        @items = Item.search(params[:search]).in_use.order(sort_column + " " +sort_direction).no_priority
+      else
+        @items = Item.search(params[:search]).in_use.order(sort_column + " " +sort_direction)
+      end
+      
     end
       @title = "Items"
     respond_to do |format|

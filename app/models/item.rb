@@ -7,6 +7,8 @@ class Item < ActiveRecord::Base
   scope :proc_ratings, :conditions => 'processor_rating IS NOT NULL', :order=>"processor_rating"
   scope :not_inventoried_recently, :conditions=>["inventoried_at < ? OR inventoried_at IS NULL", 1.years.ago.to_datetime]
   scope :in_use, where(:in_use=>true)
+  scope :by_type, lambda { |type| {:conditions => {:type_of_item=>type} } }
+  scope :no_priority, where(:priority=>nil)
   attr_accessor :new_dns_names
   before_save :create_dns_from_names
   before_save :convert_size_to_bytes
@@ -22,7 +24,7 @@ class Item < ActiveRecord::Base
   validates_presence_of :type_of_item
   validates_inclusion_of :type_of_item, :in =>["Desktop", "Laptop", "Printer", "Virtual Machine", "Other", "Server"], :message => "Type of item can only be Desktop Laptop Printer Virtual Machine, Server or Other"
   before_validation :clear_empty_attrs
-  scope :by_type, lambda { |type| {:conditions => {:type_of_item=>type} } }
+
   
   
   
