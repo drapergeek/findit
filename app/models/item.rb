@@ -3,12 +3,17 @@ class Item < ActiveRecord::Base
   has_many :installations, :dependent=>:destroy
   has_many :softwares, :through=>:installations
   has_many :dns_names, :dependent=>:nullify
+  
   scope :has_ip, :include=> :ips, :conditions=>["ips.id in (SELECT id from ips)"]
   scope :proc_ratings, :conditions => 'processor_rating IS NOT NULL', :order=>"processor_rating"
   scope :not_inventoried_recently, :conditions=>["inventoried_at < ? OR inventoried_at IS NULL", 1.years.ago.to_datetime]
   scope :in_use, where(:in_use=>true)
   scope :by_type, lambda { |type| {:conditions => {:type_of_item=>type} } }
   scope :no_priority, where(:priority=>nil)
+  scope :by_priority, lambda { |priority| where(:priority=>priority)}  
+  scope :warranty_ending_in_year, lambda{|year| where("warranty_expires_at like ?", "%#{year}%")}
+  scope :computers_purchased_in, lambda{|year| where("purchased_at like ?", "%#{year}%")}
+  
   attr_accessor :new_dns_names
   before_save :create_dns_from_names
   before_save :convert_size_to_bytes

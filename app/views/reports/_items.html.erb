@@ -1,0 +1,22 @@
+<table class="table pretty">
+  <tr>
+   		<th>Name</th>
+	 	<th>Make/Model</th>
+		<th>Type</th>
+		<th>Location</th>
+		<th>Proc</th>
+		<th>Ram</th>
+		<th>IP</th>
+  </tr>
+  <% items.each do |item| -%>
+  <tr class="<%= cycle("odd", "even") %>">
+     	<td><%= link_to item.name, item_path(item) %></td>
+			<td><%= item.make_and_model %></td>
+			<td><%= item.short_type unless item.type_of_item.blank? %></td>
+      <td><%=  item.location.short_location unless item.location.blank? %></td>
+      <td><%=  item.short_processor unless item.processor.blank? %></td>
+			<td><%=  number_to_human_size(item.ram) unless item.ram.blank? %></td>
+			<td><%= item.ips.first.number unless item.ips.empty? %></td>
+  </tr>          
+  <% end -%>
+</table>
