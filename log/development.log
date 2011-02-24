@@ -27019,3 +27019,557 @@ Rendered reports/_items.html.erb (1.3ms)
 Rendered reports/_sidebar.html.erb (0.2ms)
 Rendered reports/upgrades.html.erb within layouts/application (175.6ms)
 Completed 200 OK in 333ms (Views: 182.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:13:31 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "last_login" = '2011-02-24 20:13:31.825637', "updated_at" = '2011-02-24 20:13:31.828283' WHERE ("users"."id" = 1)
+Rendered reports/_navigation.html.erb (1.7ms)
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery[0m
+  [1m[35mIp Load (0.2ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1
+Rendered reports/_items.html.erb (197.6ms)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (2.1ms)
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.7ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.4ms)
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (4.2ms)
+Rendered reports/_sidebar.html.erb (0.4ms)
+Rendered reports/upgrades.html.erb within layouts/application (232.4ms)
+Completed 200 OK in 317ms (Views: 245.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:14:04 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-02-24 20:14:04.429631', "updated_at" = '2011-02-24 20:14:04.431555' WHERE ("users"."id" = 1)[0m
+Rendered reports/_navigation.html.erb (3.1ms)
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered reports/_items.html.erb (18.7ms)
+Rendered reports/upgrades.html.erb within layouts/application (25.7ms)
+Completed   in 91ms
+
+ActionView::Template::Error (undefined method `name' for "Jason Draper":User):
+    12:   <tr class="<%= cycle("odd", "even") %>">
+    13:      	<td><%= link_to item.name, item_path(item) %></td>
+    14: 		<td><%= item.make_and_model %></td>
+    15: 		<td><%= item.user.name unless item.user.blank? %></td>
+    16:       <td><%=  item.location.short_location unless item.location.blank? %></td>
+    17:       <td><%=  item.short_processor unless item.processor.blank? %></td>
+    18: 			<td><%=  number_to_human_size(item.ram) unless item.ram.blank? %></td>
+  activerecord (3.0.0) lib/active_record/associations/association_proxy.rb:212:in `method_missing'
+  app/views/reports/_items.html.erb:15:in `_app_views_reports__items_html_erb__911784505_2173521800_1998910'
+  activerecord (3.0.0) lib/active_record/relation.rb:13:in `each'
+  activerecord (3.0.0) lib/active_record/relation.rb:13:in `__send__'
+  activerecord (3.0.0) lib/active_record/relation.rb:13:in `each'
+  app/views/reports/_items.html.erb:11:in `_app_views_reports__items_html_erb__911784505_2173521800_1998910'
+  actionpack (3.0.0) lib/action_view/template.rb:135:in `send'
+  actionpack (3.0.0) lib/action_view/template.rb:135:in `render'
+  activesupport (3.0.0) lib/active_support/notifications.rb:54:in `instrument'
+  actionpack (3.0.0) lib/action_view/template.rb:127:in `render'
+  actionpack (3.0.0) lib/action_view/render/partials.rb:294:in `render_partial'
+  actionpack (3.0.0) lib/action_view/render/partials.rb:223:in `render'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_view/render/partials.rb:221:in `render'
+  actionpack (3.0.0) lib/action_view/render/partials.rb:334:in `_render_partial'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:22:in `render'
+  app/views/reports/upgrades.html.erb:11:in `_app_views_reports_upgrades_html_erb___735629638_2173590240_0'
+  actionpack (3.0.0) lib/action_view/template.rb:135:in `send'
+  actionpack (3.0.0) lib/action_view/template.rb:135:in `render'
+  activesupport (3.0.0) lib/active_support/notifications.rb:54:in `instrument'
+  actionpack (3.0.0) lib/action_view/template.rb:127:in `render'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:59:in `_render_template'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:56:in `_render_template'
+  actionpack (3.0.0) lib/action_view/render/rendering.rb:26:in `render'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:114:in `_render_template'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:108:in `render_to_body'
+  actionpack (3.0.0) lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+  actionpack (3.0.0) lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:101:in `render_to_string'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:92:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:17:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render_without_csv'
+  activesupport (3.0.0) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+  activesupport (3.0.0) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render_without_csv'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+  activerecord (3.0.0) lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:39:in `render_without_csv'
+  comma (0.4.1) lib/comma/render_as_csv.rb:7:in `render'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:150:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rendering.rb:11:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:18:in `process_action'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:445:in `_run__1886760321__process_action__963765683__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `send'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:75:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `send'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  rack (1.2.1) lib/rack/handler/webrick.rb:13:in `run'
+  rack (1.2.1) lib/rack/server.rb:213:in `start'
+  railties (3.0.0) lib/rails/commands/server.rb:65:in `start'
+  railties (3.0.0) lib/rails/commands.rb:30
+  railties (3.0.0) lib/rails/commands.rb:27:in `tap'
+  railties (3.0.0) lib/rails/commands.rb:27
+  script/rails:6:in `require'
+  script/rails:6
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')[0m
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.9ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:14:27 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_login" = '2011-02-24 20:14:27.720608', "updated_at" = '2011-02-24 20:14:27.722530' WHERE ("users"."id" = 1)
+Rendered reports/_navigation.html.erb (1.4ms)
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.2ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+Rendered reports/_items.html.erb (153.1ms)
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.6ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.2ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.4ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.5ms)
+Rendered reports/_sidebar.html.erb (0.4ms)
+Rendered reports/upgrades.html.erb within layouts/application (175.7ms)
+Completed 200 OK in 244ms (Views: 180.9ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:14:33 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-02-24 20:14:33.706440', "updated_at" = '2011-02-24 20:14:33.708398' WHERE ("users"."id" = 1)
+Rendered reports/_navigation.html.erb (1.5ms)
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+Rendered reports/_items.html.erb (55.3ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.4ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.0ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.4ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.4ms)
+Rendered reports/_sidebar.html.erb (0.3ms)
+Rendered reports/upgrades.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 290ms (Views: 162.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:14:44 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-02-24 20:14:44.731684', "updated_at" = '2011-02-24 20:14:44.733472' WHERE ("users"."id" = 1)
+Rendered reports/_navigation.html.erb (1.4ms)
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+Rendered reports/_items.html.erb (141.9ms)
+  [1m[35mItem Load (0.7ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (2.4ms)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.8ms)
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (2.1ms)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.6ms)
+Rendered reports/_sidebar.html.erb (0.4ms)
+Rendered reports/upgrades.html.erb within layouts/application (173.0ms)
+Completed 200 OK in 229ms (Views: 180.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:15:42 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-02-24 20:15:42.190921', "updated_at" = '2011-02-24 20:15:42.192412' WHERE ("users"."id" = 1)
+Rendered reports/_navigation.html.erb (2.9ms)
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+Rendered reports/_items.html.erb (77.0ms)
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.7ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.5ms)
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.0ms)
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.0ms)
+Rendered reports/_sidebar.html.erb (0.2ms)
+Rendered reports/upgrades.html.erb within layouts/application (100.6ms)
+Completed 200 OK in 245ms (Views: 109.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:15:59 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-02-24 20:15:59.962864', "updated_at" = '2011-02-24 20:15:59.964856' WHERE ("users"."id" = 1)
+Rendered reports/_navigation.html.erb (1.1ms)
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+Rendered reports/_items.html.erb (126.2ms)
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.6ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.3ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.2ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.5ms)
+Rendered reports/_sidebar.html.erb (0.2ms)
+Rendered reports/upgrades.html.erb within layouts/application (148.5ms)
+Completed 200 OK in 225ms (Views: 156.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/items/1" for 127.0.0.1 at Thu Feb 24 15:16:00 -0500 2011
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-02-24 20:16:00.614487', "updated_at" = '2011-02-24 20:16:00.616244' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (0.7ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.2ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.9ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC[0m
+  [1m[35mIp Load (0.2ms)[0m  SELECT "ips".* FROM "ips" WHERE (item_id IS NULL) ORDER BY number ASC
+  [1m[36mSQL (1.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1))[0m
+  [1m[35mSoftware Load (0.3ms)[0m  SELECT "softwares".* FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 1)) ORDER BY name
+  [1m[36mSoftware Load (0.3ms)[0m  [1mSELECT "softwares".* FROM "softwares" ORDER BY name[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "dns_names" WHERE ("dns_names".item_id = 1)) AS subquery
+  [1m[36mDnsName Load (0.2ms)[0m  [1mSELECT "dns_names".* FROM "dns_names" WHERE ("dns_names".item_id = 1)[0m
+  [1m[35mSQL (0.4ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-02-24 20:16:00' OR inventoried_at IS NULL)) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."priority" IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (24.3ms)
+Rendered items/show.html.erb within layouts/application (264.5ms)
+Completed 200 OK in 409ms (Views: 268.6ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/items/1/edit" for 127.0.0.1 at Thu Feb 24 15:16:02 -0500 2011
+  Processing by ItemsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-02-24 20:16:02.443341', "updated_at" = '2011-02-24 20:16:02.445540' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."id" = 1) LIMIT 1
+Rendered shared/_error_messages.html.erb (0.6ms)
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" ORDER BY buildings.name, locations.name[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" ORDER BY first_name
+  [1m[36mOperatingSystem Load (0.3ms)[0m  [1mSELECT "operating_systems".* FROM "operating_systems" ORDER BY name[0m
+Rendered items/_form.html.erb (207.1ms)
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-02-24 20:16:02' OR inventoried_at IS NULL)) AS subquery
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."priority" IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (16.9ms)
+Rendered items/edit.html.erb within layouts/application (250.8ms)
+Completed 200 OK in 394ms (Views: 255.7ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/items" for 127.0.0.1 at Thu Feb 24 15:16:09 -0500 2011
+  Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-02-24 20:16:09.757156', "updated_at" = '2011-02-24 20:16:09.760477' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (0.7ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."in_use" = 't') ORDER BY name asc LIMIT 20 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 6)) AS subquery
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.2ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery
+Rendered items/_items.html.erb (164.5ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-02-24 20:16:09' OR inventoried_at IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."priority" IS NULL)) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "items"[0m
+Rendered items/_sidebar.html.erb (17.7ms)
+Rendered items/index.html.erb within layouts/application (195.3ms)
+Completed 200 OK in 293ms (Views: 208.5ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/reports" for 127.0.0.1 at Thu Feb 24 15:16:11 -0500 2011
+  Processing by ReportsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-02-24 20:16:11.800724', "updated_at" = '2011-02-24 20:16:11.802310' WHERE ("users"."id" = 1)
+Rendered reports/_navigation.html.erb (1.4ms)
+Rendered reports/_sidebar.html.erb (0.4ms)
+Rendered reports/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 48ms (Views: 20.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:16:15 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-02-24 20:16:15.485395', "updated_at" = '2011-02-24 20:16:15.487232' WHERE ("users"."id" = 1)[0m
+Rendered reports/_navigation.html.erb (1.3ms)
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+Rendered reports/_items.html.erb (143.4ms)
+  [1m[36mItem Load (1.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (3.6ms)
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (4.4ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.4ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.5ms)
+Rendered reports/_sidebar.html.erb (0.3ms)
+Rendered reports/upgrades.html.erb within layouts/application (171.4ms)
+Completed 200 OK in 244ms (Views: 179.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:16:42 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-02-24 20:16:42.431304', "updated_at" = '2011-02-24 20:16:42.433968' WHERE ("users"."id" = 1)[0m
+Rendered reports/_navigation.html.erb (1.4ms)
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+Rendered reports/_items.html.erb (67.9ms)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.8ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.5ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.5ms)
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.6ms)
+Rendered reports/_sidebar.html.erb (0.4ms)
+Rendered reports/upgrades.html.erb within layouts/application (91.7ms)
+Completed 200 OK in 241ms (Views: 98.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:16:47 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-02-24 20:16:47.125220', "updated_at" = '2011-02-24 20:16:47.127361' WHERE ("users"."id" = 1)[0m
+Rendered reports/_navigation.html.erb (1.2ms)
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+Rendered reports/_items.html.erb (124.4ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.7ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.1ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.4ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.2ms)
+Rendered reports/_sidebar.html.erb (0.2ms)
+Rendered reports/upgrades.html.erb within layouts/application (146.6ms)
+Completed 200 OK in 224ms (Views: 154.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:16:50 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-02-24 20:16:50.326537', "updated_at" = '2011-02-24 20:16:50.328617' WHERE ("users"."id" = 1)[0m
+Rendered reports/_navigation.html.erb (1.4ms)
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+Rendered reports/_items.html.erb (64.9ms)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (2.0ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.3ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.4ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.6ms)
+Rendered reports/_sidebar.html.erb (0.3ms)
+Rendered reports/upgrades.html.erb within layouts/application (89.4ms)
+Completed 200 OK in 235ms (Views: 96.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:16:57 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-02-24 20:16:57.590338', "updated_at" = '2011-02-24 20:16:57.592065' WHERE ("users"."id" = 1)[0m
+Rendered reports/_navigation.html.erb (1.2ms)
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+Rendered reports/_items.html.erb (119.4ms)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.8ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.6ms)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.6ms)
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.7ms)
+Rendered reports/_sidebar.html.erb (0.3ms)
+Rendered reports/upgrades.html.erb within layouts/application (144.6ms)
+Completed 200 OK in 205ms (Views: 152.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:17:23 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-02-24 20:17:23.245863', "updated_at" = '2011-02-24 20:17:23.247882' WHERE ("users"."id" = 1)[0m
+Rendered reports/_navigation.html.erb (1.5ms)
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+Rendered reports/_items.html.erb (55.7ms)
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.8ms)
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.7ms)
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.6ms)
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.6ms)
+Rendered reports/_sidebar.html.erb (0.3ms)
+Rendered reports/upgrades.html.erb within layouts/application (80.5ms)
+Completed 200 OK in 238ms (Views: 89.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/reports/upgrades" for 127.0.0.1 at Thu Feb 24 15:17:24 -0500 2011
+  Processing by ReportsController#upgrades as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-02-24 20:17:24.493853', "updated_at" = '2011-02-24 20:17:24.495851' WHERE ("users"."id" = 1)[0m
+Rendered reports/_navigation.html.erb (1.5ms)
+  [1m[35mItem Load (0.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2011%') AND ("items"."in_use" = 't')
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+Rendered reports/_items.html.erb (121.1ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (warranty_expires_at like '%2012%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.5ms)
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2005%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.1ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."priority" = 2) AND (purchased_at like '%2006%') AND ("items"."in_use" = 't')[0m
+Rendered reports/_items.html.erb (1.1ms)
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."priority" = 1) AND (purchased_at like '%2007%') AND ("items"."in_use" = 't')
+Rendered reports/_items.html.erb (1.1ms)
+Rendered reports/_sidebar.html.erb (0.3ms)
+Rendered reports/upgrades.html.erb within layouts/application (142.3ms)
+Completed 200 OK in 212ms (Views: 149.4ms | ActiveRecord: 2.3ms)
