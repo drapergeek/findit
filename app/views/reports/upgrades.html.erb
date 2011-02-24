@@ -1,0 +1,29 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+		<%= render :partial=>"navigation" %>
+    </ul>
+  </div>          
+  <div class="content">          
+
+    <div class="inner">
+     	<h3>Priority 1 Computers that the warranty expires this year</h3>
+		<%= render :partial=>"items", :locals=>{:items=>@priority1_this_year} %>
+		<h3>Priority 1 Computers that the warranty expires next year</h3>
+		<%= render :partial=>"items", :locals=>{:items=>@priority1_next_year} %>
+		<h3>Priority 2 computers that are older than 6 years this year</h3>
+		<%= render :partial=>"items", :locals=>{:items=>@priority2_this_year} %>
+		<h3>Priority 2 computers that are older than 6 years next year</h3>
+		<%= render :partial=>"items", :locals=>{:items=>@priority2_next_year} %>
+		<h3>Priority 1 Computers that are older than 4 years this year</h3>
+   		<%= render :partial=>"items", :locals=>{:items=>@priority1_older} %>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+
+
+
+
+<h1>Reports</h1>
