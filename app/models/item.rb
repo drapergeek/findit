@@ -5,6 +5,8 @@ class Item < ActiveRecord::Base
   has_many :dns_names, :dependent=>:nullify
   
   scope :has_ip, :include=> :ips, :conditions=>["ips.id in (SELECT id from ips)"]
+  scope :war,includes(:location=>:building).where(:locations=>{:buildings=>{:name=>"War Memorial Hall"}})
+  scope :mccomas,includes(:location=>:building).where(:locations=>{:buildings=>{:name=>"McComas Hall"}})
   scope :proc_ratings, :conditions => 'processor_rating IS NOT NULL', :order=>"processor_rating"
   scope :not_inventoried_recently, :conditions=>["inventoried_at < ? OR inventoried_at IS NULL", 1.years.ago.to_datetime]
   scope :in_use, where(:in_use=>true)
@@ -74,7 +76,9 @@ class Item < ActiveRecord::Base
   ###END CSV DEFINITIONS
   
   
-  
+  def dns_safe_name
+    name.sub("_","-")
+  end
   
   def self.search(search)
     if search

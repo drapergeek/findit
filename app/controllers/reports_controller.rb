@@ -4,7 +4,8 @@ class ReportsController < ApplicationController
   end
   
   def dns
-    @items = Item.has_ip
+    @war_items = Item.has_ip.war
+    @mccomas_items = Item.has_ip.mccomas
     render :action=>"dns", :layout=>false
   end
   
