@@ -15,7 +15,7 @@ class SoftwaresController < ApplicationController
     @software = Software.new(params[:software])
     if @software.save
       flash[:notice] = "Successfully created software."
-      redirect_to @software
+      redirect_to softwares_url
     else
       render :action => 'new'
     end
@@ -29,7 +29,7 @@ class SoftwaresController < ApplicationController
     @software = Software.find(params[:id])
     if @software.update_attributes(params[:software])
       flash[:notice] = "Successfully updated software."
-      redirect_to @software
+      redirect_to softwares_url
     else
       render :action => 'edit'
     end
