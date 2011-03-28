@@ -152,7 +152,7 @@ class Item < ActiveRecord::Base
     self.save(false)
   end
   
-  def info
+  def description
     type_of_item.to_s + ": " + name.to_s
   end
   
