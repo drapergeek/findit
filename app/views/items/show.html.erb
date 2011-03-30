@@ -8,6 +8,7 @@
   </div>          
   <div class="content">
     <div class="inner">
+	<h2 class="title"><%= @item.name %></h2>
       <% unless @item.in_use? %>
 		<div><strong>This item is not currently being used for any purpose.</strong></div>
 		<% end %>
@@ -15,11 +16,8 @@
 		<div>
 			<h3>This is a critical item!</h3>
 		</div>
+		<% title @item.name %>
 		<% end %>
-        <p>
-          <b><%= t("activerecord.attributes.item.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
-          <%= @item.name %>
-        </p>
         <p>
           <b><%= t("activerecord.attributes.item.priority", :default => t("activerecord.labels.priority", :default => "Priority")) %>:</b>
           <%= @item.priority %>
@@ -106,18 +104,18 @@
           <%= @item.type_of_item %>
         </p>
 
-		<p>
+		<p class="noprint">
 			<strong>Primary Label Information</strong>
-			<div>
+			<div class="noprint">
 				<%= @item.processor %><br>
 			  	<%= number_to_human_size(@item.ram) %> Ram<br>
 			</div>
 			
 		</p>
 		
-		<p>
+		<p class="noprint">
 			<strong>Secondary Label Information</strong>
-			<div>
+			<div class="noprint">
 				<%= @item.name %><br>
 				<% if @item.ips && @item.ips.count == 1 %>
 				<%= @item.ips.first.number %>
@@ -133,7 +131,7 @@
 			</div>
 		</p>
 		<% if @item.make == "Dell" %>
-		<p>
+		<p class="noprint">
 			<% driver_link = "http://support.dell.com/support/downloads/driverslist.aspx?c=us&cs=RC956904&l=en&s=hied&os=WLH&osl=en&ServiceTag=#{@item.serial.upcase}&catid=-1&impid=-1" %>
 			<% warranty_link ="http://support.dell.com/support/topics/global.aspx/support/my_systems_info/details?c=us&cs=19&l=en&s=hied&servicetag=#{@item.serial}" %>
 			<strong>Drivers:</strong> <%= link_to "Click Here", driver_link %><br>
@@ -153,7 +151,7 @@
 					<% end %>
 				</ul>
 			<% end %>
-			
+			<div class="noprint">
 			<%= form_tag :action=>'add_ip' , :item=>@item do  %>
 				<select id="ip_selection" name="ip_selection">
 					<% Ip.unassigned.each do |ip| %>
@@ -162,6 +160,7 @@
 				</select>
 				<%= submit_tag 'Add IP' %>
 			<% end %>
+			</div>
 			
 			
 		</p>
@@ -178,7 +177,7 @@
 					<% end %>
 				</ul>
 			<% end %>
-			
+			<div class="noprint">
 			<%= form_tag :controller=>'installations',:action=>'install_software' , :item=>@item do  %>
 				<select id="software_selection" name="software_selection">
 					<% Software.all.each do |software| %>
@@ -187,6 +186,7 @@
 				</select>
 				<%= submit_tag 'Install Software' %>
 			<% end %>
+			</div>
 
 		</p>
 		<p>
@@ -209,7 +209,7 @@
 			<h3>Other Information</h3>
 			<p><%= @item.info %></p>
 		<% end %>
-      <div class="wat-cf">
+      <div class="wat-cf noprint">
 	<%= link_to "Mark As Inventoried", {:controller=>"items", :action=>"mark_as_inventoried", :id=>@item},:class => "button" %> 
 	<%= link_to "Surplus Item", {:controller=>"items", :action=>"surplus", :id=>@item},:class => "button" %> 
 	<%= link_to "Edit", edit_item_path(@item),:class => "button" %> 
