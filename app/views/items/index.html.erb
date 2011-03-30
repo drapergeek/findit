@@ -9,6 +9,7 @@
     <h2 class="title"><%= h @title %></h2>
 
     <div class="inner">
+		<div class="noprint">
 		<%= form_tag items_path, :method => 'get' do %>
 		<%= hidden_field_tag :direction, params[:direction] %>
 		<%= hidden_field_tag :sort, params[:sort] %>
@@ -26,6 +27,7 @@
 			<%= link_to "Current",  params.merge(:format=>:csv) %> |
 			<%= link_to "Security Review",  params.merge(:format=>:csv, :csv_type=>"sec_review") %>
 		</div>		
+	</div>
 	
 	<div id="items">
       <%= render  'items' %>
