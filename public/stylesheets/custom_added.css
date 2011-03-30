@@ -40,5 +40,20 @@ li.model_item{
 .pretty th .desc {
 	color: #f9bfbf;
 }
+div.sortingblock{
+	border: 1px solid maroon;
+	padding-left: 5px;
+}
+.sortingblock ul{
+	padding-left: 20px;
+	padding-bottom: 5px;
+}
+h1.title{
+	color: black;
+	font-size: 30px;
+}
+.wat-cf{
+	padding-top: 10px;
+}
 
 
