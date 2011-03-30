@@ -12,5 +12,17 @@
 }
 p{
 	padding: 0;
-	margin: 2px;
+	margin: 1px 4px 4px;
+}
+
+div.sortingblock{
+	border-style: none;
+	padding: 0;
+	margin: 0;
+}
+h3{
+	
+	size: 22px;
+	padding-bottom: 0;
+	margin-bottom: 2px;
 }
