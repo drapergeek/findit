@@ -1,0 +1,16 @@
+#menu,#header, #main-navigation, .secondary-navigation, #user-navigation, .navigation,.noprint, .flash, #footer{
+	display: none;
+	}
+	
+#wrapper, #content {
+	width: auto;
+	border: 0;
+	margin: 0 5%;
+	padding: 0;
+	float: none !important;
+	font-size: 12px;
+}
+p{
+	padding: 0;
+	margin: 2px;
+}
