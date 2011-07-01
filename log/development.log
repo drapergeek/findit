@@ -33346,3 +33346,2201 @@ Rendered items/_items.html.erb (2.5ms)
 Rendered items/_sidebar.html.erb (7.7ms)
 Rendered items/index.html.erb within layouts/application (19.9ms)
 Completed 200 OK in 72ms (Views: 27.3ms | ActiveRecord: 1.6ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (9.7ms)[0m  CREATE TABLE "announcements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "start_at" datetime, "end_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.0ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.3ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.4ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.8ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.3ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (9.4ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.7ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.6ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (10.8ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (15.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (15.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (388.6ms)[0m  CREATE TABLE "announcements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "start_at" datetime, "end_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (66.6ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (231.0ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (33.5ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (116.5ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (133.2ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (13.5ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.6ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (27.1ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (11.3ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (12.5ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (15.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (24.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (18.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (10.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (10.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (13.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (15.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (10.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (12.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (16.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (10.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (11.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (46.1ms)[0m  CREATE TABLE "announcements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "start_at" datetime, "end_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (85.8ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.0ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (154.1ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (25.3ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (9.1ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (17.5ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.1ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (23.5ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (179.4ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (25.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (19.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (21.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (18.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (16.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (27.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (26.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (41.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (45.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (12.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (21.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.3ms)[0m  CREATE TABLE "announcements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "start_at" datetime, "end_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.2ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (145.0ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (9.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (128.8ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.6ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (169.2ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (120.8ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (73.3ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.1ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (83.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (752.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (435.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[35mSQL (16.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (43.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (7.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (16.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (18.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (32.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (13.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (8.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (32.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (33.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (7.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (5.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (111.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (47.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (6.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (290.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (338.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (169.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+
+
+Started GET "/" for 127.0.0.1 at 2011-07-01 10:45:48 -0400
+  Processing by ItemsController#index as HTML
+  Parameters: {"type"=>"Desktop"}
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (17.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_login" = '2011-07-01 14:45:48.160665', "updated_at" = '2011-07-01 14:45:48.173744' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (22.0ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."in_use" = 't') ORDER BY name asc LIMIT 20 OFFSET 0[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 2) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (30.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery[0m
+  [1m[35mIp Load (0.2ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 7) ORDER BY number ASC LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 6)) AS subquery[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 6) ORDER BY number ASC LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 2) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery[0m
+Rendered items/_items.html.erb (170.1ms)
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-07-01 14:45:48' OR inventoried_at IS NULL)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."priority" IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (5.9ms)
+Rendered items/index.html.erb within layouts/application (184.8ms)
+Completed 200 OK in 373ms (Views: 156.4ms | ActiveRecord: 72.2ms)
+
+
+Started GET "/dns_names" for 127.0.0.1 at 2011-07-01 10:45:49 -0400
+  Processing by DnsNamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:45:49.776548', "updated_at" = '2011-07-01 14:45:49.777518' WHERE ("users"."id" = 1)[0m
+  [1m[35mDnsName Load (0.5ms)[0m  SELECT "dns_names".* FROM "dns_names"
+Rendered dns_names/_sidebar.html.erb (0.3ms)
+Rendered dns_names/index.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 96ms (Views: 44.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/dns_names" for 127.0.0.1 at 2011-07-01 10:45:50 -0400
+  Processing by DnsNamesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:45:50.135652', "updated_at" = '2011-07-01 14:45:50.136782' WHERE ("users"."id" = 1)[0m
+  [1m[35mDnsName Load (0.4ms)[0m  SELECT "dns_names".* FROM "dns_names"
+Rendered dns_names/_sidebar.html.erb (0.3ms)
+Rendered dns_names/index.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 71ms (Views: 42.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-07-01 10:45:50 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:45:50.571486', "updated_at" = '2011-07-01 14:45:50.572499' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/_sidebar.html.erb (0.3ms)
+Rendered users/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 77ms (Views: 14.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-07-01 10:47:48 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (52.5ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:47:48.461826', "updated_at" = '2011-07-01 14:47:48.462636' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/_sidebar.html.erb (0.3ms)
+Rendered users/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 291ms (Views: 13.7ms | ActiveRecord: 52.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-07-01 10:48:17 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:48:17.872413', "updated_at" = '2011-07-01 14:48:17.873409' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/_sidebar.html.erb (0.3ms)
+Rendered users/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 54ms (Views: 14.2ms | ActiveRecord: 0.6ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (16.4ms)[0m  CREATE TABLE "announcements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "start_at" datetime, "end_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (12.2ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (17.0ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (20.1ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (37.9ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (29.8ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.4ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.7ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.5ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (23.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (12.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (5.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (38.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (13.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+
+
+Started GET "/users" for 127.0.0.1 at 2011-07-01 10:48:47 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:48:47.581267', "updated_at" = '2011-07-01 14:48:47.582384' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/_sidebar.html.erb (0.3ms)
+Rendered users/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 34ms (Views: 13.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-07-01 10:49:22 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (17.4ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:49:22.995643', "updated_at" = '2011-07-01 14:49:22.996561' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY last_name
+Rendered users/_sidebar.html.erb (0.3ms)
+Rendered users/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 92ms (Views: 13.7ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-07-01 10:49:24 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:49:24.091320', "updated_at" = '2011-07-01 14:49:24.092150' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY last_name
+Rendered users/_sidebar.html.erb (0.2ms)
+Rendered users/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 68ms (Views: 12.1ms | ActiveRecord: 0.6ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.3ms)[0m  CREATE TABLE "announcements" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "start_at" datetime, "end_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.2ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (87.9ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (17.8ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.6ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.3ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (4.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (2.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+
+
+Started GET "/users/5" for 127.0.0.1 at 2011-07-01 10:49:43 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:49:43.745713', "updated_at" = '2011-07-01 14:49:43.746624' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 5) LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items".user_id = 5)[0m
+Rendered users/_sidebar.html.erb (0.2ms)
+Rendered users/show.html.erb within layouts/application (64.3ms)
+Completed 200 OK in 107ms (Views: 67.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/items" for 127.0.0.1 at 2011-07-01 10:49:45 -0400
+  Processing by ItemsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-07-01 14:49:45.910875', "updated_at" = '2011-07-01 14:49:45.911856' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (3.5ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."in_use" = 't') ORDER BY name asc LIMIT 20 OFFSET 0[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 2) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 7) ORDER BY number ASC LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 6)) AS subquery[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 6) ORDER BY number ASC LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 2) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery[0m
+Rendered items/_items.html.erb (151.3ms)
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-07-01 14:49:45' OR inventoried_at IS NULL)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."priority" IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (6.3ms)
+Rendered items/index.html.erb within layouts/application (164.1ms)
+Completed 200 OK in 267ms (Views: 165.6ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/items/7" for 127.0.0.1 at 2011-07-01 10:49:47 -0400
+  Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:49:47.338898', "updated_at" = '2011-07-01 14:49:47.340063' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (18.7ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."id" = 7) LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 2) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 7))
+  [1m[36mSoftware Load (0.1ms)[0m  [1mSELECT "softwares".* FROM "softwares" INNER JOIN "installations" ON "softwares".id = "installations".software_id WHERE (("installations".item_id = 7)) ORDER BY name[0m
+  [1m[35mSoftware Load (0.2ms)[0m  SELECT "softwares".* FROM "softwares" ORDER BY name
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 7) ORDER BY number ASC
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE (item_id IS NULL) ORDER BY number ASC[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "dns_names" WHERE ("dns_names".item_id = 7)) AS subquery
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-07-01 14:49:47' OR inventoried_at IS NULL)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."priority" IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (5.5ms)
+Rendered items/show.html.erb within layouts/application (179.7ms)
+Completed 200 OK in 287ms (Views: 181.2ms | ActiveRecord: 21.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-07-01 10:51:19 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (45.0ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:51:19.557506', "updated_at" = '2011-07-01 14:51:19.558750' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY last_name
+Rendered users/_sidebar.html.erb (0.3ms)
+Rendered users/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 106ms (Views: 15.3ms | ActiveRecord: 45.5ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2011-07-01 10:51:20 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:51:20.852318', "updated_at" = '2011-07-01 14:51:20.853384' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 5) LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items".user_id = 5)[0m
+Rendered users/_sidebar.html.erb (0.2ms)
+Rendered users/show.html.erb within layouts/application (62.5ms)
+Completed 200 OK in 113ms (Views: 66.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2011-07-01 10:51:21 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (454.1ms)[0m  UPDATE "users" SET "last_login" = '2011-07-01 14:51:21.544129', "updated_at" = '2011-07-01 14:51:21.545152' WHERE ("users"."id" = 1)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items".user_id = 5)
+Rendered users/_sidebar.html.erb (0.2ms)
+Rendered users/show.html.erb within layouts/application (63.7ms)
+Completed 200 OK in 543ms (Views: 67.1ms | ActiveRecord: 454.6ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at 2011-07-01 10:51:23 -0400
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 14:51:23.179788', "updated_at" = '2011-07-01 14:51:23.180851' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 5) LIMIT 1
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from _app_views_users__form_html_erb__4239872508617366024_2176911000__2170443226761001996 at /Users/gdraper/Dropbox/code/findit/app/views/users/_form.html.erb:2)
+Rendered users/_form.html.erb (5.3ms)
+Rendered users/_sidebar.html.erb (0.3ms)
+Rendered users/edit.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 51ms (Views: 16.3ms | ActiveRecord: 0.6ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateAnnouncements (20100513155659)
+Migrating to CreateUsers (20100513163205)
+Migrating to CreatePages (20100513182434)
+Migrating to ChangeIpToString (20100513185330)
+Migrating to CreateIps (20100805182220)
+Migrating to CreateItems (20100805182502)
+Migrating to AddItemIdToIp (20100805182710)
+Migrating to CreateBuildings (20100805184434)
+Migrating to CreateLocations (20100805184520)
+Migrating to AddBuildingToIp (20100805184617)
+Migrating to CreateSoftwares (20100805202527)
+Migrating to CreateInstallations (20100805203137)
+Migrating to AddLoginAsBooleanToUsers (20100806152143)
+Migrating to CreateDnsNames (20100809124038)
+Migrating to Add (20100809124242)
+Migrating to ChangeItemToTypeToItemType (20100809183327)
+Migrating to ChangeColumnForHardDrivesAndRamToBigInt (20100809184023)
+Migrating to CreateOperatingSystems (20100809193542)
+Migrating to AddOsToSoftwareAndItems (20100809193658)
+Migrating to AddLocationIdToItem (20100809200633)
+Migrating to AddlastInventoriedAtToItem (20100810154505)
+Migrating to AddUserIdAndInfoToItem (20100810172854)
+Migrating to AddSurplusAndInUseToItems (20101004191754)
+Migrating to AddCriticalAndPriority (20110102161014)
+Migrating to DropAnnouncements (20110701145419)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mDROP TABLE "announcements"[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110701145419')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("buildings")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("dns_names")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("installations")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("ips")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("items")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("locations")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("operating_systems")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("os")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("pages")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("softwares")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.2ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.4ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (15.7ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.9ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110701145419')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (20.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.1ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.3ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (28.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110701145419')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.2ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (10.5ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.7ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.5ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.5ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110701145419')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (13.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+
+
+Started GET "/users/5" for 127.0.0.1 at 2011-07-01 12:01:01 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 16:01:01.634242', "updated_at" = '2011-07-01 16:01:01.635338' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 5) LIMIT 1
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items".user_id = 5)[0m
+Rendered users/_sidebar.html.erb (0.2ms)
+Rendered users/show.html.erb within layouts/application (87.1ms)
+Completed 200 OK in 112ms (Views: 90.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2011-07-01 12:01:02 -0400
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (75.5ms)[0m  UPDATE "users" SET "last_login" = '2011-07-01 16:01:02.622053', "updated_at" = '2011-07-01 16:01:02.623311' WHERE ("users"."id" = 1)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE ("items".user_id = 5)
+Rendered users/_sidebar.html.erb (0.3ms)
+Rendered users/show.html.erb within layouts/application (74.8ms)
+Completed 200 OK in 195ms (Views: 78.3ms | ActiveRecord: 76.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-07-01 12:01:04 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 16:01:04.956748', "updated_at" = '2011-07-01 16:01:04.957842' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY last_name
+Rendered users/_sidebar.html.erb (0.3ms)
+Rendered users/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 54ms (Views: 13.9ms | ActiveRecord: 0.7ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.2ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.1ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.9ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110701145419')[0m
+  [1m[35mSQL (12.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (10.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (3.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (12.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (4.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (3.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.3ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.2ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (29.0ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.0ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110701145419')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (23.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.2ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.1ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (13.9ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.1ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.2ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (10.5ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (16.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (21.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110701145419')[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (19.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (16.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[36mSQL (15.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.3ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110701145419')[0m
+  [1m[35mSQL (25.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+
+
+Started GET "/users" for 127.0.0.1 at 2011-07-01 12:10:28 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 16:10:28.846332', "updated_at" = '2011-07-01 16:10:28.847457' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY last_name
+Rendered users/_sidebar.html.erb (0.2ms)
+Rendered users/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 68ms (Views: 12.8ms | ActiveRecord: 0.7ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.9ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.9ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (27.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (19.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110701145419')[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (36.0ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (31.6ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (15.5ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (26.1ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (12.8ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.9ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110701145419')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (11.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateAnnouncements (20100513155659)
+Migrating to CreateUsers (20100513163205)
+Migrating to CreatePages (20100513182434)
+Migrating to ChangeIpToString (20100513185330)
+Migrating to CreateIps (20100805182220)
+Migrating to CreateItems (20100805182502)
+Migrating to AddItemIdToIp (20100805182710)
+Migrating to CreateBuildings (20100805184434)
+Migrating to CreateLocations (20100805184520)
+Migrating to AddBuildingToIp (20100805184617)
+Migrating to CreateSoftwares (20100805202527)
+Migrating to CreateInstallations (20100805203137)
+Migrating to AddLoginAsBooleanToUsers (20100806152143)
+Migrating to CreateDnsNames (20100809124038)
+Migrating to Add (20100809124242)
+Migrating to ChangeItemToTypeToItemType (20100809183327)
+Migrating to ChangeColumnForHardDrivesAndRamToBigInt (20100809184023)
+Migrating to CreateOperatingSystems (20100809193542)
+Migrating to AddOsToSoftwareAndItems (20100809193658)
+Migrating to AddLocationIdToItem (20100809200633)
+Migrating to AddlastInventoriedAtToItem (20100810154505)
+Migrating to AddUserIdAndInfoToItem (20100810172854)
+Migrating to AddSurplusAndInUseToItems (20101004191754)
+Migrating to AddCriticalAndPriority (20110102161014)
+Migrating to DropAnnouncements (20110701145419)
+Migrating to DropPages (20110701161231)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mDROP TABLE "pages"[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110701161231')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("buildings")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("dns_names")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("installations")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("ips")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("items")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("locations")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("operating_systems")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("os")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("softwares")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.2ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.1ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110701161231')[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (2.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110701145419')
+
+
+Started GET "/users" for 127.0.0.1 at 2011-07-01 12:14:15 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 16:14:15.296828', "updated_at" = '2011-07-01 16:14:15.297911' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY last_name
+Rendered users/_sidebar.html.erb (0.2ms)
+Rendered users/index.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 55ms (Views: 34.7ms | ActiveRecord: 0.8ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.2ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.1ms)[0m  CREATE TABLE "dns_names" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "item_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "installations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "software_id" integer, "item_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "ips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "item_id" integer, "building_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "make" varchar(255), "model" varchar(255), "processor" varchar(255), "processor_rating" integer, "ram" integer, "hard_drive" integer, "serial" varchar(255), "vt_tag" varchar(255), "purchased_at" datetime, "warranty_expires_at" datetime, "recieved_at" datetime, "os" varchar(255), "type_of_item" varchar(255), "created_at" datetime, "updated_at" datetime, "operating_system_id" integer, "location_id" integer, "inventoried_at" datetime, "user_id" integer, "info" text, "in_use" boolean, "surplused_at" datetime, "critical" boolean, "priority" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "building_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "operating_systems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "os" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.3ms)[0m  CREATE TABLE "softwares" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "license_key" varchar(255), "os" varchar(255), "number_of_licenses" integer, "storage_location" varchar(255), "info" text, "created_at" datetime, "updated_at" datetime, "operating_system_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "last_login" datetime, "last_login_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "can_login" boolean) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110701161231')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513155659')
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513163205')[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100513182434')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100513185330')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182220')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805182502')[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805182710')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184434')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805184520')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805184617')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100805202527')
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100805203137')[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100806152143')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809124038')[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809124242')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809183327')[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809184023')
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809193542')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100809193658')
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100809200633')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20100810154505')
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20100810172854')[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101004191754')
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110102161014')[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110701145419')
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2011-07-01 12:14:17 -0400
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 16:14:17.413128', "updated_at" = '2011-07-01 16:14:17.414214' WHERE ("users"."id" = 1)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered shared/_error_messages.html.erb (0.5ms)
+Rendered users/_form.html.erb (6.0ms)
+Rendered users/_sidebar.html.erb (0.2ms)
+Rendered users/edit.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 37ms (Views: 16.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/items" for 127.0.0.1 at 2011-07-01 12:14:20 -0400
+  Processing by ItemsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-07-01 16:14:20.177861', "updated_at" = '2011-07-01 16:14:20.178939' WHERE ("users"."id" = 1)[0m
+  [1m[35mItem Load (23.1ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."in_use" = 't') ORDER BY name asc LIMIT 20 OFFSET 0
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 2) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 7) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 6)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 6) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 2) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery
+Rendered items/_items.html.erb (141.5ms)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-07-01 16:14:20' OR inventoried_at IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."priority" IS NULL)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "items"[0m
+Rendered items/_sidebar.html.erb (6.7ms)
+Rendered items/index.html.erb within layouts/application (155.5ms)
+Completed 200 OK in 259ms (Views: 157.1ms | ActiveRecord: 25.8ms)

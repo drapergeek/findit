@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
     [first_name, last_name].join(" ")
   end
   
+  
+  def reverse_name
+    [last_name, first_name].join(", ")
+  end
+
   def to_s
     full_name
   end

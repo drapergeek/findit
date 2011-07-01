@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
-  if Rails.env == "development"
+  if Rails.env != "production"
     before_filter :set_login
   else
     before_filter CASClient::Frameworks::Rails::Filter

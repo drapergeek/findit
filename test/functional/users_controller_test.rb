@@ -9,7 +9,17 @@ class UsersControllerTest < ActionController::TestCase
     get :index
     assert_template 'index'
   end
-  
+
+  def test_index_shows_name
+    User.create(:login=>"stupid", :first_name=>"Stu", :last_name=>"Pid") 
+    get :index
+    assert_template 'index'
+    assert_select "td","Pid, Stu"
+    assert_select "td", "stupid"
+    assert_select "th", "Name"
+    assert_select "th", "Login"
+  end
+
   def test_show
     get :show, :id => User.first
     assert_template 'show'
