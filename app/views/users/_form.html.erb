@@ -1,5 +1,5 @@
 <div>
-	<%= f.error_messages %>
+<%= render "shared/error_messages", :target=>@user %>
 </div>
   <div class="group">
     <%= f.label :login, t("activerecord.attributes.user.login", :default => "Login"), :class => :label %>
