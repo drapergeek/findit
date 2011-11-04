@@ -37,7 +37,8 @@ class ApplicationController < ActionController::Base
   def check_for_valid_login
     unless current_user
       #this user can't be found so get them out of here!
-      CASClient::Frameworks::Rails::Filter.logout(self)
+      #CASClient::Frameworks::Rails::Filter.logout(self)
+
     end
   end
 
