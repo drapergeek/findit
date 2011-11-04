@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     if Rails.env != "production"
       session[:cas_user] = "gdraper"
     else
-      before_filter CASClient::Frameworks::Rails::Filter
+      CASClient::Frameworks::Rails::Filter.redirect_to_cas_for_authentication(self)
     end
   end
   
