@@ -1,5 +1,5 @@
 class OperatingSystemsController < ApplicationController
-  CASClient::Frameworks::Rails::Filter
+  before_filter CASClient::Frameworks::Rails::Filter
   def index
     @operating_systems = OperatingSystem.all
   end

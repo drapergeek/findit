@@ -1,5 +1,5 @@
 class BuildingsController < ApplicationController
-  CASClient::Frameworks::Rails::Filter
+  before_filter CASClient::Frameworks::Rails::Filter
   def index
     @buildings = Building.all
   end

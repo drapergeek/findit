@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  CASClient::Frameworks::Rails::Filter
+  before_filter CASClient::Frameworks::Rails::Filter
   def index
     
   end
