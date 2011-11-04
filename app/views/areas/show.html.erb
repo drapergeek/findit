@@ -1,0 +1,12 @@
+<% title "Area" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @area.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_area_path(@area) %> |
+  <%= link_to "Destroy", @area, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", areas_path %>
+</p>

@@ -1,0 +1,35 @@
+<% title "Tickets" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Priority</th>
+    <th>Start Date</th>
+    <th>Due Date</th>
+    <th>Submitter</th>
+    <th>Worker</th>
+    <th>Project</th>
+    <th>Area</th>
+  </tr>
+  <% for ticket in @tickets %>
+    <tr>
+      <td><%= ticket.title %></td>
+      <td><%= ticket.description %></td>
+      <td><%= ticket.status %></td>
+      <td><%= ticket.priority %></td>
+      <td><%= ticket.start_date %></td>
+      <td><%= ticket.due_date %></td>
+      <td><%= ticket.submitter %></td>
+      <td><%= ticket.worker %></td>
+      <td><%= ticket.project %></td>
+      <td><%= ticket.area %></td>
+      <td><%= link_to "Show", ticket %></td>
+      <td><%= link_to "Edit", edit_ticket_path(ticket) %></td>
+      <td><%= link_to "Destroy", ticket, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Ticket", new_ticket_path %></p>
