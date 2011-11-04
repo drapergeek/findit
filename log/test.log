@@ -10557,3 +10557,847 @@ Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.3ms)
   [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items".user_id = 298486374)[0m
 Rendered users/_sidebar.html.erb (0.0ms)
 Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.7ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:22:52.054070', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:22:52.054070', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (24.8ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.7ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.5ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:25:02.766832', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:25:02.766832', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (22.7ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.9ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:25:33.373664', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:25:33.373664', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (23.1ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:25:54.459748', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:25:54.459748', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (23.9ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'spiderman') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:27:16.796480', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:27:16.796480', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (22.5ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:27:16.874426', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:27:16.874426')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:29:24.609829', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:29:24.609829', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (22.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:29:24.687329', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:29:24.687329')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:29:24.693160', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:29:24.693160')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.7ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:32:48.816052', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:32:48.816052', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (24.0ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:32:48.895186', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:32:48.895186')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:32:48.900707', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:32:48.900707')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login3') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:32:48.903746', 'Peter', NULL, NULL, 'Parker', 'login3', '2011-11-04 20:32:48.903746')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.9ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:35:24.541337', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:35:24.541337', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (1.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:35:24.659745', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:35:24.659745')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:35:24.666663', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:35:24.666663')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login4') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:35:24.671603', 'Peter', NULL, NULL, 'Parker', 'login4', '2011-11-04 20:35:24.671603')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:36:32.375209', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:36:32.375209', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (1.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:36:32.454690', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:36:32.454690')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:36:32.460812', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:36:32.460812')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login4') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:36:32.504060', 'Peter', NULL, NULL, 'Parker', 'login4', '2011-11-04 20:36:32.504060')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.9ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:37:37.107678', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:37:37.107678', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (1.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:37:37.185759', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:37:37.185759')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:37:37.191729', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:37:37.191729')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login4') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:37:37.237369', 'Peter', NULL, NULL, 'Parker', 'login4', '2011-11-04 20:37:37.237369')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login5') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:37:37.241573', 'Peter', NULL, NULL, 'Parker', 'login5', '2011-11-04 20:37:37.241573')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:38:21.821115', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:38:21.821115', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (1.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:38:21.898079', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:38:21.898079')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:38:21.904019', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:38:21.904019')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login4') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:38:21.947680', 'Peter', NULL, NULL, 'Parker', 'login4', '2011-11-04 20:38:21.947680')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login5') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:38:21.951744', 'Peter', NULL, NULL, 'Parker', 'login5', '2011-11-04 20:38:21.951744')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.5ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:42:09.690828', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:42:09.690828', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (1.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:42:09.767985', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:42:09.767985')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:42:09.774057', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:42:09.774057')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login4') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:42:09.816741', 'Peter', NULL, NULL, 'Parker', 'login4', '2011-11-04 20:42:09.816741')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login5') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:42:09.821242', 'Peter', NULL, NULL, 'Parker', 'login5', '2011-11-04 20:42:09.821242')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:42:56.141171', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:42:56.141171', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (1.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:42:56.221383', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:42:56.221383')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:42:56.227420', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:42:56.227420')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login4') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:42:56.271444', 'Peter', NULL, NULL, 'Parker', 'login4', '2011-11-04 20:42:56.271444')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login5') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:42:56.274758', 'Peter', NULL, NULL, 'Parker', 'login5', '2011-11-04 20:42:56.274758')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (1.0ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.7ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:45:27.153492', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:45:27.153492', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (1.4ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:45:27.232576', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:45:27.232576')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:45:27.239020', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:45:27.239020')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login4') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:45:27.280490', 'Peter', NULL, NULL, 'Parker', 'login4', '2011-11-04 20:45:27.280490')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login5') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:45:27.284194', 'Peter', NULL, NULL, 'Parker', 'login5', '2011-11-04 20:45:27.284194')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login6') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:45:27.287343', 'Brent', NULL, NULL, 'Montague', 'login6', '2011-11-04 20:45:27.287343')[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tickets" ("area_id", "created_at", "description", "due_date", "priority", "project_id", "start_date", "status", "submitter_id", "title", "updated_at", "worker_id") VALUES (NULL, '2011-11-04 20:45:27.288783', 'Here is a text blob about what is happeneing', NULL, NULL, NULL, NULL, 'Open', 980190963, 'Demo Title', '2011-11-04 20:45:27.288783', NULL)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.7ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:50:12.810206', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:50:12.810206', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (1.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:50:12.901885', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:50:12.901885')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:50:12.909026', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:50:12.909026')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login4') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:50:12.951245', 'Peter', NULL, NULL, 'Parker', 'login4', '2011-11-04 20:50:12.951245')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login5') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:50:12.954684', 'Peter', NULL, NULL, 'Parker', 'login5', '2011-11-04 20:50:12.954684')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.1ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:51:29.226659', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:51:29.226659', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (1.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:51:29.317160', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:51:29.317160')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:51:29.324231', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:51:29.324231')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login4') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:51:29.369133', 'Peter', NULL, NULL, 'Parker', 'login4', '2011-11-04 20:51:29.369133')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login5') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:51:29.372696', 'Peter', NULL, NULL, 'Parker', 'login5', '2011-11-04 20:51:29.372696')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."id" = 223115759) LIMIT 1[0m
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("created_at", "critical", "hard_drive", "in_use", "info", "inventoried_at", "location_id", "make", "model", "name", "operating_system_id", "os", "priority", "processor", "processor_rating", "purchased_at", "ram", "recieved_at", "serial", "surplused_at", "type_of_item", "updated_at", "user_id", "vt_tag", "warranty_expires_at") VALUES ('2011-11-04 20:52:50.139416', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Printer', '2011-11-04 20:52:50.139416', NULL, NULL, NULL)[0m
+  [1m[35mItem Load (1.3ms)[0m  SELECT "items".* FROM "items" WHERE ("items"."type_of_item" = 'Printer')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mItem Load (0.1ms)[0m  SELECT "items"."id" FROM "items" WHERE ("items"."name" IS NULL) LIMIT 1
+  [1m[36mBuilding Load (0.1ms)[0m  [1mSELECT "buildings".* FROM "buildings" WHERE ("buildings"."id" = 828327798) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login1') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:52:50.217865', 'Peter', NULL, NULL, 'Parker', 'login1', '2011-11-04 20:52:50.217865')[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login2') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:52:50.225342', 'Peter', NULL, NULL, 'Parker', 'login2', '2011-11-04 20:52:50.225342')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login4') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:52:50.231068', 'Peter', NULL, NULL, 'Parker', 'login4', '2011-11-04 20:52:50.231068')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'login5') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("can_login", "created_at", "first_name", "last_login", "last_login_ip", "last_name", "login", "updated_at") VALUES (NULL, '2011-11-04 20:52:50.234371', 'Peter', NULL, NULL, 'Parker', 'login5', '2011-11-04 20:52:50.234371')[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" IS NULL) LIMIT 1
