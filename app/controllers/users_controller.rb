@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    prepend_before_filter CASClient::Frameworks::Rails::Filter
   def index
     @users = User.order "last_name"
   end

@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+    prepend_before_filter CASClient::Frameworks::Rails::Filter
   def index
     @locations = Location.all
   end
