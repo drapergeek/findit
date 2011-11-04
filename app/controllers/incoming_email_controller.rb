@@ -4,7 +4,7 @@ class IncomingEmailController < ApplicationController
 
   def index
     logger.info "I got the email"
-    logger.info email.class
-    logger.info email.to_yaml
+    logger.info mail.class
+    logger.info mail.to_yaml
   end
 end
