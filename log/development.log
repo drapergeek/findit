@@ -36656,3 +36656,14 @@ Started GET "/operating_systems" for 127.0.0.1 at 2011-11-04 15:04:25 -0400
 Rendered operating_systems/_sidebar.html.erb (0.3ms)
 Rendered operating_systems/index.html.erb within layouts/application (12.4ms)
 Completed 200 OK in 52ms (Views: 17.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/operating_systems" for 127.0.0.1 at 2011-11-04 15:04:38 -0400
+  Processing by OperatingSystemsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-11-04 19:04:38.465913', "updated_at" = '2011-11-04 19:04:38.467229' WHERE ("users"."id" = 1)[0m
+  [1m[35mOperatingSystem Load (0.2ms)[0m  SELECT "operating_systems".* FROM "operating_systems" ORDER BY name
+Rendered operating_systems/_sidebar.html.erb (0.3ms)
+Rendered operating_systems/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 53ms (Views: 20.1ms | ActiveRecord: 0.8ms)
