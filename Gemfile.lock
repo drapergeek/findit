@@ -96,12 +96,9 @@ DEPENDENCIES
   fastercsv
   formtastic
   jquery-rails
-<<<<<<< HEAD
   mail
-=======
   mocha
   nifty-generators
->>>>>>> brent
   rails (= 3.0.0)
   rubycas-client
   simple_form
