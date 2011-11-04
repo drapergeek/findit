@@ -40,4 +40,7 @@ group :production do
 end
 gem 'thor'
 gem 'comma'
-gem 'factory_girl'
+gem 'factory_girl_rails'
+gem 'formtastic'
+gem "nifty-generators", :group => :development
+gem "mocha", :group => :test
