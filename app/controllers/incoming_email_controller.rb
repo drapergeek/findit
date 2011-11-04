@@ -4,10 +4,7 @@ class IncomingEmailController < ApplicationController
 
   def index
     logger.info "I got the email"
-    mail = Mail.read(params[:mail])
-    logger.info mail.from.address
-    logger.info mail.subject
-    logger.info mail.body.decoded
-    redirect_to root_url
+    logger.info email.class
+    logger.info email.to_yaml
   end
 end
