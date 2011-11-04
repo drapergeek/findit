@@ -5,7 +5,7 @@ class IncomingEmailController < ApplicationController
   def index
     if params[:mail]
       mail = Mail.read_from_string(params[:mail])
-      logger.info mail.from.addresses
+      logger.info mail.from.addresses.to_s
       logger.info "Subject: " + mail.subject
       logger.info "Body: " + mail.body.decoded
     end
