@@ -1,5 +1,5 @@
 class InstallationsController < ApplicationController
-    prepend_before_filter CASClient::Frameworks::Rails::Filter
+    prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
   def install_software
       if params[:software_selection].blank?
         flash[:notice] = "You must select the software to install"

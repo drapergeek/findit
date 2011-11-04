@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
-  prepend_before_filter CASClient::Frameworks::Rails::Filter
+  prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
   
   def index
     if params[:in_use]=="false"

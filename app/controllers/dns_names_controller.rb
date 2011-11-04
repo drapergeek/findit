@@ -1,5 +1,5 @@
 class DnsNamesController < ApplicationController
-    prepend_before_filter CASClient::Frameworks::Rails::Filter
+    prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
   def index
     @dns_names = DnsName.all
   end

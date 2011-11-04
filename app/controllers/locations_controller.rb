@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-    prepend_before_filter CASClient::Frameworks::Rails::Filter
+    prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
   def index
     @locations = Location.all
   end
