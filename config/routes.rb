@@ -1,6 +1,4 @@
 Findit::Application.routes.draw do
-  
-  
   resources :operating_systems
   resources :dns_names
   resources :softwares
@@ -23,8 +21,9 @@ Findit::Application.routes.draw do
     end
   end
   resources :announcements
-  
-  
+  resources :incoming_email, :only=>[:index]
+  match "mail", :to=>"incoming_email#index", :as=>"mail"
+
   root :to=>"items#index", :type=>"Desktop"
   match "logout", :to=>"users#logout",:as=>"logout"
   match ':controller(/:action(/:id(.:format)))'
