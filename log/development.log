@@ -36490,3 +36490,169 @@ Rendered items/_items.html.erb (182.4ms)
 Rendered items/_sidebar.html.erb (6.3ms)
 Rendered items/index.html.erb within layouts/application (224.0ms)
 Completed 200 OK in 426ms (Views: 231.8ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-11-04 15:00:26 -0400
+  Processing by ItemsController#index as HTML
+  Parameters: {"type"=>"Desktop"}
+DEPRECATION WARNING: RAILS_DEFAULT_LOGGER is deprecated. Please use ::Rails.logger. (called from synchronize at <internal:prelude>:10)
+Guessed service url: "http://localhost:3000/items?type=Desktop"
+Generated login url: https://auth.vt.edu/login?service=http%3A%2F%2Flocalhost%3A3000%2Fitems%3Ftype%3DDesktop
+Redirecting to "https://auth.vt.edu/login?service=http%3A%2F%2Flocalhost%3A3000%2Fitems%3Ftype%3DDesktop"
+Redirected to https://auth.vt.edu/login?service=http%3A%2F%2Flocalhost%3A3000%2Fitems%3Ftype%3DDesktop
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-11-04 15:00:29 -0400
+  Processing by ItemsController#index as HTML
+  Parameters: {"type"=>"Desktop"}
+Guessed service url: "http://localhost:3000/items?type=Desktop"
+Generated login url: https://auth.vt.edu/login?service=http%3A%2F%2Flocalhost%3A3000%2Fitems%3Ftype%3DDesktop
+Redirecting to "https://auth.vt.edu/login?service=http%3A%2F%2Flocalhost%3A3000%2Fitems%3Ftype%3DDesktop"
+Redirected to https://auth.vt.edu/login?service=http%3A%2F%2Flocalhost%3A3000%2Fitems%3Ftype%3DDesktop
+Completed 302 Found in 1ms
+
+
+Started GET "/buildings" for 127.0.0.1 at 2011-11-04 15:02:41 -0400
+  Processing by BuildingsController#index as HTML
+Completed   in 0ms
+
+NoMethodError (undefined method `before' for true:TrueClass):
+  activesupport (3.0.0) lib/active_support/callbacks.rb:314:in `_callback_before_193'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:430:in `_run__2141635795124605427__process_action__427509420745021096__callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:93:in `run_callbacks'
+  actionpack (3.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `block in instrument'
+  activesupport (3.0.0) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (3.0.0) lib/active_support/notifications.rb:52:in `instrument'
+  actionpack (3.0.0) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.0.0) lib/action_controller/metal/rescue.rb:17:in `process_action'
+  actionpack (3.0.0) lib/abstract_controller/base.rb:119:in `process'
+  actionpack (3.0.0) lib/abstract_controller/rendering.rb:40:in `process'
+  actionpack (3.0.0) lib/action_controller/metal.rb:133:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.0.0) lib/action_controller/metal.rb:173:in `block in action'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:27:in `call'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:148:in `block in call'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:93:in `block in recognize'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:68:in `optimized_each'
+  rack-mount (0.6.13) lib/rack/mount/code_generation.rb:92:in `recognize'
+  rack-mount (0.6.13) lib/rack/mount/route_set.rb:139:in `call'
+  actionpack (3.0.0) lib/action_dispatch/routing/route_set.rb:492:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/head.rb:14:in `call'
+  rack (1.2.1) lib/rack/methodoverride.rb:24:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/flash.rb:182:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/cookies.rb:287:in `call'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:32:in `block in call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:12:in `cache'
+  activerecord (3.0.0) lib/active_record/query_cache.rb:31:in `call'
+  activerecord (3.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  activesupport (3.0.0) lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+  actionpack (3.0.0) lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  rack (1.2.1) lib/rack/sendfile.rb:107:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+  railties (3.0.0) lib/rails/rack/logger.rb:13:in `call'
+  rack (1.2.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.0.0) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.2.1) lib/rack/lock.rb:11:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  rack (1.2.1) lib/rack/lock.rb:11:in `call'
+  actionpack (3.0.0) lib/action_dispatch/middleware/static.rb:30:in `call'
+  railties (3.0.0) lib/rails/application.rb:168:in `call'
+  railties (3.0.0) lib/rails/application.rb:77:in `method_missing'
+  railties (3.0.0) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.2.1) lib/rack/content_length.rb:13:in `call'
+  rack (1.2.1) lib/rack/handler/webrick.rb:52:in `service'
+  /Users/gdraper/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/gdraper/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/gdraper/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /Users/gdraper/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/gdraper/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /Users/gdraper/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2011-11-04 15:03:42 -0400
+  Processing by BuildingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-11-04 19:03:42.501243', "updated_at" = '2011-11-04 19:03:42.502491' WHERE ("users"."id" = 1)[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings"
+Rendered buildings/_sidebar.html.erb (0.3ms)
+Rendered buildings/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 88ms (Views: 18.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/buildings" for 127.0.0.1 at 2011-11-04 15:04:21 -0400
+  Processing by BuildingsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-11-04 19:04:21.185494', "updated_at" = '2011-11-04 19:04:21.187212' WHERE ("users"."id" = 1)[0m
+  [1m[35mBuilding Load (0.2ms)[0m  SELECT "buildings".* FROM "buildings"
+Rendered buildings/_sidebar.html.erb (0.3ms)
+Rendered buildings/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 91ms (Views: 31.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/softwares" for 127.0.0.1 at 2011-11-04 15:04:22 -0400
+  Processing by SoftwaresController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-11-04 19:04:23.051162', "updated_at" = '2011-11-04 19:04:23.052396' WHERE ("users"."id" = 1)[0m
+  [1m[35mSoftware Load (0.2ms)[0m  SELECT "softwares".* FROM "softwares" ORDER BY name
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "installations" WHERE ("installations".software_id = 1)) AS subquery[0m
+Rendered softwares/_sidebar.html.erb (0.3ms)
+Rendered softwares/index.html.erb within layouts/application (35.6ms)
+Completed 200 OK in 114ms (Views: 40.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/items" for 127.0.0.1 at 2011-11-04 15:04:24 -0400
+  Processing by ItemsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_login" = '2011-11-04 19:04:24.565682', "updated_at" = '2011-11-04 19:04:24.566790' WHERE ("users"."id" = 1)
+  [1m[36mItem Load (30.9ms)[0m  [1mSELECT "items".* FROM "items" WHERE ("items"."in_use" = 't') ORDER BY name asc LIMIT 20 OFFSET 0[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 2) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 7)) AS subquery[0m
+  [1m[35mIp Load (0.2ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 7) ORDER BY number ASC LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 6)) AS subquery[0m
+  [1m[35mIp Load (0.1ms)[0m  SELECT "ips".* FROM "ips" WHERE ("ips".item_id = 6) ORDER BY number ASC LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 1) ORDER BY buildings.name, locations.name LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 1)) AS subquery
+  [1m[36mIp Load (0.1ms)[0m  [1mSELECT "ips".* FROM "ips" WHERE ("ips".item_id = 1) ORDER BY number ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations"."id" AS t0_r0, "locations"."name" AS t0_r1, "locations"."info" AS t0_r2, "locations"."building_id" AS t0_r3, "locations"."created_at" AS t0_r4, "locations"."updated_at" AS t0_r5, "buildings"."id" AS t1_r0, "buildings"."name" AS t1_r1, "buildings"."info" AS t1_r2, "buildings"."created_at" AS t1_r3, "buildings"."updated_at" AS t1_r4 FROM "locations" LEFT OUTER JOIN "buildings" ON "buildings"."id" = "locations"."building_id" WHERE ("locations"."id" = 2) ORDER BY buildings.name, locations.name LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "ips" WHERE ("ips".item_id = 5)) AS subquery[0m
+Rendered items/_items.html.erb (182.1ms)
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Desktop')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Laptop')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Server')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Printer')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Virtual Machine')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."type_of_item" = 'Other')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE (inventoried_at < '2010-11-04 19:04:24' OR inventoried_at IS NULL)) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "items" WHERE ("items"."priority" IS NULL)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "items"
+Rendered items/_sidebar.html.erb (6.2ms)
+Rendered items/index.html.erb within layouts/application (196.7ms)
+Completed 200 OK in 343ms (Views: 205.1ms | ActiveRecord: 33.6ms)
+
+
+Started GET "/operating_systems" for 127.0.0.1 at 2011-11-04 15:04:25 -0400
+  Processing by OperatingSystemsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."login" = 'gdraper') LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE ("users"."login" = 'gdraper') AND ("users".id <> 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_login" = '2011-11-04 19:04:25.225573', "updated_at" = '2011-11-04 19:04:25.226969' WHERE ("users"."id" = 1)[0m
+  [1m[35mOperatingSystem Load (0.2ms)[0m  SELECT "operating_systems".* FROM "operating_systems" ORDER BY name
+Rendered operating_systems/_sidebar.html.erb (0.3ms)
+Rendered operating_systems/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 52ms (Views: 17.1ms | ActiveRecord: 0.8ms)
