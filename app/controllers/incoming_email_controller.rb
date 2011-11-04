@@ -5,9 +5,8 @@ class IncomingEmailController < ApplicationController
   def index
     if params[:mail]
       mail = Mail.read_from_string(params[:mail])
-      logger.info mail.from.to_s
-      logger.info "Subject: " + mail.subject
-      logger.info "Body: " + mail.body.decoded
+      #mail.from mail.subject mail.body.decoded
+      logger.info "Incoming mail from #{mail.from} subject: #{mail.subject}"
     end
     redirect_to root_url
   end
