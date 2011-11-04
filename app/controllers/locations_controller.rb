@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  CASClient::Frameworks::Rails::Filter
   def index
     @locations = Location.all
   end

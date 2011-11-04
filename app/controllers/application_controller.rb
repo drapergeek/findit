@@ -4,16 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
-  if Rails.env != "production"
-    before_filter :set_login
-  else
-    before_filter CASClient::Frameworks::Rails::Filter
-  end
+  before_filter :set_login
   before_filter :check_for_valid_login
   helper_method :current_user
   
   
   private 
+
+
   def current_user
     return @current_user if defined?(@current_user)
     @current_user = User.find_by_login(session[:cas_user])
@@ -28,7 +26,9 @@ class ApplicationController < ActionController::Base
   end
   
   def set_login
-    session[:cas_user] = "gdraper"
+    if Rails.env != "production"
+      session[:cas_user] = "gdraper"
+    end
   end
   
   
