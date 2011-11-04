@@ -1,4 +1,5 @@
 class InstallationsController < ApplicationController
+  CASClient::Frameworks::Rails::Filter
   def install_software
       if params[:software_selection].blank?
         flash[:notice] = "You must select the software to install"

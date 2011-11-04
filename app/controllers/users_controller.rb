@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  CASClient::Frameworks::Rails::Filter
   def index
     @users = User.order "last_name"
   end

@@ -1,4 +1,5 @@
 class IpsController < ApplicationController
+  CASClient::Frameworks::Rails::Filter
   def index
     if params[:unassigned]
       @ips = Ip.unassigned
