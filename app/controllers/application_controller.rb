@@ -28,6 +28,8 @@ class ApplicationController < ActionController::Base
   def set_login
     if Rails.env != "production"
       session[:cas_user] = "gdraper"
+    else
+      before_filter CASClient::Frameworks::Rails::Filter
     end
   end
   
