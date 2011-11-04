@@ -1,5 +1,4 @@
 class DnsNamesController < ApplicationController
-  before_filter CASClient::Frameworks::Rails::Filter
   def index
     @dns_names = DnsName.all
   end

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
-  before_filter CASClient::Frameworks::Rails::Filter
+
   
   def index
     if params[:in_use]=="false"

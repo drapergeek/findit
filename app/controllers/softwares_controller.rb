@@ -1,5 +1,4 @@
 class SoftwaresController < ApplicationController
-  before_filter CASClient::Frameworks::Rails::Filter
   def index
     @softwares = Software.all
   end
