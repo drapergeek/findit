@@ -3,11 +3,12 @@ class IncomingEmailController < ApplicationController
   skip_before_filter :check_for_valid_login
 
   def index
-    logger.info "I got the email"
-    logger.info params[:mail].class
-    mail = Mail.read_from_string(params[:mail])
-    logger.info mail.class
-    logger.info mail.to_s
+    if params[:mail]
+      mail = Mail.read_from_string(params[:mail])
+      logger.info mail.from.addresses
+      logger.info "Subject: " + mail.subject
+      logger.info "Body: " + mail.body.decoded
+    end
     redirect_to root_url
   end
 end
