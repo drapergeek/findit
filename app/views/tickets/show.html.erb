@@ -1,0 +1,48 @@
+<% title "Ticket" %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @ticket.title %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @ticket.description %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @ticket.status %>
+</p>
+<p>
+  <strong>Priority:</strong>
+  <%= @ticket.priority %>
+</p>
+<p>
+  <strong>Start Date:</strong>
+  <%= @ticket.start_date %>
+</p>
+<p>
+  <strong>Due Date:</strong>
+  <%= @ticket.due_date %>
+</p>
+<p>
+  <strong>Submitter:</strong>
+  <%= @ticket.submitter.full_name unless @ticket.submitter.nil? %>
+</p>
+<p>
+  <strong>Worker:</strong>
+  <%= @ticket.worker.full_name unless @ticket.worker.nil?%>
+</p>
+<p>
+  <strong>Project:</strong>
+  <%= @ticket.project.name unless @ticket.project.nil?%>
+</p>
+<p>
+  <strong>Area:</strong>
+  <%= @ticket.area.name unless @ticket.area.nil?%>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_ticket_path(@ticket) %> |
+  <%= link_to "Destroy", @ticket, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", tickets_path %>
+</p>
