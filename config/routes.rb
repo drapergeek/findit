@@ -1,4 +1,10 @@
 Findit::Application.routes.draw do
+  resources :areas
+
+  resources :projects
+
+  resources :tickets
+
   resources :operating_systems
   resources :dns_names
   resources :softwares
