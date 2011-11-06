@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   def set_login
     if Rails.env != "production"
-      session[:cas_user] = "gdraper"
+      session[:cas_user] = APP_CONFIG['default_user']
     end
   end
 
