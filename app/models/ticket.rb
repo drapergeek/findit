@@ -5,7 +5,7 @@ class Ticket < ActiveRecord::Base
   belongs_to :area
   
   validates :submitter, :presence => true
-  validates :title, :description, :status, :presence => true,
+  validates :title, :description, :status, :presence => true
   
   
 end
