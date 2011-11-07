@@ -1,16 +1,17 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-		<%= render :partial=>"navigation" %>
-    </ul>
-  </div>          
-  <div class="content">          
-
-    <div class="inner">
-     
+<%= render :partial=>"admin/top_admin" %>   
+  <table class="table">
+    <tr>
+      <th>Report Name</th>
+      <th>Description</th>
+    </tr>
+    <tr class="odd">
+      <td><%= link_to "DNS", dns_reports_path %></td>
+      <td><p>This is the report that is used for updating the DNS records with hostmaster.  **Note** this will take you a text based page with no theme </p></td>
+    </tr>
+    <tr class="even">
+      <td><%= link_to "Upgrades", upgrades_reports_path %></td>
+      <td><p>This report allows you to see what items are going to need to be upgraded next according to the Rec Sports upgrade standards</p></td>
+    </tr>
+  </table>
+<%= render :partial=>"admin/bottom_admin" %>   
    
-    </div>
-  </div>
-</div>
-
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
