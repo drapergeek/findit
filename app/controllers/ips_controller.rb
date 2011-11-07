@@ -2,7 +2,11 @@ class IpsController < ApplicationController
  prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
   def index
     if params[:unassigned]
-      @ips = Ip.unassigned.group_by(&:building)
+      if Rails.env == "production"
+        @ips = Ip.unassigned.order("INET_ATON(number) ASC").group_by(&:building)
+      else 
+        @ips = Ip.unassigned.group_by(&:building)
+      end
     else
       if Rails.env == "production"
         @ips = Ip.order("INET_ATON(number) ASC").group_by(&:building)
