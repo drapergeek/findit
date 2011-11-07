@@ -88,6 +88,13 @@ class ItemTest < ActiveSupport::TestCase
     assert_nil item.operating_system
     assert item.info.include?("The OS #{os.name} was installed when surplused.")
   end 
+
+  test "surplus sets the in use to false" do
+    item = Factory.create(:item)
+    assert item.in_use != false
+    item.mark_as_surplused
+    assert item.in_use == false
+  end
     
   def new_valid_item
     return Item.new(:type_of_item=>"Desktop")

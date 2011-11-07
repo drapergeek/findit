@@ -161,12 +161,12 @@ class Item < ActiveRecord::Base
     end
     #same for location
     if self.location
-      self.info += "\nThe item was located at #{self.location.full_name} when surplused"
+      self.info += "\n The item was located at #{self.location.full_name} when surplused"
       self.location = nil
     end
 
     self.ips.each do |ip|
-      self.info +=  "The IP #{ip.number} was assigned when surplused."
+      self.info +=  "\n The IP #{ip.number} was assigned when surplused."
       ip.item_id = nil
       ip.save
     end
@@ -175,6 +175,7 @@ class Item < ActiveRecord::Base
       self.info += "\n The OS #{operating_system.name} was installed when surplused."
       self.operating_system = nil 
     end
+    self.in_use = false
     self.save(:validate=>false)
   end
 
