@@ -357,7 +357,7 @@ module CASClient
           # Returns the path and filename of the service session lookup file.
           def filename_of_service_session_lookup(st)
             st = st.ticket if st.kind_of? ServiceTicket
-            return "#{RAILS_ROOT}/tmp/sessions/cas_sess.#{st}"
+            return "#{Rails.root.to_s}/tmp/sessions/cas_sess.#{st}"
           end
         end
       end

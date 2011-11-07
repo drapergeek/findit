@@ -9,4 +9,5 @@ class UserTest < ActiveSupport::TestCase
     user = Factory.build(:user)
     assert_equal "Parker, Peter",user.reverse_name  
   end
+
 end

@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '3.0.10'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -33,8 +33,8 @@ gem 'mail'
 
 gem 'rubycas-client'
 gem "simple_form"
-gem 'will_paginate','3.0.pre2'
 gem 'jquery-rails'
+gem "will_paginate"
 group :production do
   gem 'fastercsv'
 end
@@ -42,5 +42,10 @@ gem 'thor'
 gem 'comma'
 gem 'factory_girl_rails'
 gem 'formtastic'
+group :development, :test do
+  gem "guard-test"
+  gem "guard-livereload"
+  gem "growl"
+end
 gem "nifty-generators", :group => :development
 gem "mocha", :group => :test
