@@ -26,6 +26,34 @@ FactoryGirl.define do
      association :area
      priority 5
    end
+
+   factory :item do
+    sequence(:name) {|n| "computer#{n}"}
+    type_of_item "Desktop"
+   end
+
+
+   factory :software do
+    sequence(:name) {|n| "software package #{n}"}
+   end
+   
+   factory :building do
+     sequence(:name) {|n| "building #{n}"}
+   end
+
+   factory :location do
+     sequence(:name) {|n| "building #{n}"}
+     association :building
+   end
+
+   factory :ip do
+    sequence(:number) {|n| "128.173.129.#{n}"}
+    association :building
+   end
+   
+   factory :operating_system do
+     sequence(:name) {|n| "operating syste #{n}"}
+   end
    
 end
 

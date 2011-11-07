@@ -16,4 +16,7 @@ class User < ActiveRecord::Base
   def to_s
     full_name
   end
+  def full_info
+    [first_name, last_name, login].join(" ")  
+  end
 end

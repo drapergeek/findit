@@ -18,3 +18,4 @@ for number in 1...25
   Ip.create!(:number=>"128.173.108.#{number}", :building_id=>war.id)
   Ip.create!(:number=>"198.82.152.#{number}", :building_id=>aisb.id)
 end
+
