@@ -17,6 +17,7 @@ Findit::Application.routes.draw do
       get 'remove_ip'
       get 'remove_dns_name' 
       get 'mark_as_inventoried'
+      get 'surplus'
     end
   end
 
@@ -33,6 +34,12 @@ Findit::Application.routes.draw do
   resources :users do  
     collection do 
       get 'logout'
+    end
+  end
+  resources :installations do
+    collection do
+      post 'install_software'
+      get 'uninstall_software'
     end
   end
   
