@@ -29,8 +29,6 @@ gem 'mail'
 # group :development, :test do
 #   gem 'webrat'
 # end
-
-
 gem 'rubycas-client'
 gem "simple_form"
 gem 'jquery-rails'
@@ -46,6 +44,7 @@ group :development, :test do
   gem "guard-test"
   gem "guard-livereload"
   gem "growl"
+  gem 'web-app-theme', '>= 0.6.2'
 end
 gem "nifty-generators", :group => :development
 gem "mocha", :group => :test

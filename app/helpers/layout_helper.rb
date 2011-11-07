@@ -19,4 +19,28 @@ module LayoutHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+
+  def top_menu_link(name, path, controller_paths, current_controller)
+    if controller_paths.include?(current_controller.downcase)
+     content_tag :li, :class=>"active" do
+       link_to name, path
+     end 
+    else
+     content_tag :li do
+       link_to name, path
+     end 
+    end
+  end
+
+  def tab_link(name, path, controller_name, current_controller, first=nil)
+    if current_controller.downcase == controller_name.downcase 
+      content_tag :li, :class=>"active #{first}" do
+        link_to name, path
+      end
+    else
+      content_tag :li, :class=>"#{first}" do
+        link_to name, path
+      end
+    end
+  end
 end

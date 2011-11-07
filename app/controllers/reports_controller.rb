@@ -15,7 +15,6 @@ class ReportsController < ApplicationController
     @items = Item.proc_ratings
   end
   
-  
   def upgrades
     #get the year first
     this_year = Time.now.year.to_s
@@ -38,5 +37,4 @@ class ReportsController < ApplicationController
     #priority 1 bought more than 4 years ago
     @priority1_older = Item.by_priority(1).computers_purchased_in(four_years_ago).in_use
   end
-
 end

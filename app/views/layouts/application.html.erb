@@ -25,29 +25,12 @@
       </div>      
       <div id="main-navigation">
         <ul class="wat-cf"> 
-			<li class="<%= controller.controller_path == 'items' ? 'active' : '' %>">
-				<a href="<%= items_path %>">Items</a>
-			</li>
-		  	<li class="<%= controller.controller_path == 'ips' ? 'active' : '' %>">
-				<a href="<%= ips_path %>">Ips</a>
-			</li> 
-			
-		 <li class="<%= controller.controller_path == 'buildings' ? 'active' : '' %>"><a href="<%= buildings_path %>">Buildings</a></li> <li class="<%= controller.controller_path == 'locations' ? 'active' : '' %>"><a href="<%= locations_path %>">Locations</a></li> <li class="<%= controller.controller_path == 'softwares' ? 'active' : '' %>"><a href="<%= softwares_path %>">Software</a></li>
-		  
-		
-		
-			<li class="<%= controller.controller_path == 'users' ? 'active' : '' %>">
-				<a href="<%= users_path %>">Users</a>
-			</li>
-			 <li class="<%= controller.controller_path == 'dns_names' ? 'active' : '' %>"><a href="<%= dns_names_path %>">DnsNames</a></li> <li class="<%= controller.controller_path == 'operating_systems' ? 'active' : '' %>"><a href="<%= operating_systems_path %>">OperatingSystems</a></li>
-				<li class="<%= controller.controller_path == 'reports' ? 'active' : '' %>">
-					<%= link_to "Reports", :controller=>"reports",:action=>"index" %>
-				</li>
-			
+          <%= top_menu_link "Items", items_path, "items", params[:controller] %>
+      <li class="<%= controller.controller_path == 'softwares' ? 'active' : '' %>">
+        <a href="<%= softwares_path %>">Software</a>
+      </li>
+      <%= top_menu_link "Administration", admin_path, ["buildings", "locations","admin", "users", "operating_systems", "reports", "ips"], params[:controller] %>
 			</ul>
-			
-			
-			
       </div>
     </div>    
     <div id="wrapper" class="wat-cf">

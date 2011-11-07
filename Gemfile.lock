@@ -111,6 +111,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.31)
+    web-app-theme (0.7.0)
     will_paginate (3.0.2)
 
 PLATFORMS
@@ -133,4 +134,5 @@ DEPENDENCIES
   simple_form
   sqlite3-ruby
   thor
+  web-app-theme (>= 0.6.2)
   will_paginate

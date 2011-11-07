@@ -19,6 +19,15 @@ Findit::Application.routes.draw do
       get 'mark_as_inventoried'
     end
   end
+
+  resources :reports, :only=>:index do
+    collection do
+      get :dns
+      get :proc_ratings
+      get :upgrades
+    end
+  end
+
   resources :ips
   resources :pages
   resources :users do  
@@ -26,13 +35,14 @@ Findit::Application.routes.draw do
       get 'logout'
     end
   end
+  
   resources :announcements
   resources :incoming_email, :only=>[:index]
   match "mail", :to=>"incoming_email#index", :as=>"mail"
 
   root :to=>"items#index", :type=>"Desktop"
   match "logout", :to=>"users#logout",:as=>"logout"
-  match ':controller(/:action(/:id(.:format)))'
+  match "admin", :to=>"admin#index", :as=>"admin"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
