@@ -43,7 +43,28 @@ class CommentTest < ActiveSupport::TestCase
   test "test that the subject is not required" do
     comment = Factory.build(:comment, :subject => nil)
     assert comment.valid?, 'This should be valid because the subject is not needed'
-    assert_equals comment.subject, nil, 'This should match up or the subject was not saved right'
+    assert_equal comment.subject, nil, 'This should match up or the subject was not saved right'
+  end
+  
+  test "Test that a ticket is required and can be linked to a comment" do
+    ticket = Factory.build(:ticket)
+    assert ticket.valid?, 'This should be true as the ticket is a default factory'
+    comment = Factory.build(:comment, :ticket => nil)
+    assert !comment.valid?, 'This should be in-valid as the ticket has no ticket'
+    comment.ticket = ticket
+    assert comment.valid?, 'This should be valid as the ticket has a ticket'
+  end
+  
+  test "Test that a tickets field link properly and can be seen by a comment" do
+    user = Factory.build(:user, :first_name => 'Brent')
+    ticket = Factory.build(:ticket, :submitter => user, :title => 'title', :description => 'desc', :status => 'status')
+    assert ticket.valid?, 'This should be true as the ticket is a default factory'
+    comment = Factory.build(:comment, :ticket => ticket)
+    assert comment.valid?, 'This should be valid as we have already tested this'
+    assert_equal comment.ticket.submitter.first_name, 'Brent', 'This simply gets the users first name'
+    assert_equal comment.ticket.title, 'title', 'This should return the title'
+    assert_equal comment.ticket.description, 'desc', 'This should return the description'
+    assert_equal comment.ticket.status, 'status', 'This should return the status'
   end
   
 end
