@@ -19,6 +19,12 @@ FactoryGirl.define do
      status 'Open'
      association :submitter, :factory => :user
    end
+   
+   factory :comment do
+     body 'some latin sayings here'
+     association :user
+     association :ticket
+   end
 
    factory :full_ticket, :parent=>:ticket do 
      association :worker, :factory=>:user

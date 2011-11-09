@@ -1,4 +1,6 @@
 Findit::Application.routes.draw do
+  resources :comments
+
   resources :areas
   resources :projects
   resources :tickets

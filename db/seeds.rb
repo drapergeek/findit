@@ -5,7 +5,12 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
-
+puts "Delete old users from the database and creating a default set"
+for number in 1...6
+  user = User.find_by_login("user#{number}")
+  user.delete unless user.nil?
+  User.create!(:login=>"user#{number}", :first_name => "first#{number}", :last_name => "last#{number}")
+end
 puts "Removing all the buildings and creating a default set"
 Building.delete_all
 mccomas = Building.create!(:name=>"McComas Hall")

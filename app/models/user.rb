@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :items
   has_many :tickets
   belongs_to :area
+  has_many :comments
   validates_uniqueness_of :login
   def full_name
     [first_name, last_name].join(" ")
