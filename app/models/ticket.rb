@@ -8,7 +8,9 @@ class Ticket < ActiveRecord::Base
   validates :submitter, :presence => true
   validates :title, :description, :status, :presence => true
 
-  delegate :email, :to=>:submitter, :prefix=>true
+  delegate :email, :to=>:submitter, :prefix=>true, :allow_nil=>true
+  delegate :name, :to=>:area, :prefix=>true, :allow_nil=>true
+  delegate :name, :to=>:project, :prefix=>true, :allow_nil=>true
   
   def to_s
     title
@@ -20,7 +22,39 @@ class Ticket < ActiveRecord::Base
     if from
       from = User.find_or_create_by_email(from)
     end
-    Ticket.create!(:submitter=>from, :title=>subject, :description=>body, :status=>"New")
+    #parse for areas
+    area = nil
+    project = nil
+    stop_looking = false
+    #Look through all the area keywords and mark it with the first on you find
+    Area.all.each do |a|
+      break if stop_looking
+      if a.keywords
+        a.keywords.split(",").each do |k|
+          if body.include?(k)
+            stop_looking = true
+            area = a
+            break
+          end
+        end 
+      end
+    end
+
+    #do the same thing for projects
+    stop_looking = false
+    Project.all.each do |p|
+      break if stop_looking
+      if p.keywords
+        p.keywords.split(",").each do |k|
+          if body.include?(k)
+            stop_looking = true
+            project = p
+            break
+          end
+        end 
+      end
+    end
+    Ticket.create!(:submitter=>from, :title=>subject, :description=>body, :status=>"New", :area=>area, :project=>project)
   end
 
 end

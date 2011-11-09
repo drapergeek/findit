@@ -7,11 +7,13 @@ FactoryGirl.define do
    end
    
    factory :area do
-     name 'Area'
+     name 'Marketing'
+     keywords 'marketing,Marketing,mktg'
    end
    
    factory :project do
-     name 'project'
+     name 'Showoff'
+     keywords 'marketing tv,marketingtv,rectv,showoff'
    end
 
    factory :ticket do

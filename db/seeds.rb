@@ -8,7 +8,10 @@
 
 puts "Delete old users from the database and creating a default set"
 for number in 1...7
-  User.find_by_login("user#{number}").delete
+  user = User.find_by_login("user#{number}")
+  if user
+    user.delete!
+  end
   User.create!(:login=>"user#{number}", :first_name => "first#{number}", :last_name => "last#{number}")
 end
 

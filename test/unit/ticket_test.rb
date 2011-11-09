@@ -60,5 +60,26 @@ class TicketTest < ActiveSupport::TestCase
     assert_equal body, ticket.description
   end
 
+
+  test "ticket emails should be parsed for keywords for areas" do
+    from = "superguy@marvel.com" 
+    subject = "Marketing Computer 4 is down"
+    body = "The computer in the marketing suite is down, it shows a gray screen with a sad face on it"
+    Factory.create(:area)
+    ticket = Ticket.create_from_email(from,subject,body)
+    assert !ticket.nil?
+    assert_equal "Marketing", ticket.area_name
+  end
+
+  test "ticket emails should be parsed for keywords for projects" do
+    from = "superguy@marvel.com" 
+    subject = "Marketing TV is down"
+    body = "The marketing tv in the hallway is down."
+    project = Factory.create(:project)
+    ticket = Ticket.create_from_email(from,subject,body)
+    assert !ticket.nil?
+    assert_equal project.name, ticket.project_name
+  end
+
   
 end
