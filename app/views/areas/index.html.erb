@@ -1,6 +1,8 @@
 <% title "Areas" %>
+<%= render "admin/top_admin" %>
 
-<table>
+<h3>Areas</h3>
+<table class="table">
   <tr>
     <th>Name</th>
 	<th>Keywords</th>
@@ -17,3 +19,4 @@
 </table>
 
 <p><%= link_to "New Area", new_area_path %></p>
+<%= render "admin/bottom_admin" %>

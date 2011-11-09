@@ -1,6 +1,7 @@
 <% title "Projects" %>
-
-<table>
+<%= render "admin/top_admin" %>
+<h2>Projects</h2>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>Keywords</th>
@@ -17,3 +18,4 @@
 </table>
 
 <p><%= link_to "New Project", new_project_path %></p>
+<%= render "admin/bottom_admin" %>

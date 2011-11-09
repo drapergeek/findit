@@ -1,8 +1,10 @@
-<% title "Edit Area" %>
-
+<% title "Edit Area" %>o
+<%= render "admin/top_admin" %>
+<h2>Edit Area</h2>
 <%= render 'form' %>
 
 <p>
   <%= link_to "Show", @area %> |
   <%= link_to "View All", areas_path %>
 </p>
+<%= render "admin/bottom_admin" %>

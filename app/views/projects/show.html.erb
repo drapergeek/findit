@@ -1,12 +1,20 @@
 <% title "Project" %>
-
+<%= render "admin/top_admin" %>
+<h2><%= @project.name %></h2>
 <p>
   <strong>Name:</strong>
   <%= @project.name %>
 </p>
-
+<% if @project.keywords %>
+<ul>
+  <% @project.keywords.split(",").each do |k| %>
+    <li><%= k %></li>
+  <% end %>
+</ul>
+<% end %>
 <p>
   <%= link_to "Edit", edit_project_path(@project) %> |
   <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", projects_path %>
 </p>
+<%= render "admin/bottom_admin" %>

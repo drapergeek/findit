@@ -1,4 +1,6 @@
 <% title "Edit Project" %>
+<%= render "admin/top_admin" %>
+<h2>Edit Project</h2>
 
 <%= render 'form' %>
 
@@ -6,3 +8,4 @@
   <%= link_to "Show", @project %> |
   <%= link_to "View All", projects_path %>
 </p>
+<%= render "admin/bottom_admin" %>

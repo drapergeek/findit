@@ -1,12 +1,21 @@
 <% title "Area" %>
+<%= render "admin/top_admin" %>
+<h2><%= @area.name %></h2>
 
 <p>
   <strong>Name:</strong>
   <%= @area.name %>
 </p>
-
+<% if @area.keywords %>
+<ul>
+  <% @area.keywords.split(",").each do |k| %>
+    <li><%= k %></li>
+  <% end %>
+</ul>
+<% end %>
 <p>
   <%= link_to "Edit", edit_area_path(@area) %> |
   <%= link_to "Destroy", @area, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", areas_path %>
 </p>
+<%= render "admin/bottom_admin" %>
