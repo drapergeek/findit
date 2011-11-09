@@ -8,5 +8,7 @@ class Ticket < ActiveRecord::Base
   validates :submitter, :presence => true
   validates :title, :description, :status, :presence => true
   
-  
+  def to_s
+    title
+  end
 end
