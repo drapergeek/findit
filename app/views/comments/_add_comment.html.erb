@@ -1,10 +1,9 @@
-<%= render "shared/error_messages", :target=>@comment %> 
 <%= semantic_form_for @comment do |f| %>
-	<%= f.inputs :name => "Basic" do %>
+	<%= f.inputs :name => "Add Comment" do %>
       <%= f.input :subject %>
 	  <%= f.input :body %>
-	<%= f.input :user %>
-	<%= f.input :ticket %>
+		<%= f.input :user_id, :as => :hidden %>
+		<%= f.input :ticket_id, :as => :hidden %>
     <% end %>
 
 <%= f.buttons do %>

@@ -5,6 +5,7 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = Ticket.find(params[:id])
+    @comment = Comment.new(:ticket => @ticket, :user => current_user)
   end
 
   def new

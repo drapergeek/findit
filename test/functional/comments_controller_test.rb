@@ -17,15 +17,19 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   def test_create_invalid
-    Comment.any_instance.stubs(:valid?).returns(false)
-    post :create
+    comment = Factory.build(:comment, :ticket=>nil, :user=>nil).attributes.symbolize_keys
+    post :create, comment
     assert_template 'new'
   end
 
   def test_create_valid
-    Comment.any_instance.stubs(:valid?).returns(true)
-    post :create
-    assert_redirected_to comment_url(assigns(:comment))
+    ticket = Factory(:ticket)
+    user = Factory(:user)
+    comment = Factory.build(:comment, :ticket=>ticket, :user => user)
+    assert comment.valid?
+    comment = comment.attributes.symbolize_keys
+    post :create, :comment=>comment
+    assert_redirected_to ticket_url(comment[:ticket_id])
   end
 
   def test_edit

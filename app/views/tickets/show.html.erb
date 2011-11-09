@@ -41,6 +41,8 @@
   <%= @ticket.area.name unless @ticket.area.nil?%>
 </p>
 
+<%= render "comments/add_comment", :target=>@comment %>
+
 <p>
   <%= link_to "Edit", edit_ticket_path(@ticket) %> |
   <%= link_to "Destroy", @ticket, :confirm => 'Are you sure?', :method => :delete %> |
