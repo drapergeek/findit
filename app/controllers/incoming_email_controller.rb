@@ -6,7 +6,12 @@ class IncomingEmailController < ApplicationController
     if params[:mail]
       mail = Mail.read_from_string(params[:mail])
       logger.info "Incoming mail from #{mail.from} subject: #{mail.subject}"
-      Ticket.create_from_email(mail.from, mail.subject, mail.body.decoded)
+      if mail.multipart?
+        body = mail.parts[0].body.decoded
+      else
+        body = mail.body.decoded
+      end
+      Ticket.create_from_email(mail.from, mail.subject, body)
     end
     redirect_to root_url
   end
