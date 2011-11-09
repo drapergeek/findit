@@ -1,7 +1,10 @@
-<%= form_for @area do |f| %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p><%= f.submit %></p>
+<%= render "shared/error_messages", :target=>@area %>
+ <%= semantic_form_for @area do |f| %>
+      <%= f.inputs :name => "Basic" do %>
+		<%= f.input :name %>
+      <%= f.input :keywords %>
+	<% end%>
+<%= f.buttons do %>
+	<%= f.commit_button %>
+<%end%>
 <% end %>
