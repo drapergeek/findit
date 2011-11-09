@@ -45,6 +45,9 @@ Ticket.delete_all
 Comment.delete_all
 for number in 1...7
   user = User.find_by_login("user#{number}")
-  Ticket.create!(:title=>"Ticket#{number}", :submitter => user, :description => "Description for ticket #{number}", :status => "Open")
+  ticket = Ticket.create!(:title=>"Ticket#{number}", :submitter => user, :description => "Description for ticket #{number}", :status => "Open")
+  for comments in 1...(rand(5) +1)
+    Comment.create!(:user => user, :ticket => ticket, :body => "body of comment number #{comments}")
+  end
 end
 
