@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(:version => 20111109182141) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "can_login"
+    t.string   "email"
   end
 
 end

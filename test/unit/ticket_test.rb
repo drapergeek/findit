@@ -46,5 +46,19 @@ class TicketTest < ActiveSupport::TestCase
     assert_equal ticket.worker.first_name, 'Brent'
     assert_equal ticket.worker.last_name, 'Montague'
   end
+
+  test "create a ticket from an email" do
+    from = "spiderman@marvel.com" 
+    subject = "Marketing Computer 4 is down"
+    body = "The computer in the marketing suite is down, it shows a gray screen with a sad face on it"
+    ticket = nil
+    assert_difference "Ticket.count" do
+      ticket = Ticket.create_from_email(from,subject,body)
+    end
+    assert_equal from, ticket.submitter_email
+    assert_equal subject, ticket.title
+    assert_equal body, ticket.description
+  end
+
   
 end
