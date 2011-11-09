@@ -1,0 +1,8 @@
+development:
+  default_user: user_name
+
+test:
+  default_user: user_name
+
+production:
+  default_user: user_name
