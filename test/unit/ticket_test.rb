@@ -48,7 +48,7 @@ class TicketTest < ActiveSupport::TestCase
   end
 
   test "create a ticket from an email" do
-    from = "spiderman@marvel.com" 
+    from = "superguy@marvel.com" 
     subject = "Marketing Computer 4 is down"
     body = "The computer in the marketing suite is down, it shows a gray screen with a sad face on it"
     ticket = nil

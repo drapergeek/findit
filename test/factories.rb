@@ -3,6 +3,7 @@ FactoryGirl.define do
      first_name 'Peter'
      last_name  'Parker'
      sequence(:login){|n| "login#{n}" }
+     sequence(:email){|n| "login#{n}@vt.edu"}
    end
    
    factory :area do

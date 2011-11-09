@@ -13,6 +13,10 @@
           <b><%= t("activerecord.attributes.user.login", :default => t("activerecord.labels.login", :default => "Login")) %>:</b>
           <%= @user.login %>
         </p>
+        <p>
+          <b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b>
+          <%= @user.email %>
+        </p>
 		<p>
     		<% if @user.can_login == true %>
 				<b>This user is authorized for system access</b>

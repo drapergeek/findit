@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :login, :first_name, :last_name, :last_login, :last_login_ip, :can_login
+  attr_accessible :login, :first_name, :last_name, :last_login, :last_login_ip, :can_login, :email
   has_many :items
   has_many :tickets
   belongs_to :area
@@ -20,5 +20,18 @@ class User < ActiveRecord::Base
   end
   def full_info
     [first_name, last_name, login].join(" ")  
+  end
+
+
+  def self.find_or_create_by_email(email)
+    user = User.find_by_email(email)
+    if user
+      return user 
+    else
+      user = User.create(:email=>email, :first_name=>"No", :last_name=>"Name")
+      user.login = email.split("@")[0]
+      user.save!
+    end
+    user
   end
 end
