@@ -8,8 +8,7 @@
 
 puts "Delete old users from the database and creating a default set"
 for number in 1...7
-  user = User.find_by_login("user#{number}")
-  user.delete unless user.nil?
+  User.find_by_login("user#{number}").delete
   User.create!(:login=>"user#{number}", :first_name => "first#{number}", :last_name => "last#{number}")
 end
 
@@ -50,4 +49,18 @@ for number in 1...7
     Comment.create!(:user => user, :ticket => ticket, :body => "body of comment number #{comments}")
   end
 end
+
+puts "Removing all the areas and adding default ones"
+Area.delete_all
+Area.create!(:name => 'IT', :keywords => 'it, it_other')
+Area.create!(:name => 'Facilities', :keywords => 'facilities, Fac')
+Area.create!(:name => 'Marketing', :keywords => 'marketing, mark')
+
+puts "Removing all the projects and adding default ones"
+Project.delete_all
+Project.create!(:name =>'Check In', :keywords => 'checkin, check_in')
+Project.create!(:name =>'3.2 Run', :keywords => '3.2, 3.2 run')
+Project.create!(:name =>'Findit', :keywords => 'findit, find_it')
+
+
 
