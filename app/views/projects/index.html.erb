@@ -1,21 +1,22 @@
-<% title "Projects" %>
-<%= render "admin/top_admin" %>
-<h2>Projects</h2>
+<%= render :partial=>"admin/top_admin" %>
 <table class="table">
   <tr>
     <th>Name</th>
     <th>Keywords</th>
+	<th class="last">&nbsp;</th>
   </tr>
   <% for project in @projects %>
     <tr>
       <td><%= project.name %></td>
 	  <td><%= project.keywords %></td>
-      <td><%= link_to "Show", project %></td>
-      <td><%= link_to "Edit", edit_project_path(project) %></td>
-      <td><%= link_to "Destroy", project, :confirm => 'Are you sure?', :method => :delete %></td>
+		<td class="last">
+        <%= link_to "#{t("web-app-theme.show", :default => "Show")}", project_path(project) %> |
+        <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_project_path(project) %> |
+        <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", project_path(project), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </td>
     </tr>
   <% end %>
 </table>
 
 <p><%= link_to "New Project", new_project_path %></p>
-<%= render "admin/bottom_admin" %>
+<%= render :partial=>"admin/bottom_admin" %>

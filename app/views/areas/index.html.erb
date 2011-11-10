@@ -1,22 +1,22 @@
-<% title "Areas" %>
-<%= render "admin/top_admin" %>
-
-<h3>Areas</h3>
+<%= render :partial=>"admin/top_admin" %>
 <table class="table">
   <tr>
     <th>Name</th>
 	<th>Keywords</th>
+	<th class="last">&nbsp;</th>
   </tr>
   <% for area in @areas %>
     <tr>
       <td><%= area.name %></td>
 	  <td><%= area.keywords %></td>
-      <td><%= link_to "Show", area %></td>
-      <td><%= link_to "Edit", edit_area_path(area) %></td>
-      <td><%= link_to "Destroy", area, :confirm => 'Are you sure?', :method => :delete %></td>
+		<td class="last">
+          <%= link_to "#{t("web-app-theme.show", :default => "Show")}", area_path(area) %> |
+          <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_area_path(area) %> |
+          <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", area_path(area), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        </td>
     </tr>
   <% end %>
 </table>
 
 <p><%= link_to "New Area", new_area_path %></p>
-<%= render "admin/bottom_admin" %>
+<%= render :partial=>"admin/bottom_admin" %>

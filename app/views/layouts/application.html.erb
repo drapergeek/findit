@@ -29,7 +29,8 @@
             <li class="<%= controller.controller_path == 'softwares' ? 'active' : '' %>">
               <a href="<%= softwares_path %>">Software</a>
             </li>
-            <%= top_menu_link "Administration", admin_path, ["buildings", "locations","admin", "users", "operating_systems", "reports", "ips"], params[:controller] %>
+            <%= top_menu_link "Administration", admin_path, ["areas", "projects","buildings", "locations","admin", "users", "operating_systems", "reports", "ips"], params[:controller] %>
+			<%= top_menu_link "Tickets", tickets_path, "tickets", params[:controller] %>
           </ul>
         </div>
       </div>    
