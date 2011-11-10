@@ -15,7 +15,7 @@ class Ticket < ActiveRecord::Base
   after_create :send_emails
   
   def send_emails
-    if APP_CONFIG['send_new_tickets_to_group'] == "true"
+    if APP_CONFIG['send_new_tickets_to_group']
        TicketMailer.send_ticket_to_admins(self).deliver
     end
     TicketMailer.send_ticket_to_submitter(self).deliver
