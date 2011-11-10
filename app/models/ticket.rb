@@ -18,6 +18,14 @@ class Ticket < ActiveRecord::Base
   #statuses - New, Open, Resolved, Stalled
 
   def self.create_from_email(from, subject, body)
+    #first we need to see its a reply email and if so
+    #pass it off to the comments
+    if subject.scan(/Ticket-ID#\d+/).length >= 1 
+      #this is a reply 
+      id_number = subject.scan(/Ticket-ID#\d+/).first.split("#")[1]
+      return false
+    end
+    
     #make sure we have a user
     if from
       from = User.find_or_create_by_email(from)
