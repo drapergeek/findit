@@ -10,9 +10,9 @@ puts "Delete old users from the database and creating a default set"
 for number in 1...7
   user = User.find_by_login("user#{number}")
   if user
-    user.delete!
+    user.destroy
   end
-  User.create!(:login=>"user#{number}", :first_name => "first#{number}", :last_name => "last#{number}")
+  User.create!(:login=>"user#{number}", :first_name => "first#{number}", :last_name => "last#{number}", :email => "email#{number}@vt.edu")
 end
 
 puts "Removing all the buildings and creating a default set"

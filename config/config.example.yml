@@ -1,5 +1,12 @@
 development:
   default_user: user_name
+  default_email_for_interceptor: test_email@email.com
+  default_from_email: email@email.com
+  from_email: email_from@email.com
+  ticket_subject: subject
+  send_new_tickets_to_group: true
+  emails_for_new_tickets: "email@email.com"
+  send_emails_to_owner_on_reply: true
 
 test:
   default_user: user_name

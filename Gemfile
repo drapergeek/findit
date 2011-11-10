@@ -36,6 +36,7 @@ gem "will_paginate"
 group :production do
   gem 'fastercsv'
 end
+gem "mail"
 gem 'thor'
 gem 'comma'
 gem 'factory_girl_rails'
