@@ -2,8 +2,9 @@
 	<%= f.inputs :name => "Add Comment" do %>
       <%= f.input :subject %>
 	  <%= f.input :body %>
-		<%= f.input :user_id, :as => :hidden %>
-		<%= f.input :ticket_id, :as => :hidden %>
+	  <%= f.input :reply %>
+	  <%= f.input :user_id, :as => :hidden %>
+	  <%= f.input :ticket_id, :as => :hidden %>
     <% end %>
 
 <%= f.buttons do %>
