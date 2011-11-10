@@ -81,5 +81,14 @@ class TicketTest < ActiveSupport::TestCase
     assert_equal project.name, ticket.project_name
   end
 
+  test "ticket emails that have an id number in the subject should not create a ticket" do
+    from = "superguy@marvel.com"
+    subject = "Re: Rec Sports IT Ticket-ID#231" 
+    body = "This problem is still not resolved"
+    assert_no_difference "Ticket.all.count" do
+      ticket = Ticket.create_from_email(from,subject,body)
+    end
+  end
+
   
 end

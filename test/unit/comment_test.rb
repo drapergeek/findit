@@ -66,5 +66,32 @@ class CommentTest < ActiveSupport::TestCase
     assert_equal comment.ticket.description, 'desc', 'This should return the description'
     assert_equal comment.ticket.status, 'status', 'This should return the status'
   end
+
+  test "can create comments from an email" do
+    ticket = Factory.create(:ticket)
+    from = "person@vt.edu"
+    subject = "Re: Rec Sports IT Ticket-ID##{ticket.id}"
+    body = "This thing is still broken!"
+    comment = nil
+    assert_difference "Comment.all.count" do
+      comment = Comment.create_from_email(ticket.id,from,subject,body)
+    end
+    user = User.find_by_email(from)
+    assert_equal user, comment.user
+    assert_equal subject, comment.subject
+    assert_equal body, comment.body
+    assert_equal ticket, comment.ticket
+  end
+
+  test "a closed ticket is reopened if an email comes in it" do
+    ticket = Factory.create(:ticket, :status=>"Resolved")
+    from = "person@vt.edu"
+    subject = "Re: Rec Sports IT Ticket-ID##{ticket.id}"
+    body = "Uh, you can't close this, its still broken!"
+    comment = Comment.create_from_email(ticket.id,from,subject,body)
+    ticket = Ticket.find(ticket.id)
+    assert_equal "Open", ticket.status
+    assert comment.body.include?("Status changed to Open on a new comment email")
+  end
   
 end
