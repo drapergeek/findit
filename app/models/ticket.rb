@@ -12,6 +12,15 @@ class Ticket < ActiveRecord::Base
   delegate :name, :to=>:area, :prefix=>true, :allow_nil=>true
   delegate :name, :to=>:project, :prefix=>true, :allow_nil=>true
   
+  after_create :send_emails
+  
+  def send_emails
+    if APP_CONFIG['send_new_tickets_to_group'] == "true"
+       TicketMailer.send_ticket_to_admins(self).deliver
+    end
+    TicketMailer.send_ticket_to_submitter(self).deliver
+  end
+  
   def to_s
     title
   end

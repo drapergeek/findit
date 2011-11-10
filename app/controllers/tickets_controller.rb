@@ -15,7 +15,6 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(params[:ticket])
     if @ticket.save
-      TicketMailer.on_ticket_creation(@ticket).deliver
       redirect_to @ticket, :notice => "Successfully created ticket."
     else
       render :action => 'new'
