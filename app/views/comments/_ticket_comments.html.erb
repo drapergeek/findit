@@ -1,0 +1,18 @@
+<table class="table pretty">
+  <tr>
+   		<th>Comments</th>
+		<th></th>
+		<th></th>
+  </tr>
+
+<% comments.each do |comment| -%>
+  <tr class="<%= cycle("odd", "even") %>">
+	<td>
+		<%= comment.body.truncate(10) if comment.subject.nil? %>
+		<%= comment.subject unless comment.subject.nil? %>	
+	</td>
+	<td><%= comment.body %></td>
+	<td><%= "Replied" if comment.reply %></td>
+  </tr>          
+  <% end -%>
+</table>

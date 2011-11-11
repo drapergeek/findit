@@ -5,7 +5,7 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = Ticket.find(params[:id])
-    @comments = @ticket.comments
+    @comments = @ticket.comments.order(:created_at)
     @comment = Comment.new(:ticket => @ticket, :user => current_user)
   end
 

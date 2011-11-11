@@ -4,6 +4,14 @@ class Comment < ActiveRecord::Base
   
   validates :ticket, :user, :presence => true
   validates :body, :presence => true
+  
+  after_create :send_emails
+  
+  def send_emails
+    if self.reply
+       TicketMailer.send_reply_comment(self).deliver
+    end
+  end
 
 
   def self.create_from_email(ticket_id, from, subject, body)

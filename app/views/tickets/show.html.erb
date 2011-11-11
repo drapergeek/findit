@@ -41,8 +41,9 @@
   <%= @ticket.area.name unless @ticket.area.nil?%>
 </p>
 
-<%= render :partial=>"comments/ticket_comment", :locals=>{:comments=>@comments} %>
+<%= render :partial=>"comments/ticket_comments", :locals=>{:comments=>@comments} %>
 
+<br /> 
 <%= render "comments/add_comment", :target=>@comment %>
 
 <p>
