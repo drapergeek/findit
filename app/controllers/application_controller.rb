@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_login
   before_filter :check_for_valid_login
   helper_method :current_user
-
+  before_filter CASClient::Frameworks::Rails::Filter
 
   private 
 
