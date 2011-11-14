@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
   prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
+  prepend_before_filter { |nothing|  :test_help if Rails.env=="production" }
   
   def index
     if params[:in_use]=="false"
@@ -34,6 +35,11 @@ class ItemsController < ApplicationController
    #   @items = @items.where(:type_of_item=>params[:type])
   #  end
  
+  end
+
+  def test_help
+    logger.info "its production"
+    
   end
   
   def not_checked
