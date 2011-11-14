@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
   prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
-  prepend_before_filter { |nothing|  :test_help if Rails.env=="production" }
   
   def index
     logger.info Rails.env
@@ -17,7 +16,6 @@ class ItemsController < ApplicationController
       else
         @items = Item.search(params[:search]).in_use.order(sort_column + " " +sort_direction)
       end
-      
     end
       @title = "Items"
     respond_to do |format|
@@ -38,10 +36,6 @@ class ItemsController < ApplicationController
  
   end
 
-  def test_help
-    logger.info "its production"
-    
-  end
   
   def not_checked
     @items = Item.not_inventoried_recently.paginate(:per_page=>100, :page=>params[:page])
