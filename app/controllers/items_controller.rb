@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   prepend_before_filter { |nothing|  :test_help if Rails.env=="production" }
   
   def index
+    logger.info Rails.env
     if params[:in_use]=="false"
       if params[:no_priority]=="true"
         @items = Item.search(params[:search]).order(sort_column + " " +sort_direction).no_priority
