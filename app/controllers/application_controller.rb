@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
      logger.info "Current user can't be found for some reason..."
      session[:user_id] = nil
      flash[:notice] = "You must be signed in to view this page"
-     redirect_to sessions_path
+     redirect_to no_auth_path
      return
     end
     logger.info "User: #{current_user.login} IP: #{ip}"
