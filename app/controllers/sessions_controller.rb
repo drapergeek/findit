@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to root_url, :notice => "Signed in!"
     else
       session[:user_id] = nil
-      redirect_to :index, :notice=>"User not found or authorized"
+      redirect_to no_auth_url, :notice=>"User not found or authorized"
     end
   end
   
