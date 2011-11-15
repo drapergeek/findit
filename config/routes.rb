@@ -33,6 +33,7 @@ Findit::Application.routes.draw do
       get 'logout'
     end
   end
+  resources :session, :only=>[:index, :create, :destroy]
   resources :installations do
     collection do
       post 'install_software'
