@@ -30,6 +30,7 @@ gem 'mail'
 #   gem 'webrat'
 # end
 gem 'rubycas-client'
+gem 'omniauth', '0.2.6'
 gem "simple_form"
 gem 'jquery-rails'
 gem "will_paginate"

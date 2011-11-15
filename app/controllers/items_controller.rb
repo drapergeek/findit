@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
-  prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
   
   def index
     logger.info Rails.env
