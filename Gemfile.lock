@@ -151,8 +151,6 @@ GEM
     ruby-openid (2.1.8)
     ruby-openid-apps-discovery (1.2.0)
       ruby-openid (>= 2.1.7)
-    rubycas-client (2.3.3)
-      activesupport
     rubyntlm (0.1.1)
     simple_form (1.5.2)
       actionpack (~> 3.0)
@@ -186,7 +184,6 @@ DEPENDENCIES
   nifty-generators
   omniauth (= 0.2.6)
   rails (= 3.0.10)
-  rubycas-client
   simple_form
   sqlite3-ruby
   thor
