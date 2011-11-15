@@ -82,8 +82,9 @@ class TicketTest < ActiveSupport::TestCase
   end
 
   test "ticket emails that have an id number in the subject should not create a ticket" do
+    ticket = Factory.create(:ticket)
     from = "superguy@marvel.com"
-    subject = "Re: Rec Sports IT Ticket-ID#231" 
+    subject = "Re: Rec Sports IT Ticket-ID##{ticket.id}" 
     body = "This problem is still not resolved"
     assert_no_difference "Ticket.all.count" do
       ticket = Ticket.create_from_email(from,subject,body)
