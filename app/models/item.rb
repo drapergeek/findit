@@ -71,8 +71,16 @@ class Item < ActiveRecord::Base
   ###END CSV DEFINITIONS
 
 
+  def to_param
+    name  
+  end
+
   def dns_safe_name
     name.sub("_","-")
+  end
+
+  def qr_url
+    "http://graduateschool.vt.edu/graduate_school/QR/QRCodeURLContent.png?url=https://findit.recsports.vt.edu/items/#{name}&size=250"
   end
 
   def self.search(search)

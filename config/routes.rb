@@ -33,6 +33,7 @@ Findit::Application.routes.draw do
       get 'logout'
     end
   end
+  resources :sessions, :only=>[:index, :create, :destroy]
   resources :installations do
     collection do
       post 'install_software'
@@ -43,6 +44,8 @@ Findit::Application.routes.draw do
   resources :incoming_email, :only=>[:index]
   match "mail", :to=>"incoming_email#index", :as=>"mail"
   root :to=>"items#index", :type=>"Desktop"
-  match "logout", :to=>"users#logout",:as=>"logout"
-  match "admin", :to=>"admin#index", :as=>"admin"
+  match "/auth/cas/callback"=>"sessions#create"
+  match "no_auth", :to=>"sessions#index", :as=>"no_auth"
+  match "logout", :to=>"sessions#destroy", :as=> "logout"
+  match "admin", :to=>"admin#index", :as=> "admin"
   end

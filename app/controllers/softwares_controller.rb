@@ -1,5 +1,4 @@
 class SoftwaresController < ApplicationController
-    prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
   def index
     @softwares = Software.all
   end

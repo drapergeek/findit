@@ -40,10 +40,4 @@ module Findit
     config.filter_parameters += [:password]
     
   end
-  require 'casclient'
-  require 'casclient/frameworks/rails/filter'
-  CASClient::Frameworks::Rails::Filter.configure(
-    :cas_base_url => "https://auth.vt.edu/"
-  )
-
 end

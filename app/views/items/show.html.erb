@@ -222,6 +222,12 @@
 				<% end %>
 			</div>
 		</p>
+
+    <p>
+      <div class="noprint">
+        <%= image_tag @item.qr_url %>
+      </div>
+    </p>
 		<% if @item.make == "Dell" %>
 		<p class="noprint">
 			<% driver_link = "http://support.dell.com/support/downloads/driverslist.aspx?c=us&cs=RC956904&l=en&s=hied&os=WLH&osl=en&ServiceTag=#{@item.serial.upcase}&catid=-1&impid=-1" %>

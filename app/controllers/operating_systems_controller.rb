@@ -1,5 +1,4 @@
 class OperatingSystemsController < ApplicationController
-    prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
   def index
     @operating_systems = OperatingSystem.all
   end
