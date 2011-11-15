@@ -1,5 +1,4 @@
 class IpsController < ApplicationController
- prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
   def index
     if params[:unassigned]
       if Rails.env == "production"

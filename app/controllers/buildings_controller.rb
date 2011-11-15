@@ -1,5 +1,4 @@
 class BuildingsController < ApplicationController
-  prepend_before_filter { |nothing|  CASClient::Frameworks::Rails::Filter if Rails.env=="production" }
   def index
     @buildings = Building.all
   end
