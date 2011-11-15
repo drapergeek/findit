@@ -71,8 +71,16 @@ class Item < ActiveRecord::Base
   ###END CSV DEFINITIONS
 
 
+  def to_param
+    name  
+  end
+
   def dns_safe_name
     name.sub("_","-")
+  end
+
+  def qr_url
+   "http://www.sparqcode.com/qrgen?qt=url&data=https://findit.recsports.vt.edu/items/#{name}&cap=#{name.upcase}&col=5A0000&track=0&subcap=Inventory%20Information&width=200" 
   end
 
   def self.search(search)

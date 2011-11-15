@@ -95,6 +95,13 @@ class ItemTest < ActiveSupport::TestCase
     item.mark_as_surplused
     assert item.in_use == false
   end
+
+  test "qrl_code_url gives a url that includes certain information" do
+    item = Factory.create(:item) 
+    assert item.qr_url.include?("http://www.sparqcode.com")
+    assert item.qr_url.include?("https://findit.recsports.vt.edu/items/#{item.name}")
+    assert item.qr_url.include?(item.name.upcase)
+  end
     
   def new_valid_item
     return Item.new(:type_of_item=>"Desktop")
