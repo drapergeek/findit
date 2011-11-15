@@ -12,6 +12,10 @@ class Ticket < ActiveRecord::Base
   delegate :name, :to=>:area, :prefix=>true, :allow_nil=>true
   delegate :name, :to=>:project, :prefix=>true, :allow_nil=>true
   
+  scope :for_user, lambda{|user_id| where("worker_id = ?", "#{user_id}")}
+  scope :unassigned, where(:worker_id => nil)
+  scope :open, where(:status=>"Open")
+  
   after_create :send_emails
   
   def send_emails

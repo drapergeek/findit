@@ -1,6 +1,15 @@
 class TicketsController < ApplicationController
   def index
-    @tickets = Ticket.all
+    if params[:user]
+      @user = User.find_by_id(params[:user])
+      @tickets = Ticket.for_user(@user.id)
+    elsif params[:unassigned]
+      @tickets = Ticket.unassigned
+    elsif params[:open]
+      @tickets = Ticket.open
+    else
+      @tickets = Ticket.all
+    end
   end
 
   def show

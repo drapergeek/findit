@@ -4,12 +4,13 @@ class User < ActiveRecord::Base
   has_many :tickets
   belongs_to :area
   has_many :comments
+  
+  scope :can_login, where(:can_login => true)
 
   validates_uniqueness_of :login, :if=>lambda{!self.login.nil?}
   def full_name
     [first_name, last_name].join(" ")
   end
-  
   
   def reverse_name
     [last_name, first_name].join(", ")
