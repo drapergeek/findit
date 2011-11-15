@@ -6,6 +6,6 @@ ActionMailer::Base.smtp_settings = {
   :domain               =>"recsports.vt.edu"
 }
 
-ActionMailer::Base.default_url_options[:host] = "localhost:3000"
+ActionMailer::Base.default_url_options[:host] = APP_CONFIG['default_url_host']
 ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
 
