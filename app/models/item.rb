@@ -80,7 +80,7 @@ class Item < ActiveRecord::Base
   end
 
   def qr_url
-   "http://www.sparqcode.com/qrgen?qt=url&data=https://findit.recsports.vt.edu/items/#{name}&cap=#{name.upcase}&col=5A0000&track=0&subcap=Inventory%20Information&width=200" 
+    "http://graduateschool.vt.edu/graduate_school/QR/QRCodeURLContent.png?url=https://findit.recsports.vt.edu/items/#{name}&size=250"
   end
 
   def self.search(search)

@@ -98,9 +98,8 @@ class ItemTest < ActiveSupport::TestCase
 
   test "qrl_code_url gives a url that includes certain information" do
     item = Factory.create(:item) 
-    assert item.qr_url.include?("http://www.sparqcode.com")
+    assert item.qr_url.include?("http://graduateschool.vt.edu")
     assert item.qr_url.include?("https://findit.recsports.vt.edu/items/#{item.name}")
-    assert item.qr_url.include?(item.name.upcase)
   end
     
   def new_valid_item
