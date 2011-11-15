@@ -45,7 +45,7 @@ Findit::Application.routes.draw do
   match "mail", :to=>"incoming_email#index", :as=>"mail"
   root :to=>"items#index", :type=>"Desktop"
   match "/auth/cas/callback"=>"sessions#create"
-  match "no_auth", :to=>"session#index", :as=>"no_auth"
+  match "no_auth", :to=>"sessions#index", :as=>"no_auth"
   match "logout", :to=>"sessions#destroy", :as=> "logout"
   match "admin", :to=>"admin#index", :as=> "admin"
   end
