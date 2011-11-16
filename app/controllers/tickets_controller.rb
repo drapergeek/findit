@@ -5,6 +5,12 @@ class TicketsController < ApplicationController
       @tickets = Ticket.for_user(@user.id)
     elsif params[:unassigned]
       @tickets = Ticket.unassigned
+    elsif params[:area]
+      @area = Area.find_by_id(params[:area])
+      @tickets = Ticket.for_area(@area.id)
+    elsif params[:project]
+      @project = Project.find_by_id(params[:project])
+      @tickets = Ticket.for_project(@project.id)
     else
       @tickets = Ticket.all
     end
@@ -37,6 +43,14 @@ class TicketsController < ApplicationController
     else
       render :action => 'new'
     end
+  end
+  
+  def show_by_area
+    @tickets_by_area = Ticket.all.group_by(&:area)
+  end
+  
+  def show_by_project
+    @tickets_by_project = Ticket.all.group_by(&:project)
   end
 
   def edit

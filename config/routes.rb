@@ -5,7 +5,9 @@ Findit::Application.routes.draw do
   resources :projects
   resources :tickets do 
     collection do
-      get 'take'
+      post 'take'
+      get 'show_by_area'
+      get 'show_by_project'
     end
   end
   resources :operating_systems

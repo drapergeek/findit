@@ -1,0 +1,10 @@
+<div class="block">
+  <h3>Tickets By Area</h3>
+  <div class="navigation">
+  	  <ul class="navigation">
+		<% Area.all.each do |area| %>
+		<li><%= link_to "#{area.name}  -  #{Ticket.for_area(area.id).unresolved.count.to_s} - #{Ticket.for_area(area.id).resolved.count.to_s}", :controller=>"tickets", :anchor => "#{area.name}", :action=>:show_by_area %></li>
+		<% end %>
+	  </ul>
+  </div>
+</div>

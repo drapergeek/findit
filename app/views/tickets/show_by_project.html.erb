@@ -1,0 +1,20 @@
+<% title "Tickets by Project" %>	
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+		<%= render :partial=>"navigation" %>
+    </ul>
+  </div>          
+  <div class="content">          
+    <div class="inner">
+	<% @tickets_by_project.each do |project, tickets| %>
+		<%= "<a name=\"#{project}\"></a>".html_safe %>
+		<h1><%= project unless project.nil? %>
+		<%= "Uncategorized" if project.nil? %></h1>
+		<%= render :partial=>"tickets", :locals => { :tickets => tickets }  %>
+	<% end %>
+<p><%= link_to "New Ticket", new_ticket_path %></p>
+</div>
+</div>
+</div>
+<% content_for :sidebar, render(:partial=>'tickets/sidebar') %>
