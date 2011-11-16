@@ -39,7 +39,7 @@ class Ticket < ActiveRecord::Base
     if subject.scan(/Ticket-ID#\d+/).length >= 1 
       #this is a reply 
       id_number = subject.scan(/Ticket-ID#\d+/).first.split("#")[1]
-      return Comment.create_from_email(id_number, from, subject, body)
+      return Comment.create_from_email(id_number, from, subject, body, :reply=>true)
     end
     
     #make sure we have a user
