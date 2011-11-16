@@ -29,7 +29,7 @@ class Comment < ActiveRecord::Base
       body += "Status changed to Open on a new comment email \n" 
       ticket.save
     end
-    ticket.comments.create!(:user=>user, :subject=>subject, :body=>body) 
+    ticket.comments.create!(:user=>user, :subject=>subject, :body=>body, :reply=>true) 
   end
 
 
