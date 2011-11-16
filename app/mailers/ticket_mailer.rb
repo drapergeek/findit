@@ -16,10 +16,10 @@ class TicketMailer < ActionMailer::Base
         @ticket = @comment.ticket
         to = ""
         if params[:send_to_submitter]
-          to += @ticket.submitter.email.to_s
+          to += @ticket.submitter_email.to_s
         end
         if params[:send_to_worker]
-          to += @ticket.worker.email.to_s
+          to += @ticket.worker_email.to_s
         end
         mail(:to => to, :subject => "#{APP_CONFIG['ticket_subject']}#{@ticket.id} Reply from Ticket")
       end
