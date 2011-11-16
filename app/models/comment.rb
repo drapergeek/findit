@@ -9,10 +9,15 @@ class Comment < ActiveRecord::Base
   
   def send_emails
     if self.reply
-       TicketMailer.send_reply_comment(self).deliver
+      if self.user == self.ticket.worker
+       TicketMailer.send_reply_comment(self, :send_to_submitter=>true).deliver
+      elsif self.user == self.ticket.submitter
+       TicketMailer.send_reply_comment(self, :send_to_worker=>true).deliver
+      else
+       TicketMailer.send_reply_comment(self, :send_to_worker=>true, :send_to_submitter=>true).deliver
+      end
     end
   end
-
 
   def self.create_from_email(ticket_id, from, subject, body)
     #get the user first

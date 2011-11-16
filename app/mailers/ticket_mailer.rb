@@ -11,9 +11,16 @@ class TicketMailer < ActionMailer::Base
       mail(:to => "#{ticket.submitter.email}", :subject => "#{APP_CONFIG['ticket_subject']}#{ticket.id} Successfully Submitted")
     end
     
-    def send_reply_comment(comment)
+    def send_reply_comment(comment, params={})
         @comment = comment
         @ticket = @comment.ticket
-        mail(:to => "#{@ticket.submitter.email}", :subject => "#{APP_CONFIG['ticket_subject']}#{@ticket.id} Reply from Ticket")
+        to = ""
+        if params[:send_to_submitter]
+          to += @ticket.submitter.email.to_s
+        end
+        if params[:send_to_worker]
+          to += @ticket.worker.email.to_s
+        end
+        mail(:to => to, :subject => "#{APP_CONFIG['ticket_subject']}#{@ticket.id} Reply from Ticket")
       end
 end

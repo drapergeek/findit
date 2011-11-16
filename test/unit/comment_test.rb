@@ -94,12 +94,35 @@ class CommentTest < ActiveSupport::TestCase
     assert comment.body.include?("Status changed to Open on a new comment email")
   end
 
-  test "an email is dispatched to ticket owner when a reply is submitted" do
-    owner = Factory.create(:user)
-    ticket = Factory.create(:ticket, :owner=>owner)  
-    assert_difference "Ticket.comments.count" do
-      ticket.create_comment(:user_id, owner)
-    end
+  test "an email is dispatched to only the ticket owner when a reply is submitted" do
+    reset_email
+    worker = Factory.create(:user)
+    ticket = Factory.create(:ticket, :worker=>worker)  
+    ticket.comments.create!(:user=>worker, :body=>"I have looked at this", :reply=>true)
+    assert last_email.to.include?(ticket.submitter.email)
+    assert !last_email.to.include?(ticket.worker.email)
+    assert last_email.subject.include?("Reply from Ticket")
+  end
+
+  test "email to worker and submitter new outside comments" do
+    reset_email
+    worker = Factory.create(:user)
+    commenter = Factory.create(:user)
+    ticket = Factory.create(:ticket, :worker=>worker)  
+    ticket.comments.create!(:user=>commenter, :body=>"I have looked at this", :reply=>true)
+    assert last_email.to.include?(ticket.submitter.email)
+    assert last_email.to.include?(ticket.worker.email)
+    assert last_email.subject.include?("Reply from Ticket")
+  end
+
+  test "email to just worker when reply from submitter" do
+    reset_email
+    worker = Factory.create(:user)
+    ticket = Factory.create(:ticket, :worker=>worker)  
+    ticket.comments.create!(:user=>ticket.submitter, :body=>"I have looked at this", :reply=>true)
+    assert !last_email.to.include?(ticket.submitter.email)
+    assert last_email.to.include?(ticket.worker.email)
+    assert last_email.subject.include?("Reply from Ticket")
   end
   
 end
