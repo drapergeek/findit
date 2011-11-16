@@ -1,4 +1,4 @@
 <%= tab_link "Unassigned", tickets_path(:unassigned => 1), "", params[:controller], "first" %>
-<% for user in User.can_login %>
+<% for user in User.workers %>
 <%= tab_link user.first_name, tickets_path(:user=>user.id), "", params[:controller]%>
 <%end%>

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   belongs_to :area
   has_many :comments
   
-  scope :can_login, where(:can_login => true)
+  scope :workers, where(:can_login => true)
 
   validates_uniqueness_of :login, :if=>lambda{!self.login.nil?}
   def full_name
