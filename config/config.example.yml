@@ -7,6 +7,7 @@ development:
   emails_for_new_tickets_group: "email@email.com, another_email@email.com"
   send_emails_to_owner_on_reply: true
   default_url_host: localhost:3000
+  default_url_protocol: http
 
 test:
     default_user: user_name
@@ -17,6 +18,7 @@ test:
     emails_for_new_tickets_group: "email@email.com, another_email@email.com"
     send_emails_to_owner_on_reply: true
     default_url_host: localhost:3000
+    default_url_protocol: http
 
 production:
   default_user: user_name

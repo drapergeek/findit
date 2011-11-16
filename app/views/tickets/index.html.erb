@@ -13,6 +13,7 @@
     <th>Submitter</th>
     <th>Project</th>
 	<th>Created</th>
+	<th></th>
 	<th class="last"></th>
   </tr>
   <% for ticket in @tickets %>
@@ -21,7 +22,9 @@
       <td><%= ticket.submitter %></td>
       <td><%= ticket.project %></td>
       <td><%= time_ago_in_words(ticket.created_at) %> ago</td>
-      <td class="last"><%= link_to "Show", ticket %> | 
+	  <td><%= link_to "Take", ticket if ticket.worker.nil? %></td>
+      <td class="last">
+	  <%= link_to "Show", ticket %> | 
       <%= link_to "Edit", edit_ticket_path(ticket)  %> |
       <%= link_to "Destroy", ticket, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
