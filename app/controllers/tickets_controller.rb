@@ -5,8 +5,6 @@ class TicketsController < ApplicationController
       @tickets = Ticket.for_user(@user.id)
     elsif params[:unassigned]
       @tickets = Ticket.unassigned
-    elsif params[:open]
-      @tickets = Ticket.open
     else
       @tickets = Ticket.all
     end

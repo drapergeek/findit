@@ -7,45 +7,53 @@
   </div>          
   <div class="content">          
     <div class="inner">
-<p>
-  <strong>Title:</strong>
-  <%= @ticket.title %>
-</p>
+		<table class="table">
+		  <tr>
+		    <th><h4><%= "#{@ticket.title} - #{@ticket.status}" %></h4></th>
+			<th></th>
+			<th class="last"></th>
+		  </tr>
+		    <tr>
+		      <td>
+				<p>
+				  <strong>Status:</strong>
+				  <%= @ticket.status %>
+				</p>
+				<p>
+				  <strong>Priority:</strong>
+				  <%= @ticket.priority %>
+				</p>
+				  <strong>Start Date:</strong>
+				  <%= @ticket.start_date %>
+				</p>
+				<p>
+				  <strong>Due Date:</strong>
+				  <%= @ticket.due_date %>
+				</p></td>
+		      <td>	<p>
+				<p>
+				  <strong>Submitter:</strong>
+				  <%= @ticket.submitter.full_name unless @ticket.submitter.nil? %>
+				</p>
+				<p>
+				  <strong>Worker:</strong>
+				  <%= @ticket.worker.full_name unless @ticket.worker.nil?%>
+				</p>
+				<p>
+				  <strong>Project:</strong>
+				  <%= @ticket.project.name unless @ticket.project.nil?%>
+				</p>
+				<p>
+				  <strong>Area:</strong>
+				  <%= @ticket.area.name unless @ticket.area.nil?%>
+				</p></td>
+				<td class="last"></td>
+		    </tr>
+		</table>
+
 <p>
   <strong>Description:</strong>
   <%= @ticket.description %>
-</p>
-<p>
-  <strong>Status:</strong>
-  <%= @ticket.status %>
-</p>
-<p>
-  <strong>Priority:</strong>
-  <%= @ticket.priority %>
-</p>
-<p>
-  <strong>Start Date:</strong>
-  <%= @ticket.start_date %>
-</p>
-<p>
-  <strong>Due Date:</strong>
-  <%= @ticket.due_date %>
-</p>
-<p>
-  <strong>Submitter:</strong>
-  <%= @ticket.submitter.full_name unless @ticket.submitter.nil? %>
-</p>
-<p>
-  <strong>Worker:</strong>
-  <%= @ticket.worker.full_name unless @ticket.worker.nil?%>
-</p>
-<p>
-  <strong>Project:</strong>
-  <%= @ticket.project.name unless @ticket.project.nil?%>
-</p>
-<p>
-  <strong>Area:</strong>
-  <%= @ticket.area.name unless @ticket.area.nil?%>
 </p>
 
 <%= render :partial=>"comments/ticket_comments", :locals=>{:comments=>@comments} %>
