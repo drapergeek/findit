@@ -2,7 +2,7 @@
   <h3>Tickets By Users</h3>
   <div class="navigation">
   	  <ul class="navigation">
-		<% User.worker.each do |user| %>
+		<% User.workers.each do |user| %>
 	    <li><%= link_to "#{user.first_name}  -  #{Ticket.for_user(user.id).unresolved.count.to_s} - #{Ticket.for_user(user.id).resolved.count.to_s}", :controller=>"tickets", :action=>:index, :user=>user.id %></li>
 		<% end %>
 	  </ul>
