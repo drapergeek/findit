@@ -3,7 +3,11 @@ Findit::Application.routes.draw do
 
   resources :areas
   resources :projects
-  resources :tickets
+  resources :tickets do 
+    collection do
+      get 'take'
+    end
+  end
   resources :operating_systems
   resources :dns_names
   resources :softwares

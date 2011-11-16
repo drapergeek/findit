@@ -15,6 +15,16 @@ class TicketsController < ApplicationController
     @comments = @ticket.comments.order(:created_at)
     @comment = Comment.new(:ticket => @ticket, :user => current_user)
   end
+  
+  def take
+    @ticket = Ticket.find_by_id(params[:ticket])
+    @ticket.worker = current_user
+    if @ticket.save
+        redirect_to @ticket, :notice => "Successfully took Ticket."
+    else
+        render :action => 'edit'
+    end
+  end
 
   def new
     @ticket = Ticket.new
