@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :tickets
   belongs_to :area
   has_many :comments
-  
+
   scope :workers, where(:can_login => true)
 
   validates_uniqueness_of :login, :if=>lambda{!self.login.nil?}

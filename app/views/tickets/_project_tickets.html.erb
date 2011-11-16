@@ -1,0 +1,10 @@
+<div class="block">
+  <h3>Tickets By Project</h3>
+  <div class="navigation">
+  	  <ul class="navigation">
+		<% Project.all.each do |project| %>
+		<li><%= link_to "#{project.name}  -  #{Ticket.for_project(project.id).unresolved.count.to_s} - #{Ticket.for_project(project.id).resolved.count.to_s}", :controller=>"tickets", :anchor => "#{project.name}", :action=>:show_by_project %></li>
+		<% end %>
+	  </ul>
+  </div>
+</div>
