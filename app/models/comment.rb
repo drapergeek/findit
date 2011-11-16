@@ -5,6 +5,7 @@ class Comment < ActiveRecord::Base
   validates :ticket, :user, :presence => true
   validates :body, :presence => true
   
+  delegate :name, :to=>:user, :prefix=>true, :allow_nil=>true
   after_create :send_emails
   
   def send_emails

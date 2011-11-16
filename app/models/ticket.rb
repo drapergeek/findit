@@ -9,6 +9,7 @@ class Ticket < ActiveRecord::Base
   validates :title, :description, :status, :presence => true
 
   delegate :email, :to=>:submitter, :prefix=>true, :allow_nil=>true
+  delegate :email, :to=>:worker, :prefix=>true, :allow_nil=>true
   delegate :name, :to=>:area, :prefix=>true, :allow_nil=>true
   delegate :name, :to=>:project, :prefix=>true, :allow_nil=>true
   
