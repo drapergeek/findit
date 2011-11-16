@@ -93,5 +93,13 @@ class CommentTest < ActiveSupport::TestCase
     assert_equal "Open", ticket.status
     assert comment.body.include?("Status changed to Open on a new comment email")
   end
+
+  test "an email is dispatched to ticket owner when a reply is submitted" do
+    owner = Factory.create(:user)
+    ticket = Factory.create(:ticket, :owner=>owner)  
+    assert_difference "Ticket.comments.count" do
+      ticket.create_comment(:user_id, owner)
+    end
+  end
   
 end

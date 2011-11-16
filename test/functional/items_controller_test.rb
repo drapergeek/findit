@@ -7,7 +7,7 @@ class ItemsControllerTest < ActionController::TestCase
   end
   
   def test_show
-    get :show, :id => Item.first
+    get :show, :id => Item.first.name
     assert_template 'show'
   end
   
@@ -16,10 +16,9 @@ class ItemsControllerTest < ActionController::TestCase
     assert_template 'new'
   end
 
-
-  
   def test_edit
-    get :edit, :id => Item.first
+    item = Factory.create(:item)
+    get :edit, :id => item.name
     assert_template 'edit'
   end
 

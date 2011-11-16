@@ -62,6 +62,10 @@ class ItemsController < ApplicationController
   
   def edit
     @item = Item.find_by_name(params[:id])
+    unless @item
+      flash[:notice] = "The item can't be found"
+      redirect_to root_url
+    end
   end
   
   def update

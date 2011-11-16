@@ -13,15 +13,23 @@ class ActiveSupport::TestCase
   # 
   def login
     #this method will login as a user who has been defined in the system
-     CASClient::Frameworks::Rails::Filter.fake("gdraper")
+    session[:user_id] = 1 
   end
   
   def login_not_authorized
-    CASClient::Frameworks::Rails::Filter.fake("homer")
+    session[:user_id] = 2
   end
   
   def logout
     current_user = nil
-    CASClient::Frameworks::Rails::Filter.fake(nil)    
+  end
+
+
+  def last_email
+    ActionMailer::Base.deliveries.last
+  end
+  
+  def reset_email
+    ActionMailer::Base.deliveries = []
   end
 end

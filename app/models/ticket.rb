@@ -23,8 +23,8 @@ class Ticket < ActiveRecord::Base
        TicketMailer.send_ticket_to_admins(self).deliver
     end
     @emails = APP_CONFIG['emails_for_new_tickets_group']
-    unless @emails.include?(self.submitter_email)
-      TicketMailer.send_ticket_to_submitter(self).deliver
+    if self.submitter && self.submitter_email && @emails.include?(self.submitter_email)
+        TicketMailer.send_ticket_to_submitter(self).deliver
     end
   end
   
