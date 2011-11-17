@@ -69,7 +69,7 @@ class ItemsController < ApplicationController
   end
   
   def update
-    @item = Item.find(params[:id])
+    @item = Item.find_by_name(params[:id])
     if @item.update_attributes(params[:item])
       flash[:notice] = "Successfully updated item."
       redirect_to @item
@@ -79,14 +79,14 @@ class ItemsController < ApplicationController
   end
   
   def destroy
-    @item = Item.find(params[:id])
+    @item = Item.find_by_name(params[:id])
     @item.destroy
     flash[:notice] = "Successfully destroyed item."
     redirect_to items_url
   end
   
   def add_ip
-    @item = Item.find(params[:item])
+    @item = Item.find_by_name(params[:item])
     if params[:ip_selection].blank?
       flash[:notice] = "You must select an IP to add"
       redirect_to :action=>'show', :id=>@item
@@ -99,7 +99,7 @@ class ItemsController < ApplicationController
     end
   end
   def remove_ip
-    @ip = Ip.find(params[:ip])
+    @ip = Ip.find_by_name(params[:ip])
     @ip.item_id = ""
     if @ip.save
       flash[:notice] = "Removed Ip from item"
@@ -115,14 +115,14 @@ class ItemsController < ApplicationController
   end
   
   def mark_as_inventoried
-    @item = Item.find(params[:id])
+    @item = Item.find_by_name(params[:id])
     @item.mark_as_inventoried
     flash[:notice] = "Item is inventoried as of #{@item.inventoried_at}"
     redirect_to @item
   end
   
   def surplus
-    @item = Item.find(params[:id])
+    @item = Item.find_by_name(params[:id])
     if @item.mark_as_surplused
       flash[:notice] = "Item is surplused as of #{@item.surplused_at}"
     else
