@@ -35,7 +35,10 @@ class Ticket < ActiveRecord::Base
   def to_s
     title
   end
+  
+  
   #statuses - New, Open, Resolved, Stalled
+
 
   def self.create_from_email(from, subject, body)
     #first we need to see its a reply email and if so
