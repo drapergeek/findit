@@ -10,7 +10,7 @@ class InstallationsController < ApplicationController
       begin
         @installation = Installation.new
         @installation.software = Software.find(params[:software_selection])
-        @installation.item = Item.find(params[:item])
+        @installation.item = Item.find_by_name(params[:item])
         if @installation.save
           flash[:notice] = "The software was succesfully added!"
         else
@@ -26,7 +26,7 @@ class InstallationsController < ApplicationController
   def uninstall_software
       begin
         @software = Software.find(params[:software])
-        @item = Item.find(params[:item])
+        @item = Item.find_by_name(params[:item])
         @item.softwares.delete(@software)
         flash[:notice] = "Succesfully removed software"
       rescue ActiveRecord::RecordNotFound => e
