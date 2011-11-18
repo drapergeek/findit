@@ -29,7 +29,7 @@ class Item < ActiveRecord::Base
   validates_uniqueness_of :serial, :allow_nil=>true
   validates_uniqueness_of :vt_tag, :allow_nil=>true
   validates_presence_of :type_of_item
-  validates_inclusion_of :type_of_item, :in =>["Desktop", "Laptop", "Printer", "Virtual Machine", "Other", "Server"], :message => "Type of item can only be Desktop Laptop Printer Virtual Machine, Server or Other"
+  validates_inclusion_of :type_of_item, :in =>["Desktop","Mobile", "Laptop", "Printer", "Virtual Machine", "Other", "Server"], :message => "Type of item can only be Desktop Laptop Printer Virtual Machine, Server or Other"
   before_validation :clear_empty_attrs
 
   ###CSV DEFINITIONS
