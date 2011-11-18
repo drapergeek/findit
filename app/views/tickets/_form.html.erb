@@ -7,7 +7,7 @@
 	  <%= f.input :submitter %>
 	    <% end %>
 	<%= f.inputs do %>
-	  <%= f.input :worker, :label => "Issued to:", :as => :select, :include_blank => true, :collection => User.worker %>
+	  <%= f.input :worker, :label => "Issued to:", :as => :select, :include_blank => true, :collection => User.workers %>
 	  <%= f.input :priority, :as => :select, :include_blank => true, :collection => 1..10%>
 	<% end %>
 	<%= f.inputs :name => "Statistics" do %>
