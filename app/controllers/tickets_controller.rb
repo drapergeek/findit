@@ -25,6 +25,7 @@ class TicketsController < ApplicationController
   def take
     @ticket = Ticket.find_by_id(params[:ticket])
     @ticket.worker = current_user
+    @ticket.status = 'Open'
     if @ticket.save
         redirect_to @ticket, :notice => "Successfully took Ticket."
     else
