@@ -3,7 +3,7 @@
   <div class="navigation">
   	  <ul class="navigation">
 		<% Area.all.each do |area| %>
-		<li><%= link_to "#{area.name}  -  #{Ticket.for_area(area.id).unresolved.count.to_s} - #{Ticket.for_area(area.id).resolved.count.to_s}", :controller=>"tickets", :anchor => "#{area.name}", :action=>:show_by_area %></li>
+		<%= sidebar_list_item(area.name, Ticket.for_area(area.id).unresolved.count.to_s, Ticket.for_area(area.id).resolved.count.to_s, :show_by_area) %>
 		<% end %>
 	  </ul>
   </div>
