@@ -32,6 +32,14 @@ class Comment < ActiveRecord::Base
     end
     ticket.comments.create!(:user=>user, :subject=>subject, :body=>body, :reply=>true) 
   end
+  
+  def ticket_status
+    self.ticket.status  #add delegate
+  end
+  
+  def ticket_status=(status)
+    self.ticket.status = status;
+  end
 
 
 
