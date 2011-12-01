@@ -2,17 +2,17 @@ class TicketsController < ApplicationController
   def index
     if params[:user]
       @user = User.find_by_id(params[:user])
-      @tickets = Ticket.for_user(@user.id).unresolved
+      @tickets = Ticket.for_user(@user.id)
     elsif params[:unassigned]
       @tickets = Ticket.unassigned
     elsif params[:area]
       @area = Area.find_by_id(params[:area])
-      @tickets = Ticket.for_area(@area.id)
+      @tickets = Ticket.for_area(@area.id).unresolved
     elsif params[:project]
       @project = Project.find_by_id(params[:project])
-      @tickets = Ticket.for_project(@project.id)
+      @tickets = Ticket.for_project(@project.id).unresolved
     else
-      @tickets = Ticket.all
+      @tickets = Ticket.unassigned.unresolved
     end
   end
 
@@ -47,11 +47,11 @@ class TicketsController < ApplicationController
   end
   
   def show_by_area
-    @tickets_by_area = Ticket.all.group_by(&:area)
+    @tickets_by_area = Ticket.unresolved.group_by(&:area)
   end
   
   def show_by_project
-    @tickets_by_project = Ticket.all.group_by(&:project)
+    @tickets_by_project = Ticket.unresolved.group_by(&:project)
   end
 
   def edit
