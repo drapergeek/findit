@@ -24,8 +24,9 @@ class ItemsControllerTest < ActionController::TestCase
 
   
   def test_destroy
+    Factory.create(:item)
     item = Item.first
-    delete :destroy, :id => item
+    delete :destroy, :id => item.name
     assert_redirected_to items_url
     assert !Item.exists?(item.id)
   end
