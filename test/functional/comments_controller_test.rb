@@ -42,6 +42,17 @@ class CommentsControllerTest < ActionController::TestCase
     put :update, :id => Comment.first
     assert_template 'edit'
   end
+  
+  
+  def test_update_status_in_comment
+    ticket = Factory(:ticket)
+    user = Factory(:user)
+    comment = Factory.build(:comment, :ticket=>ticket, :user => user, :ticket_status => "Open")
+    assert comment.valid?
+    comment = comment.attributes.symbolize_keys
+    post :create, :comment=>comment
+    assert_redirected_to ticket_url(comment[:ticket_id])
+  end
 
   def test_update_valid
     Comment.any_instance.stubs(:valid?).returns(true)

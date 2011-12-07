@@ -32,7 +32,13 @@ class Comment < ActiveRecord::Base
     end
     ticket.comments.create!(:user=>user, :subject=>subject, :body=>body, :reply=>true) 
   end
-
-
+  
+  def ticket_status
+    self.ticket.status unless ticket.nil?
+  end
+  
+  def ticket_status=(status,ticket)
+    self.ticket.status = status unless ticket.nil?
+  end
 
 end
