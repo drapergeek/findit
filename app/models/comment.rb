@@ -34,13 +34,11 @@ class Comment < ActiveRecord::Base
   end
   
   def ticket_status
-    self.ticket.status  #add delegate
+    self.ticket.status unless ticket.nil?
   end
   
-  def ticket_status=(status)
-    self.ticket.status = status;
+  def ticket_status=(status,ticket)
+    self.ticket.status = status unless ticket.nil?
   end
-
-
 
 end

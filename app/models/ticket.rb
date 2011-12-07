@@ -21,6 +21,8 @@ class Ticket < ActiveRecord::Base
   scope :resolved, where(:status=>"Resolved")
   scope :unresolved, where("status != ?", "Resolved")
   
+  delegate :name, :to=>:area, :prefix=>true, :allow_nil=>true
+  
   after_create :send_emails
   
   def send_emails
