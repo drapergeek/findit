@@ -1,4 +1,4 @@
-<%= render "shared/error_messages", :target=>@ticket %>
+<%= render "/shared/error_messages", :target=>@ticket %>
  <%= semantic_form_for @ticket do |f| %>
 	<%= f.inputs :name => "Required" do %>
       <%= f.input :title %>

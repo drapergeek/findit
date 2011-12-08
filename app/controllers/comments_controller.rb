@@ -16,7 +16,14 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @comment.ticket, :notice => "Successfully added comment."
     else
-      render :action => 'new'
+      if @comment.ticket_id
+        @ticket = Ticket.find(@comment.ticket_id)
+        @comments = @ticket.comments.order(:created_at)
+        render :template=>"/tickets/show"
+      else
+        logger.info "NO TICKET"
+        render :new
+      end
     end
   end
 

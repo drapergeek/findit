@@ -16,10 +16,17 @@ class CommentsControllerTest < ActionController::TestCase
     assert_template 'new'
   end
 
-  def test_create_invalid
+  def test_create_invalid_with_no_ticket
     comment = Factory.build(:comment, :ticket=>nil, :user=>nil).attributes.symbolize_keys
     post :create, comment
     assert_template 'new'
+  end
+  
+  def test_create_invalid_with_no_ticket
+    ticket = Factory.create(:ticket)
+    comment = Factory.build(:comment,:user=>nil, :ticket_id=>ticket.id,:body=>nil).attributes.symbolize_keys
+    post :create, :comment=>comment
+    assert_template 'tickets/show'
   end
 
   def test_create_valid
