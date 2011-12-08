@@ -43,11 +43,9 @@ class CommentsControllerTest < ActionController::TestCase
     assert_template 'edit'
   end
   
-  
   def test_update_status_in_comment
     ticket = Factory(:ticket)
-    user = Factory(:user)
-    comment = Factory.build(:comment, :ticket=>ticket, :user => user, :ticket_status => "Open")
+    comment = Factory.build(:comment, :ticket=>ticket, :ticket_status => "Resolved")
     assert comment.valid?
     comment = comment.attributes.symbolize_keys
     post :create, :comment=>comment

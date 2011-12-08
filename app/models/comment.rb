@@ -37,7 +37,7 @@ class Comment < ActiveRecord::Base
     self.ticket.status unless ticket.nil?
   end
   
-  def ticket_status=(status,ticket)
+  def ticket_status=(status)
     self.ticket.status = status unless ticket.nil?
   end
 

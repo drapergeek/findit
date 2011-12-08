@@ -125,4 +125,15 @@ class CommentTest < ActiveSupport::TestCase
     assert last_email.subject.include?("Reply from Ticket")
   end
   
+  test "Can update ticket status from comment" do
+    ticket = Factory.create(:ticket)
+    assert ticket.status == "Open"
+    comment = Factory.build(:comment, :ticket=>ticket)
+    comment.ticket_status = "Resolved"
+    assert comment.save
+    assert ticket.status = "Resolved"
+    assert_equal comment.ticket_status, ticket.status
+    
+  end
+  
 end
