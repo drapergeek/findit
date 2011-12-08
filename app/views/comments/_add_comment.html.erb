@@ -1,6 +1,7 @@
 <h2>Add Comment</h2>
 <%= semantic_form_for @comment do |f| %>
 	<%= f.inputs :name => "" do %>
+	  <%= f.input :ticket_status,:as => :select, :include_blank => false, :collection => ["New", "Open", "Stalled", "Resolved"]	 %>
 	  <%= f.input :body %>
 	  <%= f.input :reply %>
 	  <%= f.input :user_id, :as => :hidden %>

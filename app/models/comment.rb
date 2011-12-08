@@ -8,6 +8,8 @@ class Comment < ActiveRecord::Base
   delegate :name, :to=>:user, :prefix=>true, :allow_nil=>true
   after_create :send_emails
   
+  after_save :update_ticket_status
+  
   def send_emails
     if self.reply
       if self.user == self.ticket.worker
@@ -38,7 +40,17 @@ class Comment < ActiveRecord::Base
   end
   
   def ticket_status=(status)
-    self.ticket.status = status unless ticket.nil?
+    @status = status
   end
+  
+  private
+  
+  def update_ticket_status
+    if self.ticket && @status && self.ticket.status != @status
+      self.ticket.update_attributes(:status=>@status)
+    end
+  end
+  
+  
 
 end

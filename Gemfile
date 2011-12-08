@@ -41,11 +41,16 @@ gem 'thor'
 gem 'comma'
 gem 'factory_girl_rails'
 gem 'formtastic'
+
+gem "rspec-rails", :group => [:test, :development]
 group :development, :test do
   gem "guard-test"
   gem "guard-livereload"
   gem "growl"
   gem 'web-app-theme', '>= 0.6.2'
+  gem "capybara"
+  gem "guard-rspec"
+  gem "launchy"
 end
 gem "nifty-generators", :group => :development
 gem "mocha", :group => :test
