@@ -12,7 +12,8 @@ for number in 1...7
   if user
     user.destroy
   end
-  User.create!(:login=>"user#{number}", :first_name => "first#{number}", :last_name => "last#{number}", :email => "email#{number}@vt.edu")
+  User.create!(:login=>"user#{number}", :first_name => "first#{number}", :last_name => "last#{number}", :email => "email#{number}@vt.edu", :can_login=>true)
+  
 end
 
 puts "Removing all the buildings and creating a default set"

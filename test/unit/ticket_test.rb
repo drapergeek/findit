@@ -90,6 +90,16 @@ class TicketTest < ActiveSupport::TestCase
       ticket = Ticket.create_from_email(from,subject,body)
     end
   end
-
   
+  test "email on worker change" do
+    user1 = Factory.create(:user)
+    user2 = Factory.create(:user)
+    ticket = Factory.create(:ticket, :worker => user1)
+    reset_email
+    ticket.worker = user2
+    ticket.save
+    assert last_email.to.include?(user2.email)
+    assert !last_email.to.include?(user1.email)
+    assert last_email.subject.include?(APP_CONFIG['worker_notify_subject'])
+  end
 end
