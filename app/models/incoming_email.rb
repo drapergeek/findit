@@ -13,6 +13,7 @@ class IncomingEmail < Object
       @body = @mail_object.body
     end
 
+    @body = @body.to_s
     @subject = @mail_object.subject
     @from = @mail_object.from
   end
