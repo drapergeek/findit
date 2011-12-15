@@ -24,7 +24,7 @@ class Ticket < ActiveRecord::Base
   delegate :name, :to=>:area, :prefix=>true, :allow_nil=>true
   
   after_create :send_emails
-  after_update :notify_workers
+  after_update :notify_workers, :notify_resolved
   
   def send_emails
     if APP_CONFIG['send_new_tickets_to_group']
@@ -97,6 +97,14 @@ class Ticket < ActiveRecord::Base
   def notify_workers
     if self.worker_id_changed?
       TicketMailer.send_worker_changed_notification(self).deliver
+    end
+  end
+  
+  def notify_resolved
+    if self.status_changed?
+      if self.status == "Resolved"
+        TicketMailer.send_ticket_resolved_notification(self).deliver
+      end
     end
   end
   

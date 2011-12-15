@@ -31,4 +31,12 @@ class TicketMailer < ActionMailer::Base
       mail(:to => @user.email, :subject => "#{APP_CONFIG['worker_notify_subject']}")
     end    
   end
+  
+  def send_ticket_resolved_notification(ticket)
+    @ticket = ticket
+    @user = ticket.submitter
+    if @user.email
+      mail(:to => @user.email, :subject => "#{APP_CONFIG['resolved_notify_subject']}")
+    end    
+  end
 end
