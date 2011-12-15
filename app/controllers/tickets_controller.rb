@@ -2,9 +2,9 @@ class TicketsController < ApplicationController
   def index
     if params[:user]
       @user = User.find_by_id(params[:user])
-      @tickets = Ticket.for_user(@user.id)
+      @tickets = Ticket.for_user(@user.id).unresolved
     elsif params[:unassigned]
-      @tickets = Ticket.unassigned
+      @tickets = Ticket.unassigned.unresolved
     elsif params[:area]
       @area = Area.find_by_id(params[:area])
       @tickets = Ticket.for_area(@area.id).unresolved
