@@ -25,14 +25,14 @@ class InstallationsController < ApplicationController
   
   def uninstall_software
       begin
-        @software = Software.find(params[:software])
-        @item = Item.find_by_name(params[:item])
+        @software = Software.find_by_id(params[:software])
+        @item = Item.find_by_id(params[:item])
         @item.softwares.delete(@software)
         flash[:notice] = "Succesfully removed software"
       rescue ActiveRecord::RecordNotFound => e
         flash[:error] = "There was a problem finding your software to remove!"
       ensure
-        redirect_to :back
+        redirect_to @item
       end
   end
 end
