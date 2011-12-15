@@ -98,15 +98,17 @@ class ItemsController < ApplicationController
       redirect_to @item
     end
   end
+  
   def remove_ip
-    @ip = Ip.find_by_name(params[:ip])
+    @ip = Ip.find_by_id(params[:ip])
+    @item = Item.find_by_id(@ip.item)
     @ip.item_id = ""
     if @ip.save
       flash[:notice] = "Removed Ip from item"
     else
       flash[:notice] = "Couldn't remove ip"
     end
-    redirect_to :back
+    redirect_to @item
   end
   
   def remove_dns_name

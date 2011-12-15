@@ -21,6 +21,13 @@ class ItemsControllerTest < ActionController::TestCase
     get :edit, :id => item.name
     assert_template 'edit'
   end
+  
+  test "removing an ip" do
+    item = Factory(:item)
+    ip = Factory(:ip, :item => item)
+    get :remove_ip, :ip => ip.id
+    assert_redirected_to item_url(item)
+  end
 
   
   def test_destroy
