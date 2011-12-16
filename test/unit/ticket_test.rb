@@ -91,6 +91,24 @@ class TicketTest < ActiveSupport::TestCase
     end
   end
   
+  test "email on status changed to resolved" do
+    ticket = Factory.create(:ticket)
+    reset_email
+    ticket.status = "Resolved"
+    ticket.save
+    assert !last_email.nil?
+    assert last_email.subject.include?(APP_CONFIG['resolved_notify_subject'])
+  end
+  
+  test "email on status changed to resolved through comment" do
+     ticket = Factory.create(:ticket)
+     comment = Factory.build(:comment, :ticket_status => "Resolved")
+     reset_email
+     comment.save
+     assert !last_email.nil?
+     assert last_email.subject.include?(APP_CONFIG['resolved_notify_subject'])
+  end
+  
   test "email on worker change" do
     user1 = Factory.create(:user)
     user2 = Factory.create(:user)
@@ -98,9 +116,10 @@ class TicketTest < ActiveSupport::TestCase
     reset_email
     ticket.worker = user2
     ticket.save
+    assert !last_email.nil?
     assert last_email.to.include?(user2.email)
     assert !last_email.to.include?(user1.email)
-    #assert last_email.subject.include?(APP_CONFIG['worker_notify_subject'])
+    assert last_email.subject.include?(APP_CONFIG['worker_notify_subject'])
   end
 
 end

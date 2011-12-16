@@ -18,6 +18,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal "No", user.first_name
     assert_equal "Name", user.last_name
   end
+  
   test "find_or_create_by_email will find an existing email" do
     user = Factory.create(:user) 
     found_user = User.find_or_create_by_email(user.email)
