@@ -69,7 +69,12 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket = Ticket.find(params[:id])
-    @ticket.destroy
-    redirect_to tickets_url, :notice => "Successfully destroyed ticket."
+    logger.info "Ticket was tried to be deleted\n #{@ticket}"
+    logger.info "Current User is #{current_user}"
+    if @ticket.destroy
+      redirect_to tickets_url, :notice => "Successfully destroyed ticket."
+    else
+      redirect_to tickets_url, :notice => "You can not delete Tickets"
+    end
   end
 end

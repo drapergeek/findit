@@ -25,6 +25,12 @@ class Ticket < ActiveRecord::Base
   
   after_create :send_emails
   after_update :notify_workers, :notify_resolved
+  before_destroy :cancel_delete
+
+
+  def cancel_delete
+    false
+  end
   
   def send_emails
     if APP_CONFIG['send_new_tickets_to_group']
