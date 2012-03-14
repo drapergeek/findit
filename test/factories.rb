@@ -23,10 +23,10 @@ FactoryGirl.define do
      association :submitter, :factory => :user
    end
    
-   factory :comment do
-     body 'some latin sayings here'
-     association :user
-     association :ticket
+   factory :comment do |u|
+     u.body 'some latin sayings here'
+     u.association :user
+     u.association :ticket
    end
 
    factory :full_ticket, :parent=>:ticket do 

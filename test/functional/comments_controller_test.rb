@@ -53,10 +53,10 @@ class CommentsControllerTest < ActionController::TestCase
   def test_update_status_in_comment
     ticket = Factory(:ticket)
     comment = Factory.build(:comment, :ticket=>ticket, :ticket_status => "Resolved")
-    assert comment.valid?
+    assert comment.valid?, "Should be a valid comment"
     comment = comment.attributes.symbolize_keys
     post :create, :comment=>comment
-    assert_redirected_to ticket_url(comment[:ticket_id])
+    assert_redirected_to ticket_url(comment[:ticket_id]), "should go to the ticket url"
   end
 
   def test_update_valid

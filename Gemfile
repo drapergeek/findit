@@ -39,11 +39,11 @@ end
 gem "mail"
 gem 'thor'
 gem 'comma'
-gem 'factory_girl_rails'
 gem 'formtastic'
 
 gem "rspec-rails", :group => [:test, :development]
 group :development, :test do
+  gem 'factory_girl_rails'
   gem "guard-test"
   gem "guard-livereload"
   gem "growl"

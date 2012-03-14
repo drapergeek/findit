@@ -96,7 +96,7 @@ class TicketTest < ActiveSupport::TestCase
     reset_email
     ticket.status = "Resolved"
     ticket.save
-    assert !last_email.nil?
+    assert_not_nil last_email.subject
     assert last_email.subject.include?(APP_CONFIG['resolved_notify_subject'])
   end
   
@@ -105,7 +105,7 @@ class TicketTest < ActiveSupport::TestCase
      comment = Factory.build(:comment, :ticket_status => "Resolved")
      reset_email
      comment.save
-     assert !last_email.nil?
+     assert_not_nil last_email.subject
      assert last_email.subject.include?(APP_CONFIG['resolved_notify_subject'])
   end
   
@@ -116,9 +116,10 @@ class TicketTest < ActiveSupport::TestCase
     reset_email
     ticket.worker = user2
     ticket.save
-    assert !last_email.nil?
+    assert_not_nil last_email.to, "The to field should not be nil"
     assert last_email.to.include?(user2.email)
     assert !last_email.to.include?(user1.email)
+    assert_not_nil last_email.subject, "The subject field should not be nil"
     assert last_email.subject.include?(APP_CONFIG['worker_notify_subject'])
   end
 
