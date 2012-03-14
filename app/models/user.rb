@@ -8,12 +8,19 @@ class User < ActiveRecord::Base
   scope :workers, where(:can_login => true)
 
   validates_uniqueness_of :login, :if=>lambda{!self.login.nil?}
+
   def full_name
     [first_name, last_name].join(" ")
   end
 
   def name
-   full_name 
+    if full_name
+      full_name
+    elsif email
+      email
+    else
+      "No Info"
+    end
   end
   
   def reverse_name
@@ -21,8 +28,9 @@ class User < ActiveRecord::Base
   end
 
   def to_s
-    full_name
+    name
   end
+
   def full_info
     [first_name, last_name, login].join(" ")  
   end
