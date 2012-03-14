@@ -5,8 +5,8 @@ class IncomingEmailController < ApplicationController
   def index
     if params[:mail]
       mail = Mail.read_from_string(params[:mail])
-      Ticket.create_from_email(mail.from.address, mail.subject, mail.body.decoded)
-      logger.info "Incoming mail from #{mail.from.address} subject: #{mail.subject}"
+      Ticket.create_from_email(mail.from, mail.subject, mail.body.decoded)
+      logger.info "Incoming mail from #{mail.from} subject: #{mail.subject}"
 
       #mail = IncomingEmail.new(params[:mail]) 
       #Ticket.create_from_email(mail.from, mail.subject, mail.body)
