@@ -95,7 +95,11 @@ class Ticket < ActiveRecord::Base
         end 
       end
     end
-    Ticket.create!(:submitter=>from, :title=>subject, :description=>body, :status=>"New", :area=>area, :project=>project)
+    begin
+      Ticket.create!(:submitter=>from, :title=>subject, :description=>body, :status=>"New", :area=>area, :project=>project)
+    rescue Exception => exc
+      logger.info "There was an error in creating the ticket #{exc.message} !"
+    end
   end
   
   private
