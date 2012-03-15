@@ -52,6 +52,8 @@ group :development, :test do
   gem "guard-rspec"
   gem "launchy"
   gem "cucumber-rails"
+  gem "database_cleaner"
+  gem "capybara-webkit"
 end
 gem "nifty-generators", :group => :development
 gem "mocha", :group => :test
