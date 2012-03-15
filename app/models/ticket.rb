@@ -53,9 +53,6 @@ class Ticket < ActiveRecord::Base
   def self.create_from_email(from, subject, body)
     #first we need to see its a reply email and if so
     #pass it off to the comments
-    #
-    #Strip the html tags from the 
-    body = ActionController::Base.helpers.strip_tags(body)
 
     if subject.scan(/Ticket-ID#\d+/).length >= 1 
       #this is a reply 
