@@ -1,5 +1,5 @@
 Given /I am logged in/ do
-
+  #this right now doesn't matter b/c all users are logged in
 end
 
 Given /I do not have any items/ do
@@ -16,4 +16,19 @@ end
 
 Then /I should see a new items link/ do
   page.should have_link("New",:href=>new_item_path)
+end
+
+Given /I have items in the database/ do
+  @item_names = ["item1", "item2", "item3", "item4"]
+  @item_names.each do |name|
+    Factory.create(:item, :name=>name)
+  end
+end
+
+Then /I should see the items/ do
+  save_and_open_page
+  @item_names.each do |name|
+    page.should have_content(name)
+  end
+
 end
