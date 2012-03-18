@@ -26,9 +26,27 @@ Given /I have items in the database/ do
 end
 
 Then /I should see the items/ do
-  save_and_open_page
   @item_names.each do |name|
     page.should have_content(name)
   end
+end
+
+When "I click the new item link" do
+  click_link("New")
+end
+
+When "I fill in the fields to create a new item" do
+  fill_in "item_name", :with=>"My New Item"
+  check "item_in_use"
+  fill_in "item_type_of_item", :with=>"Desktop"
+end
+
+When "I submit the form" do
+  click_button "item_save_button"
+end
+
+Then "I should be on the page for the new item" do
+  page.should have_css("h1.title:contains('My New Item')")
 
 end
+

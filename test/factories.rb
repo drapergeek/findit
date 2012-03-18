@@ -39,6 +39,7 @@ FactoryGirl.define do
    factory :item do
     sequence(:name) {|n| "computer#{n}"}
     type_of_item "Desktop"
+    in_use true
    end
 
 

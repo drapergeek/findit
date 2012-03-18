@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
-  
+
   def index
     logger.info Rails.env
     if params[:in_use]=="false"

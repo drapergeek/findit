@@ -29,7 +29,7 @@ gem 'mail'
 # group :development, :test do
 #   gem 'webrat'
 # end
-gem 'omniauth', '0.2.6'
+gem 'omniauth', '0.3.2'
 gem "simple_form"
 gem 'jquery-rails'
 gem "will_paginate"
@@ -50,7 +50,7 @@ group :development, :test do
   gem 'web-app-theme', '>= 0.6.2'
   gem "capybara"
   gem "guard-rspec"
-  gem "launchy"
+  gem "launchy", "~> 2.0.5"
   gem "cucumber-rails"
   gem "database_cleaner"
   gem "capybara-webkit"

@@ -15,3 +15,11 @@ Feature: Manage Items
     And I have items in the database
     When I visit the items page
     Then I should see the items
+
+ Scenario: A user can create an item
+    Given I am logged in
+    When I visit the items page
+    And I click the new item link
+    And I fill in the fields to create a new item
+    When I submit the form
+    Then I should be on the page for the new item
