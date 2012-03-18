@@ -47,6 +47,22 @@ end
 
 Then "I should be on the page for the new item" do
   page.should have_css("h1.title:contains('My New Item')")
-
 end
+
+When "I click on an item" do
+  click_link "item1"
+end
+
+When "I click edit" do
+  click_link "item_edit_button"
+end
+
+When "I change the name" do
+  fill_in "item_name", :with=>"My New Name"
+end
+
+Then "the name of the item should have changed" do
+  page.should have_css("h1.title:contains('My New Name')")
+end
+
 

@@ -5,23 +5,23 @@
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_item_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", item_path %></li>
     </ul>
-  </div>          
+  </div>
   <div class="content">
     <div class="inner">
-	<h1 class="title"><%= @item.name %></h1>
+      <h1 class="title"><%= @item.name %></h1>
       <% unless @item.in_use? %>
-		<div><strong>This item is not currently being used for any purpose.</strong></div>
-		<% end %>
-		<% if @item.critical %>
-		<div>
-			<h3>This is a critical item!</h3>
-		</div>
-		<% title @item.name %>
-		<% end %>
-		
-		
-		<h3>Departmental Information</h3>
-		<div class="sortingblock">
+        <div><strong>This item is not currently being used for any purpose.</strong></div>
+      <% end %>
+      <% if @item.critical %>
+        <div>
+          <h3>This is a critical item!</h3>
+        </div>
+        <% title @item.name %>
+      <% end %>
+
+
+      <h3>Departmental Information</h3>
+      <div class="sortingblock">
         <p>
           <b><%= t("activerecord.attributes.item.priority", :default => t("activerecord.labels.priority", :default => "Priority")) %>:</b>
           <%= @item.priority %>
@@ -30,12 +30,12 @@
           <b><%= t("activerecord.attributes.item.inventoried_at", :default => t("activerecord.labels.inventoried_at", :default => "Last Inventory")) %>:</b>
           <%= @item.inventoried_at %>
         </p>
-		<p>
+        <p>
           <b><%= t("activerecord.attributes.item.location_id", :default => t("activerecord.labels.location_id", :default => "Location")) %>:</b>
           <%= @item.location.full_name unless @item.location.blank? %>
         </p>
-		<p>
-		 <b><%= t("activerecord.attributes.item.user_id", :default => t("activerecord.labels.user_id", :default => "User/Responsible Person")) %>:</b>
+        <p>
+          <b><%= t("activerecord.attributes.item.user_id", :default => t("activerecord.labels.user_id", :default => "User/Responsible Person")) %>:</b>
           <%= @item.user.full_name unless @item.user.blank? %>
         </p>
 
@@ -43,11 +43,11 @@
           <b><%= t("activerecord.attributes.item.type_of_item", :default => t("activerecord.labels.type_of_item", :default => "Type")) %>:</b>
           <%= @item.type_of_item %>
         </p>
-		</div>
+      </div>
 
 
-		<h3>Hardware Information</h3>
-		<div class="sortingblock">
+      <h3>Hardware Information</h3>
+      <div class="sortingblock">
         <p>
           <b><%= t("activerecord.attributes.item.make", :default => t("activerecord.labels.make", :default => "Make")) %>:</b>
           <%= @item.make %>
@@ -77,10 +77,10 @@
           <b><%= t("activerecord.attributes.item.hard_drive", :default => t("activerecord.labels.hard_drive", :default => "Hard drive")) %>:</b>
           <%= number_to_human_size(@item.hard_drive) %>
         </p>
-		</div>
-		
-		<h3>Identifying Information</h3>
-		<div class="sortingblock">
+      </div>
+
+      <h3>Identifying Information</h3>
+      <div class="sortingblock">
         <p>
           <b><%= t("activerecord.attributes.item.serial", :default => t("activerecord.labels.serial", :default => "Serial")) %>:</b>
           <%= @item.serial %>
@@ -90,10 +90,10 @@
           <b><%= t("activerecord.attributes.item.vt_tag", :default => t("activerecord.labels.vt_tag", :default => "Vt tag")) %>:</b>
           <%= @item.vt_tag %>
         </p>
-		</div>
-		
-		<h3>Purchase Information</h3>
-		<div class="sortingblock">
+      </div>
+
+      <h3>Purchase Information</h3>
+      <div class="sortingblock">
         <p>
           <b><%= t("activerecord.attributes.item.purchased_at", :default => t("activerecord.labels.purchased_at", :default => "Purchased at")) %>:</b>
           <%= @item.purchased_at %>
@@ -113,155 +113,152 @@
           <b><%= t("activerecord.attributes.item.recieved_at", :default => t("activerecord.labels.recieved_at", :default => "Recieved at")) %>:</b>
           <%= @item.recieved_at %>
         </p>
-		</div>
-		
-		
-		<h3>Software Information</h3>
-		<div class="sortingblock">			
-		 <p>
-	          <b><%= t("activerecord.attributes.item.operating_system_id", :default => t("activerecord.labels.operating_system_id", :default => "Os")) %>:</b>
-	          <%= @item.operating_system.name unless @item.operating_system.blank? %> 
-	     </p>
-	    <p>
-			<strong>Software</strong>
-			<% if @item.softwares.count > 0 %>
-				<ul>
-					<% @item.softwares.each do |software| %>
-						<li><%= software.name %> <%= link_to "(x)",:controller=>"installations", 
-									:action=>"uninstall_software",
-									:software=>software.id,
-									:item=>@item.id %></li>
-					<% end %>
-				</ul>
-			<% end %>
-			<div class="noprint">
-			<%= form_tag :controller=>'installations',:action=>'install_software' , :item=>@item do  %>
-				<select id="software_selection" name="software_selection">
-					<% Software.all.each do |software| %>
-						<option value='<%= software.id %>'><%= software.name %></option>
-					<% end %>
-				</select>
-				<%= submit_tag 'Install Software' %>
-			<% end %>
-			</div>
-
-		</p>	
-			
-		</div>
-		
-		<strong>Network Information</strong>
-		<div class="sortingblock">
-		<p>
-			<strong>IPs</strong>
-			<% if @item.ips.count > 0 %>
-				<ul>
-					<% @item.ips.each do |ip| %>
-						<li><%= ip.number %> <%= link_to "(x)", :action=>"remove_ip", :ip=>ip %></li>
-					<% end %>
-				</ul>
-			<% end %>
-			<div class="noprint">
-			<%= form_tag :action=>'add_ip' , :item=>@item do  %>
-				<select id="ip_selection" name="ip_selection">
-					<% Ip.unassigned.each do |ip| %>
-						<option value='<%= ip.id %>'><%= ip.number %></option>
-					<% end %>
-				</select>
-				<%= submit_tag 'Add IP' %>
-			<% end %>
-			</div>
-
-
-		</p>	
-		
-		<% if @item.dns_names.count > 0 %>
-		<p>
-			<strong>DNS Names</strong>
-		
-				<ul>
-					<% @item.dns_names.each do |name| %>
-						<li><%= name.name %> <%= link_to "(x)", 
-									:action=>"remove_dns_name",
-									:name=>name.id,
-									:item=>@item.id %></li>
-					<% end %>
-				</ul>
-
-			
-	
-			
-		</p>	
-		<% end %>			
-		</div>
-       
-		<h3>Labels</h3>
-		<div class="sortingblock">
-		<p class="noprint">
-			<strong>Primary Label Information</strong>
-			<div class="noprint">
-				<%= @item.processor %><br>
-			  	<%= number_to_human_size(@item.ram) %> Ram<br>
-			</div>
-			
-		</p>
-		
-		<p class="noprint">
-			<strong>Secondary Label Information</strong>
-			<div class="noprint">
-				<%= @item.name %><br>
-				<% if @item.ips && @item.ips.count == 1 %>
-				<%= @item.ips.first.number %>
-				<% elsif @item.ips.count > 1 %>
-				Multiple IPs
-				<% else %>
-				Wifi Only
-				<% end %>
-				<br>
-				<% if @item.user %>
-				User: <%= @item.user.full_name %>
-				<% end %>
-			</div>
-		</p>
-
-    <p>
-      <div class="noprint">
-        <%= image_tag @item.qr_url %>
       </div>
-    </p>
-		<% if @item.make == "Dell" %>
-		<p class="noprint">
-			<% driver_link = "http://support.dell.com/support/downloads/driverslist.aspx?c=us&cs=RC956904&l=en&s=hied&os=WLH&osl=en&ServiceTag=#{@item.serial.upcase}&catid=-1&impid=-1" %>
-			<% warranty_link ="http://support.dell.com/support/topics/global.aspx/support/my_systems_info/details?c=us&cs=19&l=en&s=hied&servicetag=#{@item.serial}" %>
-			<strong>Drivers:</strong> <%= link_to "Click Here", driver_link %><br>
-			<strong>Warranty Information:</strong> <%= link_to "Click Here", warranty_link %><br>
-			
-		</p>
-		<% end %>
-		
-		
-		</div>
-		
+
+
+      <h3>Software Information</h3>
+      <div class="sortingblock">			
+        <p>
+          <b><%= t("activerecord.attributes.item.operating_system_id", :default => t("activerecord.labels.operating_system_id", :default => "Os")) %>:</b>
+          <%= @item.operating_system.name unless @item.operating_system.blank? %> 
+        </p>
+        <p>
+          <strong>Software</strong>
+          <% if @item.softwares.count > 0 %>
+            <ul>
+              <% @item.softwares.each do |software| %>
+                <li><%= software.name %> <%= link_to "(x)",:controller=>"installations", 
+                  :action=>"uninstall_software",
+                  :software=>software.id,
+                  :item=>@item.id %></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <div class="noprint">
+            <%= form_tag :controller=>'installations',:action=>'install_software' , :item=>@item do  %>
+              <select id="software_selection" name="software_selection">
+                <% Software.all.each do |software| %>
+                  <option value='<%= software.id %>'><%= software.name %></option>
+                <% end %>
+              </select>
+              <%= submit_tag 'Install Software' %>
+            <% end %>
+          </div>
+
+        </p>	
+
+      </div>
+
+      <strong>Network Information</strong>
+      <div class="sortingblock">
+        <p>
+          <strong>IPs</strong>
+          <% if @item.ips.count > 0 %>
+            <ul>
+              <% @item.ips.each do |ip| %>
+                <li><%= ip.number %> <%= link_to "(x)", :action=>"remove_ip", :ip=>ip %></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <div class="noprint">
+            <%= form_tag :action=>'add_ip' , :item=>@item do  %>
+              <select id="ip_selection" name="ip_selection">
+                <% Ip.unassigned.each do |ip| %>
+                  <option value='<%= ip.id %>'><%= ip.number %></option>
+                <% end %>
+              </select>
+              <%= submit_tag 'Add IP' %>
+            <% end %>
+          </div>
+
+
+        </p>	
+
+        <% if @item.dns_names.count > 0 %>
+          <p>
+            <strong>DNS Names</strong>
+
+            <ul>
+              <% @item.dns_names.each do |name| %>
+                <li><%= name.name %> <%= link_to "(x)", 
+                  :action=>"remove_dns_name",
+                  :name=>name.id,
+                  :item=>@item.id %></li>
+              <% end %>
+            </ul>
 
 
 
-		
+
+          </p>	
+        <% end %>			
+      </div>
+
+      <h3>Labels</h3>
+      <div class="sortingblock">
+        <p class="noprint">
+          <strong>Primary Label Information</strong>
+          <div class="noprint">
+            <%= @item.processor %><br>
+            <%= number_to_human_size(@item.ram) %> Ram<br>
+          </div>
+
+        </p>
+
+        <p class="noprint">
+          <strong>Secondary Label Information</strong>
+          <div class="noprint">
+            <%= @item.name %><br>
+            <% if @item.ips && @item.ips.count == 1 %>
+              <%= @item.ips.first.number %>
+            <% elsif @item.ips.count > 1 %>
+              Multiple IPs
+            <% else %>
+              Wifi Only
+            <% end %>
+            <br>
+            <% if @item.user %>
+              User: <%= @item.user.full_name %>
+            <% end %>
+          </div>
+        </p>
+
+        <p>
+          <div class="noprint">
+            <%= image_tag @item.qr_url %>
+          </div>
+        </p>
+        <% if @item.make == "Dell" %>
+          <p class="noprint">
+            <% driver_link = "http://support.dell.com/support/downloads/driverslist.aspx?c=us&cs=RC956904&l=en&s=hied&os=WLH&osl=en&ServiceTag=#{@item.serial.upcase}&catid=-1&impid=-1" %>
+            <% warranty_link ="http://support.dell.com/support/topics/global.aspx/support/my_systems_info/details?c=us&cs=19&l=en&s=hied&servicetag=#{@item.serial}" %>
+            <strong>Drivers:</strong> <%= link_to "Click Here", driver_link %><br>
+            <strong>Warranty Information:</strong> <%= link_to "Click Here", warranty_link %><br>
+
+          </p>
+        <% end %>
 
 
-		<% unless @item.info.blank? %>
-			<h3>Other Information</h3>
-			<div class="sortingblock">
-							<p><%= @item.info %></p>
-			</div>
+      </div>
 
-		<% end %>
+
+
+
+
+
+
+      <% unless @item.info.blank? %>
+        <h3>Other Information</h3>
+        <div class="sortingblock">
+          <p><%= @item.info %></p>
+        </div>
+
+      <% end %>
       <div class="wat-cf noprint">
-	<%= link_to "Mark As Inventoried", {:controller=>"items", :action=>"mark_as_inventoried", :id=>@item},:class => "button" %> 
-	<%= link_to "Surplus Item", {:controller=>"items", :action=>"surplus", :id=>@item},:class => "button" %> 
-	<%= link_to "Edit", edit_item_path(@item),:class => "button" %> 
-	<%= link_to "Destroy", @item, :confirm => 'Are you sure?', :method => :delete, :class=>"button" %>
-
-		 
-
+        <%= link_to "Mark As Inventoried", {:controller=>"items", :action=>"mark_as_inventoried", :id=>@item},:class => "button" %> 
+        <%= link_to "Surplus Item", {:controller=>"items", :action=>"surplus", :id=>@item},:class => "button" %> 
+        <%= link_to "Edit", edit_item_path(@item),:class => "button", :id=>"item_edit_button" %> 
+        <%= link_to "Destroy", @item, :confirm => 'Are you sure?', :method => :delete, :class=>"button" %>
       </div>      
     </div>
   </div>
