@@ -43,17 +43,20 @@ gem 'formtastic'
 
 gem "rspec-rails", :group => [:test, :development]
 group :development, :test do
-  gem 'factory_girl_rails'
+  gem 'factory_girl', '2.6.4'
   gem "guard-test"
   gem "guard-livereload"
   gem "growl"
   gem 'web-app-theme', '>= 0.6.2'
   gem "capybara"
   gem "guard-rspec"
-  gem "launchy", "~> 2.0.5"
+  gem "launchy"
+  gem "capybara-webkit"
+end
+
+group :test do 
   gem "cucumber-rails"
   gem "database_cleaner"
-  gem "capybara-webkit"
 end
 gem "nifty-generators", :group => :development
 gem "mocha", :group => :test
