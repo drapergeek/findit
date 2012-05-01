@@ -31,9 +31,11 @@
           <a class="brand" href="#">Findit</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <%= render "layouts/primary_links" %>
+            </ul>
+            <ul class="nav pull-right">
+              <li class='divider-vertical'></li>
+              <%= render "layouts/user_links" %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
