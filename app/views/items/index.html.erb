@@ -1,45 +1,37 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", items_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_item_path %></li>
-    </ul>
-  </div>          
-  <div class="content">          
-    <h2 class="title"><%= h @title %></h2>
+<%- model_class = Item.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Make/Model</th>
+      <th>Type</th>
+      <th>Location</th>
+      <th>IP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= link_to item.name, item_path(item) %></td>
+        <td><%= item.make_and_model %></td>
+        <td><%= item.short_type %></td>
+        <td><%= item.short_location %></td>
+        <td><%= item.first_ip %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_item_path(item), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      item_path(item),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-    <div class="inner">
-		<div class="noprint">
-		<%= form_tag items_path, :method => 'get' do %>
-		<%= hidden_field_tag :direction, params[:direction] %>
-		<%= hidden_field_tag :sort, params[:sort] %>
-		<%= hidden_field_tag :in_use, "false" %>
-		  <p>
-		    <%= text_field_tag :search, params[:search] %>
-
-		    <%= submit_tag "Search", :name => nil %>
-		  </p>
-		<% end %>  
-		<div id="csv_export" style="display:block float:right">
-			CSV Exports: 
-
-			<%= link_to "Full", params.merge(:format=>:csv, :in_use=>"false") %> |
-			<%= link_to "Current",  params.merge(:format=>:csv) %> |
-			<%= link_to "Security Review",  params.merge(:format=>:csv, :csv_type=>"sec_review") %>
-		</div>		
-	</div>
-	
-	<div id="items">
-      <%= render  'items' %>
-	</div>
-
-      <div class="actions-bar wat-cf">
-        <div class="actions">
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_item_path,
+            :class => 'btn btn-primary' %>

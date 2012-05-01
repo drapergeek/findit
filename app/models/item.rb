@@ -16,6 +16,8 @@ class Item < ActiveRecord::Base
   scope :warranty_ending_in_year, lambda{|year| where("warranty_expires_at like ?", "%#{year}%")}
   scope :computers_purchased_in, lambda{|year| where("purchased_at like ?", "%#{year}%")}
 
+  delegate :short_location, :to => :location, :allow_nil => true
+
   attr_accessor :new_dns_names
   before_save :create_dns_from_names
   before_save :convert_size_to_bytes
@@ -106,13 +108,7 @@ class Item < ActiveRecord::Base
   end
 
   def inventoried_recently?
-    if inventoried_at.blank? 
-      return false
-    elsif inventoried_at > 1.years.ago.to_datetime  
-      return true
-    else
-      return false
-    end       
+    inventoried_at > 1.years.ago.to_datetime
   end
 
   def short_type
@@ -214,13 +210,14 @@ class Item < ActiveRecord::Base
     end
   end
 
-  def print_ip
+  def first_ip
     if ips.empty?
       nil
     else
       ips.first.number
     end
   end
+  alias_method :print_ip, :first_ip
 
   protected
   def clear_empty_attrs

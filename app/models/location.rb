@@ -11,7 +11,7 @@ class Location < ActiveRecord::Base
       name
     end
   end
-  
+
   def short_location
     building.name[0,1].upcase + " - " + name
   end
