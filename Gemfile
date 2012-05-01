@@ -19,23 +19,24 @@ group :development, :test do
   gem "guard-test"
   gem "guard-livereload"
   gem "growl"
-  gem 'web-app-theme', '>= 0.6.2'
   gem "capybara"
   gem "guard-rspec"
   gem "launchy"
   gem "capybara-webkit"
   gem 'rspec-rails'
+  gem "mocha"
 end
 
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
+  gem "twitter-bootstrap-rails"
+  gem 'therubyracer', :platform => :ruby
 end
 
 group :test do 
   gem "cucumber-rails"
   gem "database_cleaner"
 end
-gem "nifty-generators", :group => :development
-gem "mocha", :group => :test
+
