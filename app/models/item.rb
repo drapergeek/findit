@@ -19,6 +19,8 @@ class Item < ActiveRecord::Base
   scope :computers_purchased_in, lambda{|year| where("purchased_at like ?", "%#{year}%")}
 
   delegate :short_location, :to => :location, :allow_nil => true
+  delegate :full_name, :to => :location, :prefix => true, :allow_nil => true
+  delegate :name, :to => :user, :prefix => true, :allow_nil => true
 
   attr_accessor :new_dns_names
   before_save :create_dns_from_names
