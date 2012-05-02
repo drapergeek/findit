@@ -1,11 +1,12 @@
 FactoryGirl.define do
+
    factory :user do
-     first_name 'Peter'
-     last_name  'Parker'
+     first_name { Forgery(:name).first_name }
+     last_name  { Forgery(:name).last_name }
      sequence(:login){|n| "login#{n}" }
      sequence(:email){|n| "login#{n}@vt.edu"}
    end
-   
+
    factory :area do
      name 'Marketing'
      keywords 'marketing,Marketing,mktg'
@@ -42,6 +43,21 @@ FactoryGirl.define do
     in_use true
    end
 
+   factory :complete_item, :parent => :item do
+     priority 4
+     location
+     user
+     make "Apple"
+     model "Macbook Pro 13''"
+     ram "4096"
+     hard_drive "150"
+     sequence(:vt_tag) { |n| "VT000#{n}" }
+     sequence(:serial) { |n| "TBS#{n}" }
+     purchased_at 2.years.ago
+     warranty_expires_at 2.months.from_now
+     os "Mac OS X Lion"
+   end
+
 
    factory :software do
     sequence(:name) {|n| "software package #{n}"}
@@ -52,7 +68,7 @@ FactoryGirl.define do
    end
 
    factory :location do
-     sequence(:name) {|n| "building #{n}"}
+     sequence(:name) {|n| "room #{n}"}
      association :building
    end
 
@@ -60,10 +76,10 @@ FactoryGirl.define do
     sequence(:number) {|n| "128.173.129.#{n}"}
     association :building
    end
-   
+
    factory :operating_system do
      sequence(:name) {|n| "operating syste #{n}"}
    end
-   
+
 end
 

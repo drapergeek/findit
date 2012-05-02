@@ -15,7 +15,7 @@ gem 'comma'
 gem 'formtastic'
 
 group :development, :test do
-  gem 'factory_girl', '2.6.4'
+  gem 'factory_girl_rails'
   gem "guard-test"
   gem "guard-livereload"
   gem "growl"
@@ -25,6 +25,7 @@ group :development, :test do
   gem "capybara-webkit"
   gem 'rspec-rails'
   gem "mocha"
+  gem 'forgery', '0.5.0'
 end
 
 group :assets do
