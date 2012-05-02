@@ -33,6 +33,7 @@ group :assets do
   gem 'uglifier'
   gem "twitter-bootstrap-rails"
   gem 'therubyracer', :platform => :ruby
+  gem 'jquery-ui-rails'
 end
 
 group :test do 

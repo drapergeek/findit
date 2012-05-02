@@ -1,140 +1,27 @@
-<%= render "shared/error_messages", :target=>@item %>
-  <div class="group">
-    <%= f.label :name, t("activerecord.attributes.item.name", :default => "Name"), :class => :label %>
-    <%= f.text_field :name, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+<%= simple_form_for @item, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :make %>
+  <%= f.input :model %>
+  <%= f.input :processor %>
+  <%= f.input :processor_rating %>
+  <%= f.input :ram %>
+  <%= f.input :hard_drive %>
+  <%= f.input :serial %>
+  <%= f.input :vt_tag %>
+  <%= f.input :os, :collection=>OperatingSystem.all, :label => "OS" %>
+
+  <%= f.input :type_of_item, :collection => Item::ITEM_TYPES %>
+  <%= f.association :location %>
+  <%= f.association :user %>
+  <%= f.input :info %>
+  <%= f.input :in_use %>
+  <%= f.input :critical %>
+  <%= f.input :purchased_at, :as => :string, :input_html => { :class => 'datepicker' } %>
+  <%= f.input :warranty_expires_at, :as => :string , :input_html => { :class => 'datepicker' } %>
+  <%= f.input :recieved_at, :as => :string, :input_html => { :class => 'datepicker' } %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                items_path, :class => 'btn' %>
   </div>
-  <div class="group">
-    <%= f.label :in_use, t("activerecord.attributes.item.in_use", :default => "In Use:"), :class => :label %>
-    <%= f.check_box :in_use, :class => 'check_box' %>
-    <span class="description">Is this item currently being used?</span>
-  </div>
-  <div class="group">
-    <%= f.label :critical, t("activerecord.attributes.item.critical", :default => "Critical:"), :class => :label %>
-    <%= f.check_box :critical, :class => 'check_box' %>
-    <span class="description">Is this is a critical machine?(Server)</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :priority, t("activerecord.attributes.item.priority", :default => "Priority:"), :class => :label %>
-    <%= f.select :priority, 1...5, :prompt=>true %>
-    <span class="description">Is this is a critical machine?(Server)</span>
-  </div>
-
-
-	<div class="group">
-    <%= f.label :location_id,  t("activerecord.attributes.item.location_id", :default => "Location"), :class => :label %>
-	<%= f.collection_select(:location_id, Location.all, :id, :full_name, {:prompt => true}) %>
-
-  </div>
-	<div class="group">
-    <%= f.label :user_id,  t("activerecord.attributes.item.user_id", :default => "Primary User/Responsible Party"), :class => :label %>
-	<%= f.collection_select(:user_id, User.order("first_name"), :id, :full_name, {:prompt => true}) %>
-  </div>
-
-  <div class="group">
-    <%= f.label :make, t("activerecord.attributes.item.make", :default => "Make"), :class => :label %>
-    <%= f.text_field :make, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :model, t("activerecord.attributes.item.model", :default => "Model"), :class => :label %>
-    <%= f.text_field :model, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-
-  <div class="group">
-    <%= f.label :processor, t("activerecord.attributes.item.processor", :default => "Processor"), :class => :label %>
-    <%= f.text_field :processor, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :processor_rating, t("activerecord.attributes.item.processor_rating", :default => "Processor rating"), :class => :label %>
-    <%= f.text_field :processor_rating, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :ram, t("activerecord.attributes.item.ram", :default => "Ram"), :class => :label %>
-    <%= f.text_field :ram, :class => 'text_field' %>
-    <span class="description">Please enter in megabytes</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :hard_drive, t("activerecord.attributes.item.hard_drive", :default => "Hard drive"), :class => :label %>
-    <%= f.text_field :hard_drive, :class => 'text_field' %>
-    <span class="description">Please enter in gigabytes</span>
-  </div>
-
-  <div class="group">	
-    <%= f.label :serial, t("activerecord.attributes.item.serial", :default => "Serial"), :class => :label %>
-    <%= f.text_field :serial, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :vt_tag, t("activerecord.attributes.item.vt_tag", :default => "Vt tag"), :class => :label %>
-    <%= f.text_field :vt_tag, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :purchased_at, t("activerecord.attributes.item.purchased_at", :default => "Purchased at"), :class => :label %>
-    <%= f.datetime_select :purchased_at, :class => 'datetime_select' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :warranty_expires_at, t("activerecord.attributes.item.warranty_expires_at", :default => "Warranty expires at"), :class => :label %>
-    <%= f.datetime_select :warranty_expires_at, :class => 'datetime_select' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :surplused_at, t("activerecord.attributes.item.surplused_at", :default => "Surplused At:"), :class => :label %>
-    <%= f.datetime_select :surplused_at, :prompt=>true, :class => 'datetime_select' %>
-  </div>
-
-  <div class="group">
-    <%= f.label :recieved_at, t("activerecord.attributes.item.recieved_at", :default => "Recieved at"), :class => :label %>
-    <%= f.datetime_select :recieved_at, :class => 'datetime_select' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-
-
-	<div class="group">
-    <%= f.label :operating_system_id,  t("activerecord.attributes.item.operating_system_id", :default => "Operating System"), :class => :label %>
-	<%= f.collection_select(:operating_system_id, OperatingSystem.all, :id, :name, {:prompt => true}) %>
-
-  </div>
-  <div class="group">
-    <%= f.label :type, t("activerecord.attributes.item.type_of_item", :default => "Type"), :class => :label %>
-    <%= f.text_field :type_of_item, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-	<label class="label">Add New Dns Names</label>
-    <%= f.text_field :new_dns_names, :class => 'text_field' %>
-    <span class="description">Ex: new.recsports.vt.edu, another.recsports.vt.edu</span>
-  </div>
-
-
-  <div class="group">
-    <%= f.label :info, t("activerecord.attributes.item.info", :default => "Other Information"), :class => :label %>
-    <%= f.text_area :info, :class => 'text_area' %>
-
-  </div>
-
-        
-<div class="group navform wat-cf">
-  <button class="button" type="submit" id="item_save_button">
-    <%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
-  </button>
-	<%= link_to "Cancel", items_path,:class => "button" %> 
-
-</div>
+<% end %>

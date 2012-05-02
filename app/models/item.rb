@@ -1,4 +1,6 @@
 class Item < ActiveRecord::Base
+  attr_protected :inventoried_at, :surplused_at
+
   has_many :ips, :dependent=>:nullify
   has_many :installations, :dependent=>:destroy
   has_many :softwares, :through=>:installations
@@ -25,13 +27,14 @@ class Item < ActiveRecord::Base
   belongs_to :location
   belongs_to :user
 
+  ITEM_TYPES = ["Desktop","Mobile", "Laptop", "Printer", "Virtual Machine", "Other", "Server"]
 
-  #default_scope :order=>"name"
-  validates_uniqueness_of :name
-  validates_uniqueness_of :serial, :allow_nil=>true
-  validates_uniqueness_of :vt_tag, :allow_nil=>true
-  validates_presence_of :type_of_item
-  validates_inclusion_of :type_of_item, :in =>["Desktop","Mobile", "Laptop", "Printer", "Virtual Machine", "Other", "Server"], :message => "Type of item can only be Desktop Laptop Printer Virtual Machine, Server or Other"
+  validates :name, :presence => true, :uniqueness =>true
+  validates :serial, :uniqueness => true, :allow_nil => true
+  validates :vt_tag, :uniqueness => true, :allow_nil => true
+  validates :type_of_item, :presence => true
+  validates_inclusion_of :type_of_item, :in =>ITEM_TYPES
+
   before_validation :clear_empty_attrs
 
   ###CSV DEFINITIONS
