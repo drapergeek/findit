@@ -32,16 +32,16 @@ namespace :app do
         building = FactoryGirl.create(:building)
         20.times do
           FactoryGirl.create(:ip, :building => building)
+          FactoryGirl.create(:location, :building => building)
         end
       end
 
 
-      ["Windows 7", "Mac OSX Lion", "Ubuntu Server"].each do |os|
-        FactoryGirl.create(:operating_system)
-      end
-
-      20.times do
-        FactoryGirl.create(:location)
+      ["Windows 7", "Mac OSX Lion", "Ubuntu Server"].each do |name|
+        os = FactoryGirl.create(:operating_system, :name => name)
+        5.times do
+          FactoryGirl.create(:software, :operating_system => os)
+        end
       end
 
       for number in 1...7
@@ -64,7 +64,7 @@ namespace :app do
 
       names = %w(gambit magneto riddler storm batman robin nightwing)
       names.each do |name|
-        FactoryGirl.create(:complete_item, :name => name)
+        FactoryGirl.create(:complete_item, :name => name, :location => Location.first)
       end
 
 

@@ -64,7 +64,7 @@ FactoryGirl.define do
    factory :software do
     sequence(:name) {|n| "software package #{n}"}
    end
-   
+
    factory :building do
      sequence(:name) {|n| "building #{n}"}
    end

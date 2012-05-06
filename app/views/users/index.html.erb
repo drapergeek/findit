@@ -3,7 +3,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Login</th>
       <th>E-mail</th>
     </tr>
   </thead>
@@ -11,7 +10,6 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.name, user %></td>
-        <td><%= user.login %></td>
         <td><%= user.email %></td>
         <td>
           <%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %>
