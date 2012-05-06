@@ -30,6 +30,7 @@
           </a>
           <a class="brand" href="#">Findit</a>
           <div class="container nav-collapse">
+            <% if user_signed_in? %>
             <ul class="nav">
               <%= render "layouts/primary_links" %>
             </ul>
@@ -37,6 +38,7 @@
               <li class='divider-vertical'></li>
               <%= render "layouts/user_links" %>
             </ul>
+          <% end %>
           </div><!--/.nav-collapse -->
         </div>
       </div>

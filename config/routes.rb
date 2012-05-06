@@ -1,6 +1,13 @@
 Findit::Application.routes.draw do
+  devise_for :users do
+    get 'sign_in' => 'devise/sessions#new', :as => :sign_in
+    post 'sign_in' => 'devise/sessions#create', :as => :sign_in
+    delete 'sign_out' => 'devise/sessions#destroy', :as => :sign_out
+    get 'register' => 'devise/registrations#new'
+    post 'register' => 'devise/registrations#create'
+  end
+  resources :users, :except => [:show]
   resources :comments
-
   resources :areas, :except =>[:show]
   resources :projects, :except => [:show]
   resources :tickets do
@@ -34,24 +41,13 @@ Findit::Application.routes.draw do
   end
   resources :ips, :except => [:show]
   resources :pages
-  resources :users do
-    collection do
-      get 'logout'
-    end
-  end
-  resources :sessions, :only=>[:index, :create, :destroy]
   resources :installations do
     collection do
       post 'install_software'
       get 'uninstall_software'
     end
   end
-  resources :announcements
   resources :incoming_email, :only=>[:index]
   match "mail", :to=>"incoming_email#index", :as=>"mail"
   root :to=>"items#index", :type=>"Desktop"
-  match "/auth/cas/callback"=>"sessions#create"
-  match "no_auth", :to=>"sessions#index", :as=>"no_auth"
-  match "logout", :to=>"sessions#destroy", :as=> "logout"
-  match "admin", :to=>"admin#index", :as=> "admin"
 end
