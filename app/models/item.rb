@@ -21,6 +21,7 @@ class Item < ActiveRecord::Base
   delegate :short_location, :to => :location, :allow_nil => true
   delegate :full_name, :to => :location, :prefix => true, :allow_nil => true
   delegate :name, :to => :user, :prefix => true, :allow_nil => true
+  delegate :name, :to => :operating_system, :prefix => true, :allow_nil => true
 
   attr_accessor :new_dns_names
   before_save :create_dns_from_names
@@ -87,7 +88,7 @@ class Item < ActiveRecord::Base
   end
 
   def qr_url
-    "http://graduateschool.vt.edu/graduate_school/QR/QRCodeURLContent.png?url=https://findit.recsports.vt.edu/items/#{name}&size=250"
+    "http://graduateschool.vt.edu/graduate_school/QR/QRCodeURLContent.png?url=https://findit.recsports.vt.edu/items/#{name}&size=150"
   end
 
   def self.search(search)
@@ -212,6 +213,14 @@ class Item < ActiveRecord::Base
       nil
     else
       dns_names.join(",")
+    end
+  end
+
+  def primary_ip
+    if ips.empty?
+      "Wifi Only"
+    else
+      ips.first.number
     end
   end
 

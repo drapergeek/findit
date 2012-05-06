@@ -34,9 +34,9 @@
 </div>
 
 <div class="row">
-  <div class="span8">
+  <div class="span4">
     <h3>Software Information</h3>
-    <p>OS: <%= @item.os %></p>
+    <p>OS: <%= @item.operating_system_name %></p>
     <h4>Software Installed</h4>
     <% if @item.softwares.count > 0 %>
       <ul>
@@ -49,7 +49,23 @@
       </ul>
     <% end %>
   </div>
+
 </div>
+
+<%= content_for(:page_sidebar) do %>
+  <%= image_tag @item.qr_url %>
+  <h4>Primary Label</h4>
+  <ul class="unstyled">
+    <li><%= @item.name %></li>
+    <li><%= @item.primary_ip %></li>
+    <li><%= @item.user_name %></li>
+  </ul>
+  <h4>Secondary Label</h4>
+  <ul class="unstyled">
+    <li><%= @item.processor %></li>
+    <li><%= number_to_human_size(@item.ram) %></li>
+  </ul>
+<% end %>
 
 <div class="form-actions">
   <%= link_to "Edit", edit_item_path(@item), :class => 'btn' %>

@@ -8,7 +8,7 @@
   <%= f.input :hard_drive %>
   <%= f.input :serial %>
   <%= f.input :vt_tag %>
-  <%= f.input :os, :collection=>OperatingSystem.all, :label => "OS" %>
+  <%= f.association :operating_system, :label => "OS" %>
   <%= f.input :type_of_item, :collection => Item::ITEM_TYPES %>
   <%= f.association :location, :collection => Building.all, :as => :grouped_select, :group_method => :locations %>
   <%= f.association :user %>

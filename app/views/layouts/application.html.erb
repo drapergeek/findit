@@ -49,6 +49,13 @@
               <%= yield %>
             </div>
             <div class="span3">
+              <% if content_for?(:page_sidebar) %>
+              <div class="well sidebar-nav page-sidebar">
+                <h3><%= yield(:page_sidebar_title) %></h3>
+                <%= yield(:page_sidebar) %>
+              </div>
+              <% end %>
+              <% if content_for?(:secondary_sidebar) %>
               <div class="well sidebar-nav">
                 <h3>Sidebar</h3>
                 <ul class="nav nav-list">
@@ -58,6 +65,7 @@
                   <li><%= link_to "Link3", "/path3"  %></li>
                 </ul>
               </div><!--/.well -->
+              <% end %>
             </div><!--/span-->
         </div><!--/row-->
       </div><!--/content-->
