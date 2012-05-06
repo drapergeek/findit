@@ -1,46 +1,14 @@
-<div>
-<%= render "shared/error_messages", :target=>@user %>
-</div>
-  <div class="group">
-    <%= f.label :login, t("activerecord.attributes.user.login", :default => "Login"), :class => :label %>
-    <%= f.text_field :login, :class => 'text_field' %>
+<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :login %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :last_login %>
+  <%= f.input :last_login_ip %>
+  <%= f.input :can_login %>
+  <%= f.input :email %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_path, :class => 'btn' %>
   </div>
-  <div class="group">
-    <%= f.label :email, t("activerecord.attributes.user.email", :default => "Email"), :class => :label %>
-    <%= f.text_field :email, :class => 'text_field' %>
-  </div>
-  <div class="group">
-    <%= f.label :can_login, t("activerecord.attributes.user.can_login", :default => "Can Login?"), :class => :label %>
-    <%= f.check_box :can_login  %>
-  </div>
-
-  <div class="group">
-    <%= f.label :first_name, t("activerecord.attributes.user.first_name", :default => "First name"), :class => :label %>
-    <%= f.text_field :first_name, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :last_name, t("activerecord.attributes.user.last_name", :default => "Last name"), :class => :label %>
-    <%= f.text_field :last_name, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :last_login, t("activerecord.attributes.user.last_login", :default => "Last login"), :class => :label %>
-    <%= f.datetime_select :last_login, :class => 'datetime_select' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
-    <%= f.label :last_login_ip, t("activerecord.attributes.user.last_login_ip", :default => "Last login ip"), :class => :label %>
-    <%= f.text_field :last_login_ip, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-        
-<div class="group navform wat-cf">
-  <button class="button" type="submit">
-    <%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
-  </button>  
-	<%= link_to "Cancel", users_path,:class => "button" %> 
-</div>
+<% end %>
