@@ -10,7 +10,7 @@
   <%= f.input :vt_tag %>
   <%= f.input :os, :collection=>OperatingSystem.all, :label => "OS" %>
   <%= f.input :type_of_item, :collection => Item::ITEM_TYPES %>
-  <%= f.association :location %>
+  <%= f.association :location, :collection => Building.all, :as => :grouped_select, :group_method => :locations %>
   <%= f.association :user %>
   <%= f.input :info %>
   <%= f.input :in_use %>

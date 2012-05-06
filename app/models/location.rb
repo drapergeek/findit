@@ -4,6 +4,7 @@ class Location < ActiveRecord::Base
   belongs_to :building
   has_many :items, :dependent=>:nullify
   default_scope :include=>:building, :order=>["buildings.name, locations.name"]
+
   def full_name
     if building
       building.name + " - " + name
@@ -15,7 +16,8 @@ class Location < ActiveRecord::Base
   def short_location
     building.name[0,1].upcase + " - " + name
   end
+
   def to_s
-    full_name
+    name
   end
 end
