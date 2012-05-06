@@ -10,7 +10,7 @@ Findit::Application.routes.draw do
       get 'show_by_project'
     end
   end
-  resources :operating_systems
+  resources :operating_systems, :except => [:show]
   resources :dns_names
   resources :softwares
   resources :locations, :except => [:show]
