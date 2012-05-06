@@ -3,10 +3,6 @@ class AreasController < ApplicationController
     @areas = Area.all
   end
 
-  def show
-    @area = Area.find(params[:id])
-  end
-
   def new
     @area = Area.new
   end
@@ -14,7 +10,7 @@ class AreasController < ApplicationController
   def create
     @area = Area.new(params[:area])
     if @area.save
-      redirect_to @area, :notice => "Successfully created area."
+      redirect_to areas_path, :notice => "Successfully created area."
     else
       render :action => 'new'
     end
@@ -27,7 +23,7 @@ class AreasController < ApplicationController
   def update
     @area = Area.find(params[:id])
     if @area.update_attributes(params[:area])
-      redirect_to @area, :notice  => "Successfully updated area."
+      redirect_to areas_path, :notice  => "Successfully updated area."
     else
       render :action => 'edit'
     end
@@ -36,6 +32,6 @@ class AreasController < ApplicationController
   def destroy
     @area = Area.find(params[:id])
     @area.destroy
-    redirect_to areas_url, :notice => "Successfully destroyed area."
+    redirect_to areas_path, :notice => "Successfully destroyed area."
   end
 end

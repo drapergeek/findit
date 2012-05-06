@@ -1,7 +1,7 @@
 Findit::Application.routes.draw do
   resources :comments
 
-  resources :areas
+  resources :areas, :except =>[:show]
   resources :projects
   resources :tickets do 
     collection do

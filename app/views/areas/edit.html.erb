@@ -1,10 +1,4 @@
-<% title "Edit Area" %>o
-<%= render "admin/top_admin" %>
-<h2>Edit Area</h2>
-<%= render 'form' %>
-
-<p>
-  <%= link_to "Show", @area %> |
-  <%= link_to "View All", areas_path %>
-</p>
-<%= render "admin/bottom_admin" %>
+<%- model_class = @area.class -%>
+<h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                 :default => "Edit #{model_class.model_name.human}") %></h1>
+<%= render :partial => 'form' %>

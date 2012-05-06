@@ -1,10 +1,9 @@
-<%= render "shared/error_messages", :target=>@area %>
- <%= semantic_form_for @area do |f| %>
-      <%= f.inputs :name => "Basic" do %>
-		<%= f.input :name %>
-      <%= f.input :keywords %>
-	<% end%>
-<%= f.buttons do %>
-	<%= f.commit_button %>
-<%end%>
+<%= simple_form_for @area, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :keywords %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                areas_path, :class => 'btn' %>
+  </div>
 <% end %>
