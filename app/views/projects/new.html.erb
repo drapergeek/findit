@@ -1,7 +1,4 @@
-<% title "New Project" %>
-<%= render "admin/top_admin" %>
-<h2>New Project</h2>
-<%= render 'form' %>
-
-<p><%= link_to "Back to List", projects_path %></p>
-<%= render "admin/bottom_admin" %>
+<%- model_class = @project.class -%>
+<h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                               :default => "New #{model_class.model_name.human}") %></h1>
+<%= render :partial => 'form' %>

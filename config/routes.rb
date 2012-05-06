@@ -2,7 +2,7 @@ Findit::Application.routes.draw do
   resources :comments
 
   resources :areas, :except =>[:show]
-  resources :projects
+  resources :projects, :except => [:show]
   resources :tickets do
     collection do
       post 'take'

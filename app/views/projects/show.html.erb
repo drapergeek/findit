@@ -1,20 +1,23 @@
-<% title "Project" %>
-<%= render "admin/top_admin" %>
-<h2><%= @project.name %></h2>
+<%- model_class = @project.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
 <p>
-  <strong>Name:</strong>
+  <strong><%= model_class.human_attribute_name(:name) %>:</strong><br>
   <%= @project.name %>
 </p>
-<% if @project.keywords %>
-<ul>
-  <% @project.keywords.split(",").each do |k| %>
-    <li><%= k %></li>
-  <% end %>
-</ul>
-<% end %>
 <p>
-  <%= link_to "Edit", edit_project_path(@project) %> |
-  <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", projects_path %>
+  <strong><%= model_class.human_attribute_name(:keywords) %>:</strong><br>
+  <%= @project.keywords %>
 </p>
-<%= render "admin/bottom_admin" %>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              projects_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_project_path(@project), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              project_path(@project),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

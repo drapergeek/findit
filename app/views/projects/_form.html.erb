@@ -1,10 +1,8 @@
-<%= render "shared/error_messages", :target=>@project %>
- <%= semantic_form_for @project do |f| %>
-   <%= f.inputs :name => "Basic" do %>
-		<%= f.input :name %>
-   <%= f.input :keywords %>
-	<% end%>
-<%= f.buttons do %>
-	<%= f.commit_button %>
-<%end%>
+<%= simple_form_for @project, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :keywords %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to 'Cancel', projects_path, :class => 'btn' %>
+  </div>
 <% end %>
