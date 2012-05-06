@@ -3,7 +3,7 @@ Findit::Application.routes.draw do
 
   resources :areas, :except =>[:show]
   resources :projects
-  resources :tickets do 
+  resources :tickets do
     collection do
       post 'take'
       get 'show_by_area'
@@ -13,14 +13,14 @@ Findit::Application.routes.draw do
   resources :operating_systems
   resources :dns_names
   resources :softwares
-  resources :locations
+  resources :locations, :except => [:show]
   resources :buildings, :except => [:show]
-  resources :items do 
+  resources :items do
     collection do
       get 'not_checked'
       post 'add_ip'
       get 'remove_ip'
-      get 'remove_dns_name' 
+      get 'remove_dns_name'
       get 'mark_as_inventoried'
       get 'surplus'
     end
@@ -34,8 +34,8 @@ Findit::Application.routes.draw do
   end
   resources :ips, :except => [:show]
   resources :pages
-  resources :users do  
-    collection do 
+  resources :users do
+    collection do
       get 'logout'
     end
   end
@@ -54,4 +54,4 @@ Findit::Application.routes.draw do
   match "no_auth", :to=>"sessions#index", :as=>"no_auth"
   match "logout", :to=>"sessions#destroy", :as=> "logout"
   match "admin", :to=>"admin#index", :as=> "admin"
-  end
+end

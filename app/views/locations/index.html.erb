@@ -1,36 +1,28 @@
-<%= render "admin/top_admin" %>
-      <table class="table">
-        <tr>             
-          <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.location.name", :default => t("activerecord.labels.name", :default => "Name")) %>
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
-          <th class="last">&nbsp;</th>
-        </tr>
-        <% @locations.each do |location| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= location.id %>
-          </td>
-                    <td>
-            <%= link_to location.name, location_path(location) %>
-          </td>
-                    <td>
-            <%= location.created_at %>
-          </td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", location_path(location) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_location_path(location) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", location_path(location), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
-        </tr>          
-        <% end -%>
-      </table>
-      <div class="actions-bar wat-cf">
-        <div class="actions">
-        </div>
-           <%= link_to "New Location", new_location_path  %>
-      </div>
+<h1>Locations</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= link_to location.name, location %></td>
+        <td>
+          <%= link_to 'Edit',
+                      edit_location_path(location), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy',
+                      location_path(location),
+                      :method => :delete,
+                      :confirm =>'Are you sure?',
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= render :partial=>"admin/bottom_admin" %>
+<%= link_to 'New',
+            new_location_path,
+            :class => 'btn btn-primary' %>

@@ -1,19 +1,4 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", locations_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_location_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_location_path %></li>
-    </ul>
-  </div>          
-  <div class="content">            
-    <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> Location</h2>
-    <div class="inner">
-      <%= form_for @location, :url => location_path(@location), :html => { :class => :form } do |f| -%>
-        <%= render :partial => "form", :locals => {:f => f} %>
-      <% end -%>
-    </div>
-  </div>
-</div>
-
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<%- model_class = @location.class -%>
+<h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                 :default => "Edit #{model_class.model_name.human}") %></h1>
+<%= render :partial => 'form' %>

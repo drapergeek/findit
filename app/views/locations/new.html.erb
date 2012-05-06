@@ -1,6 +1,4 @@
-<%= render "admin/top_admin" %>
-      <h3>New Location</h3>
-      <%= form_for :location, :url => locations_path, :html => { :class => :form } do |f| -%>
-        <%= render :partial => "form", :locals => {:f => f} %>
-      <% end -%>
-<%= render "admin/bottom_admin" %>
+<%- model_class = @location.class -%>
+<h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                               :default => "New #{model_class.model_name.human}") %></h1>
+<%= render :partial => 'form' %>
