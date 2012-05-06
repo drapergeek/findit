@@ -14,7 +14,7 @@ Findit::Application.routes.draw do
   resources :dns_names
   resources :softwares
   resources :locations
-  resources :buildings
+  resources :buildings, :except => [:show]
   resources :items do 
     collection do
       get 'not_checked'
@@ -32,7 +32,7 @@ Findit::Application.routes.draw do
       get :upgrades
     end
   end
-  resources :ips
+  resources :ips, :except => [:show]
   resources :pages
   resources :users do  
     collection do 

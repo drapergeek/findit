@@ -1,36 +1,24 @@
-<%= render "admin/top_admin" %>
-<table class="table">
-  <tr>             
-    <th class="first">ID</th>
-    <th>
-      <%= t("activerecord.attributes.building.name", :default => t("activerecord.labels.name", :default => "Name")) %>
-    </th>
-    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
-    <th class="last">&nbsp;</th>
-  </tr>
-  <% @buildings.each do |building| -%>
-    <tr class="<%= cycle("odd", "even") %>">
-      <td>
-        <%= building.id %>
-      </td>
-      <td>
-        <%= link_to building.name, building_path(building) %>
-      </td>
-      <td>
-        <%= building.created_at %>
-      </td>
-      <td class="last">
-        <%= link_to "#{t("web-app-theme.show", :default => "Show")}", building_path(building) %> |
-        <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_building_path(building) %> |
-        <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", building_path(building), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-      </td>
-    </tr>          
-  <% end -%>
+<h1>Buildings</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @buildings.each do |building| %>
+      <tr>
+        <td><%= building.name %></td>
+        <td>
+          <%= link_to 'Edit', edit_building_path(building), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy',
+                      building_path(building),
+                      :method => :delete,
+                      :confirm => 'Are you sure?',
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-<div class="actions-bar wat-cf">
-  <div class="actions">
-    <%= link_to "New Building", new_building_path %>
-  </div>
-
-</div>
-<%= render "admin/bottom_admin" %>
+<%= link_to 'New', new_building_path, :class => 'btn btn-primary' %>

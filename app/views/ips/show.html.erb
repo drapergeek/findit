@@ -1,42 +1,31 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", ips_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_ip_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", ip_path %></li>
-    </ul>
-  </div>          
-  <div class="content">
-    <div class="inner">
+<%- model_class = @ip.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-      <p>
-        <b><%= t("activerecord.attributes.ip.number", :default => t("activerecord.labels.number", :default => "Number")) %>:</b>
-        <%= @ip.number %>
-      </p>
+<p>
+  <strong><%= model_class.human_attribute_name(:number) %>:</strong><br>
+  <%= @ip.number %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:info) %>:</strong><br>
+  <%= @ip.info %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:item_id) %>:</strong><br>
+  <%= @ip.item_id %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:building_id) %>:</strong><br>
+  <%= @ip.building_id %>
+</p>
 
-      <p>
-        <b><%= t("activerecord.attributes.ip.info", :default => t("activerecord.labels.info", :default => "Info")) %>:</b>
-        <%= @ip.info %>
-      </p>
-      <p>
-        <b>Equipment:</b>
-        <% if @ip.item.blank? %>
-          Unassigned
-        <% else %>
-          <%= link_to @ip.item.name, @ip.item.name  %>
-        <% end %>
-      </p>
-      <p>
-        <b>Building:</b>
-        <%= link_to @ip.building.name, @ip.building  unless @ip.building.blank? %>
-      </p>
-      <div class="wat-cf">
-        <%= link_to "Edit", edit_ip_path(@ip),:class => "button" %> 
-        <%= link_to "Destroy", @ip, :confirm => 'Are you sure?', :method => :delete, :class=>"button" %>
-
-      </div>      
-    </div>
-  </div>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              ips_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_ip_path(@ip), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              ip_path(@ip),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
 </div>
-
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
