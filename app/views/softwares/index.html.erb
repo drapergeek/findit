@@ -1,48 +1,33 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", softwares_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_software_path %></li>
-    </ul>
-  </div>          
-  <div class="content">          
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Software</h2>
-    <div class="inner">
-      <table class="table">
-        <tr>             
-          <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.software.name", :default => t("activerecord.labels.name", :default => "Name")) %>
-          </th>
-          <th>Licenses Purchased</th>
-		  <th>Installed</th>
-          <th class="last">&nbsp;</th>
-        </tr>
-        <% @softwares.each do |software| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= software.id %>
-          </td>
-                    <td>
-            <%= link_to software.name, software_path(software) %>
-          </td>
-			<td><%= software.number_of_licenses %></td>
-			<td><%= software.installations.count %></td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", software_path(software) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_software_path(software) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", software_path(software), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
-        </tr>          
-        <% end -%>
-      </table>
-      <div class="actions-bar wat-cf">
-        <div class="actions">
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</div>
+<%- model_class = Software.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>OS</th>
+      <th>Licenses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @softwares.each do |software| %>
+      <tr>
+        <td><%= link_to software.name, software_path(software) %></td>
+        <td><%= software.operating_system_name %></td>
+        <td><%= software.number_of_licenses %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_software_path(software), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      software_path(software),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_software_path,
+            :class => 'btn btn-primary' %>

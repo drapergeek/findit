@@ -1,48 +1,35 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", softwares_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_software_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", software_path %></li>
-    </ul>
-  </div>          
-  <div class="content">
-    <div class="inner">
-      
-        <p>
-          <b><%= t("activerecord.attributes.software.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</b>
-          <%= @software.name %>
-        </p>
+<%- model_class = @software.class -%>
+<h1><%= @software.name %></h1>
 
-        <p>
-          <b><%= t("activerecord.attributes.software.license_key", :default => t("activerecord.labels.license_key", :default => "License key")) %>:</b>
-          <%= @software.license_key %>
-        </p>
+<ul class="unstyled">
+  <li><strong>License Key</strong> <%= @software.license_key %></li>
+  <li><strong>OS</strong> <%= @software.operating_system_name %></li>
+  <li><strong>Storage Location</strong> <%= @software.storage_location %></li>
+</ul>
 
-        <p>
-          <b><%= t("activerecord.attributes.software.os", :default => t("activerecord.labels.os", :default => "Os")) %>:</b>
-          <%= @software.operating_system.name unless @software.operating_system.blank? %>
-        </p>
+<h3>Info</h3>
+<p><%= @software.info %></p>
 
-        <p>
-          <b><%= t("activerecord.attributes.software.number_of_licenses", :default => t("activerecord.labels.number_of_licenses", :default => "Number of licenses")) %>:</b>
-          <%= @software.number_of_licenses %>
-        </p>
+<% if @software.installations.any? %>
+  <ul>
+    <%= @software.installations.each do |install| %>
+      <li><%= install.item_name %></li>
+    <% end %>
+  </ul>
 
-        <p>
-          <b><%= t("activerecord.attributes.software.storage_location", :default => t("activerecord.labels.storage_location", :default => "Storage location")) %>:</b>
-          <%= @software.storage_location %>
-        </p>
+<% else %>
+  <p>This software is not installed anywhere.</p>
 
-        <p>
-          <b><%= t("activerecord.attributes.software.info", :default => t("activerecord.labels.info", :default => "Info")) %>:</b>
-          <%= @software.info %>
-        </p>
-      <div class="wat-cf">
-      	<%= link_to "Edit", edit_software_path(@software),:class => "button" %> 
-		<%= link_to "Destroy", @software, :confirm => 'Are you sure?', :method => :delete, :class=>"button" %>
-    </div>
-  </div>
+<% end %>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              softwares_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_software_path(@software), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              software_path(@software),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
 </div>
-
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
