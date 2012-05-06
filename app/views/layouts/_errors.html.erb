@@ -1,0 +1,12 @@
+<% flash.each do |name, msg|  %>
+  <% if name == :notice %>
+    <div class="alert alert-success">
+  <% elsif name == :alert %>
+    <div class="alert alert-error">
+      <% else %>
+        <div class="alert alert-info">
+        <% end %>
+        <a class="close" data-dismiss="alert">x</a>
+        <%= msg %>
+      </div>
+<% end %>
