@@ -6,7 +6,8 @@ Findit::Application.routes.draw do
     get 'register' => 'devise/registrations#new'
     post 'register' => 'devise/registrations#create'
   end
-  resources :users, :except => [:show]
+  resources :users, :except => [:new, :create]
+  resources :allowed_users, :only => :create
   resources :comments
   resources :areas, :except =>[:show]
   resources :projects, :except => [:show]

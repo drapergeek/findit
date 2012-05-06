@@ -15,11 +15,11 @@
         <td><%= user.email %></td>
         <td>
           <%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy',
-                      user_path(user),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Destroy', user_path(user), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Allow Sign In', allowed_users_path(:id => user.id),
+            :method => :post,
+            :confirm => 'Are you sure you want to allow this user to sign in?',
+            :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>

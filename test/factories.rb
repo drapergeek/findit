@@ -5,6 +5,8 @@ FactoryGirl.define do
      last_name  { Forgery(:name).last_name }
      sequence(:login){|n| "login#{n}" }
      sequence(:email){|n| "login#{n}@vt.edu"}
+     password "testtest"
+     password_confirmation "testtest"
    end
 
    factory :area do
