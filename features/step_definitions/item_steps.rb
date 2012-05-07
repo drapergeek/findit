@@ -27,7 +27,7 @@ end
 Given /I have items in the database/ do
   @item_names = ["item1", "item2", "item3", "item4"]
   @item_names.each do |name|
-    Factory.create(:item, :name=>name)
+    create(:item, :name=>name)
   end
 end
 
