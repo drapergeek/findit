@@ -30,7 +30,6 @@ Feature: Manage Items
     When I visit the items page
     And I click on an item
     And I click edit
-    And I change the name
+    And I change the name to "Awesome Item"
     And I update the item
-    Then the name of the item should have changed
-
+    Then the name of the item should be "Awesome Item"

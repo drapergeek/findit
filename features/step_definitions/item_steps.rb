@@ -51,6 +51,11 @@ When "I create the item" do
   click_button "Create Item"
 end
 
+When "I update the item" do
+  click_button "Update Item"
+end
+
+
 Then "I should be on the page for the new item" do
   page.should have_css("h1", text: 'My New Item')
 end
@@ -60,15 +65,13 @@ When "I click on an item" do
 end
 
 When "I click edit" do
-  click_link "item_edit_button"
+  click_link "Edit"
 end
 
-When "I change the name" do
-  fill_in "item_name", :with=>"My New Name"
+When /^I change the name to "([^"]*)"$/ do |name|
+  fill_in "item_name", with: name
 end
 
-Then "the name of the item should have changed" do
-  page.should have_css("h1.title:contains('My New Name')")
+Then /^the name of the item should be "([^"]*)"$/ do |name|
+  page.should have_css("h1", text: name)
 end
-
-

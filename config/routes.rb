@@ -1,5 +1,6 @@
 Findit::Application.routes.draw do
-  devise_for :users do
+  devise_for :users
+  devise_scope :user do
     get 'sign_in' => 'devise/sessions#new', :as => :sign_in
     post 'sign_in' => 'devise/sessions#create', :as => :sign_in
     delete 'sign_out' => 'devise/sessions#destroy', :as => :sign_out
