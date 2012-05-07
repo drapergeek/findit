@@ -6,4 +6,4 @@ require 'rake'
 
 Findit::Application.load_tasks
 task(:default).clear
-task :default => [:spec, :cucumber, "app:dev:prime"]
+task :default => [:spec,:test,:cucumber, "app:dev:prime"]
