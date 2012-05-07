@@ -7,6 +7,7 @@ FactoryGirl.define do
     sequence(:email){|n| "login#{n}@vt.edu"}
     password "testtest"
     password_confirmation "testtest"
+    can_login true
   end
 
   factory :area do

@@ -1,5 +1,9 @@
 Given /I am logged in/ do
-  #this right now doesn't matter b/c all users are logged in
+  @user = create(:user)
+  visit sign_in_path
+  fill_in 'user_email', with: @user.email
+  fill_in 'user_password', with: @user.password
+  click_button 'Sign in'
 end
 
 Given /I do not have any items/ do
@@ -11,7 +15,9 @@ When /I visit the items page/ do
 end
 
 Then /I should see no items/ do
-  page.should_not have_css("tr.odd")
+  within "table#items" do
+    page.should_not have_css("tr.item_row")
+  end
 end
 
 Then /I should see a new items link/ do
