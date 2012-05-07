@@ -44,15 +44,15 @@ end
 When "I fill in the fields to create a new item" do
   fill_in "item_name", :with=>"My New Item"
   check "item_in_use"
-  fill_in "item_type_of_item", :with=>"Desktop"
+  select "Desktop", :from => "Type of item"
 end
 
-When "I submit the form" do
-  click_button "item_save_button"
+When "I create the item" do
+  click_button "Create Item"
 end
 
 Then "I should be on the page for the new item" do
-  page.should have_css("h1.title:contains('My New Item')")
+  page.should have_css("h1", text: 'My New Item')
 end
 
 When "I click on an item" do
