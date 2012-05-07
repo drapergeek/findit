@@ -1,9 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.3'
-
-gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'mail'
+gem 'sqlite3'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-cas'
@@ -11,16 +9,12 @@ gem "simple_form"
 gem 'jquery-rails'
 gem "will_paginate"
 gem "mail"
-gem 'thor'
 gem 'comma'
-gem 'formtastic'
 
 group :development, :test do
-  gem 'factory_girl_rails'
-  gem "guard-test"
-  gem "guard-livereload"
-  gem "growl"
   gem "capybara"
+  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem "guard-rspec"
   gem "launchy"
   gem "capybara-webkit"
@@ -29,16 +23,18 @@ group :development, :test do
   gem 'forgery', '0.5.0'
 end
 
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-  gem "twitter-bootstrap-rails"
-  gem 'therubyracer', :platform => :ruby
-  gem 'jquery-ui-rails'
-end
-
 group :test do
   gem "cucumber-rails"
   gem "database_cleaner"
+  gem "rake"
 end
+
+group :assets do
+  gem "twitter-bootstrap-rails"
+  gem 'therubyracer', :platform => :ruby
+  gem 'jquery-ui-rails'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+end
+
