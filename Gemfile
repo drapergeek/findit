@@ -38,7 +38,7 @@ group :assets do
   gem 'jquery-ui-rails'
 end
 
-group :test do 
+group :test do
   gem "cucumber-rails"
   gem "database_cleaner"
 end
