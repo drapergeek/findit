@@ -2,64 +2,64 @@ require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
   def test_should_be_valid
-    assert Factory.build(:comment).valid?
+    assert build(:comment).valid?
   end
-  
+
   test "Test that the user association is correct" do
-    comment = Factory.build(:comment, :user => nil)
+    comment = build(:comment, :user => nil)
     assert !comment.valid?, 'The comment should not be valid because it doesnt have a user'
-    comment.user = Factory.build(:user)
+    comment.user = build(:user)
     assert comment.valid?, 'the ticket should be valid now that it has a user'
   end
-  
+
   test "test that the user is stored properly" do
-    user = Factory.build(:user, :first_name => 'Brent', :last_name => 'Montague')
-    comment = Factory.build(:comment, :user => user)
+    user = build(:user, :first_name => 'Brent', :last_name => 'Montague')
+    comment = build(:comment, :user => user)
     assert_equal comment.user.first_name, 'Brent'
     assert_equal comment.user.last_name, 'Montague'
   end
-  
+
   test "Test that the body is validated correctly" do
-    comment = Factory.build(:comment, :body => nil)
+    comment = build(:comment, :body => nil)
     assert !comment.valid?, 'The comment should not be valid because it doesnt have a body'
     comment.body = 'some latin saying here please'
     assert comment.valid?, 'the ticket should be valid now that it has a body'
   end
-  
+
   test "Test that the body is stored correctly" do
     body = 'Some lating saying here'
-    comment = Factory.build(:comment, :body => body)
+    comment = build(:comment, :body => body)
     assert comment.valid?, 'This should be correct because it is simply the default factory'
     assert_equal comment.body, body, 'The body was not stored properly'
   end
-  
+
   test "Test that the subject is stored properly" do
     subject = 'demo subject'
-    comment = Factory.build(:comment, :subject => subject)
+    comment = build(:comment, :subject => subject)
     assert comment.valid?, 'This should be correct because it is the default factory'
     assert_equal comment.subject, subject, 'The subject was not stored properly'
   end
-  
+
   test "test that the subject is not required" do
-    comment = Factory.build(:comment, :subject => nil)
+    comment = build(:comment, :subject => nil)
     assert comment.valid?, 'This should be valid because the subject is not needed'
     assert_equal comment.subject, nil, 'This should match up or the subject was not saved right'
   end
-  
+
   test "Test that a ticket is required and can be linked to a comment" do
-    ticket = Factory.build(:ticket)
+    ticket = build(:ticket)
     assert ticket.valid?, 'This should be true as the ticket is a default factory'
-    comment = Factory.build(:comment, :ticket => nil)
+    comment = build(:comment, :ticket => nil)
     assert !comment.valid?, 'This should be in-valid as the ticket has no ticket'
     comment.ticket = ticket
     assert comment.valid?, 'This should be valid as the ticket has a ticket'
   end
-  
+
   test "Test that a tickets field link properly and can be seen by a comment" do
-    user = Factory.build(:user, :first_name => 'Brent')
-    ticket = Factory.build(:ticket, :submitter => user, :title => 'title', :description => 'desc', :status => 'status')
+    user = build(:user, :first_name => 'Brent')
+    ticket = build(:ticket, :submitter => user, :title => 'title', :description => 'desc', :status => 'status')
     assert ticket.valid?, 'This should be true as the ticket is a default factory'
-    comment = Factory.build(:comment, :ticket => ticket)
+    comment = build(:comment, :ticket => ticket)
     assert comment.valid?, 'This should be valid as we have already tested this'
     assert_equal comment.ticket.submitter.first_name, 'Brent', 'This simply gets the users first name'
     assert_equal comment.ticket.title, 'title', 'This should return the title'
@@ -68,7 +68,7 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   test "can create comments from an email" do
-    ticket = Factory.create(:ticket)
+    ticket = create(:ticket)
     from = "person@vt.edu"
     subject = "Re: Rec Sports IT Ticket-ID##{ticket.id}"
     body = "This thing is still broken!"
@@ -84,7 +84,7 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   test "a closed ticket is reopened if an email comes in it" do
-    ticket = Factory.create(:ticket, :status=>"Resolved")
+    ticket = create(:ticket, :status=>"Resolved")
     from = "person@vt.edu"
     subject = "Re: Rec Sports IT Ticket-ID##{ticket.id}"
     body = "Uh, you can't close this, its still broken!"
@@ -96,8 +96,8 @@ class CommentTest < ActiveSupport::TestCase
 
   test "an email is dispatched to only the ticket owner when a reply is submitted" do
     reset_email
-    worker = Factory.create(:user)
-    ticket = Factory.create(:ticket, :worker=>worker)  
+    worker = create(:user)
+    ticket = create(:ticket, :worker=>worker)  
     ticket.comments.create!(:user=>worker, :body=>"I have looked at this", :reply=>true)
     assert last_email.to.include?(ticket.submitter.email)
     assert !last_email.to.include?(ticket.worker.email)
@@ -106,9 +106,9 @@ class CommentTest < ActiveSupport::TestCase
 
   test "email to worker and submitter new outside comments" do
     reset_email
-    worker = Factory.create(:user)
-    commenter = Factory.create(:user)
-    ticket = Factory.create(:ticket, :worker=>worker)  
+    worker = create(:user)
+    commenter = create(:user)
+    ticket = create(:ticket, :worker=>worker)  
     ticket.comments.create!(:user=>commenter, :body=>"I have looked at this", :reply=>true)
     assert last_email.to.include?(ticket.submitter.email)
     assert last_email.to.include?(ticket.worker.email)
@@ -117,23 +117,23 @@ class CommentTest < ActiveSupport::TestCase
 
   test "email to just worker when reply from submitter" do
     reset_email
-    worker = Factory.create(:user)
-    ticket = Factory.create(:ticket, :worker=>worker)  
+    worker = create(:user)
+    ticket = create(:ticket, :worker=>worker)  
     ticket.comments.create!(:user=>ticket.submitter, :body=>"I have looked at this", :reply=>true)
     assert !last_email.to.include?(ticket.submitter.email)
     assert last_email.to.include?(ticket.worker.email)
     assert last_email.subject.include?("Reply from Ticket")
   end
-  
+
   test "Can update ticket status from comment" do
-    ticket = Factory.create(:ticket)
+    ticket = create(:ticket)
     assert ticket.status == "Open"
-    comment = Factory.build(:comment, :ticket=>ticket)
+    comment = build(:comment, :ticket=>ticket)
     comment.ticket_status = "Resolved"
     assert comment.save
     assert ticket.status = "Resolved"
     assert_equal comment.ticket_status, ticket.status
-    
+
   end
-  
+
 end

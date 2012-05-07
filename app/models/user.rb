@@ -47,11 +47,11 @@ class User < ActiveRecord::Base
   def self.find_or_create_by_email(email)
     user = User.find_by_email(email)
     if user
-      return user 
+      return user
     else
       user = User.create(:email=>email, :first_name=>"No", :last_name=>"Name")
       user.login = email.split("@")[0]
-      user.save!
+      user.save_with_random_password
     end
     user
   end

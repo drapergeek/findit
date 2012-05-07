@@ -1,9 +1,0 @@
-one:
-  name: MyString
-  info: MyText
-  building_id: 1
-
-two:
-  name: MyString
-  info: MyText
-  building_id: 1

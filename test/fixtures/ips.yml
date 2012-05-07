@@ -1,9 +1,0 @@
-mccomas_ip:
-  number: 128.173.129.2
-  info: None
-  building: mccomas
-
-war_ip:
-  number: 128.173.108.50
-  info: MyText
-  building: war
