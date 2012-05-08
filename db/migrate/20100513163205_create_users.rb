@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamp :last_login_ip
       t.timestamps
     end
-    User.create(:login=>"gdraper", :first_name=>"Jason", :last_name=>"Draper")
   end
   
   def self.down
