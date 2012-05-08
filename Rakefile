@@ -5,3 +5,5 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
 Findit::Application.load_tasks
+task(:default).clear
+task :default => ["app:setup", "db:setup", "db:migrate", :spec, :cucumber, 'app:dev:prime']
