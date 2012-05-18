@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.3'
 gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
+gem 'pg'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-cas'
