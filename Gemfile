@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
 gem 'pg'
 gem 'devise'
 gem 'omniauth'
@@ -13,6 +12,7 @@ gem "mail"
 gem 'comma'
 
 group :development, :test do
+  gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
   gem "capybara"
   gem 'factory_girl'
   gem 'factory_girl_rails'
