@@ -3,9 +3,5 @@ Icon^M^M
 db/*.sqlite3
 log/*.log
 tmp/**/*
-config/database.yml
-config/deploy.rb
-config/config.yml
-config/initializers/secret_token.rb
 .tddium*
 .tddium
