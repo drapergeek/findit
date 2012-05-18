@@ -2,7 +2,8 @@ production:
     default_user: jas@drapergeek.com
     default_email_for_interceptor: test_email@email.com
     from_email: awesome@email.com
-    ticket_subject: subject resolved_notify_subject: Ticket Resolved
+    ticket_subject: subject 
+    resolved_notify_subject: Ticket Resolved
     worker_notify_subject: New Ticket
     send_new_tickets_to_group: true
     emails_for_new_tickets_group: "email@email.com, another_email@email.com"
