@@ -12,6 +12,7 @@ gem "will_paginate"
 gem "mail"
 gem 'comma'
 gem 'thin'
+gem 'capistrano'
 
 group :development, :test do
   gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
