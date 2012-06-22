@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem 'pg'
+gem 'mysql2'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-cas'
