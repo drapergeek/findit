@@ -3,7 +3,6 @@ require File.expand_path('../application', __FILE__)
 #load the email interceptor
 require "development_mail_interceptor"
 
-YAML::ENGINE.yamler= 'syck' if defined?(YAML::ENGINE)
 
 # Initialize the rails application
 Findit::Application.initialize!

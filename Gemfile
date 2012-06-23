@@ -13,11 +13,11 @@ gem "mail"
 gem 'comma'
 gem 'capistrano'
 
+gem 'fastercsv'
 group :development, :test do
   gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
   gem "capybara"
-  gem 'factory_girl'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '1.7.0'
   gem "guard-rspec"
   gem "launchy"
   gem "capybara-webkit"
