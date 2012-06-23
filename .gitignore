@@ -1,5 +1,6 @@
 .bundle
 Icon^M^M
+config/deploy.rb
 db/*.sqlite3
 log/*.log
 tmp/**/*
