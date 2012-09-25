@@ -1,3 +1,19 @@
-[![Build Status](https://secure.travis-ci.org/vtrecsports/findit.png)](http://travis-ci.org/vtrecsports/findit)
-#Introduction
-Findit is a VERY quick and dirty application that is used for our inventory at Virginia Tech Recreational Sports.  Unfortunately when it was originally developed it was not done with proper testing.  We are currently trying to fix that.
+[![Build Status](https://secure.travis-ci.org/drapergeek/findit.png)](http://travis-ci.org/drapergeek/findit)
+# Introduction
+This is an inventory system that was originally designed for Virginia Tech Rec Sports.
+It has been modified slightly to make it more generic and up to date.
+
+# Development Setup
+````
+  bundle
+  rake app:setup
+  rake db:setup
+  rake db:migrate
+  rake db:test:prepare
+````
+
+# Testing Setup
+````
+  rake #This runs the full test suite minus the old Unit Tests
+````
+
