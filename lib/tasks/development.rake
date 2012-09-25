@@ -2,13 +2,6 @@ namespace :app do
   namespace :dev do
     desc "Seed the dev enviroment"
     task :prime => :environment do
-      puts "This task will completely empty the database for your current enviroment (#{Rails.env}), are you sure you want to do this?(Y|y):"
-      confirmation = $stdin.gets.chomp
-
-      unless confirmation == "Y" || confirmation == "y"
-        next
-      end
-      puts "Proceeding..."
 
       Rake::Task['db:migrate']
 
