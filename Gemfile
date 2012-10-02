@@ -11,8 +11,10 @@ gem "will_paginate"
 gem "mail"
 gem 'comma'
 gem 'capistrano'
-
+gem 'foreman'
 gem 'fastercsv'
+gem 'thin'
+
 group :development, :test do
   gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
   gem "capybara"
