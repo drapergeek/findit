@@ -14,12 +14,12 @@ namespace :app do
 
       Rake::Task['db:seed'].execute
 
-
-      #set up users
       7.times do
         FactoryGirl.create(:user)
       end
-      FactoryGirl.create(:user, :login => 'admin')
+
+      admin = FactoryGirl.create(:user, :email => 'admin@example.com')
+      puts "Admin user: #{admin.email}/ #{admin.password}"
 
       3.times do
         building = FactoryGirl.create(:building)
@@ -44,7 +44,6 @@ namespace :app do
         end
       end
 
-
       #areas
       FactoryGirl.create(:area, :name => 'IT', :keywords => 'it, it_other')
       FactoryGirl.create(:area, :name => 'Facilities', :keywords => 'facilities, Fac')
@@ -59,9 +58,6 @@ namespace :app do
       names.each do |name|
         FactoryGirl.create(:complete_item, :name => name, :location => Location.first)
       end
-
-
-      #set up some complete items
     end
   end
 end
