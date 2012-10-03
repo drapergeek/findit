@@ -8,6 +8,7 @@ development: &default
 test: &test
   adapter: postgresql
   database: findit_test
+  username: postgres
 
 cucumber:
   <<: *test
