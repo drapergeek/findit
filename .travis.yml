@@ -1,4 +1,5 @@
 rvm:
   - 1.9.3
 before_scipt:
+  - psql -c 'create database findit_test;' -U postgres
   - bundle exec rake db:migrate db:test:prepare

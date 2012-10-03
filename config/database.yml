@@ -7,11 +7,7 @@ development: &default
 
 test: &test
   adapter: postgresql
-  pool: 5
-  timeout: 5000
-  host: localhost
   database: findit_test
-  min_messages: warning
 
 cucumber:
   <<: *test
