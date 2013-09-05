@@ -1,14 +1,18 @@
-development: &default
+development:
   adapter: postgresql
+  encoding: unicode
   database: findit_development
-  pool: 5
-  timeout: 5000
   host: localhost
+  port: <%= ENV['BOXEN_POSTGRESQL_PORT'] %>
 
-test: &test
+test:
   adapter: postgresql
+  encoding: unicode
   database: findit_test
-  username: postgres
+  host: localhost
+  port: <%= ENV['BOXEN_POSTGRESQL_PORT'] %>
 
-cucumber:
-  <<: *test
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: findit_production

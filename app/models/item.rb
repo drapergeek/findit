@@ -25,7 +25,6 @@ class Item < ActiveRecord::Base
 
   attr_accessor :new_dns_names
   before_save :create_dns_from_names
-  before_save :convert_size_to_bytes
   belongs_to :operating_system
   belongs_to :location
   belongs_to :user
@@ -193,20 +192,6 @@ class Item < ActiveRecord::Base
     type_of_item.to_s + ": " + name.to_s
   end
 
-
-  def convert_size_to_bytes
-    unless self.ram.blank?
-      if self.ram < 1048576
-        self.ram = ram * 1048576
-      end
-    end
-
-    unless self.hard_drive.blank?
-      if self.hard_drive < 1073741824
-        self.hard_drive =   hard_drive * 1073741824
-      end
-    end
-  end
 
   def print_dns_names
     if dns_names.empty?

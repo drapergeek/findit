@@ -12,3 +12,5 @@
  *= require jquery.ui.all
  *= require bootstrap_and_overrides
 */
+
+body { padding-top: 60px; }

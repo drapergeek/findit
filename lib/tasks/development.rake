@@ -54,9 +54,15 @@ namespace :app do
       FactoryGirl.create(:project, :name =>'Findit', :keywords => 'findit, find_it')
 
 
+      require 'pry'
       names = %w(gambit magneto riddler storm batman robin nightwing)
       names.each do |name|
-        FactoryGirl.create(:complete_item, :name => name, :location => Location.first)
+        item = FactoryGirl.build(:complete_item, :name => name, :location => Location.first)
+        begin
+          item.save
+        rescue Exception => e
+          binding.pry
+        end
       end
     end
   end

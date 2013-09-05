@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.14'
 gem 'pg'
 gem 'devise'
 gem 'omniauth'
@@ -13,19 +13,21 @@ gem "mail"
 gem 'comma'
 gem 'capistrano'
 gem 'foreman'
+gem "twitter-bootstrap-rails"
 gem 'fastercsv'
 gem 'thin'
 
 group :development, :test do
   gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
   gem "capybara"
-  gem 'factory_girl_rails', '1.7.0'
+  gem 'factory_girl_rails'
   gem "guard-rspec"
   gem "launchy"
   gem "capybara-webkit"
   gem 'rspec-rails'
   gem "mocha"
   gem 'forgery', '0.5.0'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -36,7 +38,7 @@ end
 
 gem "twitter-bootstrap-rails"
 gem 'therubyracer', :platform => :ruby
-gem 'sass-rails',   '~> 3.2.3'
-gem 'coffee-rails', '~> 3.2.1'
-gem 'uglifier', '>= 1.0.3'
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 

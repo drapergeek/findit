@@ -1,10 +1,11 @@
 .bundle
 Icon^M^M
 config/deploy.rb
+config/database.yml
 config/config.yml
 db/*.sqlite3
 log/*.log
 tmp/**/*
 .tddium*
 .tddium
-bin/
+bin/*
