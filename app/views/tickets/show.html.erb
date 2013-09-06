@@ -1,15 +1,10 @@
 <% title "Ticket" %>
 <div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <%= render :partial=>"/tickets/navigation" %>
-    </ul>
-  </div>          
-  <div class="content">          
+  <div class="content">
     <div class="inner">
       <table class="table">
         <tr>
-          <th><h4><%= "#{ raw @ticket.title} - #{@ticket.status} - #{time_ago_in_words(@ticket.created_at)} ago" %></h4></th>
+          <th><h4><%= "#{@ticket.title} - #{@ticket.status} - #{time_ago_in_words(@ticket.created_at)} ago" %></h4></th>
           <th></th>
           <th class="last"></th>
         </tr>

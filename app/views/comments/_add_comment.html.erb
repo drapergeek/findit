@@ -1,15 +1,10 @@
 <h2>Add Comment</h2>
 <%= render "shared/error_messages", :target=>@comment %>
-<%= semantic_form_for @comment do |f| %>
-	<%= f.inputs :name => "" do %>
-	  <%= f.input :ticket_status,:as => :select, :include_blank => false, :collection => ["New", "Open", "Stalled", "Resolved"]	 %>
-	  <%= f.input :body %>
-	  <%= f.input :reply %>
-	  <%= f.input :user_id, :as => :hidden %>
-	  <%= f.input :ticket_id, :as => :hidden %>
-    <% end %>
-
-<%= f.buttons do %>
-	<%= f.commit_button %>
-<%end%>
+<%= simple_form_for @comment do |f| %>
+  <%= f.input :ticket_status,:as => :select, :include_blank => false, :collection => ["New", "Open", "Stalled", "Resolved"]	 %>
+  <%= f.input :body %>
+  <%= f.input :reply %>
+  <%= f.input :user_id, :as => :hidden %>
+  <%= f.input :ticket_id, :as => :hidden %>
+<%= f.button :submit %>
 <% end %>

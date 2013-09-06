@@ -25,13 +25,12 @@ group :development, :test do
   gem "launchy"
   gem "capybara-webkit"
   gem 'rspec-rails'
-  gem "mocha"
   gem 'forgery', '0.5.0'
   gem 'pry-rails'
 end
 
 group :test do
-  gem "cucumber-rails"
+  gem "cucumber-rails", require: false
   gem "database_cleaner"
   gem "rake"
 end

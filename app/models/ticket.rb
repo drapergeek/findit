@@ -1,5 +1,7 @@
 class Ticket < ActiveRecord::Base
-  belongs_to :submitter, :class_name=>"User", :foreign_key=>"submitter_id"
+  STATUSES = ["New", "Open", "Stalled", "Resolved"]
+
+  belongs_to :submitter, class_name: "User"
   belongs_to :worker, :class_name=>"User", :foreign_key=>"worker_id"
   belongs_to :project
   belongs_to :area
