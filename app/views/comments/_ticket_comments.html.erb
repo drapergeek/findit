@@ -7,11 +7,11 @@
   </tr>
 
   <% comments.each do |comment| -%>
-    <tr class="<%= cycle("odd", "even") %>">
+    <tr class="<%= cycle("odd", "even") %>" data-role="comment">
       <td><%= time_ago_in_words(comment.created_at) + " ago" %></td>
       <td><%= comment.body %></td>
-      <%= user_link(comment.user) %>
+      <span data-role="comment-user"><%= user_link(comment.user) %></span>
       <td class="last"><%= "Replied" if comment.reply %></td>
-    </tr>          
+    </tr>
   <% end -%>
 </table>

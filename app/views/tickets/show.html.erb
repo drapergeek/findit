@@ -4,7 +4,7 @@
     <div class="inner">
       <table class="table">
         <tr>
-          <th><h4><%= "#{@ticket.title} - #{@ticket.status} - #{time_ago_in_words(@ticket.created_at)} ago" %></h4></th>
+          <th><h4 data-role='title'><%= "#{@ticket.title} - #{@ticket.status} - #{time_ago_in_words(@ticket.created_at)} ago" %></h4></th>
           <th></th>
           <th class="last"></th>
         </tr>

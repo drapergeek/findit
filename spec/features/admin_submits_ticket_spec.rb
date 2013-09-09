@@ -6,15 +6,29 @@ feature 'admin submit tickets' do
     submitter = create(:user, first_name: 'Sally', last_name: 'Smith')
 
     visit new_ticket_path
-    fill_in 'Title', with: 'broken monitor'
-    fill_in 'Description', with: 'The monitor in room 210 is broken'
-    select 'Sally Smith', from: 'Submitter'
-    select 'Open', from: 'Status'
-    click_button 'Create Ticket'
 
-    expect(page).to have_content 'broken monitor - Open'
-    expect(page).to have_content 'The monitor in room 210 is broken'
-    expect(page).to have_content 'Submitter: Sally Smith'
+    ticket = TicketOnPage.new(
+      title: 'broken monitor',
+      description: 'The monitor in room 210 is broken',
+      submitter: 'Sally Smith',
+      status: 'Open',
+    )
+    ticket.submit!
+
+    expect(ticket).to have_title 'broken monitor'
+    expect(ticket).to have_description 'The monitor in room 210 is broken'
+    expect(ticket).to have_status 'Open'
+    expect(ticket).to have_submitter 'Sally Smith'
+  end
+
+  scenario 'and adds a comment' do
+    log_in
+    visit new_ticket_path
+
+    ticket = TicketOnPage.new.with_basic_information
+    ticket.add_comment 'I will look at this tomorrow'
+
+    expect(ticket).to have_comment 'I will look at this tomorrow'
   end
 
   def log_in(user = create(:user))
