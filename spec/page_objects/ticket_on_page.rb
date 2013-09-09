@@ -36,7 +36,11 @@ class TicketOnPage
     click_on 'Create Ticket'
   end
 
-  def add_comment(comment_text)
+  def add_comment(comment_text, options = {})
+    if options[:status]
+      select options[:status], from: 'Ticket status'
+    end
+
     fill_in 'Body', with: comment_text
     click_on 'Create Comment'
   end
@@ -61,6 +65,10 @@ class TicketOnPage
     user = options[:user] || User.first.name
     page.has_selector?("[data-role=comment]", text: comment_text) &&
       comment_user_is_correct?(options[:user])
+  end
+
+  def closed?
+    page.has_selector?('[data-role=status]', text: 'Resolved')
   end
 
   private

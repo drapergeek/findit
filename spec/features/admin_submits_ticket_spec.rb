@@ -31,10 +31,14 @@ feature 'admin submit tickets' do
     expect(ticket).to have_comment 'I will look at this tomorrow'
   end
 
-  def log_in(user = create(:user))
-    visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Sign in'
+  scenario 'and closes the ticket with a comment' do
+    log_in
+    visit new_ticket_path
+
+    ticket = TicketOnPage.new.with_basic_information
+    ticket.add_comment 'I replaced the hard drive', status: 'Resolved'
+
+    expect(ticket).to have_comment 'I replaced the hard drive'
+    expect(ticket).to be_closed
   end
 end
