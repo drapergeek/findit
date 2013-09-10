@@ -1,25 +1,50 @@
-<%= simple_form_for @item, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :name %>
-  <%= f.input :make %>
-  <%= f.input :model %>
-  <%= f.input :processor %>
-  <%= f.input :processor_rating %>
-  <%= f.input :ram %>
-  <%= f.input :hard_drive %>
-  <%= f.input :serial %>
-  <%= f.input :vt_tag %>
-  <%= f.association :operating_system, :label => "OS" %>
-  <%= f.input :type_of_item, :collection => Item::ITEM_TYPES %>
-  <%= f.association :location, :collection => Building.all, :as => :grouped_select, :group_method => :locations %>
-  <%= f.association :user %>
-  <%= f.input :info %>
-  <%= f.input :in_use %>
-  <%= f.input :critical %>
-  <%= f.input :purchased_at, :as => :string, :input_html => { :class => 'datepicker' } %>
-  <%= f.input :warranty_expires_at, :as => :string , :input_html => { :class => 'datepicker' } %>
+<%= simple_form_for @item, html: { class: 'form-horizontal' } do |f| %>
+    <fieldset>
+      <legend>Basic Information</legend>
+      <%= f.input :name %>
+      <%= f.input :type_of_item, :collection => Item::ITEM_TYPES %>
+      <%= f.association :operating_system, :label => "OS" %>
+    </fieldset>
+
+    <fieldset>
+      <legend>Location & User</legend>
+      <%= f.association :location, :collection => Building.all, :as => :grouped_select, :group_method => :locations %>
+      <%= f.association :user %>
+    </fieldset>
+
+    <fieldset>
+      <legend>Identification</legend>
+      <%= f.input :serial %>
+      <%= f.input :vt_tag, label: 'Unique ID' %>
+    </fieldset>
+
+    <fieldset>
+      <legend>Hardware Information</legend>
+      <%= f.input :make %>
+      <%= f.input :model %>
+      <%= f.input :processor %>
+      <%= f.input :ram %>
+      <%= f.input :hard_drive %>
+    </fieldset>
+
+    <fieldset>
+      <legend>Usage Information</legend>
+      <%= f.input :in_use %>
+      <%= f.input :critical %>
+    </fieldset>
+
+    <fieldset>
+      <legend>Important Dates</legend>
+      <%= f.input :purchased_at, :as => :string, :input_html => { :class => 'datepicker' } %>
+      <%= f.input :warranty_expires_at, :as => :string , :input_html => { :class => 'datepicker' } %>
+    </fieldset>
+
+    <fieldset>
+      <legend>Additional Information</legend>
+      <%= f.input :info, label: "Additional Information", input_html: {rows: 5} %>
+    </fieldset>
+
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                items_path, :class => 'btn' %>
   </div>
 <% end %>
