@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '3.2.14'
 gem 'pg'
@@ -16,6 +17,7 @@ gem 'foreman'
 gem "twitter-bootstrap-rails"
 gem 'fastercsv'
 gem 'thin'
+gem 'rails_12factor'
 
 group :development, :test do
   gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
