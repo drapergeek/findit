@@ -17,3 +17,10 @@ It has been modified slightly to make it more generic and up to date.
   rake #This runs the full test suite minus the old Unit Tests
 ````
 
+# Deploying a new instance
+
+* heroku create
+* git push -u heroku master
+* heroku run rake db:setup
+* heroku run console - update the first user with actual information
+* set all the ENV variables from the .env file
