@@ -1,4 +1,6 @@
 class Item < ActiveRecord::Base
+  include Rails.application.routes.url_helpers
+  GRAD_SCHOOL_QR_URL = "http://graduateschool.vt.edu/graduate_school/QR/QRCodeURLContent.png?url="
   attr_protected :inventoried_at, :surplused_at
 
   has_many :ips, :dependent=>:nullify
@@ -87,7 +89,7 @@ class Item < ActiveRecord::Base
   end
 
   def qr_url
-    "http://graduateschool.vt.edu/graduate_school/QR/QRCodeURLContent.png?url=https://findit.recsports.vt.edu/items/#{name}&size=150"
+    qr_code_url_for(item_url(self))
   end
 
   def self.search(search)
@@ -223,5 +225,11 @@ class Item < ActiveRecord::Base
     @attributes.each do |key,value|
       self[key] = nil if value.blank?
     end
+  end
+
+  private
+
+  def qr_code_url_for(url)
+    "#{GRAD_SCHOOL_QR_URL}#{url}&size=150"
   end
 end
