@@ -43,4 +43,5 @@ gem 'therubyracer', :platform => :ruby
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem 'airbrake'
 
