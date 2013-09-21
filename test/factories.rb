@@ -20,13 +20,6 @@ FactoryGirl.define do
     keywords 'marketing tv,marketingtv,rectv,showoff'
   end
 
-  factory :ticket do
-    title 'Demo Title'
-    description 'Here is a text blob about what is happeneing'
-    status 'Open'
-    association :submitter, :factory => :user
-  end
-
   factory :comment do |u|
     u.body 'some latin sayings here'
     u.association :user

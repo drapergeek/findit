@@ -6,49 +6,52 @@ class Ticket < ActiveRecord::Base
   belongs_to :project
   belongs_to :area
   has_many :comments
-  
+
   validates :submitter, :presence => true
   validates :title, :description, :status, :presence => true
 
   delegate :email, :to=>:submitter, :prefix=>true, :allow_nil=>true
+  delegate :name, to: :submitter, :prefix=>true, :allow_nil=>true
   delegate :email, :to=>:worker, :prefix=>true, :allow_nil=>true
   delegate :name, :to=>:area, :prefix=>true, :allow_nil=>true
   delegate :name, :to=>:project, :prefix=>true, :allow_nil=>true
-  
+
   scope :for_user, lambda{|user_id| where("worker_id = ?", "#{user_id}")}
   scope :for_area, lambda{|area_id| where("area_id = ?", "#{area_id}")}
   scope :for_project, lambda{|project_id| where("project_id = ?", "#{project_id}")}
-  scope :unassigned, where(:worker_id => nil)
   scope :open, where(:status=>"Open")
   scope :resolved, where(:status=>"Resolved")
-  scope :unresolved, where("status != ?", "Resolved")
-  
+
   delegate :name, :to=>:area, :prefix=>true, :allow_nil=>true
-  
+
   after_create :send_emails
   after_update :notify_workers, :notify_resolved
   before_destroy :cancel_delete
+
+  def self.unresolved
+    where("status != ?", "Resolved")
+  end
 
 
   def cancel_delete
     false
   end
-  
+
   def send_emails
     if APP_CONFIG['send_new_tickets_to_group']
-       TicketMailer.send_ticket_to_admins(self).deliver
+      TicketMailer.send_ticket_to_admins(self).deliver
     end
     emails = APP_CONFIG['emails_for_new_tickets_group']
     if self.submitter && self.submitter_email && emails.to_s.include?(self.submitter_email)
-        TicketMailer.send_ticket_to_submitter(self).deliver
+      TicketMailer.send_ticket_to_submitter(self).deliver
     end
   end
-  
+
   def to_s
     title
   end
-  
-  
+
+
   #statuses - New, Open, Resolved, Stalled
 
 
@@ -61,7 +64,7 @@ class Ticket < ActiveRecord::Base
       id_number = subject.scan(/Ticket-ID#\d+/).first.split("#")[1]
       return Comment.create_from_email(id_number, from, subject, body)
     end
-    
+
     #make sure we have a user
     if from
       from = User.find_or_create_by_email(from)
@@ -104,15 +107,15 @@ class Ticket < ActiveRecord::Base
       logger.info "There was an error in creating the ticket #{exc.message} !"
     end
   end
-  
+
   private
-  
+
   def notify_workers
     if self.worker_id_changed?
       TicketMailer.send_worker_changed_notification(self).deliver
     end
   end
-  
+
   def notify_resolved
     if self.status_changed?
       if self.status == "Resolved"
@@ -120,6 +123,6 @@ class Ticket < ActiveRecord::Base
       end
     end
   end
-  
+
 
 end

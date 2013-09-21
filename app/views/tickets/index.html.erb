@@ -1,15 +1,10 @@
 <% title "Tickets" %>	
 <div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-		<%= render :partial=>"navigation" %>
-    </ul>
-  </div>          
-  <div class="content">          
+  <div class="content">
+    <h4>Tickets</h4> <%= link_to " New Ticket", new_ticket_path, class: 'icon-plus icon-bigger pull-right inline' %>
     <div class="inner">
-	<%= render :partial=>"tickets", :locals => { :tickets => @tickets }  %>
-<p><%= link_to "New Ticket", new_ticket_path %></p>
-</div>
-</div>
+      <%= render :partial=>"tickets", :locals => { :tickets => @tickets }  %>
+    </div>
+  </div>
 </div>
 <% content_for :sidebar, render(:partial=>'tickets/sidebar') %>
