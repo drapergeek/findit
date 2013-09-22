@@ -17,6 +17,7 @@ gem 'foreman'
 gem "twitter-bootstrap-rails"
 gem 'fastercsv'
 gem 'thin'
+gem 'unicorn'
 
 group :production do
   gem 'rails_12factor'
@@ -43,7 +44,6 @@ group :test do
 end
 
 gem "twitter-bootstrap-rails"
-gem 'therubyracer', :platform => :ruby
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
