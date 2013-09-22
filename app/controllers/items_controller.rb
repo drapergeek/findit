@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
         @items = Item.search(params[:search]).in_use.order(sort_column + " " +sort_direction)
       end
     end
-      @title = "Items"
+    @title = "Items"
     respond_to do |format|
       format.html {@items = @items.paginate(:per_page=>20, :page=>params[:page]) }
       format.csv {
@@ -26,32 +26,32 @@ class ItemsController < ApplicationController
         else
           send_data(@items.all.to_comma(params[:csv_type].to_sym))
         end
-        }
+      }
     end
-  
-  #  if params[:type]
-   #   @items = @items.where(:type_of_item=>params[:type])
-  #  end
- 
+
+    #  if params[:type]
+    #   @items = @items.where(:type_of_item=>params[:type])
+    #  end
+
   end
 
-  
+
   def not_checked
     @items = Item.not_inventoried_recently.paginate(:per_page=>100, :page=>params[:page])
     render :template=>'items/index'
   end
-  
+
   def show
     @item = Item.find_by_name(params[:id])
   end
-  
+
   def new
     @item = Item.new
     @item.in_use = true
   end
-  
+
   def create
-    @item = Item.new(params[:item])
+    @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "Successfully created item."
       redirect_to @item
@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @item = Item.find_by_name(params[:id])
     unless @item
@@ -67,24 +67,24 @@ class ItemsController < ApplicationController
       redirect_to root_url
     end
   end
-  
+
   def update
     @item = Item.find_by_name(params[:id])
-    if @item.update_attributes(params[:item])
+    if @item.update_attributes(item_params)
       flash[:notice] = "Successfully updated item."
       redirect_to @item
     else
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @item = Item.find_by_name(params[:id])
     @item.destroy
     flash[:notice] = "Successfully destroyed item."
     redirect_to items_url
   end
-  
+
   def add_ip
     @item = Item.find_by_name(params[:item])
     if params[:ip_selection].blank?
@@ -98,7 +98,7 @@ class ItemsController < ApplicationController
       redirect_to @item
     end
   end
-  
+
   def remove_ip
     @ip = Ip.find_by_id(params[:ip])
     @item = Item.find_by_id(@ip.item)
@@ -110,19 +110,19 @@ class ItemsController < ApplicationController
     end
     redirect_to @item
   end
-  
+
   def remove_dns_name
     @dns = DnsName.find(params[:name]).destroy
     redirect_to :back
   end
-  
+
   def mark_as_inventoried
     @item = Item.find_by_name(params[:id])
     @item.mark_as_inventoried
     flash[:notice] = "Item is inventoried as of #{@item.inventoried_at}"
     redirect_to @item
   end
-  
+
   def surplus
     @item = Item.find_by_name(params[:id])
     if @item.mark_as_surplused
@@ -132,14 +132,43 @@ class ItemsController < ApplicationController
     end
     redirect_to @item
   end
-  
-  
+
+
   private
   def sort_column
     Item.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
-  
+
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
+  def item_params
+    params.require(:item).permit(permitted_params)
+  end
+
+  def permitted_params
+    [
+      :name,
+      :make,
+      :model,
+      :processor,
+      :ram,
+      :hard_drive,
+      :serial,
+      :vt_tag,
+      :purchased_at,
+      :warranty_expires_at,
+      :recieved_at,
+      :os,
+      :type_of_item,
+      :operating_system_id,
+      :location_id,
+      :user_id,
+      :info,
+      :in_use,
+      :critical,
+      :priority,
+    ]
   end
 end

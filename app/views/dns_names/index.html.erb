@@ -31,7 +31,7 @@
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", dns_name_path(dns_name) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_dns_name_path(dns_name) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", dns_name_path(dns_name), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= destroy_link(dns_name) %>
           </td>
         </tr>          
         <% end -%>

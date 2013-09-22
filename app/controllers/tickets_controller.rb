@@ -25,7 +25,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(params[:ticket])
+    @ticket = Ticket.new(ticket_params)
     if @ticket.save
       redirect_to @ticket
     else
@@ -47,7 +47,7 @@ class TicketsController < ApplicationController
 
   def update
     @ticket = Ticket.find(params[:id])
-    if @ticket.update_attributes(params[:ticket])
+    if @ticket.update_attributes(ticket_params)
       redirect_to @ticket, :notice  => "Successfully updated ticket."
     else
       render :action => 'edit'
@@ -63,5 +63,15 @@ class TicketsController < ApplicationController
     else
       redirect_to tickets_url, :notice => "You can not delete Tickets"
     end
+  end
+
+  private
+
+  def ticket_params
+    params.require(:ticket).permit(permitted_params)
+  end
+
+  def permitted_params
+    [:title, :description, :status, :submitter_id]
   end
 end

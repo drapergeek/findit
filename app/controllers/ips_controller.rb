@@ -12,7 +12,7 @@ class IpsController < ApplicationController
   end
 
   def create
-    @ip = Ip.new(params[:ip])
+    @ip = Ip.new(ip_params)
     if @ip.save
       flash[:notice] = "Successfully created ip #{@ip.number}"
       redirect_to new_ip_path
@@ -27,7 +27,7 @@ class IpsController < ApplicationController
 
   def update
     @ip = Ip.find(params[:id])
-    if @ip.update_attributes(params[:ip])
+    if @ip.update_attributes(ip_params)
       flash[:notice] = "Successfully updated ip."
       redirect_to ips_path
     else
@@ -40,5 +40,11 @@ class IpsController < ApplicationController
     @ip.destroy
     flash[:notice] = "Successfully destroyed ip."
     redirect_to ips_path
+  end
+
+  private
+
+  def ip_params
+    params.require(:ip).permit(:number, :info, :building_id)
   end
 end

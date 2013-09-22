@@ -1,6 +1,6 @@
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><b class="caret"></b></a>
   <ul class="dropdown-menu">
-    <%= link_to "Sign Out", sign_out_path, method: :delete %>
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
   </ul>
 </li>

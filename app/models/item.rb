@@ -1,7 +1,6 @@
 class Item < ActiveRecord::Base
   include Rails.application.routes.url_helpers
   GRAD_SCHOOL_QR_URL = "http://graduateschool.vt.edu/graduate_school/QR/QRCodeURLContent.png?url="
-  attr_protected :inventoried_at, :surplused_at
 
   has_many :ips, :dependent=>:nullify
   has_many :installations, :dependent=>:destroy
@@ -96,7 +95,7 @@ class Item < ActiveRecord::Base
     if search
       where('name LIKE ? OR vt_tag like ? or model like ? or serial like ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%")
     else
-      scoped
+      all
     end
   end
 

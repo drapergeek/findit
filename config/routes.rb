@@ -1,12 +1,5 @@
 Findit::Application.routes.draw do
   devise_for :users
-  devise_scope :user do
-    get 'sign_in' => 'devise/sessions#new', :as => :sign_in
-    post 'sign_in' => 'devise/sessions#create', :as => :sign_in
-    delete 'sign_out' => 'devise/sessions#destroy', :as => :sign_out
-    get 'register' => 'devise/registrations#new'
-    post 'register' => 'devise/registrations#create'
-  end
   resources :users, :except => [:new, :create]
   resources :allowed_users, :only => :create
   resources :comments
@@ -50,6 +43,5 @@ Findit::Application.routes.draw do
     end
   end
   resources :incoming_email, :only=>[:index]
-  match "mail", :to=>"incoming_email#index", :as=>"mail"
   root :to=>"items#index", :type=>"Desktop"
 end

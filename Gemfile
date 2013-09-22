@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '3.2.14'
+gem 'rails', '4.0.0'
 gem 'pg'
 gem 'devise'
 gem 'omniauth'
@@ -17,7 +17,10 @@ gem 'foreman'
 gem "twitter-bootstrap-rails"
 gem 'fastercsv'
 gem 'thin'
-gem 'rails_12factor'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem "sqlite3", :platform => [:ruby, :mswin, :mingw]

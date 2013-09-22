@@ -25,9 +25,5 @@
 <div class="form-actions">
   <%= link_to 'Back', softwares_path, :class => 'btn'  %>
   <%= link_to 'Edit', edit_software_path(@software), :class => 'btn' %>
-  <%= link_to 'Destroy',
-              software_path(@software),
-              :method => 'delete',
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-              :class => 'btn btn-danger' %>
+  <%= destroy_link(@software) %>
 </div>

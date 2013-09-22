@@ -51,6 +51,7 @@ Findit::Application.configure do
    config.assets.compress = true
 
   # Don't fallback to assets pipeline
+   config.eager_load = true
    config.assets.compile = false
 
   # Generate digests for assets URLs

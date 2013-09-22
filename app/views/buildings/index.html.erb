@@ -11,11 +11,7 @@
         <td><%= building.name %></td>
         <td>
           <%= link_to 'Edit', edit_building_path(building), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy',
-                      building_path(building),
-                      :method => :delete,
-                      :confirm => 'Are you sure?',
-                      :class => 'btn btn-mini btn-danger' %>
+          <%= destroy_link(building_path(building)) %>
         </td>
       </tr>
     <% end %>

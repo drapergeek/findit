@@ -7,9 +7,6 @@ Findit::Application.configure do
   # and recreated between test runs.  Don't rely on the data there!
   config.cache_classes = true
 
-  # Log error messages when you accidentally call methods on nil.
-  config.whiny_nils = true
-
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
@@ -39,6 +36,7 @@ Findit::Application.configure do
   #
   # # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
    config.assets.allow_debugging = true
+   config.eager_load = false
 
    config.action_mailer.default_url_options = { :host => 'localhost:3000' } 
 end

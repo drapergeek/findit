@@ -1,5 +1,5 @@
 <h4>Users</h4>
-<%= link_to "Add New User", new_basic_user_path, class: 'icon-plus pull-right inline' %>
+<%= link_to "Add New User", '#', class: 'icon-plus pull-right inline' %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -14,11 +14,12 @@
         <td><%= user.email %></td>
         <td>
           <%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', user_path(user), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-          <%= link_to 'Allow Sign In', allowed_users_path(:id => user.id),
-            :method => :post,
-            :confirm => 'Are you sure you want to allow this user to sign in?',
-            :class => 'btn btn-mini btn-danger' %>
+          <%= destroy_link(user) %>
+          <%= link_to 'Allow Sign In',
+            allowed_users_path(id: user.id),
+            method: :post,
+            data: {confirm: 'Are you sure you want to allow this user to sign in?'},
+            class: 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>

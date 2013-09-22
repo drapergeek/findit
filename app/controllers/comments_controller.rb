@@ -12,7 +12,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(params[:comment])
+    @comment = Comment.new(comment_params)
+    @comment.user = current_user
     if @comment.save
       redirect_to @comment.ticket, :notice => "Successfully added comment."
     else
@@ -33,7 +34,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    if @comment.update_attributes(params[:comment])
+    if @comment.update_attributes(comment_params)
       redirect_to @comment, :notice  => "Successfully updated comment."
     else
       render :action => 'edit'
@@ -44,5 +45,11 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to comments_url, :notice => "Successfully destroyed comment."
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:subject, :body, :ticket_id, :reply, :ticket_status)
   end
 end

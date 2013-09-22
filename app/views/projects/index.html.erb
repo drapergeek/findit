@@ -13,11 +13,7 @@
         <td><%= project.keywords %></td>
         <td>
           <%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy',
-                      project_path(project),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
+          <%= destroy_link(project) %>
         </td>
       </tr>
     <% end %>

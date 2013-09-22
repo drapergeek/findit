@@ -1,6 +1,4 @@
 class IncomingEmail < Object
-  attr_accessor :body, :from, :subject, :mail_object
-
   def initialize(input)
     @mail_object = Mail.read_from_string(input)
     if @mail_object.multipart?

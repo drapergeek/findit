@@ -23,9 +23,5 @@
               ips_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_ip_path(@ip), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              ip_path(@ip),
-              :method => 'delete',
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-              :class => 'btn btn-danger' %>
+  <%= destroy_link(@ip) %>
 </div>

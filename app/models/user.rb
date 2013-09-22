@@ -6,16 +6,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :login, :first_name, :last_name,:email
   has_many :items
   has_many :tickets
   belongs_to :area
   has_many :comments
 
-  scope :workers, where(:can_login => true)
-
   validates_uniqueness_of :login, :if=>lambda{!self.login.nil?}
+
+  def self.workers
+    where(can_login: true)
+  end
+
 
   def full_name
     [first_name, last_name].join(" ")

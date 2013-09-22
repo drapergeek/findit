@@ -8,7 +8,7 @@ class OperatingSystemsController < ApplicationController
   end
 
   def create
-    @operating_system = OperatingSystem.new(params[:operating_system])
+    @operating_system = OperatingSystem.new(operating_system_params)
     if @operating_system.save
       flash[:notice] = "Successfully created operating system."
       redirect_to operating_systems_path
@@ -23,7 +23,7 @@ class OperatingSystemsController < ApplicationController
 
   def update
     @operating_system = OperatingSystem.find(params[:id])
-    if @operating_system.update_attributes(params[:operating_system])
+    if @operating_system.update_attributes(operating_system_params)
       flash[:notice] = "Successfully updated operating system."
       redirect_to operating_systems_path
     else
@@ -36,5 +36,11 @@ class OperatingSystemsController < ApplicationController
     @operating_system.destroy
     flash[:notice] = "Successfully destroyed operating system."
     redirect_to operating_systems_path
+  end
+
+  private
+
+  def operating_system_params
+    params.require(:operating_system).permit(:name, :info)
   end
 end

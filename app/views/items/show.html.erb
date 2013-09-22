@@ -68,8 +68,5 @@
 
 <div class="form-actions">
   <%= link_to "Edit", edit_item_path(@item), :class => 'btn' %>
-  <%= link_to "Destroy", item_path(@item),
-    :method => 'delete',
-    :confirm => 'Are you sure?',
-    :class => 'btn btn-danger' %>
+  <%= destroy_link(item_path(@item)) %>
   </div>

@@ -6,9 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 #
 
-if defined?(Bundler)
-  Bundler.require *Rails.groups(:assets => %w(development test))
-end
+Bundler.require(:default, Rails.env)
 
 module Findit
   class Application < Rails::Application
@@ -45,5 +43,6 @@ module Findit
     config.filter_parameters += [:password]
     config.assets.enabled = true
     config.assets.version = '1.0'
+    config.secret_key_base = 'findit_key'
   end
 end

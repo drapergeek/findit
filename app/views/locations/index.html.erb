@@ -12,11 +12,7 @@
         <td>
           <%= link_to 'Edit',
                       edit_location_path(location), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy',
-                      location_path(location),
-                      :method => :delete,
-                      :confirm =>'Are you sure?',
-                      :class => 'btn btn-mini btn-danger' %>
+          <%= destroy_link(location) %>
         </td>
       </tr>
     <% end %>

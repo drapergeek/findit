@@ -1,23 +1,23 @@
 class Comment < ActiveRecord::Base
   belongs_to :ticket
   belongs_to :user
-  
+
   validates :ticket, :user, :presence => true
   validates :body, :presence => true
-  
+
   delegate :name, :to=>:user, :prefix=>true, :allow_nil=>true
   after_create :send_emails
-  
+
   after_save :update_ticket_status
-  
+
   def send_emails
     if self.reply
       if self.user == self.ticket.worker
-       TicketMailer.send_reply_comment(self, :send_to_submitter=>true).deliver
+        TicketMailer.send_reply_comment(self, :send_to_submitter=>true).deliver
       elsif self.user == self.ticket.submitter
-       TicketMailer.send_reply_comment(self, :send_to_worker=>true).deliver
+        TicketMailer.send_reply_comment(self, :send_to_worker=>true).deliver
       else
-       TicketMailer.send_reply_comment(self, :send_to_worker=>true, :send_to_submitter=>true).deliver
+        TicketMailer.send_reply_comment(self, :send_to_worker=>true, :send_to_submitter=>true).deliver
       end
     end
   end
@@ -34,23 +34,20 @@ class Comment < ActiveRecord::Base
     end
     ticket.comments.create!(:user=>user, :subject=>subject, :body=>body, :reply=>true) 
   end
-  
+
   def ticket_status
     self.ticket.status unless ticket.nil?
   end
-  
+
   def ticket_status=(status)
     @status = status
   end
-  
+
   private
-  
+
   def update_ticket_status
     if self.ticket && @status && self.ticket.status != @status
       self.ticket.update_attributes(:status=>@status)
     end
   end
-  
-  
-
 end
