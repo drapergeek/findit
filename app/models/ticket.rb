@@ -16,12 +16,6 @@ class Ticket < ActiveRecord::Base
   delegate :name, :to=>:area, :prefix=>true, :allow_nil=>true
   delegate :name, :to=>:project, :prefix=>true, :allow_nil=>true
 
-  scope :for_user, lambda{|user_id| where("worker_id = ?", "#{user_id}")}
-  scope :for_area, lambda{|area_id| where("area_id = ?", "#{area_id}")}
-  scope :for_project, lambda{|project_id| where("project_id = ?", "#{project_id}")}
-  scope :open, where(:status=>"Open")
-  scope :resolved, where(:status=>"Resolved")
-
   delegate :name, :to=>:area, :prefix=>true, :allow_nil=>true
 
   after_create :send_emails
@@ -32,6 +26,9 @@ class Ticket < ActiveRecord::Base
     where("status != ?", "Resolved")
   end
 
+  def self.for_area(area)
+    where(area: area)
+  end
 
   def cancel_delete
     false
