@@ -2,20 +2,7 @@ class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    logger.info Rails.env
-    if params[:in_use]=="false"
-      if params[:no_priority]=="true"
-        @items = Item.search(params[:search]).order(sort_column + " " +sort_direction).no_priority
-      else
-        @items = Item.search(params[:search]).order(sort_column + " " +sort_direction)
-      end
-    else
-      if params[:no_priority]=="true"
-        @items = Item.search(params[:search]).in_use.order(sort_column + " " +sort_direction).no_priority
-      else
-        @items = Item.search(params[:search]).in_use.order(sort_column + " " +sort_direction)
-      end
-    end
+    @items = Item.all
     @title = "Items"
     respond_to do |format|
       format.html {@items = @items.paginate(:per_page=>20, :page=>params[:page]) }

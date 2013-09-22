@@ -87,12 +87,6 @@ class ItemTest < ActiveSupport::TestCase
     assert item.in_use == false
   end
 
-  test "qrl_code_url gives a url that includes certain information" do
-    item = create(:item) 
-    assert item.qr_url.include?("http://graduateschool.vt.edu")
-    assert item.qr_url.include?("https://findit.recsports.vt.edu/items/#{item.name}")
-  end
-
   def new_valid_item
     return Item.new(:type_of_item=>"Desktop")
   end

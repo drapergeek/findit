@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130905202501) do
+ActiveRecord::Schema.define(version: 20130922173614) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -80,14 +80,14 @@ ActiveRecord::Schema.define(version: 20130905202501) do
     t.datetime "recieved_at"
     t.string   "os"
     t.string   "type_of_item"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "operating_system_id"
     t.integer  "location_id"
     t.datetime "inventoried_at"
     t.integer  "user_id"
     t.text     "info"
-    t.boolean  "in_use"
+    t.boolean  "in_use",              default: true, null: false
     t.datetime "surplused_at"
     t.boolean  "critical"
     t.integer  "priority"

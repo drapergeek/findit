@@ -27,13 +27,7 @@ Findit::Application.routes.draw do
       get 'surplus'
     end
   end
-  resources :reports, :only=>:index do
-    collection do
-      get :dns
-      get :proc_ratings
-      get :upgrades
-    end
-  end
+
   resources :ips, :except => [:show]
   resources :pages
   resources :installations do
