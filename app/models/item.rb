@@ -1,5 +1,9 @@
 class Item < ActiveRecord::Base
   include Rails.application.routes.url_helpers
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   GRAD_SCHOOL_QR_URL = "http://graduateschool.vt.edu/graduate_school/QR/QRCodeURLContent.png?url="
 
   has_many :ips, :dependent=>:nullify
@@ -78,10 +82,6 @@ class Item < ActiveRecord::Base
 
   ###END CSV DEFINITIONS
 
-
-  def to_param
-    name  
-  end
 
   def dns_safe_name
     name.sub("_","-")

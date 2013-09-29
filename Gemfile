@@ -18,6 +18,7 @@ gem "twitter-bootstrap-rails"
 gem 'fastercsv'
 gem 'thin'
 gem 'unicorn'
+gem 'friendly_id', '5.0.0.rc2'
 
 group :production do
   gem 'rails_12factor'

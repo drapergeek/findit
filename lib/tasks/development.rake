@@ -18,9 +18,6 @@ namespace :app do
         FactoryGirl.create(:user)
       end
 
-      admin = FactoryGirl.create(:user, :email => 'admin@example.com')
-      puts "Admin user: #{admin.email}/ #{admin.password}"
-
       3.times do
         building = FactoryGirl.create(:building)
         20.times do

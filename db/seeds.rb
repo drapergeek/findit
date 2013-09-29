@@ -8,8 +8,8 @@
 user = User.new(first_name: 'Admin',
                 last_name: 'User',
                 email: 'admin@example.com',
-                password: 'testtest',
-                password_confirmation: 'testtest')
+                password: 'password',
+                password_confirmation: 'password')
 
 user.can_login = true
 user.save

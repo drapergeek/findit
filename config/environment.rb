@@ -16,4 +16,3 @@ ActionMailer::Base.smtp_settings = {
 
 ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
 Rails.application.routes.default_url_options[:host] = ENV['URL']
-Rails.application.routes.default_url_options[:protocl] = ENV['PROTOCOL'] || 'http'
