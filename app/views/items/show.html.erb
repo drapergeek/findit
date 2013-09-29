@@ -63,6 +63,8 @@
     <li><%= @item.processor %></li>
     <li><%= @item.ram %></li>
   </ul>
+
+  <%= link_to 'Print Label', label_path(@item) %>
 <% end %>
 
 <div class="form-actions">

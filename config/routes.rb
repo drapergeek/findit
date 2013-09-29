@@ -28,6 +28,8 @@ Findit::Application.routes.draw do
     end
   end
 
+  resources :labels, only: [:show]
+
   resources :ips, :except => [:show]
   resources :pages
   resources :installations do

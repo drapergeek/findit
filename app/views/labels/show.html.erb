@@ -1,0 +1,25 @@
+<div class='row'>
+  <div class='span7'>
+    <h1 class='label-header'>Lockhart Elementary School</h1>
+  </div>
+</div>
+<div class='row'>
+  <div class='span2 label-qrcode'>
+    <%= image_tag @item.qr_url %>
+  </div>
+  <div class='span3 label-information'>
+    <ul class="unstyled">
+      <li>Name: <%= @item.name %></li>
+      <li>User: <%= @item.user_name %></li>
+    </ul>
+    <ul class="unstyled">
+      <li>Processor: <%= @item.processor %></li>
+      <li>Ram: <%= @item.ram %></li>
+    </ul>
+  </div>
+  <% if @image_url %>
+    <div class='span2 label-image'>
+      <img src="<%= @image_url %>" class='label-image'>
+    </div>
+  <% end %>
+</div>
