@@ -202,14 +202,6 @@ class Item < ActiveRecord::Base
     end
   end
 
-  def primary_ip
-    if ips.empty?
-      "Wifi Only"
-    else
-      ips.first.number
-    end
-  end
-
   def first_ip
     if ips.empty?
       nil
