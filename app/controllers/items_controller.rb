@@ -5,9 +5,8 @@ class ItemsController < ApplicationController
     @items = Item.all
     @title = "Items"
     respond_to do |format|
-      format.html {@items = @items.paginate(:per_page=>20, :page=>params[:page]) }
+      format.html
       format.csv {
-        #did we get a format
         if params[:csv_type].blank?
           send_data(@items.all.to_comma)
         else
@@ -15,11 +14,6 @@ class ItemsController < ApplicationController
         end
       }
     end
-
-    #  if params[:type]
-    #   @items = @items.where(:type_of_item=>params[:type])
-    #  end
-
   end
 
 
