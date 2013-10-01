@@ -1,0 +1,42 @@
+.minimal .content {
+  margin-left: -20px;
+}
+
+.minimal.container{
+  margin-top: -55px;
+}
+
+h1.label-header{
+  font-size: 30px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+.label-qrcode{
+  margin-right: -30px;
+}
+
+.label-qrcode img{
+  height: 180px;
+  width: 180px;
+}
+
+.label-information{
+  margin-top: 20px;
+  margin-left: -35px;
+}
+
+.minimal li{
+  font-size: 23px;
+  line-height: 25px;
+}
+
+
+div.label-image{
+  margin-left:-5px;
+}
+
+img.label-image{
+  margin-top: 30px;
+  height: 90px;
+  width: 90px;
+}

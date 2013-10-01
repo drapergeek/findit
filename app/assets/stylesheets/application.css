@@ -10,42 +10,8 @@
  *
  *= require_self
  *= require jquery.ui.all
+ *= require minimal
  *= require bootstrap_and_overrides
 */
 
 body { padding-top: 60px; }
-
-.minimal .content {
-  margin-left: -20px;
-}
-
-.minimal.container{
-  margin-top: -55px;
-}
-
-h1.label-header{
-  font-size: 20px;
-  margin-left: 20px;
-  margin-bottom: -5px;
-}
-.label-qrcode{
-  margin-right: -35px;
-}
-
-.label-information{
-  margin-top: 20px;
-  margin-left: -35px;
-}
-
-.minimal{
-  font-size: 18px;
-}
-div.label-image{
-  margin-left:0px;
-}
-
-img.label-image{
-  margin-top: 20px;
-  height: 90px;
-  width: 90px;
-}
