@@ -109,7 +109,6 @@ GEM
     guard-rspec (3.0.3)
       guard (>= 1.8)
       rspec (~> 2.13)
-    hashie (2.0.5)
     highline (1.6.19)
     hike (1.2.3)
     i18n (0.6.5)
@@ -146,13 +145,6 @@ GEM
       net-ssh (>= 2.6.5)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    omniauth (1.1.4)
-      hashie (>= 1.2, < 3)
-      rack
-    omniauth-cas (1.0.4)
-      addressable (~> 2.3)
-      nokogiri (~> 1.6)
-      omniauth (~> 1.1.0)
     orm_adapter (0.4.0)
     pg (0.17.0)
     polyglot (0.3.3)
@@ -282,8 +274,6 @@ DEPENDENCIES
   jquery-ui-rails
   launchy
   mail
-  omniauth
-  omniauth-cas
   pg
   pry-rails
   rails (= 4.0.0)

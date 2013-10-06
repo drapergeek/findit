@@ -1,11 +1,7 @@
 class User < ActiveRecord::Base
-
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
   has_many :items
   has_many :tickets
   belongs_to :area
@@ -16,7 +12,6 @@ class User < ActiveRecord::Base
   def self.workers
     where(can_login: true)
   end
-
 
   def full_name
     [first_name, last_name].join(" ")
@@ -31,7 +26,7 @@ class User < ActiveRecord::Base
       "No Info"
     end
   end
-  
+
   def reverse_name
     [last_name, first_name].join(", ")
   end

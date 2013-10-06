@@ -4,8 +4,6 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 gem 'pg'
 gem 'devise'
-gem 'omniauth'
-gem 'omniauth-cas'
 gem "simple_form"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
