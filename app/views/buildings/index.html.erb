@@ -3,18 +3,29 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Info</th>
     </tr>
   </thead>
   <tbody>
     <% @buildings.each do |building| %>
       <tr>
         <td><%= building.name %></td>
+        <td><%= building.info %></td>
         <td>
-          <%= link_to 'Edit', edit_building_path(building), :class => 'btn btn-mini' %>
+          <%= link_to 'Edit', buildings_path(building_id: building), :class => 'btn btn-mini' %>
           <%= destroy_link(building_path(building)) %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to 'New', new_building_path, :class => 'btn btn-primary' %>
+
+<%= simple_form_for @building do |f| %>
+  <%= f.input :name %>
+  <%= f.input :info %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                buildings_path, :class => 'btn' %>
+  </div>
+<% end %>

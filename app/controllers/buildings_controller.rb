@@ -1,40 +1,35 @@
 class BuildingsController < ApplicationController
   def index
     @buildings = Building.all
-  end
-
-  def new
-    @building = Building.new
+    @building = new_or_existing_building
   end
 
   def create
-    @building = Building.new(params[:building])
-    if @building.save
-      flash[:notice] = "Successfully created building."
-      redirect_to buildings_path
-    else
-      render :action => 'new'
-    end
-  end
-
-  def edit
-    @building = Building.find(params[:id])
+    Building.create(building_params)
+    redirect_to buildings_path, notice: 'Created!'
   end
 
   def update
-    @building = Building.find(params[:id])
-    if @building.update_attributes(params[:building])
-      flash[:notice] = "Successfully updated building."
-      redirect_to buildings_path
-    else
-      render :action => 'edit'
-    end
+    Building.find(params[:id]).update_attributes(building_params)
+    redirect_to buildings_path, notice: 'Updated!'
   end
 
   def destroy
-    @building = Building.find(params[:id])
-    @building.destroy
-    flash[:notice] = "Successfully destroyed building."
-    redirect_to buildings_path
+    Building.find(params[:id]).destroy
+    redirect_to buildings_path, notice: 'Destroyed!'
+  end
+
+  private
+
+  def building_params
+    params.require(:building).permit(:name, :info)
+  end
+
+  def new_or_existing_building
+    if params[:building_id]
+      Building.find(params[:building_id])
+    else
+      Building.new
+    end
   end
 end
