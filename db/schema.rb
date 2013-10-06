@@ -13,21 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20130929175343) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "areas", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "keywords"
   end
 
   create_table "buildings", force: true do |t|
     t.string   "name"
     t.text     "info"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "comments", force: true do |t|
@@ -35,15 +32,15 @@ ActiveRecord::Schema.define(version: 20130929175343) do
     t.string   "subject"
     t.text     "body"
     t.integer  "ticket_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "reply"
   end
 
   create_table "dns_names", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "item_id"
   end
 
@@ -61,22 +58,22 @@ ActiveRecord::Schema.define(version: 20130929175343) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "incoming_emails", force: true do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "installations", force: true do |t|
     t.integer  "software_id"
     t.integer  "item_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ips", force: true do |t|
     t.string   "number"
     t.text     "info"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "item_id"
     t.integer  "building_id"
   end
@@ -96,8 +93,8 @@ ActiveRecord::Schema.define(version: 20130929175343) do
     t.datetime "recieved_at"
     t.string   "os"
     t.string   "type_of_item"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "operating_system_id"
     t.integer  "location_id"
     t.datetime "inventoried_at"
@@ -116,21 +113,21 @@ ActiveRecord::Schema.define(version: 20130929175343) do
     t.string   "name"
     t.text     "info"
     t.integer  "building_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "operating_systems", force: true do |t|
     t.string   "name"
     t.text     "info"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "projects", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "keywords"
   end
 
@@ -141,8 +138,8 @@ ActiveRecord::Schema.define(version: 20130929175343) do
     t.integer  "number_of_licenses"
     t.string   "storage_location"
     t.text     "info"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "operating_system_id"
   end
 
@@ -157,8 +154,8 @@ ActiveRecord::Schema.define(version: 20130929175343) do
     t.integer  "worker_id"
     t.integer  "project_id"
     t.integer  "area_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -167,8 +164,8 @@ ActiveRecord::Schema.define(version: 20130929175343) do
     t.string   "last_name"
     t.datetime "last_login"
     t.string   "last_login_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "can_login"
     t.string   "email"
     t.string   "encrypted_password",     default: "", null: false

@@ -10,23 +10,22 @@ gem 'jquery-ui-rails'
 gem "will_paginate"
 gem "mail"
 gem 'comma'
-gem 'capistrano'
 gem 'foreman'
 gem "twitter-bootstrap-rails"
-gem 'fastercsv'
-gem 'thin'
 gem 'unicorn'
 gem 'friendly_id', '5.0.0.rc2'
+gem "twitter-bootstrap-rails"
+gem 'coffee-rails'
+gem 'uglifier'
+gem 'airbrake'
 
 group :production do
   gem 'rails_12factor'
 end
 
 group :development, :test do
-  gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
   gem "capybara"
   gem 'factory_girl_rails'
-  gem "guard-rspec"
   gem "launchy"
   gem "capybara-webkit"
   gem 'rspec-rails'
@@ -41,10 +40,3 @@ group :test do
   gem "rake"
   gem 'simplecov', require: false
 end
-
-gem "twitter-bootstrap-rails"
-gem 'sass-rails'
-gem 'coffee-rails'
-gem 'uglifier'
-gem 'airbrake'
-
