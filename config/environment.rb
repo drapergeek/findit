@@ -7,12 +7,15 @@ require "development_mail_interceptor"
 # Initialize the rails application
 Findit::Application.initialize!
 
-
-ActionMailer::Base.smtp_settings = {
-  :address              => 'inbound.smtp.vt.edu',
-  :port                 => 25,
-  :domain               =>"recsports.vt.edu"
-}
-
 ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
 Rails.application.routes.default_url_options[:host] = ENV['URL']
+
+ActionMailer::Base.smtp_settings = {
+  :address        => 'smtp.sendgrid.net',
+  :port           => '587',
+  :authentication => :plain,
+  :user_name      => ENV['SENDGRID_USERNAME'],
+  :password       => ENV['SENDGRID_PASSWORD'],
+  :domain         => 'heroku.com',
+  :enable_starttls_auto => true
+}

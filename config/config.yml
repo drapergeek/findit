@@ -10,6 +10,7 @@ development:
   send_emails_to_owner_on_reply: true
   default_url_host: localhost:3000
   default_url_protocol: http
+  email_host: emailhostexample.com
 
 test:
     default_user: user_name

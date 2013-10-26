@@ -1,5 +1,6 @@
 Findit::Application.routes.draw do
   devise_for :users
+  root :to=>"items#index", :type=>"Desktop"
   resources :users, :except => [:new, :create]
   resources :allowed_users, :only => :create
   resources :comments
@@ -38,6 +39,4 @@ Findit::Application.routes.draw do
       get 'uninstall_software'
     end
   end
-  resources :incoming_email, :only=>[:index]
-  root :to=>"items#index", :type=>"Desktop"
 end
