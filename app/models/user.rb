@@ -13,6 +13,16 @@ class User < ActiveRecord::Base
     where(can_login: true)
   end
 
+  def self.find_or_create_with_name_and_email(name, email)
+    user = User.where(email: email).first
+
+    unless user
+      user = create_user_without_login_abilities(name, email)
+    end
+
+    user
+  end
+
   def full_name
     [first_name, last_name].join(" ")
   end
@@ -70,5 +80,19 @@ class User < ActiveRecord::Base
     self.password = random_string
     self.password_confirmation = random_string
     save
+  end
+
+  private
+
+  def self.create_user_without_login_abilities(name, email)
+    name = name.split(' ')
+    password = SecureRandom.uuid
+
+    user = User.create!(first_name: name[0],
+                        last_name: name[1],
+                        email: email,
+                        can_login: false,
+                        password: password,
+                        password_confirmation: password)
   end
 end

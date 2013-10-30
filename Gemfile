@@ -3,6 +3,7 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 gem 'pg'
+gem 'griddler'
 gem 'devise'
 gem "simple_form"
 gem 'jquery-rails'
@@ -32,6 +33,10 @@ group :development, :test do
   gem 'forgery', '0.5.0'
   gem 'pry-rails'
   gem 'dotenv-rails'
+  gem 'awesome_print'
+  gem 'rspec-fire'
+  gem 'shoulda-matchers'
+  gem 'email_spec'
 end
 
 group :test do

@@ -18,8 +18,7 @@ class Ticket < ActiveRecord::Base
 
   delegate :name, :to=>:area, :prefix=>true, :allow_nil=>true
 
-  after_create :send_emails
-  after_update :notify_workers, :notify_resolved
+  after_update :notify_resolved
   before_destroy :cancel_delete
 
   def self.unresolved
@@ -30,88 +29,23 @@ class Ticket < ActiveRecord::Base
     where(area: area)
   end
 
-  def cancel_delete
-    false
+  def closed?
+    status == 'Resolved'
   end
 
-  def send_emails
-    if APP_CONFIG['send_new_tickets_to_group']
-      TicketMailer.send_ticket_to_admins(self).deliver
-    end
-    emails = APP_CONFIG['emails_for_new_tickets_group']
-    if self.submitter && self.submitter_email && emails.to_s.include?(self.submitter_email)
-      TicketMailer.send_ticket_to_submitter(self).deliver
-    end
+  def reopen
+    update_attribute(:status, 'Open')
+  end
+
+  def cancel_delete
+    false
   end
 
   def to_s
     title
   end
 
-
-  #statuses - New, Open, Resolved, Stalled
-
-
-  def self.create_from_email(from, subject, body)
-    #first we need to see its a reply email and if so
-    #pass it off to the comments
-
-    if subject.scan(/Ticket-ID#\d+/).length >= 1 
-      #this is a reply 
-      id_number = subject.scan(/Ticket-ID#\d+/).first.split("#")[1]
-      return Comment.create_from_email(id_number, from, subject, body)
-    end
-
-    #make sure we have a user
-    if from
-      from = User.find_or_create_by_email(from)
-    end
-    #parse for areas
-    area = nil
-    project = nil
-    stop_looking = false
-    #Look through all the area keywords and mark it with the first on you find
-    Area.all.each do |a|
-      break if stop_looking
-      if a.keywords
-        a.keywords.split(",").each do |k|
-          if body.include?(k)
-            stop_looking = true
-            area = a
-            break
-          end
-        end 
-      end
-    end
-
-    #do the same thing for projects
-    stop_looking = false
-    Project.all.each do |p|
-      break if stop_looking
-      if p.keywords
-        p.keywords.split(",").each do |k|
-          if body.include?(k)
-            stop_looking = true
-            project = p
-            break
-          end
-        end 
-      end
-    end
-    begin
-      Ticket.create!(:submitter=>from, :title=>subject, :description=>body, :status=>"New", :area=>area, :project=>project)
-    rescue Exception => exc
-      logger.info "There was an error in creating the ticket #{exc.message} !"
-    end
-  end
-
   private
-
-  def notify_workers
-    if self.worker_id_changed?
-      TicketMailer.send_worker_changed_notification(self).deliver
-    end
-  end
 
   def notify_resolved
     if self.status_changed?
@@ -120,6 +54,4 @@ class Ticket < ActiveRecord::Base
       end
     end
   end
-
-
 end
