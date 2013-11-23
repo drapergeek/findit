@@ -39,4 +39,8 @@ Findit::Application.routes.draw do
       get 'uninstall_software'
     end
   end
+
+  namespace :api do
+    resources :items, only: [:index]
+  end
 end

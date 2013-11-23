@@ -1,0 +1,26 @@
+<h1>Items</h1>
+{{input value=searchText name='Search' placeholder='Search'}}
+<table class="table table-striped" id="items">
+  <thead>
+    <tr>
+      <th><a href="#" {{action sort 'name'}}>Name</th>
+      <th><a href="#" {{action sort 'makeModel'}}>Make/Model</th>
+      <th><a href="#" {{action sort 'shortType'}}>Type</th>
+      <th><a href="#" {{action sort 'shortLocation'}}>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each}}
+      <tr class="item_row">
+        <td><a href="{{unbound showLink}}">{{name}}</a></td>
+        <td>{{makeModel}}</td>
+        <td>{{shortType}}</td>
+        <td>{{shortLocation}}</td>
+        <td><a class="btn btn-mini" href="{{unbound editLink}}">Edit</a></td>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<a href="/items/new" class="btn btn-primary">New</a>

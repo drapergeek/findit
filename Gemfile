@@ -19,6 +19,13 @@ gem "twitter-bootstrap-rails"
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'airbrake'
+gem 'json', '1.8.1'
+
+gem 'bower-rails'
+#ember
+gem 'ember-rails'
+gem 'ember-data-source', '1.0.0.beta.3'
+gem 'ember-source', '1.2.0'
 
 group :production do
   gem 'rails_12factor'
@@ -37,6 +44,8 @@ group :development, :test do
   gem 'rspec-fire'
   gem 'shoulda-matchers'
   gem 'email_spec'
+  gem 'poltergeist'
+  gem 'selenium-webdriver'
 end
 
 group :test do

@@ -2,11 +2,11 @@ class ItemsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @items = Item.all
-    @title = "Items"
     respond_to do |format|
       format.html
       format.csv {
+        @items = Item.all
+        @title = "Items"
         if params[:csv_type].blank?
           send_data(@items.all.to_comma)
         else
