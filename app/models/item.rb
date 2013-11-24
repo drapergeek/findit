@@ -47,10 +47,8 @@ class Item < ActiveRecord::Base
   ###CSV DEFINITIONS
   comma do
     name
-    priority
-    critical
     inventoried_at
-    location
+    short_location
     user
     make
     model
@@ -65,10 +63,7 @@ class Item < ActiveRecord::Base
     surplused_at
     recieved_at
     os
-    type
-    ips
-    softwares
-    dns_names
+    type_of_item
   end
 
   #this is a list of what security wants for their audit
