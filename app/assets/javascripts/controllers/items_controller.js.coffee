@@ -19,8 +19,9 @@ Findit.ItemsController = Ember.ArrayController.extend
       @_itemMatches(item, 'shortLocation', search)
 
   _itemMatches: (item, propertyName, search) ->
-    property = item.get(propertyName).toUpperCase()
-    property.indexOf(search.toUpperCase()) != -1
+    property = item.get(propertyName)?.toUpperCase()
+    if property
+      property.indexOf(search.toUpperCase()) != -1
 
   _chosenSearchIsAlreadyActive: (chosenSearch) ->
     chosenSearch is @get('sortProperties')[0]

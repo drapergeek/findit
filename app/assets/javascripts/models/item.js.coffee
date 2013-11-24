@@ -7,7 +7,16 @@ Findit.Item = DS.Model.extend
   shortLocation: DS.attr('string')
 
   makeModel: (->
-    "#{@get('make')} - #{@get('model')}"
+    make = @get('make')
+    model = @get('model')
+    if make && model
+      "#{@get('make')} - #{@get('model')}"
+    else if make
+      make
+    else if model
+      model
+    else
+      ""
   ).property('make', 'model')
 
   editLink: (->
