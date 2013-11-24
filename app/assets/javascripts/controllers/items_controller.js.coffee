@@ -7,7 +7,7 @@ Findit.ItemsController = Ember.ArrayController.extend
     if search.length < 1
       @set('model', @get('allItems'))
     else
-      currentSearch = @get('model').filter (item, index, self) =>
+      currentSearch = @get('allItems').filter (item, index, self) =>
         @_searchMatchesAnyProperty(item, search)
       @set('model', currentSearch)
   ).observes('searchText')
