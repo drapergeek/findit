@@ -9,5 +9,4 @@ tmp/**/*
 tmp/*
 .tddium*
 .tddium
-bin/*
 coverage
