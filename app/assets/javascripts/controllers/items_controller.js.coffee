@@ -16,7 +16,8 @@ Findit.ItemsController = Ember.ArrayController.extend
     @_itemMatches(item, 'name', search) ||
       @_itemMatches(item, 'make', search) ||
       @_itemMatches(item, 'model', search) ||
-      @_itemMatches(item, 'shortLocation', search)
+      @_itemMatches(item, 'shortLocation', search) ||
+      @_itemMatches(item, 'serial', search)
 
   _itemMatches: (item, propertyName, search) ->
     property = item.get(propertyName)?.toUpperCase()

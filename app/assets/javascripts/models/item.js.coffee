@@ -5,6 +5,7 @@ Findit.Item = DS.Model.extend
   shortType: DS.attr('string')
   typeOfItem: DS.attr('string')
   shortLocation: DS.attr('string')
+  serial: DS.attr('string')
 
   makeModel: (->
     make = @get('make')
