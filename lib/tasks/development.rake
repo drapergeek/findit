@@ -18,6 +18,19 @@ namespace :app do
         FactoryGirl.create(:user)
       end
 
+      user = FactoryGirl.build(
+        :user,
+        first_name: 'Admin',
+        last_name: 'User',
+        email: 'admin@example.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
+      user.can_login = true
+      user.save
+
+      puts "Admin User Credentials: #{user.email} #{user.password}"
+
       3.times do
         building = FactoryGirl.create(:building)
         20.times do

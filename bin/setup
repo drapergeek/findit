@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+
+# Set up Ruby dependencies via Bundler
+bundle install
+
+# Set up configurable environment variables
+if [ ! -f .env ]; then
+  cp .sample.env .env
+fi
+
+if [ ! -f config/config.yml ]; then
+  cp config/config.example.yml config/config.yml
+fi
+
+if [ ! -f config/initializers/secret_token.rb]; then
+  cp config/initializers/secret_token.example.rb  config/initializers/secret_token.example.rb
+fi
+
+bundle exec rake db:setup
+bundle exec rake app:dev:prime
+
+# Add binstubs to PATH via export PATH=".git/safe/../../bin:$PATH" in ~/.zshenv
+mkdir -p .git/safe
+
+APP_NAME=`basename $PWD`
+
+# Link the app over for pow.
+if [ -d ~/.pow ]
+then
+  if [ ! -L ~/.pow/$APP_NAME ]; then
+    echo "Adding $APP_NAME to pow"
+    ln -s $PWD ~/.pow/$APP_NAME
+  fi
+  open http://$APP_NAME.dev
+else
+  echo "Pow not set up but the team uses it for this project. Setup: http://goo.gl/RaDPO"
+fi
