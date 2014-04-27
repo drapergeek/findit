@@ -15,7 +15,6 @@ gem 'foreman'
 gem "twitter-bootstrap-rails"
 gem 'unicorn'
 gem 'friendly_id', '5.0.0.rc2'
-gem "twitter-bootstrap-rails"
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'airbrake'
