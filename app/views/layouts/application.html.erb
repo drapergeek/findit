@@ -30,6 +30,7 @@
               <%= render "layouts/primary_links" %>
             </ul>
             <ul class="nav pull-right">
+              <li><%= link_to 'New Item', new_item_path %></li>
               <li class='divider-vertical'></li>
               <%= render "layouts/user_links" %>
             </ul>
@@ -43,10 +44,10 @@
       <div class="content">
         <%= render "layouts/errors" %>
         <div class="row">
-           <div class="span9">
+           <div class="span10">
               <%= yield %>
             </div>
-            <div class="span3">
+            <div class="span2">
               <% if content_for?(:page_sidebar) %>
               <div class="well sidebar-nav page-sidebar">
                 <h3><%= yield(:page_sidebar_title) %></h3>

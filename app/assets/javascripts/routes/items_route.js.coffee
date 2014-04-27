@@ -3,3 +3,7 @@ Findit.ItemsRoute = Ember.Route.extend
   setupController: (controller, model) ->
     controller.set('allItems', model)
     controller.set('model', model)
+
+  actions:
+    navigateToItem: (item) ->
+      @transitionTo 'item', item

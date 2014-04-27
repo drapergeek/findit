@@ -46,5 +46,9 @@
 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
+
+    <% unless @item.new_record? %>
+      <%= destroy_link(item_path(@item)) %>
+    <% end %>
   </div>
 <% end %>

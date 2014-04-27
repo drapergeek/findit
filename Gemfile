@@ -23,8 +23,8 @@ gem 'json', '1.8.1'
 gem 'bower-rails'
 #ember
 gem 'ember-rails'
-gem 'ember-data-source', '1.0.0.beta.3'
-gem 'ember-source', '1.2.0'
+gem 'ember-data-source', '1.0.0.beta.7'
+gem 'ember-source', '1.5.0'
 
 group :production do
   gem 'rails_12factor'

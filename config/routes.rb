@@ -41,6 +41,6 @@ Findit::Application.routes.draw do
   end
 
   namespace :api do
-    resources :items, only: [:index]
+    resources :items, only: [:index, :show]
   end
 end

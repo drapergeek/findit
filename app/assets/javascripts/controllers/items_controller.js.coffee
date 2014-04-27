@@ -1,5 +1,25 @@
 Findit.ItemsController = Ember.ArrayController.extend
   sortProperties: ['name']
+
+  navigateOnSelection: (->
+    @send('navigateToItem', @get('chosen'))
+  ).observes('chosen')
+
+  columns: (->
+    nameColumn = Ember.Table.ColumnDefinition.create
+      columnWidth: 100,
+      textAlign: 'text-align-left',
+      headerCellName: 'Name',
+      getCellContent: (row) -> row.get('name')
+
+    makeColumn = Ember.Table.ColumnDefinition.create
+      textAlign: 'text-align-left',
+      headerCellName: 'Make/Model',
+      getCellContent: (row) -> row.get('modelName')
+
+    [nameColumn, makeColumn]
+  ).property(),
+
   sortAscending: true
   updateSearch: (->
     search = @get('searchText')

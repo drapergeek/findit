@@ -1,0 +1,42 @@
+<h1 data-role='name'>{{name}}</h1>
+<div class="form-actions">
+  <a href="/items/{{unbound id}}/edit" class="btn">Edit</a>
+</div>
+
+<div class="row">
+  <div class="span3">
+    <h3>General Information</h3>
+    <p>Last Inventory: {{inventoriedAt}}</p>
+    <p>Location: {{locationFullName}}</p>
+    <p>User: {{userName}}</p>
+    <p data-role='type'>Type: {{typeOfItem}}</p>
+  </div>
+
+  <div class="span3">
+    <h3>Hardware Information</h3>
+    <p data-role='make'>Make: {{make}}</p>
+    <p data-role='model'>Model: {{modelName}}</p>
+    <p data-role='processor'>Processor: {{processor}}</p>
+    <p data-role='ram'>Ram: {{ram}}</p>
+    <p data-role='hard-drive'>Hard Drive: {{hardDrive}}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="span3">
+    <h3>Identifying Information</h3>
+    <p data-role='serial'>Serial: {{serial}}</p>
+  </div>
+  <div class="span3">
+    <h3>Purchase Information</h3>
+    <p>Purchase Date: {{purchasedAt}}</p>
+    <p>Warranty Expiration: {{warrantyExpiresAt}}</p>
+    <p>Surplus Date: {{surplusedAt}}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span4">
+    <h3>Software Information</h3>
+    <p>OS: {{operatingSystemName}}</p>
+  </div>
+</div>

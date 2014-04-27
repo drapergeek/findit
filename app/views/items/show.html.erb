@@ -69,5 +69,5 @@
 
 <div class="form-actions">
   <%= link_to "Edit", edit_item_path(@item), :class => 'btn' %>
-  <%= destroy_link(item_path(@item)) %>
+  <%= button_to 'Destroy',@item, method: :delete %>
   </div>
