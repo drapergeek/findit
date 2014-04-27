@@ -1,7 +1,7 @@
 Findit::Application.routes.draw do
   devise_for :users
   root :to=>"items#index", :type=>"Desktop"
-  resources :users, :except => [:new, :create]
+  resources :users
   resources :allowed_users, :only => :create
   resources :comments
   resources :areas, :except =>[:show]
