@@ -9,12 +9,22 @@
   </div>
   <div class='span3 label-information'>
     <ul class="unstyled">
-      <li>Name: <%= @item.name %></li>
-      <li>User: <%= @item.user_name %></li>
+      <% if @item.name %>
+        <li>Name: <%= @item.name %></li>
+      <% end %>
+
+      <% if @item.user_name %>
+        <li>User: <%= @item.user_name %></li>
+      <% end %>
     </ul>
     <ul class="unstyled">
-      <li>Processor: <%= @item.processor %></li>
-      <li>Ram: <%= @item.ram %></li>
+      <% if @item.processor %>
+        <li>Processor: <%= @item.processor %></li>
+      <% end %>
+
+      <% if @item.ram %>
+        <li>Ram: <%= @item.ram %></li>
+      <% end %>
     </ul>
   </div>
   <% if @image_url %>
