@@ -1,4 +1,5 @@
 Findit.ItemsController = Ember.ArrayController.extend
+  itemController: 'item'
   sortProperties: ['name']
 
   navigateOnSelection: (->
