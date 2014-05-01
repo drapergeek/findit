@@ -5,11 +5,7 @@ It has been modified slightly to make it more generic and up to date.
 
 # Development Setup
 ````
-  bundle
-  rake app:setup
-  rake db:setup
-  rake db:migrate
-  rake db:test:prepare
+  bin/setup
 ````
 
 # Testing Setup
