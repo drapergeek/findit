@@ -34,7 +34,7 @@ group :development, :test do
   gem "capybara"
   gem 'factory_girl_rails'
   gem "launchy"
-  gem "capybara-webkit"
+  #gem "capybara-webkit"
   gem 'rspec-rails'
   gem 'forgery', '0.5.0'
   gem 'pry-rails'
