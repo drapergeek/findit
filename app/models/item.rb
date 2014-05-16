@@ -153,40 +153,9 @@ class Item < ActiveRecord::Base
   end
 
   def mark_as_surplused
-    #set the surplus time
-    self.surplused_at = Time.now
-    if self.info.nil?
-      self.info = ""
-    end
-    #need to write the note about installations before removing
-    self.softwares.each do |s|
-      self.info += "\n Software #{s.name} was installed when surplused."
-    end
-    #remove all the software so that our counts are correct
-    self.installations.delete_all
-    #now do the same thing for the user
-    if self.user
-      self.info += "\n The user was #{self.user.full_info} when surplused."
-      self.user = nil
-    end
-    #same for location
-    if self.location
-      self.info += "\n The item was located at #{self.location.full_name} when surplused"
-      self.location = nil
-    end
+    Surpluser.new(self).surplus
 
-    self.ips.each do |ip|
-      self.info +=  "\n The IP #{ip.number} was assigned when surplused."
-      ip.item_id = nil
-      ip.save
-    end
-
-    if self.operating_system
-      self.info += "\n The OS #{operating_system.name} was installed when surplused."
-      self.operating_system = nil 
-    end
-    self.in_use = false
-    self.save(:validate=>false)
+    self.save(validate: false)
   end
 
   def description
