@@ -28,8 +28,6 @@ class Item < ActiveRecord::Base
   delegate :name, :to => :user, :prefix => true, :allow_nil => true
   delegate :name, :to => :operating_system, :prefix => true, :allow_nil => true
 
-  attr_accessor :new_dns_names
-  before_save :create_dns_from_names
   belongs_to :operating_system
   belongs_to :location
   belongs_to :user
@@ -47,7 +45,6 @@ class Item < ActiveRecord::Base
   def serial=(input)
     self[:serial] = input.upcase
   end
-
 
   ###CSV DEFINITIONS
   comma do
@@ -99,19 +96,6 @@ class Item < ActiveRecord::Base
     end
   end
 
-
-  def create_dns_from_names
-    unless new_dns_names.blank?
-      if new_dns_names.include? ","
-        names = new_dns_names.split(",")
-        for name in names do
-          dns_names.build(:name=>name)
-        end
-      else
-        dns_names.build(:name=>new_dns_names)
-      end
-    end
-  end
 
   def inventoried_recently?
     inventoried_at > 1.years.ago.to_datetime
