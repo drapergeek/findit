@@ -3,4 +3,4 @@ require 'rake'
 
 Findit::Application.load_tasks
 task(:default).clear
-task :default => ['db:migrate', 'db:test:prepare', :cucumber, :spec, :test]
+task :default => ['db:migrate', 'db:test:prepare', :spec, :test]
