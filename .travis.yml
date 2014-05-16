@@ -1,12 +1,8 @@
-rvm:
-- 2.0.0
 before_script:
-- psql -c 'create database findit_test;' -U postgres
-- bundle exec rake db:migrate db:test:prepare
-deploy:
-  provider: heroku
-  api_key:
-    secure: g3VaCAWUf36lAVRttkytWFxNpog/DvnPO2zRvEKuV0Zp9YFa2cvDJR9FruMyZ8qkiPHIX/GLIJPAESL6qGL9IU7Az3joKbVDqwwqtvOqgId80zlygMRb8MmGk48cZZ1RiwvVQ3ZbClAoV+xEGfJ2Sd+1y3KAWfSXDdlyaIrxswY=
-  app: findit-staging
-  on:
-    repo: drapergeek/findit
+- cp .sample.env .env
+- bundle exec rake db:create
+- bundle exec rake db:schema:load
+cache: bundler
+language: ruby
+rvm:
+  - 2.0.0
