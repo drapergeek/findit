@@ -4,7 +4,7 @@ feature 'admin manages users' do
   scenario 'creates a new user who cannot log in' do
     log_in
     visit users_path
-    click_on 'New'
+    click_on 'Add New User'
     fill_in 'First name', with: 'John'
     fill_in 'Last name', with: 'Doe'
     fill_in 'Email', with: 'johndoe@example.com'
