@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @buildings = Building.all.order(:name)
     @item = Item.new
     @item.in_use = true
   end
@@ -43,6 +44,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.friendly.find(params[:id])
+    @buildings = Building.all.order(:name)
     unless @item
       flash[:notice] = "The item can't be found"
       redirect_to root_url

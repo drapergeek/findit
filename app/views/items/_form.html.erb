@@ -8,7 +8,7 @@
 
     <fieldset>
       <legend>Location & User</legend>
-      <%= f.association :location, :collection => Building.all, :as => :grouped_select, :group_method => :locations %>
+      <%= f.association :location, :collection => @buildings, :as => :grouped_select, :group_method => :locations %>
       <%= f.association :user %>
     </fieldset>
 
