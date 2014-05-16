@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe Item do
+
+  describe 'serial' do
+    it' will upcase on input' do
+      item = build(:item, serial: 'abc123')
+      expect(item.serial).to eq('ABC123')
+    end
+  end
+
   describe '#not_inventoried_recently' do 
     it 'includes items where the inventoried_at is over a year ago' do
       not_inventoried_recently = create(:item, inventoried_at: 2.years.ago)

@@ -44,6 +44,11 @@ class Item < ActiveRecord::Base
 
   before_validation :clear_empty_attrs
 
+  def serial=(input)
+    self[:serial] = input.upcase
+  end
+
+
   ###CSV DEFINITIONS
   comma do
     name
