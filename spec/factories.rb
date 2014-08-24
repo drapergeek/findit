@@ -87,7 +87,7 @@ FactoryGirl.define do
   end
 
   factory :item_type do
-    sequence(:name) {|n| "item type #{n}"}
+    sequence(:name) { |n| "item type #{n}" }
   end
 
   factory :software do

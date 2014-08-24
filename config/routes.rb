@@ -1,6 +1,6 @@
 Findit::Application.routes.draw do
   devise_for :users
-  root to: 'items#index'
+  root to: "items#index"
 
   resources :allowed_users, only: :create
   resources :areas, except: [:show]

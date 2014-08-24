@@ -8,17 +8,17 @@ class ItemTypesController < ApplicationController
     item_type = ItemType.new(item_type_params)
 
     if item_type.save
-      redirect_to item_types_path, notice: 'Created!'
+      redirect_to item_types_path, notice: "Created!"
     else
       @item_type = item_type
       @item_types = ItemType.all
-      render :index, notice: 'Could not save item type'
+      render :index, notice: "Could not save item type"
     end
   end
 
   def destroy
     ItemType.find(params[:id]).destroy
-    redirect_to item_types_path, notice: 'Destroyed!'
+    redirect_to item_types_path, notice: "Destroyed!"
   end
 
   private

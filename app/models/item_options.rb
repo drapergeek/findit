@@ -1,6 +1,16 @@
 class ItemOptions
+  DEFAULT_ITEM_TYPES = [
+    "Desktop",
+    "Mobile",
+    "Laptop",
+    "Printer",
+    "Virtual Machine",
+    "Other",
+    "Server"
+  ]
+
   def item_types
-    [Item::ITEM_TYPES + custom_item_types].flatten.sort
+    [DEFAULT_ITEM_TYPES + custom_item_types].flatten.sort
   end
 
   def buildings
