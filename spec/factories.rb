@@ -71,7 +71,7 @@ FactoryGirl.define do
     in_use true
   end
 
-  factory :complete_item, :parent => :item do
+  factory :complete_item, parent: :item do
     priority 4
     location
     user
@@ -83,7 +83,7 @@ FactoryGirl.define do
     sequence(:serial) { |n| "TBS#{n}" }
     purchased_at 2.years.ago
     warranty_expires_at 2.months.from_now
-    os "Mac OS X Lion"
+    operating_system
   end
 
   factory :software do

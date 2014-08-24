@@ -26,7 +26,7 @@ class Item < ActiveRecord::Base
   delegate :short_location, :to => :location, :allow_nil => true
   delegate :full_name, :to => :location, :prefix => true, :allow_nil => true
   delegate :name, :to => :user, :prefix => true, :allow_nil => true
-  delegate :name, :to => :operating_system, :prefix => true, :allow_nil => true
+  delegate :name, to: :operating_system, prefix: true, allow_nil: true
 
   belongs_to :operating_system
   belongs_to :location
@@ -64,7 +64,7 @@ class Item < ActiveRecord::Base
     warranty_expires_at
     surplused_at
     recieved_at
-    os
+    operating_system_name
     type_of_item
   end
 
@@ -72,7 +72,7 @@ class Item < ActiveRecord::Base
   comma :sec_review do
     ips "IP"
     name
-    os
+    operating_system
     type_of_item
     critical
   end
