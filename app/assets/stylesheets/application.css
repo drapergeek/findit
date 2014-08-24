@@ -19,5 +19,8 @@ body { padding-top: 60px; }
 
 .ember-table-tables-container{
   width: 250px;
-  height: 1000px;
+}
+.items {
+  height: 75vh;
+  margin-bottom: 30px;
 }

@@ -4,15 +4,15 @@
     <div>
       <a href='/items.csv'>Export Items to CSV</a>
     </div>
-    {{
-      table-component
-      hasFooter=false
-      columnsBinding="columns"
-      contentBinding="content"
-      selection=chosen
-    }}
-
-    <a href="/items/new" class="btn btn-primary">New</a>
+    <div class="items">
+      {{
+        table-component
+        hasFooter=false
+        columnsBinding="columns"
+        contentBinding="content"
+        selection=chosen
+      }}
+    </div>
   </div>
   <div class="span6">
     {{outlet}}
