@@ -41,12 +41,25 @@ class Item < ActiveRecord::Base
     end
   end
 
-
   def serial=(input)
     self[:serial] = input.upcase
   end
 
-  ###CSV DEFINITIONS
+  def qr_url
+    QrCode.new(self).url
+  end
+
+  def mark_as_inventoried
+    self.inventoried_at = Time.now
+    save(validate: false)
+  end
+
+  def mark_as_surplused
+    Surpluser.new(self).surplus
+
+    save(validate: false)
+  end
+
   comma do
     name
     inventoried_at
@@ -66,31 +79,5 @@ class Item < ActiveRecord::Base
     recieved_at
     operating_system_name
     type_of_item
-  end
-
-  #this is a list of what security wants for their audit
-  comma :sec_review do
-    ips "IP"
-    name
-    operating_system
-    type_of_item
-    critical
-  end
-
-  ###END CSV DEFINITIONS
-
-  def qr_url
-    QrCode.new(self).url
-  end
-
-  def mark_as_inventoried
-    self.inventoried_at = Time.now
-    save(validate: false)
-  end
-
-  def mark_as_surplused
-    Surpluser.new(self).surplus
-
-    save(validate: false)
   end
 end
