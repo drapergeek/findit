@@ -10,3 +10,7 @@ $ ->
 
   $(document).bind "keydown", "ctrl+i", ->
     window.location.href = "/items/new"
+
+  $('.admin-menu').hide()
+  $('.admin-links').on 'click', ->
+    $('.admin-menu').slideToggle(100)
