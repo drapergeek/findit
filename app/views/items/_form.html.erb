@@ -1,14 +1,14 @@
-<%= simple_form_for @item, html: { class: 'form-horizontal' } do |f| %>
+<%= simple_form_for item, html: { class: 'form-horizontal' } do |f| %>
     <fieldset>
       <legend>Basic Information</legend>
       <%= f.input :name %>
-      <%= f.input :type_of_item, :collection => Item::ITEM_TYPES %>
+      <%= f.input :type_of_item, :collection => item_options.item_types %>
       <%= f.association :operating_system, :label => "OS" %>
     </fieldset>
 
     <fieldset>
       <legend>Location & User</legend>
-      <%= f.association :location, :collection => @buildings, :as => :grouped_select, :group_method => :locations %>
+      <%= f.association :location, :collection => item_options.buildings, :as => :grouped_select, :group_method => :locations %>
       <%= f.association :user %>
     </fieldset>
 
@@ -47,8 +47,8 @@
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
 
-    <% unless @item.new_record? %>
-      <%= destroy_link(item_path(@item)) %>
+    <% unless item.new_record? %>
+      <%= destroy_link(item_path(item)) %>
     <% end %>
   </div>
 <% end %>

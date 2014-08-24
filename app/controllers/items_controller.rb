@@ -27,8 +27,8 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @buildings = Building.all.order(:name)
     @item = Item.new
+    @item_options = ItemOptions.new
     @item.in_use = true
   end
 
@@ -38,13 +38,15 @@ class ItemsController < ApplicationController
       flash[:notice] = "Successfully created item."
       redirect_to @item
     else
+      @item_options = ItemOptions.new
       render :action => 'new'
     end
   end
 
   def edit
     @item = Item.friendly.find(params[:id])
-    @buildings = Building.all.order(:name)
+    @item_options = ItemOptions.new
+
     unless @item
       flash[:notice] = "The item can't be found"
       redirect_to root_url
@@ -57,6 +59,7 @@ class ItemsController < ApplicationController
       flash[:notice] = "Successfully updated item."
       redirect_to @item
     else
+      @item_options = ItemOptions.new
       render :action => 'edit'
     end
   end

@@ -28,6 +28,7 @@ Findit::Application.routes.draw do
       get 'surplus'
     end
   end
+  resources :item_types, only: [:index, :create, :destroy]
 
   resources :labels, only: [:show]
 

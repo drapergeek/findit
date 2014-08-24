@@ -38,7 +38,6 @@ class Item < ActiveRecord::Base
   validates :serial, :uniqueness => true, :allow_nil => true
   validates :vt_tag, :uniqueness => true, :allow_nil => true
   validates :type_of_item, :presence => true
-  validates_inclusion_of :type_of_item, :in =>ITEM_TYPES
 
   before_validation :clear_empty_attrs
 

@@ -1,0 +1,27 @@
+<h1>Item Types</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @item_types.each do |item_type| %>
+      <tr>
+        <td><%= item_type.name %></td>
+        <td>
+          <%= destroy_link(item_type_path(item_type)) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= simple_form_for @item_type do |f| %>
+  <%= f.input :name %>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn-primary' %>
+    <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                item_types_path, class: 'btn' %>
+  </div>
+<% end %>

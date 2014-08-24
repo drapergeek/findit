@@ -86,6 +86,10 @@ FactoryGirl.define do
     operating_system
   end
 
+  factory :item_type do
+    sequence(:name) {|n| "item type #{n}"}
+  end
+
   factory :software do
     sequence(:name) {|n| "software package #{n}"}
   end

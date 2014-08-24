@@ -42,6 +42,7 @@ RSpec.configure do |config|
   config.before(:suite) { FactoryGirl.reload }
   config.include EmailSpec::Helpers
   config.include EmailSpec::Matchers
+  config.include Features, type: :feature
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
