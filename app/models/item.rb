@@ -12,8 +12,8 @@ class Item < ActiveRecord::Base
   has_many :dns_names, dependent: :nullify
 
   validates :name, presence: true, uniqueness: true
-  validates :serial, uniqueness: true, allow_nil: true
-  validates :vt_tag, uniqueness: true, allow_nil: true
+  validates :serial, presence: true, allow_nil: true
+  validates :vt_tag, presence: true, allow_nil: true
   validates :type_of_item, presence: true
 
   delegate :short_location, to: :location, allow_nil: true
