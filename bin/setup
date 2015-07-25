@@ -12,7 +12,7 @@ if [ ! -f config/config.yml ]; then
   cp config/config.example.yml config/config.yml
 fi
 
-if [ ! -f config/initializers/secret_token.rb]; then
+if [ ! -f config/initializers/secret_token.rb ]; then
   cp config/initializers/secret_token.example.rb  config/initializers/secret_token.example.rb
 fi
 
