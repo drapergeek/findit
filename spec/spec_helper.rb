@@ -8,7 +8,10 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 
 require 'capybara/poltergeist'
-Capybara.javascript_driver = :poltergeist
+Capybara.register_driver :poltergest_no_js_error do |app|
+  Capybara::Poltergeist::Driver.new(app,js_errors: false)
+end
+Capybara.javascript_driver = :poltergest_no_js_error
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
