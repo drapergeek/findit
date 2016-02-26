@@ -1,3 +1,4 @@
+sudo: false
 before_script:
 - cp .sample.env .env
 - bundle exec rake db:create
@@ -6,3 +7,8 @@ cache: bundler
 language: ruby
 rvm:
   - 2.0.0
+env:
+  - rspec spec/models
+  - rspec spec/features
+notifications:
+  webhooks: https://181bd223.ngrok.com/webhook
