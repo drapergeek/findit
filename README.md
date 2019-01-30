@@ -20,3 +20,4 @@ It has been modified slightly to make it more generic and up to date.
 * heroku run rake db:setup
 * heroku run console - update the first user with actual information
 * set all the ENV variables from the .env file
+afaf
